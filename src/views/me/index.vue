@@ -2,36 +2,36 @@
   <div class="page-me">
     <ViewingArea title="我"></ViewingArea>
 
-    <cell>
-      <cell-item
+    <Cell>
+      <CellItem
         title="登录账号"
         :rightText="'去注册'"
         link
-      ></cell-item>
-      <cell-item
+      ></CellItem>
+      <CellItem
         title="目前方案"
         :rightText="'本地'"
         link
-      ></cell-item>
-    </cell>
+      ></CellItem>
+    </Cell>
 
-    <cell>
-      <cell-item
+    <Cell>
+      <CellItem
         title="账本"
         link
-      ></cell-item>
-      <cell-item
+      ></CellItem>
+      <CellItem
         title="成员"
         link
-      ></cell-item>
-    </cell>
+      ></CellItem>
+    </Cell>
 
-    <cell>
-      <cell-item
+    <Cell>
+      <CellItem
         title="设置"
         :link="'/me/setting'"
-      ></cell-item>
-    </cell>
+      ></CellItem>
+    </Cell>
 
     <HomeTabbar></HomeTabbar>
   </div>
