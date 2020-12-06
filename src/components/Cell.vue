@@ -1,7 +1,7 @@
 <template>
   <div class="cell">
     <div class="title-group">
-      <Heading :size="400" class="title">{{ title }}</heading>
+      <Heading :size="400" class="title">{{ title }}</Heading>
     </div>
 
     <slot></slot>
