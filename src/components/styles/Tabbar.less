@@ -4,8 +4,9 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: var(--tabbar-height);
+  height: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
   align-items: center;
   background-color: #fff;
   border-top: 1px solid var(--border-color-default);
+  padding-bottom: env(safe-area-inset-bottom);
 }

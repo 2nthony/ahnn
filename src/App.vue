@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #app {
   color: var(--text-color-default);
-  // padding: 0 10px;
+  padding-bottom: calc(var(--tabbar-height) + var(--gap) + env(safe-area-inset-bottom));
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
