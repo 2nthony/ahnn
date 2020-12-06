@@ -7,6 +7,9 @@ dayjs.extend(isToday)
 dayjs.extend(isTomorrow)
 dayjs.extend(isYesterday)
 
+export const getCurrentYear = () => dayjs().year()
+export const getCurrentMonth = () => dayjs().month() + 1
+
 export const getToday = () => dayjs().format('YYYY-MM-DD')
 
 export function getCNDayText(val: ConfigType) {
