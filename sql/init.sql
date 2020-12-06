@@ -1,6 +1,5 @@
 create table `User` (
   id int not null primary key auto_increment,
-  userId varchar(100) unique,
   nickName varchar(20),
   email varchar(100) not null unique,
   password varchar(255) not null,
@@ -11,27 +10,27 @@ create table `User` (
 
 create table `Preference` (
   id int not null primary key auto_increment,
-  userId varchar(100) unique,
+  email varchar(100) not null unique,
   members text
 )
 
 create table `Account` (
   id int not null primary key auto_increment,
-  userId varchar(100) unique,
+  email varchar(100) not null unique,
   assets text,
   debts text
 )
 
 create table `Book` (
   id int not null primary key auto_increment,
-  userId varchar(100) unique,
+  email varchar(100) not null unique,
   name varchar(100),
   budget float
 )
 
 create table `Record` (
   id int not null primary key auto_increment,
-  userId varchar(100) unique,
+  email varchar(100) not null unique,
   book varchar(100),
   type char(10),
   category char(10),
