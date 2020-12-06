@@ -50,7 +50,9 @@ export default defineComponent({
       // 当为正常数字时发送结果
       // 在 `inputNumber` 限制小数点个数
       if (/^[\d.]+$/.test(input.value)) {
-        emit('result', val)
+        emit('result', Number(val))
+      } else {
+        emit('result', 0)
       }
     })
 
@@ -111,7 +113,6 @@ export default defineComponent({
         const res = evaluate(input.value)
         if (res) {
           input.value = '' + res
-          emit('result', input.value)
         }
       } catch(e) {
         console.error(e)
