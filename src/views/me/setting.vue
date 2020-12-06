@@ -10,7 +10,7 @@
       <CellItem
         title="关于 Ahnn"
         :link="'/me/about-app'"
-        :rightText="'版本 1.0.0'"
+        :rightText="'版本 0.0.1'"
       ></CellItem>
     </Cell>
 
