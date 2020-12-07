@@ -17,13 +17,24 @@ export function upgradeRecordDB(
 
 // 日期字符串匹配 `startsWith`
 type MatchDate = string
-export async function readRecord(date: MatchDate) {
+type Order = 'desc' | 'asc'
+export async function readRecord(
+  date: MatchDate,
+  order: Order = 'asc'
+) {
   const db = await open()
   const records: Record[] = await db.getAllFromIndex('record', 'date')
   db.close()
 
   if (!date) return records
-  return records.filter(record => record.date.startsWith(date))
+
+  const res = records.filter(record => record.date.startsWith(date))
+
+  if (order === 'desc') {
+    return res.sort(() => -1)
+  }
+
+  return res
 }
 
 export async function addRecord(record: Record) {
