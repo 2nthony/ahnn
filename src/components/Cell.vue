@@ -2,6 +2,7 @@
   <div class="cell">
     <div class="title-group">
       <Heading :size="400" class="title">{{ title }}</Heading>
+      <Heading :size="300" class="right-text">{{ rightText }}</Heading>
     </div>
 
     <slot></slot>
@@ -14,7 +15,8 @@ import Heading from './ui/Heading.vue'
 export default {
   components: { Heading },
   props: {
-    title: setProps('string')
+    title: setProps('string'),
+    rightText: setProps('string'),
   }
 }
 </script>
@@ -31,6 +33,7 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 0 var(--gap);
+    margin-bottom: var(--inline-gap);
   }
 }
 </style>
