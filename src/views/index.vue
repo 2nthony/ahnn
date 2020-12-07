@@ -4,7 +4,11 @@
       <Heading :size="900">{{ currentMonth }} 月</Heading>
     </ViewingArea>
 
-    <Cell v-for="item in data" :key="item.date" :title="item.date">
+    <Cell
+      v-for="item in data"
+      :key="item.date"
+      :title="getCNDayText(item.date)"
+    >
       <CellItem
         v-for="(cost, k) in item.costs"
         :key="k"
@@ -26,7 +30,7 @@ import ViewingArea from '../layout/ViewingArea.vue'
 import { convert } from '../utils/Record'
 import Heading from '../components/ui/Heading.vue'
 import { readRecord } from '../db/record'
-import { getCurrentMonth, getCurrentYear } from '@/utils/date'
+import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
 
 export default {
   components: {
@@ -43,7 +47,7 @@ export default {
     const currentMonth = ref(getCurrentMonth())
 
     onMounted(() => {
-      readRecord(`${currentYear.value}-${currentMonth.value}`)
+      readRecord(`${currentYear.value}-${currentMonth.value}`, 'desc')
         .then(records => {
           data.value = convert(records)
         })
@@ -52,7 +56,9 @@ export default {
     return {
       currentYear,
       currentMonth,
-      data
+      data,
+
+      getCNDayText
     }
   }
 }
