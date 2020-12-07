@@ -5,7 +5,9 @@
         <slot name="icon"></slot>
       </div>
 
-      <Text :size="500" class="title">{{ title }}</Text>
+      <Text :size="500" class="title">
+        <slot name="title">{{ title }}</slot>
+      </Text>
     </div>
 
     <div v-if="rightText || link" class="right">
