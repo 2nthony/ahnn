@@ -11,13 +11,12 @@
   "dependencies": {
     "@types/mathjs": "^6.0.8",
     "axios": "^0.21.0",
-    "core-js": "^3.6.5",
     "dayjs": "^1.9.6",
     "idb": "^5.0.8",
     "mathjs": "^8.0.1",
     "vue": "^3.0.0",
     "vue-auto-routes": "^2.2.0",
-    "vue-router": "^4.0.0-rc.6",
+    "vue-router": "4.0.0-rc.6",
     "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
