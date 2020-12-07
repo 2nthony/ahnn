@@ -96,6 +96,7 @@ export default {
       db.addRecord(deepToRaw(addRecord.value))
         .then(() => {
           router.push('/')
+          store.commit('initAddRecord')
         })
     }
 
