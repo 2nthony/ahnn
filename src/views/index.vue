@@ -1,32 +1,32 @@
 <template>
   <div class="page-home">
     <ViewingArea>
-      <Heading :size="900">12 月</heading>
+      <Heading :size="900">{{ currentMonth }} 月</Heading>
     </ViewingArea>
 
-    <cell v-for="item in data" :key="item.date" :title="item.date">
-      <cell-item
+    <Cell v-for="item in data" :key="item.date" :title="item.date">
+      <CellItem
         v-for="(cost, k) in item.costs"
         :key="k"
         :title="cost.category.name"
         :rightText="'￥' + Number(cost.cost).toFixed(2)"
-      ></cell-item>
-    </cell>
+      ></CellItem>
+    </Cell>
 
     <HomeTabbar></HomeTabbar>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import Cell from '../components/Cell.vue'
 import CellItem from '../components/CellItem.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../layout/ViewingArea.vue'
 import { convert } from '../utils/Record'
-
-import { HomeRecords } from '../mocks/home'
 import Heading from '../components/ui/Heading.vue'
+import { readRecord } from '../db/record'
+import { getCurrentMonth, getCurrentYear } from '@/utils/date'
 
 export default {
   components: {
@@ -39,12 +39,19 @@ export default {
 
   setup() {
     const data = ref([])
+    const currentYear = ref(getCurrentYear())
+    const currentMonth = ref(getCurrentMonth())
 
     onMounted(() => {
-      data.value = convert(HomeRecords)
+      readRecord(`${currentYear.value}-${currentMonth.value}`)
+        .then(records => {
+          data.value = convert(records)
+        })
     })
 
     return {
+      currentYear,
+      currentMonth,
       data
     }
   }
