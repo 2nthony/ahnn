@@ -14,7 +14,9 @@
         :key="k"
         :title="cost.category.name"
         :rightText="'￥' + Number(cost.cost).toFixed(2)"
-      ></CellItem>
+      >
+        <template #icon>{{ cost.category.icon }}</template>
+      </CellItem>
     </Cell>
 
     <HomeTabbar></HomeTabbar>
@@ -27,7 +29,7 @@ import Cell from '../components/Cell.vue'
 import CellItem from '../components/CellItem.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../layout/ViewingArea.vue'
-import { convert } from '../utils/Record'
+import { compatHomeRecords } from '../model/Record'
 import Heading from '../components/ui/Heading.vue'
 import { readRecord } from '../db/record'
 import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
@@ -49,7 +51,7 @@ export default {
     onMounted(() => {
       readRecord(`${currentYear.value}-${currentMonth.value}`, 'desc')
         .then(records => {
-          data.value = convert(records)
+          data.value = compatHomeRecords(records)
         })
     })
 
