@@ -51,7 +51,7 @@
         />
       </div>
 
-      <Calculator @result="res => money = res"></Calculator>
+      <Calculator @result="onCalcResult"></Calculator>
     </div>
 
     <Tabbar
@@ -77,8 +77,9 @@ import Input from '../components/ui/Input.vue'
 import { getToday, getCNDayText } from '../utils/date'
 import { useStore } from 'vuex'
 import { HomeRecords } from '../mocks/home'
-
-HomeRecords
+import * as db from '../db'
+import { deepToRaw } from '../utils'
+import { useRouter } from 'vue-router'
 
 export default {
   components: { Tabbar, ViewingArea, CheckIcon, Calculator, Button, Input },
@@ -86,11 +87,16 @@ export default {
   setup() {
     const store = useStore()
     const money = ref<number>(0)
+    const router = useRouter()
 
     const addRecord = computed(() => store.getters.addRecord)
     const previewDate = computed(() => getCNDayText(addRecord.value.date))
 
     const handleSave = () => {
+      db.addRecord(deepToRaw(addRecord.value))
+        .then(() => {
+          router.push('/')
+        })
     }
 
     const onDateSelect = (val: string) => {
@@ -103,6 +109,12 @@ export default {
         remark: val
       })
     }
+    const onCalcResult = (val: number) => {
+      money.value = val
+      store.commit('setAddRecord', {
+        cost: val
+      })
+    }
 
     return {
       money,
@@ -111,7 +123,8 @@ export default {
 
       handleSave,
       onDateSelect,
-      onRemarkInput
+      onRemarkInput,
+      onCalcResult
     }
   }
 }
