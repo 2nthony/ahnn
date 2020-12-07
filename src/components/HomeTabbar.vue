@@ -18,7 +18,7 @@
       </template>
       <template v-else>
         <calendar-icon></calendar-icon>
-        <Text :size="300">12 月</Text>
+        <Text :size="300">{{ currentMonth }} 月</Text>
       </template>
     </TabbarItem>
 
@@ -40,6 +40,7 @@ import UserIcon from '../feather/user.svg'
 import Edit3Icon from '../feather/edit-3.svg'
 import { useRoute, useRouter } from 'vue-router'
 import Text from './ui/Text.vue'
+import { getCurrentMonth } from '../utils/date'
 
 export default {
   components: { TabbarItem, PieChartIcon, CalendarIcon, UserIcon, Edit3Icon, Text },
@@ -47,12 +48,14 @@ export default {
   setup() {
     const router = useRouter()
     const route = useRoute()
+    const currentMonth = getCurrentMonth()
 
     const switchTab = (url: string) => {
       router.push(url)
     }
 
     return {
+      currentMonth,
       switchTab,
       currentPath: route.path
     }
