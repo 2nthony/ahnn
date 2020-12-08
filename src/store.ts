@@ -7,9 +7,6 @@ import {
 import { State, state } from './store/state'
 import { Getters, getters } from './store/getters'
 import { Mutations, mutations } from './store/mutations'
-import { InjectionKey } from 'vue'
-
-export const key: InjectionKey<VuexStore<State>> = Symbol()
 
 export const store = createStore<State>({
   state,
@@ -18,7 +15,7 @@ export const store = createStore<State>({
 })
 
 export function useStore() {
-  return baseUseStore(key) as Store
+  return baseUseStore() as Store
 }
 
 export type Store = Omit<
