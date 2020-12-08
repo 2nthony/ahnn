@@ -1,3 +1,8 @@
-export type Type = 'income' | 'payout'
+export enum Types {
+  payout = 'payout',
+  income = 'income',
+}
 
-export const defaultType: Type = 'payout'
+export type Type = Types.income | Types.payout
+
+export const defaultType: Type = Types.payout

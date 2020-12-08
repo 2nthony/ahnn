@@ -1,32 +1,17 @@
-import { createStore } from 'vuex'
-import { getInitRecord, Record } from './model/Record'
+import { createStore, Store as VuexStore, useStore as baseUseStore } from 'vuex'
+import { State, state } from './store/state'
+import { getters } from './store/getters'
+import { mutations } from './store/mutations'
+import { InjectionKey } from 'vue'
 
-export interface State {
-  records: Record[]
-
-  addRecord: Record
-
-  books?: string[]
-  members?: string[]
-}
+export const key: InjectionKey<VuexStore<State>> = Symbol()
 
 export const store = createStore<State>({
-  state: {
-    records: [],
-    addRecord: getInitRecord(),
-  },
-
-  getters: {
-    addRecord: (state) => state.addRecord,
-  },
-
-  mutations: {
-    initAddRecord(state) {
-      state.addRecord = getInitRecord()
-    },
-
-    setAddRecord(state, payload) {
-      state.addRecord = { ...state.addRecord, ...payload }
-    },
-  },
+  state,
+  getters,
+  mutations,
 })
+
+export function useStore() {
+  return baseUseStore(key)
+}
