@@ -1,5 +1,5 @@
 <template>
-  <div class="Tabbar">
+  <div class="tabbar">
     <TabbarItem
       :class="{ active: currentPath === '/chart' }"
       @click="switchTab('/chart')"

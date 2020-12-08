@@ -1,5 +1,5 @@
 <template>
-  <div class="Tabbar">
+  <div class="tabbar">
     <TabbarItem @click="handleBack">
       <chevron-left />
       <Text :size="300">{{ leftText }}</Text>
