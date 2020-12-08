@@ -9,7 +9,10 @@ export enum MutationTypes {
 
 export type Mutations = {
   [MutationTypes.initAddRecord](state: State): void
-  [MutationTypes.setAddRecord](state: State, payload: Record): void
+  [MutationTypes.setAddRecord](
+    state: State,
+    payload: { [key in keyof Record]?: Record[key] },
+  ): void
 }
 
 export const mutations: MutationTree<State> & Mutations = {
