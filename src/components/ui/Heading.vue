@@ -1,5 +1,5 @@
 <template>
-  <h2 class="heading" :class="`size-${size}`"><slot/></h2>
+  <h2 class="heading" :class="`size-${size}`"><slot /></h2>
 </template>
 
 <script lang="ts">
@@ -7,7 +7,7 @@ import setProps from '../../utils/setProps'
 
 export default {
   props: {
-    size: setProps('number', 500)
+    size: setProps('number', 500),
   },
 }
 </script>
@@ -18,7 +18,9 @@ export default {
   font-weight: 500;
 
   // small
-  &.size-100, &.size-200, &.size-300 {
+  &.size-100,
+  &.size-200,
+  &.size-300 {
     font-size: 12px;
     font-weight: 600;
     line-height: 16px;
@@ -33,7 +35,9 @@ export default {
   }
 
   // medium
-  &.size-400, &.size-500, &.size-600 {
+  &.size-400,
+  &.size-500,
+  &.size-600 {
     line-height: 20px;
     letter-spacing: -0.05px;
   }
@@ -50,7 +54,8 @@ export default {
   }
 
   // large
-  &.size-700, &.size-800 {
+  &.size-700,
+  &.size-800 {
     letter-spacing: -0.2px;
   }
   &.size-700 {

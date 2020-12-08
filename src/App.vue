@@ -7,7 +7,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'App',
-});
+})
 </script>
 
 <style lang="less" src="./styles/var.less"></style>
@@ -37,13 +37,20 @@ a {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
 #app {
   color: var(--text-color-default);
-  padding-bottom: calc(var(--tabbar-height) + var(--gap) + env(safe-area-inset-bottom));
+  padding-bottom: calc(
+    var(--tabbar-height) + var(--gap) + env(safe-area-inset-bottom)
+  );
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

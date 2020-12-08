@@ -26,22 +26,22 @@ export function getInitRecord(): Record {
     cost: 0,
     date: getToday(),
     account: getDefaultAccountName(),
-    member: getDefaultMember()
+    member: getDefaultMember(),
   }
 }
 
 export function compatHomeRecords(records: Record[]) {
   const res: { [k: string]: Record[] } = {}
 
-  records.forEach(record => {
+  records.forEach((record) => {
     res[record.date] = res[record.date] || []
     res[record.date].push(record)
   })
 
-  return Object.keys(res).map(k => {
+  return Object.keys(res).map((k) => {
     return {
       date: k,
-      costs: res[k]
+      costs: res[k],
     }
   })
 }

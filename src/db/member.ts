@@ -3,7 +3,7 @@ import { ensureStore } from '.'
 
 export function upgradeMemberDB(
   db: IDBPDatabase,
-  transaction: IDBPTransaction
+  transaction: IDBPTransaction,
 ) {
   ensureStore(db, transaction, 'member')
 }

@@ -93,27 +93,26 @@ export default {
     const previewDate = computed(() => getCNDayText(addRecord.value.date))
 
     const handleSave = () => {
-      db.addRecord(deepToRaw(addRecord.value))
-        .then(() => {
-          router.push('/')
-          store.commit('initAddRecord')
-        })
+      db.addRecord(deepToRaw(addRecord.value)).then(() => {
+        router.push('/')
+        store.commit('initAddRecord')
+      })
     }
 
     const onDateSelect = (val: string) => {
       store.commit('setAddRecord', {
-        date: val || getToday()
+        date: val || getToday(),
       })
     }
     const onRemarkInput = (val: string) => {
       store.commit('setAddRecord', {
-        remark: val
+        remark: val,
       })
     }
     const onCalcResult = (val: number) => {
       money.value = val
       store.commit('setAddRecord', {
-        cost: val
+        cost: val,
       })
     }
 
@@ -125,9 +124,9 @@ export default {
       handleSave,
       onDateSelect,
       onRemarkInput,
-      onCalcResult
+      onCalcResult,
     }
-  }
+  },
 }
 </script>
 
@@ -161,7 +160,9 @@ export default {
     margin-right: var(--inline-gap);
   }
 
-  & .select-more, & .select-more-top, & .select-more-bottom {
+  & .select-more,
+  & .select-more-top,
+  & .select-more-bottom {
     display: flex;
   }
   & .select-more {
@@ -178,7 +179,8 @@ export default {
   & .select-input-wrapper {
     flex: 1;
   }
-  & .select-more-top, & .select-more-bottom {
+  & .select-more-top,
+  & .select-more-bottom {
     & > .select-input-wrapper:first-child {
       margin-right: var(--inline-gap);
     }

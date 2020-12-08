@@ -1,14 +1,18 @@
 type obj = { [k: string]: any }
 type t = 'array' | 'object' | 'function' | 'string' | 'boolean' | 'number'
 
-export default (t: t | Array<t>, defaultValue: any = null, opts: obj = {}): obj => {
-  let types: Array<t|string> = Array.isArray(t) ? t : [t]
+export default (
+  t: t | Array<t>,
+  defaultValue: any = null,
+  opts: obj = {},
+): obj => {
+  let types: Array<t | string> = Array.isArray(t) ? t : [t]
 
-  types = types.map(type => firstUpperCase(type))
+  types = types.map((type) => firstUpperCase(type))
 
   return {
     // @ts-ignore
-    type: types.map(T => window[T]),
+    type: types.map((T) => window[T]),
     default: defaultValue || getDefaultValue(firstUpperCase(types[0])),
     ...opts,
   }

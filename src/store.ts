@@ -13,11 +13,11 @@ export interface State {
 export const store = createStore<State>({
   state: {
     records: [],
-    addRecord: getInitRecord()
+    addRecord: getInitRecord(),
   },
 
   getters: {
-    addRecord: state => state.addRecord
+    addRecord: (state) => state.addRecord,
   },
 
   mutations: {
@@ -27,6 +27,6 @@ export const store = createStore<State>({
 
     setAddRecord(state, payload) {
       state.addRecord = { ...state.addRecord, ...payload }
-    }
-  }
+    },
+  },
 })

@@ -1,13 +1,13 @@
 <template>
-  <button :class="appearance"><slot/></button>
+  <button :class="appearance"><slot /></button>
 </template>
 
 <script>
 import setProps from '../../utils/setProps'
 export default {
   props: {
-    appearance: setProps('string', 'default')
-  }
+    appearance: setProps('string', 'default'),
+  },
 }
 </script>
 

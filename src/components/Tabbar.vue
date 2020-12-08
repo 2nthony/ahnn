@@ -41,7 +41,7 @@ export default defineComponent({
     }
 
     return { handleBack }
-  }
+  },
 })
 </script>
 

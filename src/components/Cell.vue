@@ -17,7 +17,7 @@ export default {
   props: {
     title: setProps('string'),
     rightText: setProps('string'),
-  }
+  },
 }
 </script>
 

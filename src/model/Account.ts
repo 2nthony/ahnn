@@ -22,10 +22,10 @@ export const presetAccounts: Account = {
   assets: [
     {
       name: '现金',
-      balance: 0
-    }
+      balance: 0,
+    },
   ],
-  debts: []
+  debts: [],
 }
 
 export function getDefaultAccountName(): AccountName {

@@ -40,7 +40,7 @@ export default {
     ViewingArea,
     Cell,
     CellItem,
-    Heading
+    Heading,
   },
 
   setup() {
@@ -49,10 +49,11 @@ export default {
     const currentMonth = ref(getCurrentMonth())
 
     onMounted(() => {
-      readRecord(`${currentYear.value}-${currentMonth.value}`, 'desc')
-        .then(records => {
+      readRecord(`${currentYear.value}-${currentMonth.value}`, 'desc').then(
+        (records) => {
           data.value = compatHomeRecords(records)
-        })
+        },
+      )
     })
 
     return {
@@ -60,8 +61,8 @@ export default {
       currentMonth,
       data,
 
-      getCNDayText
+      getCNDayText,
     }
-  }
+  },
 }
 </script>

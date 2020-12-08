@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Tabbar from '../../components/Tabbar.vue';
-import ViewingArea from "../../layout/ViewingArea.vue";
+import Tabbar from '../../components/Tabbar.vue'
+import ViewingArea from '../../layout/ViewingArea.vue'
 
 export default {
   components: { ViewingArea, Tabbar },

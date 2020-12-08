@@ -10,7 +10,7 @@ export const presetBooks: Book[] = [
   {
     name: '日常账本',
     budget: 3000,
-  }
+  },
 ]
 
 export function getDefaultBookName(): BookName {

@@ -3,10 +3,7 @@
     <ViewingArea title="Ahnn"></ViewingArea>
 
     <Cell>
-      <CellItem
-        title="历史更新"
-        :link="'/me/changelog'"
-      ></CellItem>
+      <CellItem title="历史更新" :link="'/me/changelog'"></CellItem>
     </Cell>
 
     <Tabbar></Tabbar>
@@ -24,7 +21,7 @@ export default {
     Tabbar,
     ViewingArea,
     Cell,
-    CellItem
-  }
+    CellItem,
+  },
 }
 </script>

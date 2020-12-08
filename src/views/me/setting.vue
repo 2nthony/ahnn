@@ -3,10 +3,7 @@
     <ViewingArea title="设置"></ViewingArea>
 
     <Cell>
-      <CellItem
-        title="建议与反馈"
-        :link="'/me/feedback'"
-      ></CellItem>
+      <CellItem title="建议与反馈" :link="'/me/feedback'"></CellItem>
       <CellItem
         title="关于 Ahnn"
         :link="'/me/about-app'"
@@ -30,8 +27,8 @@ export default {
 
   setup() {
     return {
-      version: __APP_VERSION__
+      version: __APP_VERSION__,
     }
-  }
+  },
 }
 </script>

@@ -26,7 +26,7 @@ import Text from './ui/Text.vue'
 export default {
   components: {
     ChevronRightIcon,
-    Text
+    Text,
   },
 
   props: {
@@ -45,9 +45,9 @@ export default {
     }
 
     return {
-      handleClick
+      handleClick,
     }
-  }
+  },
 }
 </script>
 
@@ -68,7 +68,8 @@ export default {
     background-color: var(--active-bg-color);
   }
 
-  & .left, & .right {
+  & .left,
+  & .right {
     display: flex;
     align-items: center;
   }

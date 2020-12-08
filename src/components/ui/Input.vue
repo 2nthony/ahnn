@@ -3,8 +3,8 @@
     v-bind="$attrs"
     :type="type"
     :value="modelValue"
-    @input="e => $emit('update:modelValue', e.target.value)"
-  >
+    @input="(e) => $emit('update:modelValue', e.target.value)"
+  />
 </template>
 
 <script lang="ts">
@@ -13,8 +13,8 @@ import setProps from '../../utils/setProps'
 export default {
   props: {
     type: setProps('string', 'text'),
-    modelValue: setProps('string')
-  }
+    modelValue: setProps('string'),
+  },
 }
 </script>
 

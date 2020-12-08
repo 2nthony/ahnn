@@ -3,5 +3,5 @@ import { routes } from 'vue-auto-routes'
 
 export const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })

@@ -8,7 +8,7 @@
 
 <script>
 import ViewingArea from '@/layout/ViewingArea.vue'
-import HomeTabbar from "../components/HomeTabbar.vue"
+import HomeTabbar from '../components/HomeTabbar.vue'
 
 export default {
   components: { HomeTabbar, ViewingArea },

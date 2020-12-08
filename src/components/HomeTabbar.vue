@@ -43,7 +43,14 @@ import Text from './ui/Text.vue'
 import { getCurrentMonth } from '../utils/date'
 
 export default {
-  components: { TabbarItem, PieChartIcon, CalendarIcon, UserIcon, Edit3Icon, Text },
+  components: {
+    TabbarItem,
+    PieChartIcon,
+    CalendarIcon,
+    UserIcon,
+    Edit3Icon,
+    Text,
+  },
 
   setup() {
     const router = useRouter()
@@ -57,9 +64,9 @@ export default {
     return {
       currentMonth,
       switchTab,
-      currentPath: route.path
+      currentPath: route.path,
     }
-  }
+  },
 }
 </script>
 

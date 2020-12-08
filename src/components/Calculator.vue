@@ -2,26 +2,36 @@
   <div class="calculator">
     <div class="row">
       <div class="button flex-2">{{ input }}</div>
-      <div class="button" @click="inputBackspace"><delete-icon></delete-icon></div>
-      <div class="button operator" @click="inputOperator(operators.divide)"><divide-icon></divide-icon></div>
+      <div class="button" @click="inputBackspace">
+        <delete-icon></delete-icon>
+      </div>
+      <div class="button operator" @click="inputOperator(operators.divide)">
+        <divide-icon></divide-icon>
+      </div>
     </div>
     <div class="row">
       <div class="button" @click="inputNumber('7')">7</div>
       <div class="button" @click="inputNumber('8')">8</div>
       <div class="button" @click="inputNumber('9')">9</div>
-      <div class="button operator" @click="inputOperator(operators.multiply)"><x-icon></x-icon></div>
+      <div class="button operator" @click="inputOperator(operators.multiply)">
+        <x-icon></x-icon>
+      </div>
     </div>
     <div class="row">
       <div class="button" @click="inputNumber('4')">4</div>
       <div class="button" @click="inputNumber('5')">5</div>
       <div class="button" @click="inputNumber('6')">6</div>
-      <div class="button operator" @click="inputOperator(operators.minus)"><minus-icon></minus-icon></div>
+      <div class="button operator" @click="inputOperator(operators.minus)">
+        <minus-icon></minus-icon>
+      </div>
     </div>
     <div class="row">
       <div class="button" @click="inputNumber('1')">1</div>
       <div class="button" @click="inputNumber('2')">2</div>
       <div class="button" @click="inputNumber('3')">3</div>
-      <div class="button operator" @click="inputOperator(operators.plus)"><plus-icon></plus-icon></div>
+      <div class="button operator" @click="inputOperator(operators.plus)">
+        <plus-icon></plus-icon>
+      </div>
     </div>
     <div class="row">
       <div class="button flex-2" @click="inputNumber('0')">0</div>
@@ -46,7 +56,7 @@ export default defineComponent({
   setup(_props, { emit }) {
     const input = ref<string>('')
 
-    watch(input, val => {
+    watch(input, (val) => {
       // 当为正常数字时发送结果
       // 在 `inputNumber` 限制小数点个数
       if (/^[\d.]+$/.test(input.value)) {
@@ -96,7 +106,6 @@ export default defineComponent({
         inputEqual()
       }
 
-
       if (!input.value) {
         input.value = '0'
       }
@@ -114,7 +123,7 @@ export default defineComponent({
         if (res) {
           input.value = '' + res
         }
-      } catch(e) {
+      } catch (e) {
         console.error(e)
       }
     }
@@ -126,9 +135,9 @@ export default defineComponent({
       inputEqual,
       inputOperator,
 
-      operators
+      operators,
     }
-  }
+  },
 })
 </script>
 
@@ -161,7 +170,7 @@ export default defineComponent({
   }
 
   & svg {
-    transform: scale(.75);
+    transform: scale(0.75);
   }
 }
 

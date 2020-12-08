@@ -10,7 +10,7 @@ export async function open() {
     upgrade(db, _oldVersion, _newVersion, transaction) {
       upgradeRecordDB(db, transaction)
       upgradeMemberDB(db, transaction)
-    }
+    },
   })
 }
 
@@ -30,7 +30,7 @@ export function ensureStore(
 export function ensureCreateIndex(
   store: IDBPObjectStore,
   name: string,
-  keyPath?: string
+  keyPath?: string,
 ) {
   if (store.indexNames.contains(name)) return
   keyPath = keyPath || name

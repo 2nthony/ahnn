@@ -1,5 +1,5 @@
 <template>
-  <span class="text" :class="`size-${size}`"><slot/></span>
+  <span class="text" :class="`size-${size}`"><slot /></span>
 </template>
 
 <script lang="ts">
@@ -7,7 +7,7 @@ import setProps from '../../utils/setProps'
 
 export default {
   props: {
-    size: setProps('number', 400)
+    size: setProps('number', 400),
   },
 }
 </script>

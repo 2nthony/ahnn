@@ -14,8 +14,8 @@ import setProps from '../utils/setProps'
 export default {
   components: { Heading },
   props: {
-    title: setProps('string')
-  }
+    title: setProps('string'),
+  },
 }
 </script>
 
