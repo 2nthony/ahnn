@@ -19,14 +19,15 @@
 
         <div class="select-more">
           <div class="select-more-top">
-            <div class="select-input-wrapper select-date-wrapper">
-              <Button>{{ previewDate }}</Button>
-              <Input
+            <div class="select-input-wrapper">
+              <InputDate
                 :modelValue="addRecord.date"
-                type="date"
-                class="date-selector"
                 @update:modelValue="onDateSelect"
-              />
+              >
+                <template #placeholder>
+                  <Button>{{ previewDate }}</Button>
+                </template>
+              </InputDate>
             </div>
             <div class="select-input-wrapper">
               <Button>{{ addRecord.book }}</Button>
@@ -51,7 +52,9 @@
         />
       </div>
 
-      <Calculator @result="onCalcResult"></Calculator>
+      <div class="calculator-wrapper">
+        <Calculator @result="onCalcResult"></Calculator>
+      </div>
     </div>
 
     <Tabbar
@@ -79,9 +82,18 @@ import { useStore } from 'vuex'
 import * as db from '../db'
 import { deepToRaw } from '../utils'
 import { useRouter } from 'vue-router'
+import InputDate from '@/components/InputDate.vue'
 
 export default {
-  components: { Tabbar, ViewingArea, CheckIcon, Calculator, Button, Input },
+  components: {
+    Tabbar,
+    ViewingArea,
+    CheckIcon,
+    Calculator,
+    Button,
+    Input,
+    InputDate,
+  },
 
   setup() {
     const store = useStore()
@@ -131,6 +143,7 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
+  margin-bottom: 300px;
   & .switch-type {
     display: flex;
     margin-bottom: var(--inline-gap);
@@ -194,31 +207,9 @@ export default {
   }
 }
 
-// HACK: 透明日期选择器
-.select-date-wrapper {
-  position: relative;
-}
-.date-selector {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
+.calculator-wrapper {
+  position: fixed;
+  bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
   width: 100%;
-  height: 100%;
-
-  &::-webkit-calendar-picker-indicator {
-    outline: none;
-    background: none;
-    color: transparent;
-    height: auto;
-    width: auto;
-    position: absolute;
-    bottom: 0;
-    // 不知道它有多长
-    left: -50%;
-    right: 0;
-    top: 0;
-    cursor: pointer;
-  }
 }
 </style>
