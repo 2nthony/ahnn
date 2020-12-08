@@ -1,5 +1,5 @@
 <template>
-  <div class="ViewingArea">
+  <div class="viewing-area">
     <slot>
       <div class="title">
         <Heading :size="900">{{ title }}</Heading>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.ViewingArea {
+.viewing-area {
   width: 100%;
   height: 230px;
   display: flex;

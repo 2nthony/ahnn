@@ -24,7 +24,7 @@
 import Cell from '../../components/Cell.vue'
 import CellItem from '../../components/CellItem.vue'
 import HomeTabbar from '../../components/HomeTabbar.vue'
-import ViewingArea from '../../layout/ViewingArea.vue'
+import ViewingArea from '../../components/ViewingArea.vue'
 
 export default {
   components: { HomeTabbar, Cell, CellItem, ViewingArea },
