@@ -1,11 +1,11 @@
 type obj = { [k: string]: any }
 type t = 'array' | 'object' | 'function' | 'string' | 'boolean' | 'number'
 
-export default (
+export function setProps(
   t: t | Array<t>,
   defaultValue: any = null,
   opts: obj = {},
-): obj => {
+): obj {
   let types: Array<t | string> = Array.isArray(t) ? t : [t]
 
   types = types.map((type) => firstUpperCase(type))

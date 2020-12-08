@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import setProps from '../utils/setProps'
+import { setProps } from '../utils/setProps'
 import ChevronRightIcon from '../feather/chevron-right.svg'
 import { useRouter } from 'vue-router'
 import Text from './ui/Text.vue'

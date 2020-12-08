@@ -4,14 +4,6 @@
   </div>
 </template>
 
-<script>
-// import setProps from '../utils/setProps'
-
-export default {
-  props: {},
-}
-</script>
-
 <style lang="less" scoped>
 .TabbarItem {
   display: flex;

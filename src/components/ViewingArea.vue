@@ -10,7 +10,7 @@
 
 <script>
 import Heading from '../components/ui/Heading.vue'
-import setProps from '../utils/setProps'
+import { setProps } from '../utils/setProps'
 export default {
   components: { Heading },
   props: {

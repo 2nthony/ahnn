@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import setProps from '../utils/setProps'
+import { setProps } from '../utils/setProps'
 import TabbarItem from './TabbarItem.vue'
 import ChevronLeft from '../feather/chevron-left.svg'
 import Text from './ui/Text.vue'
