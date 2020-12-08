@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Cell from '../components/Cell.vue'
 import CellItem from '../components/CellItem.vue'
 import HomeTabbar from '../components/HomeTabbar'
