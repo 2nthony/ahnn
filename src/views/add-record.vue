@@ -1,20 +1,32 @@
 <template>
   <div class="page-add-record">
-    <ViewingArea :title="`${Number(money).toFixed(2)} 元`"></ViewingArea>
+    <ViewingArea
+      :title="`${TypeCNTexts[addRecord.type]} ${Number(money).toFixed(2)} 元`"
+    ></ViewingArea>
 
     <div class="main-content">
       <div class="switch-type">
         <div class="button-wrapper">
-          <Button>支出</Button>
+          <Button @click="handleSwitchType(Types.payout)">{{
+            TypeCNTexts[Types.payout]
+          }}</Button>
         </div>
         <div class="button-wrapper">
-          <Button>收入</Button>
+          <Button @click="handleSwitchType(Types.income)">{{
+            TypeCNTexts[Types.income]
+          }}</Button>
         </div>
       </div>
 
       <div class="info">
-        <Button class="select-category">
-          {{ addRecord.category.name }}
+        <Button
+          class="select-category"
+          @click="$router.push('/select/category')"
+        >
+          <RemixIcon :icon="addRecord.category.icon" />
+          <Text class="name">
+            {{ addRecord.category.name }}
+          </Text>
         </Button>
 
         <div class="select-more">
@@ -57,13 +69,9 @@
       </div>
     </div>
 
-    <Tabbar
-      @back="$store.commit('initAddRecord')"
-      :mainText="'保存'"
-      @main-click="handleSave"
-    >
+    <Tabbar @back="onBack" :mainText="'保存'" @main-click="handleSave">
       <template #main-icon>
-        <check-icon />
+        <RemixIcon :icon="'check'" />
       </template>
     </Tabbar>
   </div>
@@ -72,60 +80,70 @@
 <script lang="ts">
 import { computed, ref } from 'vue'
 import Tabbar from '../components/Tabbar.vue'
-import ViewingArea from '../layout/ViewingArea.vue'
-import CheckIcon from '../feather/check.svg'
+import ViewingArea from '../components/ViewingArea.vue'
 import Calculator from '../components/Calculator.vue'
 import Button from '../components/ui/Button.vue'
 import Input from '../components/ui/Input.vue'
 import { getToday, getCNDayText } from '../utils/date'
-import { useStore } from 'vuex'
 import * as db from '../db'
 import { deepToRaw } from '../utils'
 import { useRouter } from 'vue-router'
 import InputDate from '@/components/InputDate.vue'
+import Text from '@/components/ui/Text.vue'
+import { useStore } from '@/store'
+import { MutationTypes } from '@/store/mutations'
+import { Type, TypeCNTexts, Types } from '@/model/Type'
+import RemixIcon from '@/components/RemixIcon.vue'
 
 export default {
   components: {
     Tabbar,
     ViewingArea,
-    CheckIcon,
     Calculator,
     Button,
     Input,
     InputDate,
+    Text,
+    RemixIcon,
   },
 
   setup() {
     const store = useStore()
-    const money = ref<number>(0)
     const router = useRouter()
 
     const addRecord = computed(() => store.getters.addRecord)
+    const money = ref<number>(addRecord.value.cost || 0)
     const previewDate = computed(() => getCNDayText(addRecord.value.date))
 
     const handleSave = () => {
       db.addRecord(deepToRaw(addRecord.value)).then(() => {
         router.push('/')
-        store.commit('initAddRecord')
+        store.commit(MutationTypes.initAddRecord)
       })
     }
 
+    const handleSwitchType = (type: Type) => {
+      store.commit(MutationTypes.switchAddRecordType, type)
+    }
+
     const onDateSelect = (val: string) => {
-      store.commit('setAddRecord', {
+      store.commit(MutationTypes.setAddRecord, {
         date: val || getToday(),
       })
     }
     const onRemarkInput = (val: string) => {
-      store.commit('setAddRecord', {
+      store.commit(MutationTypes.setAddRecord, {
         remark: val,
       })
     }
     const onCalcResult = (val: number) => {
       money.value = val
-      store.commit('setAddRecord', {
+      store.commit(MutationTypes.setAddRecord, {
         cost: val,
       })
     }
+
+    const onBack = () => store.commit(MutationTypes.initAddRecord)
 
     return {
       money,
@@ -133,9 +151,14 @@ export default {
       previewDate,
 
       handleSave,
+      handleSwitchType,
       onDateSelect,
       onRemarkInput,
       onCalcResult,
+      onBack,
+
+      TypeCNTexts,
+      Types,
     }
   },
 }
@@ -163,8 +186,12 @@ export default {
   }
 
   & .select-category {
-    padding: 0;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     width: 80px;
     height: 80px;
     border-radius: var(--radius);
@@ -209,6 +236,8 @@ export default {
 
 .calculator-wrapper {
   position: fixed;
+  left: 0;
+  right: 0;
   bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
   width: 100%;
 }
