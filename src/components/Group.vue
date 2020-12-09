@@ -1,7 +1,7 @@
 <template>
-  <div class="cell">
+  <div class="group">
     <div class="title-group" v-if="title || rightText">
-      <Heading :size="400" class="title">{{ title }}</Heading>
+      <Heading class="title">{{ title }}</Heading>
       <Heading :size="300" class="right-text">{{ rightText }}</Heading>
     </div>
 
@@ -22,10 +22,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.cell {
+.group {
   border-radius: var(--radius);
 
-  & + .cell {
+  & + .group {
     margin-top: var(--gap);
   }
 

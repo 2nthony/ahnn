@@ -2,31 +2,31 @@
   <div class="page-me">
     <ViewingArea title="我"></ViewingArea>
 
-    <Cell>
+    <Group>
       <CellItem title="登录账号" :rightText="'去注册'" link></CellItem>
       <CellItem title="目前方案" :rightText="'本地'" link></CellItem>
-    </Cell>
+    </Group>
 
-    <Cell>
+    <Group>
       <CellItem title="账本" link></CellItem>
       <CellItem title="成员" link></CellItem>
-    </Cell>
+    </Group>
 
-    <Cell>
+    <Group>
       <CellItem title="设置" :link="'/me/setting'"></CellItem>
-    </Cell>
+    </Group>
 
     <HomeTabbar></HomeTabbar>
   </div>
 </template>
 
 <script lang="ts">
-import Cell from '../../components/Cell.vue'
+import Group from '../../components/Group.vue'
 import CellItem from '../../components/CellItem.vue'
 import HomeTabbar from '../../components/HomeTabbar.vue'
 import ViewingArea from '../../components/ViewingArea.vue'
 
 export default {
-  components: { HomeTabbar, Cell, CellItem, ViewingArea },
+  components: { HomeTabbar, Group, CellItem, ViewingArea },
 }
 </script>

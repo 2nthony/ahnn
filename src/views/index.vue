@@ -4,7 +4,7 @@
       <Heading :size="900">{{ currentMonth }} 月</Heading>
     </ViewingArea>
 
-    <Cell
+    <Group
       v-for="item in data"
       :key="item.date"
       :title="getCNDayText(item.date)"
@@ -14,7 +14,7 @@
         :key="index"
         :record="cost"
       />
-    </Cell>
+    </Group>
 
     <HomeTabbar></HomeTabbar>
   </div>
@@ -22,7 +22,7 @@
 
 <script>
 import { onMounted, ref } from 'vue'
-import Cell from '../components/Cell.vue'
+import Group from '../components/Group.vue'
 import CellItem from '../components/CellItem.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
@@ -37,7 +37,7 @@ export default {
   components: {
     HomeTabbar,
     ViewingArea,
-    Cell,
+    Group,
     CellItem,
     Heading,
     RemixIcon,
