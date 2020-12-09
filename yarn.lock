@@ -9428,6 +9428,11 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-remix-icons@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/vue-remix-icons/-/vue-remix-icons-1.1.1.tgz#ef92a86b7f59c4ee9005b4ff8b867a1c374454ed"
+  integrity sha512-+L0VE44WtpnGkD933E2L58K2yvNAOwk0iaCdRRXDulncv3ko0oVMYIJM+S0JxM1QieIqjfxfMX22OSZQJSfBtA==
+
 vue-router@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.0.1.tgz#309240e50524b1e7d4e82e27f0a0fa25fe3d1d71"

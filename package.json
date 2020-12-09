@@ -16,6 +16,7 @@
     "mathjs": "^8.0.1",
     "vue": "^3.0.0",
     "vue-auto-routes": "^2.2.0",
+    "vue-remix-icons": "^1.1.1",
     "vue-router": "^4.0.1",
     "vuex": "^4.0.0-rc.2"
   },
