@@ -4,15 +4,16 @@
 
     <Cell>
       <div class="list">
-        <Card
+        <Pane
           class="item"
           v-for="(item, index) in items"
           :key="index"
           @click="$emit('item-click', index)"
+          :evelation="1"
         >
           <RemixIcon v-if="item.icon" :icon="item.icon" class="icon" />
           <Text>{{ item.title }}</Text>
-        </Card>
+        </Pane>
       </div>
     </Cell>
 
@@ -26,13 +27,13 @@ import Tabbar from '@/components/Tabbar.vue'
 import { ref } from 'vue'
 import Cell from '@/components/Cell.vue'
 import CellItem from '@/components/CellItem.vue'
-import Card from '@/components/ui/Card.vue'
+import Pane from '@/components/ui/Pane.vue'
 import { setProps } from '@/utils/setProps'
 import Text from '@/components/ui/Text.vue'
 import RemixIcon from '@/components/RemixIcon.vue'
 
 export default {
-  components: { ViewingArea, Tabbar, Cell, CellItem, Card, Text, RemixIcon },
+  components: { ViewingArea, Tabbar, Cell, CellItem, Pane, Text, RemixIcon },
 
   props: {
     items: setProps('array', []),

@@ -9,14 +9,11 @@
       :key="item.date"
       :title="getCNDayText(item.date)"
     >
-      <CellItem
-        v-for="(cost, k) in item.costs"
-        :key="k"
-        :title="cost.category.name"
-        :rightText="'￥' + Number(cost.cost).toFixed(2)"
-      >
-        <template #icon><RemixIcon :icon="cost.category.icon" /></template>
-      </CellItem>
+      <HomeRecordPane
+        v-for="(cost, index) in item.costs"
+        :key="index"
+        :record="cost"
+      />
     </Cell>
 
     <HomeTabbar></HomeTabbar>
@@ -34,6 +31,7 @@ import Heading from '../components/ui/Heading.vue'
 import { readRecord } from '../db/record'
 import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
 import RemixIcon from '@/components/RemixIcon.vue'
+import HomeRecordPane from '@/components/HomeRecordPane.vue'
 
 export default {
   components: {
@@ -43,6 +41,7 @@ export default {
     CellItem,
     Heading,
     RemixIcon,
+    HomeRecordPane,
   },
 
   setup() {
