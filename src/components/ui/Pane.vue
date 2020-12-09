@@ -1,5 +1,7 @@
 <template>
-  <div class="pane" :class="`evelation-${evelation}`"><slot /></div>
+  <div class="pane" :class="{ [`evelation-${evelation}`]: evelation }">
+    <slot />
+  </div>
 </template>
 
 <script>
