@@ -6,7 +6,7 @@
 import { setProps } from '@/utils/setProps'
 export default {
   props: {
-    evelation: setProps('number', 0),
+    evelation: setProps('number'),
   },
 }
 </script>
