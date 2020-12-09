@@ -15,7 +15,7 @@
         :title="cost.category.name"
         :rightText="'￥' + Number(cost.cost).toFixed(2)"
       >
-        <template #icon>{{ cost.category.icon }}</template>
+        <template #icon><RemixIcon :icon="cost.category.icon" /></template>
       </CellItem>
     </Cell>
 
@@ -33,6 +33,7 @@ import { compatHomeRecords } from '../model/Record'
 import Heading from '../components/ui/Heading.vue'
 import { readRecord } from '../db/record'
 import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
+import RemixIcon from '@/components/RemixIcon.vue'
 
 export default {
   components: {
@@ -41,6 +42,7 @@ export default {
     Cell,
     CellItem,
     Heading,
+    RemixIcon,
   },
 
   setup() {
