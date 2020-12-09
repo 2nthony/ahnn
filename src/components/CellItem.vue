@@ -12,20 +12,20 @@
 
     <div v-if="rightText || link" class="right">
       <small v-if="rightText" class="text">{{ rightText }}</small>
-      <chevron-right-icon class="link-icon" v-if="link"></chevron-right-icon>
+      <RiArrowRightSLine class="link-icon" v-if="link" />
     </div>
   </div>
 </template>
 
 <script>
 import { setProps } from '../utils/setProps'
-import ChevronRightIcon from '../feather/chevron-right.svg'
 import { useRouter } from 'vue-router'
 import Text from './ui/Text.vue'
+import { RiArrowRightSLine } from 'vue-remix-icons'
 
 export default {
   components: {
-    ChevronRightIcon,
+    RiArrowRightSLine,
     Text,
   },
 

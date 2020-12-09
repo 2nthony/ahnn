@@ -3,10 +3,10 @@
     <div class="row">
       <div class="button flex-2">{{ input }}</div>
       <div class="button" @click="inputBackspace">
-        <delete-icon></delete-icon>
+        <RiDeleteBack2Line />
       </div>
       <div class="button operator" @click="inputOperator(operators.divide)">
-        <divide-icon></divide-icon>
+        <RiDivideLine />
       </div>
     </div>
     <div class="row">
@@ -14,7 +14,7 @@
       <div class="button" @click="inputNumber('8')">8</div>
       <div class="button" @click="inputNumber('9')">9</div>
       <div class="button operator" @click="inputOperator(operators.multiply)">
-        <x-icon></x-icon>
+        <RiCloseLine />
       </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
       <div class="button" @click="inputNumber('5')">5</div>
       <div class="button" @click="inputNumber('6')">6</div>
       <div class="button operator" @click="inputOperator(operators.minus)">
-        <minus-icon></minus-icon>
+        <RiSubtractLine />
       </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
       <div class="button" @click="inputNumber('2')">2</div>
       <div class="button" @click="inputNumber('3')">3</div>
       <div class="button operator" @click="inputOperator(operators.plus)">
-        <plus-icon></plus-icon>
+        <RiAddLine />
       </div>
     </div>
     <div class="row">
@@ -43,15 +43,23 @@
 
 <script lang="ts">
 import { evaluate } from 'mathjs'
-import DivideIcon from '../feather/divide.svg'
-import XIcon from '../feather/x.svg'
-import MinusIcon from '../feather/minus.svg'
-import PlusIcon from '../feather/plus.svg'
-import DeleteIcon from '../feather/delete.svg'
 import { defineComponent, ref, watch } from 'vue'
+import {
+  RiAddLine,
+  RiCloseLine,
+  RiDeleteBack2Line,
+  RiDivideLine,
+  RiSubtractLine,
+} from 'vue-remix-icons'
 
 export default defineComponent({
-  components: { DivideIcon, XIcon, MinusIcon, PlusIcon, DeleteIcon },
+  components: {
+    RiDeleteBack2Line,
+    RiDivideLine,
+    RiCloseLine,
+    RiSubtractLine,
+    RiAddLine,
+  },
 
   setup(_props, { emit }) {
     const input = ref<string>('')
@@ -150,6 +158,10 @@ export default defineComponent({
 
   & .row {
     display: flex;
+  }
+
+  & svg {
+    fill: #fff;
   }
 }
 
