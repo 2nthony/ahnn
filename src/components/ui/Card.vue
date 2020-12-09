@@ -4,11 +4,8 @@
 
 <style lang="less" scoped>
 .card {
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
-
-  & + .card {
-    margin-top: var(--inline-gap);
-  }
+  border: solid 1px var(--button-border-color);
 }
 </style>
