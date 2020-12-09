@@ -9,23 +9,21 @@ export interface CategoryItem {
 }
 
 export interface Category {
-  income: CategoryItem[]
   payout: CategoryItem[]
+  income: CategoryItem[]
 }
 
+const c = (name: CategoryName, icon: CategoryIcon) => ({ name, icon })
 export const presetCategories: Category = {
-  income: [
-    {
-      name: '通用',
-      icon: 'common'
-    }
-  ],
   payout: [
-    {
-      name: '工资',
-      icon: 'salary'
-    }
-  ]
+    c('通用', 'star'),
+    c('餐饮', 'cake-3'),
+    c('娱乐', 'gamepad'),
+    c('购物', 'shopping-bag-3'),
+    c('住房', 'home-smile'),
+    c('交通', 'subway'),
+  ],
+  income: [c('工资', 'money-cny-circle'), c('红包', 'red-packet')],
 }
 
 export function getDefaultCategory(type: Type): CategoryItem {
