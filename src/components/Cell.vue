@@ -1,6 +1,6 @@
 <template>
   <div class="cell">
-    <div class="title-group">
+    <div class="title-group" v-if="title || rightText">
       <Heading :size="400" class="title">{{ title }}</Heading>
       <Heading :size="300" class="right-text">{{ rightText }}</Heading>
     </div>
@@ -26,7 +26,7 @@ export default {
   border-radius: var(--radius);
 
   & + .cell {
-    margin-top: 14px;
+    margin-top: var(--gap);
   }
 
   & .title-group {
