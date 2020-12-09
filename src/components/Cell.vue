@@ -1,5 +1,5 @@
 <template>
-  <div class="cell-item" @click="handleClick">
+  <div class="cell" @click="handleClick">
     <div class="left">
       <div v-if="$slots.icon" class="icon">
         <slot name="icon"></slot>
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.cell-item {
+.cell {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +60,7 @@ export default {
   position: relative;
   background-color: #fff;
 
-  & + .cell-item {
+  & + .cell {
     border-top: none;
   }
 

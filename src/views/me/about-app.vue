@@ -3,7 +3,7 @@
     <ViewingArea title="Ahnn"></ViewingArea>
 
     <Group>
-      <CellItem title="历史更新" :link="'/me/changelog'"></CellItem>
+      <Cell title="历史更新" :link="'/me/changelog'"></Cell>
     </Group>
 
     <Tabbar></Tabbar>
@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import Group from '../../components/Group.vue'
-import CellItem from '../../components/CellItem.vue'
+import Cell from '../../components/Cell.vue'
 import Tabbar from '../../components/Tabbar.vue'
 import ViewingArea from '../../components/ViewingArea.vue'
 
@@ -21,7 +21,7 @@ export default {
     Tabbar,
     ViewingArea,
     Group,
-    CellItem,
+    Cell,
   },
 }
 </script>

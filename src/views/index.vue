@@ -23,7 +23,6 @@
 <script>
 import { onMounted, ref } from 'vue'
 import Group from '../components/Group.vue'
-import CellItem from '../components/CellItem.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
 import { compatHomeRecords } from '../model/Record'
@@ -38,7 +37,6 @@ export default {
     HomeTabbar,
     ViewingArea,
     Group,
-    CellItem,
     Heading,
     RemixIcon,
     HomeRecordPane,
