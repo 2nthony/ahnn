@@ -3,10 +3,10 @@
     <div class="row">
       <div class="button flex-2">{{ input }}</div>
       <div class="button" @click="inputBackspace">
-        <RiDeleteBack2Line />
+        <RemixIcon :icon="'delete-back-2'" />
       </div>
       <div class="button operator" @click="inputOperator(operators.divide)">
-        <RiDivideLine />
+        <RemixIcon :icon="'divide'" />
       </div>
     </div>
     <div class="row">
@@ -14,7 +14,7 @@
       <div class="button" @click="inputNumber('8')">8</div>
       <div class="button" @click="inputNumber('9')">9</div>
       <div class="button operator" @click="inputOperator(operators.multiply)">
-        <RiCloseLine />
+        <RemixIcon :icon="'close'" />
       </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
       <div class="button" @click="inputNumber('5')">5</div>
       <div class="button" @click="inputNumber('6')">6</div>
       <div class="button operator" @click="inputOperator(operators.minus)">
-        <RiSubtractLine />
+        <RemixIcon :icon="'subtract'" />
       </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
       <div class="button" @click="inputNumber('2')">2</div>
       <div class="button" @click="inputNumber('3')">3</div>
       <div class="button operator" @click="inputOperator(operators.plus)">
-        <RiAddLine />
+        <RemixIcon :icon="'add'" />
       </div>
     </div>
     <div class="row">
@@ -44,22 +44,10 @@
 <script lang="ts">
 import { evaluate } from 'mathjs'
 import { defineComponent, ref, watch } from 'vue'
-import {
-  RiAddLine,
-  RiCloseLine,
-  RiDeleteBack2Line,
-  RiDivideLine,
-  RiSubtractLine,
-} from 'vue-remix-icons'
+import RemixIcon from './RemixIcon.vue'
 
 export default defineComponent({
-  components: {
-    RiDeleteBack2Line,
-    RiDivideLine,
-    RiCloseLine,
-    RiSubtractLine,
-    RiAddLine,
-  },
+  components: { RemixIcon },
 
   setup(_props, { emit }) {
     const input = ref<string>('')

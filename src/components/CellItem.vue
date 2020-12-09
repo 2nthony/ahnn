@@ -12,7 +12,7 @@
 
     <div v-if="rightText || link" class="right">
       <small v-if="rightText" class="text">{{ rightText }}</small>
-      <RiArrowRightSLine class="link-icon" v-if="link" />
+      <RemixIcon :icon="'arrow-right-s'" class="link-icon" v-if="link" />
     </div>
   </div>
 </template>
@@ -21,11 +21,11 @@
 import { setProps } from '../utils/setProps'
 import { useRouter } from 'vue-router'
 import Text from './ui/Text.vue'
-import { RiArrowRightSLine } from 'vue-remix-icons'
+import RemixIcon from './RemixIcon.vue'
 
 export default {
   components: {
-    RiArrowRightSLine,
+    RemixIcon,
     Text,
   },
 

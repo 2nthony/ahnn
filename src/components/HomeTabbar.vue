@@ -4,7 +4,7 @@
       :class="{ active: currentPath === '/chart' }"
       @click="switchTab('/chart')"
     >
-      <RiPieChartLine />
+      <RemixIcon :icon="'pie-chart'" />
       <Text :size="300">报表</Text>
     </TabbarItem>
 
@@ -13,11 +13,11 @@
       @click="switchTab(currentPath === '/' ? '/add-record' : '/')"
     >
       <template v-if="currentPath === '/'">
-        <RiQuillPenLine />
+        <RemixIcon :icon="'quill-pen'" />
         <Text :size="300">记一笔</Text>
       </template>
       <template v-else>
-        <RiCalendar2Line />
+        <RemixIcon :icon="'calendar-2'" />
         <Text :size="300">{{ currentMonth }} 月</Text>
       </template>
     </TabbarItem>
@@ -26,7 +26,7 @@
       :class="{ active: currentPath === '/me' }"
       @click="switchTab('/me')"
     >
-      <RiUserLine />
+      <RemixIcon :icon="'user'" />
       <Text :size="300">我的</Text>
     </TabbarItem>
   </div>
@@ -37,22 +37,10 @@ import TabbarItem from './TabbarItem.vue'
 import { useRoute, useRouter } from 'vue-router'
 import Text from './ui/Text.vue'
 import { getCurrentMonth } from '../utils/date'
-import {
-  RiPieChartLine,
-  RiUserLine,
-  RiCalendar2Line,
-  RiQuillPenLine,
-} from 'vue-remix-icons'
+import RemixIcon from './RemixIcon.vue'
 
 export default {
-  components: {
-    TabbarItem,
-    Text,
-    RiPieChartLine,
-    RiUserLine,
-    RiCalendar2Line,
-    RiQuillPenLine,
-  },
+  components: { TabbarItem, Text, RemixIcon },
 
   setup() {
     const router = useRouter()

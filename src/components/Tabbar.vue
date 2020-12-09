@@ -1,8 +1,7 @@
 <template>
   <div class="tabbar">
     <TabbarItem @click="handleBack">
-      <!-- <chevron-left /> -->
-      <RiArrowLeftSLine />
+      <RemixIcon :icon="'arrow-left-s'" />
       <Text :size="300">{{ leftText }}</Text>
     </TabbarItem>
 
@@ -24,10 +23,10 @@ import TabbarItem from './TabbarItem.vue'
 import Text from './ui/Text.vue'
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
-import { RiArrowLeftSLine } from 'vue-remix-icons'
+import RemixIcon from './RemixIcon.vue'
 
 export default defineComponent({
-  components: { TabbarItem, Text, RiArrowLeftSLine },
+  components: { TabbarItem, Text, RemixIcon },
   props: {
     leftText: setProps('string', '返回'),
     mainText: setProps('string'),
