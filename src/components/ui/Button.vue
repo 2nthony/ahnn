@@ -2,7 +2,7 @@
   <button :class="appearance"><slot /></button>
 </template>
 
-<script>
+<script lang="ts">
 import { setProps } from '../../utils/setProps'
 export default {
   props: {
