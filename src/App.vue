@@ -3,10 +3,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onBeforeMount, onMounted } from 'vue'
+import { hooks } from './utils/hooks'
 
 export default defineComponent({
   name: 'App',
+  setup() {
+    onBeforeMount(() => hooks.invoke('appBeforeMount'))
+    onMounted(() => hooks.invoke('appMounted'))
+  },
 })
 </script>
 
