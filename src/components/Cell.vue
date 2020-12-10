@@ -10,8 +10,10 @@
       </Text>
     </div>
 
-    <div v-if="rightText || link" class="right">
-      <small v-if="rightText" class="text">{{ rightText }}</small>
+    <div v-if="rightText || link || $slots['right-text']" class="right">
+      <small v-if="rightText || $slots['right-text']" class="text">
+        <slot name="right-text">{{ rightText }}</slot>
+      </small>
       <RemixIcon :icon="'arrow-right-s'" class="link-icon" v-if="link" />
     </div>
   </div>
