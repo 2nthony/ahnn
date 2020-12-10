@@ -6,12 +6,12 @@
         <Text>{{ record.category.name }}</Text>
       </div>
       <div class="cost">
-        <Text>{{ record.cost }}</Text>
+        <Text>{{ Number(record.cost).toFixed(2) }}</Text>
       </div>
     </div>
 
     <div class="bottom" v-if="record.remark">
-      <Text :color="'muted'">{{ record.remark }}</Text>
+      <Text class="remark" :color="'muted'">{{ record.remark }}</Text>
     </div>
   </Pane>
 </template>
@@ -22,12 +22,17 @@ import Pane from './ui/Pane.vue'
 import RemixIcon from './RemixIcon.vue'
 import Text from './ui/Text.vue'
 import Heading from './ui/Heading.vue'
+import { TypeCNTexts } from '@/model/Type'
 
 export default {
   components: { Pane, RemixIcon, Text, Heading },
 
   props: {
     record: setProps('object'),
+  },
+
+  setup() {
+    return { TypeCNTexts }
   },
 }
 </script>
@@ -59,6 +64,12 @@ export default {
 
   & .bottom {
     margin-top: var(--gap);
+
+    & .remark {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
   }
 }
 </style>
