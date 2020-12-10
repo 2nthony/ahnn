@@ -12,6 +12,10 @@
     </Group>
 
     <Group>
+      <Cell title="外观" :link="'/preference/appreance'"></Cell>
+    </Group>
+
+    <Group>
       <Cell title="还原" :link="'/me/erase'"></Cell>
     </Group>
 
