@@ -47,7 +47,7 @@ button {
     z-index: 2;
     box-shadow: 0 0 0 3px var(--shadow-color-main),
       inset 0 0 0 1px var(--shadow-color-default),
-      inset 0 -1px 1px 0 var(--shadow-color-mute);
+      inset 0 -1px 1px 0 var(--shadow-color-muted);
   }
 
   &.default {
