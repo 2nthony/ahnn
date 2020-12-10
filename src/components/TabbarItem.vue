@@ -1,11 +1,11 @@
 <template>
-  <div class="TabbarItem">
+  <div class="tabbar-item">
     <slot />
   </div>
 </template>
 
 <style lang="less" scoped>
-.TabbarItem {
+.tabbar-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,6 +16,15 @@
 
   &:active {
     background-color: var(--accents-2);
+  }
+}
+</style>
+
+<style lang="less">
+.tabbar-item {
+  & svg {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 </style>
