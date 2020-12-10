@@ -3,11 +3,13 @@ import { MutationTree } from 'vuex'
 import { State } from './state'
 import { Type } from '@/model/Type'
 import { presetCategories } from '@/model/Category'
+import { Preference } from '@/model/Preference'
 
 export enum MutationTypes {
   initAddRecord = 'initAddRecord',
   setAddRecord = 'setAddRecord',
   switchAddRecordType = 'switchAddRecordType',
+  setPreference = 'setPreference',
 }
 
 export type Mutations = {
@@ -17,6 +19,10 @@ export type Mutations = {
     payload: { [key in keyof Record]?: Record[key] },
   ): void
   [MutationTypes.switchAddRecordType](state: State, type: Type): void
+  [MutationTypes.setPreference](
+    state: State,
+    payload: { [key in keyof Preference]?: Preference[key] },
+  ): void
 }
 
 export const mutations: MutationTree<State> & Mutations = {
@@ -32,5 +38,8 @@ export const mutations: MutationTree<State> & Mutations = {
       type,
       category: presetCategories[type][0],
     }
+  },
+  [MutationTypes.setPreference](state, payload) {
+    state.preference = { ...state.preference, ...payload }
   },
 }
