@@ -7,10 +7,10 @@
       <Cell title="目前方案" :rightText="'本地'" link></Cell>
     </Group>
 
-    <Group>
+    <!-- <Group>
       <Cell title="账本" link></Cell>
       <Cell title="成员" link></Cell>
-    </Group>
+    </Group> -->
 
     <Group>
       <Cell title="设置" :link="'/me/setting'"></Cell>
