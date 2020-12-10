@@ -4,11 +4,12 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeMount, onMounted } from 'vue'
-import { hooks } from './utils/hooks'
+import { hooks, collect } from './hooks'
 
 export default defineComponent({
   name: 'App',
   setup() {
+    collect()
     onBeforeMount(() => hooks.invoke('appBeforeMount'))
     onMounted(() => hooks.invoke('appMounted'))
   },

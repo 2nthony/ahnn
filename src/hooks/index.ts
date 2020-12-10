@@ -34,3 +34,5 @@ export const hooks: Hooks = {
     if (this.hooks[name]) this.hooks[name].length = 0
   },
 }
+
+export * from './collect'
