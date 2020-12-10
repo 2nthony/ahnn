@@ -58,7 +58,7 @@ export default {
   justify-content: space-between;
   padding: 14px var(--gap);
   position: relative;
-  background-color: #fff;
+  background-color: var(--ahnn-background);
 
   & + .cell {
     border-top: none;

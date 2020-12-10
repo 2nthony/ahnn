@@ -28,7 +28,7 @@
           class="select-category"
           @click="$router.push('/select/category')"
         >
-          <RemixIcon :icon="addRecord.category.icon" />
+          <RemixIcon class="icon" :icon="addRecord.category.icon" />
           <Text class="name">
             {{ addRecord.category.name }}
           </Text>
@@ -210,9 +210,13 @@ export default {
     padding: 0;
     width: 80px;
     height: 80px;
-    background-color: #fff;
+    background-color: var(--ahnn-background);
     margin-right: var(--inline-gap);
     background-image: none;
+
+    & .icon {
+      fill: var(--ahnn-secondary);
+    }
   }
 
   & .select-more,

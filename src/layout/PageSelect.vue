@@ -53,7 +53,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   margin-bottom: var(--gap);
-  background-color: #fff;
+  background-color: var(--ahnn-background);
   min-height: 120px;
   border-radius: var(--radius);
 

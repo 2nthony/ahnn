@@ -40,7 +40,7 @@ export default {
 <style lang="less" scoped>
 .home-record-pane {
   padding: var(--gap);
-  background-color: #fff;
+  background-color: var(--ahnn-background);
   border-radius: var(--radius);
 
   & + .home-record-pane {
