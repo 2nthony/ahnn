@@ -22,7 +22,8 @@ export default {
 input {
   border: none;
   background-color: var(--button-default-bg-color);
-  border: 1px solid var(--button-border-color);
+  box-shadow: inset 0 0 0 1px var(--shadow-color-default),
+    inset 0 1px 2px var(--shadow-color-muted);
   padding: 0 10px;
   height: 32px;
   border-radius: var(--radius);
@@ -30,7 +31,8 @@ input {
   color: var(--text-color-default);
 
   &:focus {
-    border: 1px solid var(--text-color-selected);
+    box-shadow: inset 0 0 2px var(--shadow-color-muted), inset 0 0 0 1px #579ad9,
+      0 0 0 3px rgba(16, 112, 202, 0.14);
   }
 }
 </style>
