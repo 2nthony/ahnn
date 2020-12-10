@@ -9370,10 +9370,10 @@ vendors@^1.0.0:
   resolved "https://registry.npmjs.org/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vercel-toast@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/vercel-toast/-/vercel-toast-1.5.1.tgz#97811bbdc8923a885adff0439ff14b9dfe3db549"
-  integrity sha512-Mzz9jGYl6ED3CVOczok3Ma8C5MEo3p5XFFBrBLAffwPVeSax+1mXC4lh5TP77z09gZ6vVeTy0WSUMGfzta71UA==
+vercel-toast@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.npmjs.org/vercel-toast/-/vercel-toast-1.5.2.tgz#0cbdfdff7d22567fc4ceba802379b3dc278218f0"
+  integrity sha512-kjJznnh8VEeViOOSHPAhzcDWA1CthMRw6SUBj8bbdZLo0BUvpy8HB5OXQ8eqRiRtzs4k1iGtjKmsl/FZNDh6JA==
 
 verror@1.10.0:
   version "1.10.0"
