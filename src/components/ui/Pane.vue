@@ -1,14 +1,22 @@
 <template>
-  <div class="pane" :class="{ [`evelation-${evelation}`]: evelation }">
+  <div
+    class="pane"
+    :class="{ [`evelation-${evelation}`]: isTruthy(evelation) }"
+  >
     <slot />
   </div>
 </template>
 
 <script>
 import { setProps } from '@/utils/setProps'
+import { isTruthy } from '@/utils'
 export default {
   props: {
     evelation: setProps('number'),
+  },
+
+  setup() {
+    return { isTruthy }
   },
 }
 </script>
