@@ -11,7 +11,7 @@
     </div>
 
     <div class="bottom" v-if="record.remark">
-      <Text>{{ record.remark }}</Text>
+      <Text :color="'muted'">{{ record.remark }}</Text>
     </div>
   </Pane>
 </template>
