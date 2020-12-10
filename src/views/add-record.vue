@@ -47,26 +47,19 @@
               </InputDate>
             </div>
             <div class="select-input-wrapper">
-              <Button>{{ addRecord.book }}</Button>
-            </div>
-          </div>
-          <div class="select-more-bottom">
-            <div class="select-input-wrapper">
-              <Button>{{ addRecord.member }}</Button>
-            </div>
-            <div class="select-input-wrapper">
               <Button>{{ addRecord.account }}</Button>
             </div>
           </div>
+          <div class="select-more-bottom">
+            <Input
+              :modelValue="addRecord.remark"
+              placeholder="备注信息"
+              inputmode="search"
+              @update:modelValue="onRemarkInput"
+              @focus="calculatorVisible = false"
+            />
+          </div>
         </div>
-      </div>
-
-      <div class="placeholder">
-        <Input
-          :modelValue="addRecord.remark"
-          placeholder="备注信息"
-          @update:modelValue="onRemarkInput"
-        />
       </div>
 
       <div class="calculator-wrapper" v-show="calculatorVisible">
@@ -78,15 +71,14 @@
       @back="onBack"
       :mainText="'保存'"
       @main-click="handleSave"
-      :rightText="calculatorVisible ? '输入更多信息' : '输入金额'"
+      :rightText="calculatorVisible ? '隐藏' : '显示'"
       @right-click="handleCalculatorVisible"
     >
       <template #main-icon>
         <RemixIcon :icon="'check'" />
       </template>
       <template #right-icon>
-        <RemixIcon v-if="calculatorVisible" :icon="'draft'" />
-        <RemixIcon v-else :icon="'calculator'" />
+        <RemixIcon :icon="'calculator'" />
       </template>
     </Tabbar>
   </div>
@@ -220,6 +212,7 @@ export default {
     height: 80px;
     background-color: #fff;
     margin-right: var(--inline-gap);
+    background-image: none;
   }
 
   & .select-more,
@@ -236,6 +229,12 @@ export default {
       width: 100%;
       height: 36px;
       cursor: pointer;
+      background-image: none;
+    }
+
+    & input {
+      width: 100%;
+      height: 36px;
     }
   }
   & .select-input-wrapper {
@@ -245,14 +244,6 @@ export default {
   & .select-more-bottom {
     & > .select-input-wrapper:first-child {
       margin-right: var(--inline-gap);
-    }
-  }
-
-  & .placeholder {
-    width: 100%;
-
-    & input {
-      width: 100%;
     }
   }
 }

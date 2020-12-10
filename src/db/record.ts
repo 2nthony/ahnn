@@ -11,7 +11,6 @@ export function upgradeRecordDB(
     keyPath: 'id',
   })
 
-  ensureCreateIndex(store, 'book')
   ensureCreateIndex(store, 'date')
 }
 

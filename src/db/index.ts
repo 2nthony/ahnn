@@ -1,5 +1,4 @@
 import { IDBPDatabase, IDBPObjectStore, IDBPTransaction, openDB } from 'idb'
-import { upgradeMemberDB } from './member'
 import { upgradeRecordDB } from './record'
 
 const DB_NAME = 'Ahnn'
@@ -9,7 +8,6 @@ export async function open() {
   return await openDB(DB_NAME, DB_VERSION, {
     upgrade(db, _oldVersion, _newVersion, transaction) {
       upgradeRecordDB(db, transaction)
-      upgradeMemberDB(db, transaction)
     },
   })
 }
