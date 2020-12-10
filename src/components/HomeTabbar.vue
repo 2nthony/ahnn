@@ -26,7 +26,7 @@
       :class="{ active: currentPath === '/me' }"
       @click="switchTab('/me')"
     >
-      <RemixIcon :icon="'user'" />
+      <RemixIcon :icon="'user-3'" />
       <Text :size="300">我的</Text>
     </TabbarItem>
   </div>
