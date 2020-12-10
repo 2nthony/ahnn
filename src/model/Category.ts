@@ -23,6 +23,7 @@ export const presetCategories: Category = {
     c('住房', 'home-smile'),
     c('交通', 'subway'),
     c('话费', 'smartphone'),
+    c('旅游', 'road-map'),
   ],
   income: [c('工资', 'money-cny-circle'), c('红包', 'red-packet')],
 }
