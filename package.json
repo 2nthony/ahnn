@@ -14,6 +14,7 @@
     "dayjs": "^1.9.6",
     "idb": "^5.0.8",
     "mathjs": "^8.0.1",
+    "vercel-toast": "^1.5.1",
     "vue": "^3.0.0",
     "vue-auto-routes": "^2.2.0",
     "vue-remix-icons": "^1.1.1",
