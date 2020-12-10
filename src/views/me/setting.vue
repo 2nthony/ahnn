@@ -12,7 +12,7 @@
     </Group>
 
     <Group>
-      <Cell title="清空记账记录" :link="'/me/clear'"></Cell>
+      <Cell title="还原" :link="'/me/erase'"></Cell>
     </Group>
 
     <Tabbar></Tabbar>

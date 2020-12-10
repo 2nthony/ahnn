@@ -1,9 +1,9 @@
 <template>
   <div class="clear">
-    <ViewingArea title="清空记账记录"></ViewingArea>
+    <ViewingArea title="还原"></ViewingArea>
 
-    <Group title="确认清空后将会清空所有记账记录！">
-      <Cell title="清空记账记录" @click="clear" link></Cell>
+    <Group>
+      <Cell title="抹除所有记账记录" @click="eraseRecord" link></Cell>
     </Group>
 
     <Tabbar></Tabbar>
@@ -22,15 +22,15 @@ export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 
   setup() {
-    const clear = () => {
-      createToast('确认清除记账记录吗？', {
-        cancel: '取消',
+    const eraseRecord = () => {
+      createToast('将会抹除所有记账记录', {
+        cancel: '关闭',
         action: {
-          text: '确认',
+          text: '抹除',
           callback: (toast) => {
             toast.destory()
             clearRecord().then(() => {
-              createToast('清空完成', {
+              createToast('抹除完成', {
                 timeout: 2000,
               })
             })
@@ -40,7 +40,7 @@ export default {
     }
 
     return {
-      clear,
+      eraseRecord,
     }
   },
 }
