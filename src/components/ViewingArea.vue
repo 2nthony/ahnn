@@ -2,7 +2,9 @@
   <div class="viewing-area">
     <slot>
       <div class="title">
-        <Heading :size="900">{{ title }}</Heading>
+        <slot name="title">
+          <Heading :size="900">{{ title }}</Heading>
+        </slot>
       </div>
     </slot>
   </div>
