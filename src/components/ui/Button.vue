@@ -14,74 +14,115 @@ export default {
 <style lang="less" scoped>
 button {
   color: #fff;
-  background-color: var(--button-default-bg-color);
-  border-radius: var(--radius);
+  background-image: linear-gradient(to bottom, var(--lg-start), var(--lg-end));
+  border-radius: var(--button-radius);
   padding: 0 16px;
   height: 32px;
   line-height: 32px;
   outline: none;
   cursor: pointer;
-  border: solid 1px var(--button-border-color);
+  border: none;
+  box-shadow: inset 0 0 0 1px var(--shadow-color-default),
+    inset 0 -1px 1px 0 rgba(67, 90, 111, 0.06);
 
   & + button {
     margin-left: 16px;
   }
 
   &:hover {
-    background-color: var(--button-default-hover-color);
+    background-image: linear-gradient(
+      to bottom,
+      var(--lg-start),
+      var(--lg-end)
+    );
   }
   &:active {
-    background-color: var(--button-default-active-color);
+    background-image: linear-gradient(
+      to bottom,
+      var(--active-color),
+      var(--active-color)
+    );
   }
+  &:focus {
+    box-shadow: 0 0 0 3px var(--shadow-color-main),
+      inset 0 0 0 1px var(--shadow-color-default),
+      inset 0 -1px 1px 0 var(--shadow-color-mute);
+  }
+
   &.default {
+    --lg-start: #ffffff;
+    --lg-end: #f4f5f7;
     color: var(--text-color-default);
+    &:hover {
+      --lg-start: #fafbfb;
+      --lg-end: #eaecee;
+    }
+    &:active {
+      background-image: none;
+      background-color: rgba(16, 112, 202, 0.09);
+    }
+    &:focus {
+      --shadow-color-main: rgba(16, 112, 202, 0.14);
+    }
   }
 
   &.primary {
-    background-color: var(--button-primary-bg-color);
-
+    --lg-start: #0788de;
+    --lg-end: #116ab8;
     &:hover {
-      background-color: var(--button-primary-hover-color);
+      --lg-start: #0679c5;
+      --lg-end: #0f5da1;
     }
-
     &:active {
-      background-color: var(--button-primary-active-color);
+      --active-color: #0f5da1;
+    }
+    &:focus {
+      --shadow-color-main: rgba(7, 136, 222, 0.4);
     }
   }
 
   &.success {
-    background-color: var(--button-success-bg-color);
-
+    --lg-start: #23c277;
+    --lg-end: #399d6c;
     &:hover {
-      background-color: var(--button-success-hover-color);
+      --lg-start: #1fac6a;
+      --lg-end: #328a5f;
     }
-
     &:active {
-      background-color: var(--button-success-active-color);
+      --active-color: #328a5f;
+    }
+    &:focus {
+      --shadow-color-main: rgba(35, 194, 119, 0.4);
     }
   }
 
   &.warning {
-    background-color: var(--button-warning-bg-color);
-
+    --lg-start: #ee9913;
+    --lg-end: #d9822b;
     &:hover {
-      background-color: var(--button-warning-hover-color);
+      --lg-start: #d88a10;
+      --lg-end: #c77524;
     }
-
     &:active {
-      background-color: var(--button-warning-active-color);
+      --active-color: #c77524;
+    }
+    &:focus {
+      --shadow-color-main: rgba(238, 153, 19, 0.4);
     }
   }
 
   &.danger {
-    background-color: var(--button-danger-bg-color);
-
+    --lg-start: #ec4c47;
+    --lg-end: #d64540;
     &:hover {
-      background-color: var(--button-danger-hover-color);
+      --lg-start: #ea3530;
+      --lg-end: #d0322d;
     }
-
     &:active {
-      background-color: var(--button-danger-active-color);
+      --active-color: #d0322d;
+    }
+    &:focus {
+      --shadow-color-main: rgba(236, 76, 71, 0.4);
     }
   }
 }
