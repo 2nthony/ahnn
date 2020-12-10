@@ -3,16 +3,16 @@
     <ViewingArea title="设置"></ViewingArea>
 
     <Group>
-      <Cell title="清空记账记录" :link="'/me/clear'"></Cell>
-    </Group>
-
-    <Group>
-      <Cell title="建议与反馈" :link="'/me/feedback'"></Cell>
       <Cell
         title="关于 Ahnn"
         :link="'/me/about-app'"
         :rightText="`版本 ${version}`"
       ></Cell>
+      <Cell title="建议与反馈" :link="'/me/feedback'"></Cell>
+    </Group>
+
+    <Group>
+      <Cell title="清空记账记录" :link="'/me/clear'"></Cell>
     </Group>
 
     <Tabbar></Tabbar>
