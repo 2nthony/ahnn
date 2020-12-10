@@ -1,5 +1,5 @@
 <template>
-  <Pane class="home-record-pane" :evelation="1">
+  <Pane class="home-record-pane" :float="3">
     <div class="top">
       <div class="title">
         <RemixIcon :icon="record.category.icon" />
@@ -41,6 +41,7 @@ export default {
 .home-record-pane {
   padding: var(--gap);
   background-color: #fff;
+  border-radius: var(--radius);
 
   & + .home-record-pane {
     margin-top: var(--gap);

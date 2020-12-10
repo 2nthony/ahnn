@@ -64,10 +64,10 @@ export default {
 
 <style lang="less" scoped>
 .active {
-  color: var(--text-color-selected);
+  color: var(--ahnn-link-color);
 
   & svg {
-    fill: var(--text-color-selected);
+    fill: var(--ahnn-link-color);
   }
 }
 </style>

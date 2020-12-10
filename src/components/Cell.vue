@@ -65,7 +65,7 @@ export default {
   }
 
   &:active {
-    background-color: var(--active-bg-color);
+    background-color: var(--accents-2);
   }
 
   & .left,
@@ -78,7 +78,7 @@ export default {
     position: relative;
 
     & .text {
-      color: var(--text-color-muted);
+      color: var(--ahnn-secondary-dark);
     }
   }
 

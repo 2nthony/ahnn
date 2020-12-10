@@ -1,45 +1,37 @@
 <template>
-  <div
-    class="pane"
-    :class="{ [`evelation-${evelation}`]: isTruthy(evelation) }"
-  >
+  <div class="pane" :data-float="float">
     <slot />
   </div>
 </template>
 
 <script>
 import { setProps } from '@/utils/setProps'
-import { isTruthy } from '@/utils'
+
 export default {
   props: {
-    evelation: setProps('number'),
-  },
-
-  setup() {
-    return { isTruthy }
+    float: setProps('number'),
   },
 }
 </script>
 
 <style lang="less" scoped>
 .pane {
-  --shadow-before: var(--shadow-color-default) 0px 0px 1px;
+  box-shadow: var(--float-level);
 
-  &.evelation-0 {
-    box-shadow: var(--shadow-before);
+  &[data-float='1'] {
+    --float-level: var(--float-1);
   }
-  &.evelation-1 {
-    box-shadow: var(--shadow-before), var(--shadow-color-dark) 0px 2px 4px -2px;
+  &[data-float='2'] {
+    --float-level: var(--float-2);
   }
-  &.evelation-2 {
-    box-shadow: var(--shadow-before), var(--shadow-color-dark) 0px 5px 8px -4px;
+  &[data-float='3'] {
+    --float-level: var(--float-3);
   }
-  &.evelation-3 {
-    box-shadow: var(--shadow-before), var(--shadow-color-dark) 0px 8px 10px -4px;
+  &[data-float='4'] {
+    --float-level: var(--float-4);
   }
-  &.evelation-4 {
-    box-shadow: var(--shadow-before),
-      var(--shadow-color-dark) 0px 16px 24px -8px;
+  &[data-float='5'] {
+    --float-level: var(--float-5);
   }
 }
 </style>

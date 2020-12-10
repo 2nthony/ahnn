@@ -14,7 +14,6 @@ export default {
 
 <style lang="less" scoped>
 .heading {
-  color: #234361;
   font-weight: 500;
 
   // small
@@ -28,10 +27,6 @@ export default {
   &.size-100 {
     font-size: 11px;
     font-weight: 400;
-    color: #66788a;
-  }
-  &.size-200 {
-    color: #66788a;
   }
 
   // medium

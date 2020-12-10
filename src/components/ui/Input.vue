@@ -21,18 +21,16 @@ export default {
 <style lang="less" scoped>
 input {
   border: none;
-  background-color: var(--button-default-bg-color);
-  box-shadow: inset 0 0 0 1px var(--shadow-color-default),
-    inset 0 1px 2px var(--shadow-color-muted);
+  background-color: var(--ahnn-background);
+  box-shadow: inset 0 0 0 1px var(--accents-2), inset 0 1px 2px var(--accents-2);
   padding: 0 10px;
   height: 32px;
   border-radius: var(--radius);
   outline: none;
-  color: var(--text-color-default);
+  color: var(--ahnn-foreground);
 
   &:focus {
-    box-shadow: inset 0 0 2px var(--shadow-color-muted), inset 0 0 0 1px #579ad9,
-      0 0 0 3px rgba(16, 112, 202, 0.14);
+    box-shadow: inset 0 0 0 1px var(--ahnn-foreground);
   }
 }
 </style>

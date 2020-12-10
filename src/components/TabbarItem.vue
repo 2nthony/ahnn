@@ -15,7 +15,7 @@
   height: inherit;
 
   &:active {
-    background-color: var(--active-bg-color);
+    background-color: var(--accents-2);
   }
 }
 </style>

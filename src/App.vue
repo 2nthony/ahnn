@@ -10,6 +10,7 @@ export default defineComponent({
 })
 </script>
 
+<style lang="less" src="./styles/theme.less"></style>
 <style lang="less" src="./styles/var.less"></style>
 <style lang="less" src="./styles/weird.less"></style>
 

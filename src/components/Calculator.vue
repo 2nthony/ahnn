@@ -139,8 +139,8 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .calculator {
-  --shadow-top: inset 0 1px var(--border-color-default);
-  --shadow-right: inset -1px 0 var(--border-color-default);
+  --shadow-top: inset 0 1px var(--accents-2);
+  --shadow-right: inset -1px 0 var(--accents-2);
 
   width: 100%;
 

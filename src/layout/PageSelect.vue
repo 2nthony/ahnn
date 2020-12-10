@@ -8,7 +8,7 @@
         v-for="(item, index) in items"
         :key="index"
         @click="$emit('item-click', index)"
-        :evelation="1"
+        :float="3"
       >
         <RemixIcon v-if="item.icon" :icon="item.icon" class="icon" />
         <Text>{{ item.title }}</Text>
@@ -55,6 +55,7 @@ export default {
   margin-bottom: var(--gap);
   background-color: #fff;
   min-height: 120px;
+  border-radius: var(--radius);
 
   & .icon {
     width: 2rem;
