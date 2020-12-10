@@ -22,7 +22,6 @@
 <script lang="ts">
 import ViewingArea from '@/components/ViewingArea.vue'
 import Tabbar from '@/components/Tabbar.vue'
-import { ref } from 'vue'
 import Pane from '@/components/ui/Pane.vue'
 import { setProps } from '@/utils/setProps'
 import Text from '@/components/ui/Text.vue'
