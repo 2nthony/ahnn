@@ -15,6 +15,7 @@ export default {
 button {
   color: #fff;
   background-image: linear-gradient(to bottom, var(--lg-start), var(--lg-end));
+  background-color: #fff;
   border-radius: var(--radius);
   padding: 0 16px;
   height: 32px;
