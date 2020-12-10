@@ -158,7 +158,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   flex: 1;
-  height: 3rem;
+  height: 2.75rem;
   font-size: 1.25rem;
   background-color: var(--calculator-number-bg-color);
   color: #fff;
