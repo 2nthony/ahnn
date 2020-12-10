@@ -39,3 +39,10 @@ export async function addRecord(record: Record) {
   db.add('record', record)
   db.close()
 }
+
+export async function clearRecord() {
+  const db = await open()
+  return db.clear('record').finally(() => {
+    db.close()
+  })
+}
