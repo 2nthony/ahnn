@@ -170,7 +170,8 @@ export default defineComponent({
   }
 
   & svg {
-    transform: scale(0.75);
+    width: 1.25rem;
+    height: 1.25rem;
   }
 }
 
