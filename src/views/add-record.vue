@@ -216,6 +216,9 @@ export default {
 
     & .icon {
       fill: var(--ahnn-secondary);
+      margin-bottom: 0.25rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
