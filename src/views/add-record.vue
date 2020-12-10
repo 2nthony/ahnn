@@ -1,8 +1,13 @@
 <template>
   <div class="page-add-record">
-    <ViewingArea
-      :title="`${TypeCNTexts[addRecord.type]} ${Number(money).toFixed(2)} 元`"
-    ></ViewingArea>
+    <ViewingArea>
+      <template #title>
+        <Heading :size="900" @click="handleCalculatorVisible(true)"
+          >{{ TypeCNTexts[addRecord.type] }}
+          {{ Number(money).toFixed(2) }} 元</Heading
+        >
+      </template>
+    </ViewingArea>
 
     <div class="main-content">
       <div class="switch-type">
@@ -64,14 +69,24 @@
         />
       </div>
 
-      <div class="calculator-wrapper">
+      <div class="calculator-wrapper" v-show="calculatorVisible">
         <Calculator @result="onCalcResult"></Calculator>
       </div>
     </div>
 
-    <Tabbar @back="onBack" :mainText="'保存'" @main-click="handleSave">
+    <Tabbar
+      @back="onBack"
+      :mainText="'保存'"
+      @main-click="handleSave"
+      :rightText="calculatorVisible ? '输入更多信息' : '输入金额'"
+      @right-click="handleCalculatorVisible"
+    >
       <template #main-icon>
         <RemixIcon :icon="'check'" />
+      </template>
+      <template #right-icon>
+        <RemixIcon v-if="calculatorVisible" :icon="'draft'" />
+        <RemixIcon v-else :icon="'calculator'" />
       </template>
     </Tabbar>
   </div>
@@ -94,6 +109,7 @@ import { useStore } from '@/store'
 import { MutationTypes } from '@/store/mutations'
 import { Type, TypeCNTexts, Types } from '@/model/Type'
 import RemixIcon from '@/components/RemixIcon.vue'
+import Heading from '@/components/ui/Heading.vue'
 
 export default {
   components: {
@@ -105,6 +121,7 @@ export default {
     InputDate,
     Text,
     RemixIcon,
+    Heading,
   },
 
   setup() {
@@ -114,6 +131,7 @@ export default {
     const addRecord = computed(() => store.getters.addRecord)
     const money = ref<number>(addRecord.value.cost || 0)
     const previewDate = computed(() => getCNDayText(addRecord.value.date))
+    const calculatorVisible = ref<boolean>(true)
 
     const handleSave = () => {
       db.addRecord(deepToRaw(addRecord.value)).then(() => {
@@ -124,6 +142,10 @@ export default {
 
     const handleSwitchType = (type: Type) => {
       store.commit(MutationTypes.switchAddRecordType, type)
+    }
+
+    const handleCalculatorVisible = (bool: boolean) => {
+      calculatorVisible.value = bool || !calculatorVisible.value
     }
 
     const onDateSelect = (val: string) => {
@@ -149,9 +171,11 @@ export default {
       money,
       addRecord,
       previewDate,
+      calculatorVisible,
 
       handleSave,
       handleSwitchType,
+      handleCalculatorVisible,
       onDateSelect,
       onRemarkInput,
       onCalcResult,
@@ -194,7 +218,6 @@ export default {
     padding: 0;
     width: 80px;
     height: 80px;
-    border-radius: var(--radius);
     background-color: #fff;
     margin-right: var(--inline-gap);
   }
