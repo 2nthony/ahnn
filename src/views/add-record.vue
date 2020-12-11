@@ -12,12 +12,12 @@
     <div class="main-content">
       <div class="switch-type">
         <div class="button-wrapper">
-          <Button @click="handleSwitchType(Types.payout)">{{
+          <Button type="secondary" @click="handleSwitchType(Types.payout)">{{
             TypeCNTexts[Types.payout]
           }}</Button>
         </div>
         <div class="button-wrapper">
-          <Button @click="handleSwitchType(Types.income)">{{
+          <Button type="secondary" @click="handleSwitchType(Types.income)">{{
             TypeCNTexts[Types.income]
           }}</Button>
         </div>
@@ -25,6 +25,7 @@
 
       <div class="info">
         <Button
+          type="secondary"
           class="select-category"
           @click="$router.push('/select/category')"
         >
@@ -42,12 +43,12 @@
                 @update:modelValue="onDateSelect"
               >
                 <template #placeholder>
-                  <Button>{{ previewDate }}</Button>
+                  <Button type="secondary">{{ previewDate }}</Button>
                 </template>
               </InputDate>
             </div>
             <div class="select-input-wrapper">
-              <Button>{{ addRecord.wallet }}</Button>
+              <Button type="secondary">{{ addRecord.wallet }}</Button>
             </div>
           </div>
           <div class="select-more-bottom">
