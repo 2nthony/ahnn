@@ -93,7 +93,6 @@ import Calculator from '../components/Calculator.vue'
 import Button from '../components/ui/Button.vue'
 import Input from '../components/ui/Input.vue'
 import { getToday, getCNDayText } from '../utils/date'
-import * as db from '../db'
 import { deepToRaw } from '../utils'
 import { useRouter } from 'vue-router'
 import InputDate from '@/components/InputDate.vue'
@@ -103,6 +102,7 @@ import { MutationTypes } from '@/store/mutations'
 import { Type, TypeCNTexts, Types } from '@/model/Type'
 import RemixIcon from '@/components/RemixIcon.vue'
 import Heading from '@/components/ui/Heading.vue'
+import { setRecord } from '../db'
 
 export default {
   components: {
@@ -127,7 +127,7 @@ export default {
     const calculatorVisible = ref<boolean>(true)
 
     const handleSave = () => {
-      db.addRecord(deepToRaw(addRecord.value)).then(() => {
+      setRecord(deepToRaw(addRecord.value)).then(() => {
         router.push('/')
         store.commit(MutationTypes.initAddRecord)
       })
