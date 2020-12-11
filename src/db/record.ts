@@ -45,6 +45,22 @@ export async function addRecord(record: Record) {
   })
 }
 
+export async function updateRecord(record: Record) {
+  const db = await open()
+  return db.put('record', record).finally(() => db.close())
+}
+
+export async function setRecord(record: Record) {
+  if (record.id) return updateRecord(record)
+  else return addRecord(record)
+}
+
+export async function deleteRecord(record: Record) {
+  if (!record.id) return
+  const db = await open()
+  return db.delete('record', record.id).finally(() => db.close())
+}
+
 export async function clearRecord() {
   const db = await open()
   return db.clear('record').finally(() => {
