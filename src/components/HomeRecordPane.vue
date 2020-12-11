@@ -84,7 +84,9 @@ export default defineComponent({
         action: {
           text: '删除',
           callback(toast) {
-            deleteRecord(props.record as Record).then(toast.destory)
+            deleteRecord(props.record as Record).then(() => {
+              toast.destory()
+            })
           },
         },
       })
