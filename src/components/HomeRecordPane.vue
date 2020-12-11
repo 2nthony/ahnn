@@ -36,7 +36,6 @@ import { setProps } from '@/utils/setProps'
 import Pane from './ui/Pane.vue'
 import RemixIcon from './RemixIcon.vue'
 import Text from './ui/Text.vue'
-import Heading from './ui/Heading.vue'
 import { TypeCNTexts, Types } from '@/model/Type'
 import { defineComponent, ref, watch } from 'vue'
 import Button from './ui/Button.vue'
@@ -48,7 +47,7 @@ import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 
 export default defineComponent({
-  components: { Pane, RemixIcon, Text, Heading, Button },
+  components: { Pane, RemixIcon, Text, Button },
 
   props: {
     record: setProps('object'),
@@ -57,6 +56,8 @@ export default defineComponent({
   setup(props) {
     const router = useRouter()
     const store = useStore()
+
+    const record = props.record as Record
 
     const showMore = ref(false)
     const typeIcon = {
@@ -75,7 +76,6 @@ export default defineComponent({
       router.push('/add-record')
     }
 
-    // TODO 刷新主页数据
     const handleDelete = () => {
       createToast('确认删除这条记录吗？', {
         type: 'error',
@@ -83,8 +83,10 @@ export default defineComponent({
         action: {
           text: '删除',
           callback(toast) {
-            deleteRecord(props.record as Record).then(() => {
+            deleteRecord(record).then(() => {
               toast.destory()
+              store.commit('deleteRecord', record.id)
+              showMore.value = false
             })
           },
         },
