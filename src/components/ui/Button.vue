@@ -1,18 +1,20 @@
 <template>
-  <button :class="appearance"><slot /></button>
+  <button :class="type"><slot /></button>
 </template>
 
 <script lang="ts">
 import { setProps } from '../../utils/setProps'
 export default {
   props: {
-    appearance: setProps('string', 'default'),
+    type: setProps('string'),
   },
 }
 </script>
 
 <style lang="less" scoped>
 button {
+  --themed-fg: var(--ahnn-background);
+  --themed-bg: var(--ahnn-foreground);
   color: var(--themed-fg, var(--ahnn-foreground));
   border-radius: var(--radius);
   padding: 0 16px;
@@ -21,8 +23,8 @@ button {
   outline: none;
   cursor: pointer;
   border: none;
-  box-shadow: inset 0 0 0 1px var(--themed-bg, var(--themed-border)),
-    inset 0 -1px 1px 0 var(--themed-bg, var(--themed-border));
+  box-shadow: inset 0 0 0 1px var(--themed-border, var(--themed-bg)),
+    inset 0 -1px 1px 0 var(--themed-border, var(--themed-bg));
   background-color: var(--themed-bg);
 
   & + button {
@@ -37,13 +39,15 @@ button {
     background-color: var(--accents-2);
   }
 
-  &.default {
+  &.secondary {
     --themed-fg: var(--ahnn-secondary);
+    --themed-bg: var(--ahnn-background);
     --themed-border: var(--accents-2);
 
     &:hover {
       --themed-fg: var(--ahnn-foreground);
       --themed-border: var(--ahnn-foreground);
+      color: var(--ahnn-foreground);
     }
   }
 
