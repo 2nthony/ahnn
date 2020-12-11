@@ -21,16 +21,15 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import Group from '../components/Group.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
 import { compatHomeRecords } from '../model/Record'
 import Heading from '../components/ui/Heading.vue'
-import { readRecord } from '../db/record'
 import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
-import RemixIcon from '@/components/RemixIcon.vue'
 import HomeRecordPane from '@/components/HomeRecordPane.vue'
+import { useStore } from '@/store'
 
 export default {
   components: {
@@ -38,21 +37,17 @@ export default {
     ViewingArea,
     Group,
     Heading,
-    RemixIcon,
     HomeRecordPane,
   },
 
   setup() {
-    const data = ref([])
+    const store = useStore()
+
     const currentYear = ref(getCurrentYear())
     const currentMonth = ref(getCurrentMonth())
 
-    onMounted(() => {
-      readRecord(`${currentYear.value}-${currentMonth.value}`, 'desc').then(
-        (records) => {
-          data.value = compatHomeRecords(records)
-        },
-      )
+    const data = computed(() => {
+      return compatHomeRecords(store.getters.records)
     })
 
     return {

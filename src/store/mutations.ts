@@ -6,6 +6,7 @@ import { presetCategories } from '@/model/Category'
 import { Preference } from '@/model/Preference'
 
 export enum MutationTypes {
+  setRecords = 'setRecords',
   initAddRecord = 'initAddRecord',
   setAddRecord = 'setAddRecord',
   switchAddRecordType = 'switchAddRecordType',
@@ -13,6 +14,7 @@ export enum MutationTypes {
 }
 
 export type Mutations = {
+  [MutationTypes.setRecords](state: State, payload: Record[]): void
   [MutationTypes.initAddRecord](state: State): void
   [MutationTypes.setAddRecord](
     state: State,
@@ -26,6 +28,9 @@ export type Mutations = {
 }
 
 export const mutations: MutationTree<State> & Mutations = {
+  [MutationTypes.setRecords](state, payload) {
+    state.records = payload
+  },
   [MutationTypes.initAddRecord](state) {
     state.addRecord = getInitRecord()
   },
