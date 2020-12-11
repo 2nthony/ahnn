@@ -70,6 +70,7 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       display: block;
+      white-space: nowrap;
     }
   }
 }
