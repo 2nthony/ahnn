@@ -23,15 +23,13 @@ export async function readRecord(date: MatchDate, order: Order = 'asc') {
   return db
     .getAllFromIndex('record', 'date')
     .then((records) => {
-      if (!date) return records
-
-      const res = records.filter((record) => record.date.startsWith(date))
-
       if (order === 'desc') {
-        return res.sort(() => -1)
+        records = records.sort(() => -1)
       }
 
-      return res
+      if (!date) return records
+
+      return records.filter((record) => record.date.startsWith(date))
     })
     .finally(() => {
       db.close()
