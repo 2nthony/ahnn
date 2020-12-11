@@ -4,6 +4,7 @@ import { WalletName, getDefaultWalletName } from './Wallet'
 import { getToday } from '../utils/date'
 
 export interface Record {
+  id?: number
   type: Type
   category: CategoryItem
   cost: number
