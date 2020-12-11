@@ -11,7 +11,6 @@ import { computed } from 'vue'
 import { presetCategories } from '@/model/Category'
 import { useStore } from '@/store'
 import { TypeCNTexts } from '@/model/Type'
-import { MutationTypes } from '@/store/mutations'
 import { useRouter } from 'vue-router'
 import PageSelect from '@/layout/PageSelect.vue'
 
@@ -34,7 +33,7 @@ export default {
     })
 
     const handleItemClick = (i: number) => {
-      store.commit(MutationTypes.setAddRecord, {
+      store.commit('setAddRecord', {
         category: categories[i],
       })
       router.back()

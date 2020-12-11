@@ -42,7 +42,6 @@ import { defineComponent, ref, watch } from 'vue'
 import Button from './ui/Button.vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
-import { MutationTypes } from '@/store/mutations'
 import { Record } from '@/model/Record'
 import { deleteRecord } from '@/db'
 import { createToast, destoryAllToasts } from 'vercel-toast'
@@ -72,7 +71,7 @@ export default defineComponent({
     }
 
     const handleEdit = () => {
-      store.commit(MutationTypes.setAddRecord, props.record as Record)
+      store.commit('setAddRecord', props.record as Record)
       router.push('/add-record')
     }
 

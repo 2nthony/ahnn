@@ -1,17 +1,26 @@
 import {
   CommitOptions,
   createStore,
+  ModuleTree,
   Store as VuexStore,
   useStore as baseUseStore,
 } from 'vuex'
-import { State, state } from './store/state'
-import { Getters, getters } from './store/getters'
-import { Mutations, mutations } from './store/mutations'
+import { StoreGetters } from './store/getters'
+import { StoreMutations } from './store/mutations'
+import { RecordModule } from './store/record'
+import { PreferenceModule } from './store/preference'
+import { AddRecordModule } from './store/add-record'
 
-export const store = createStore<State>({
-  state,
-  getters,
-  mutations,
+export type RootState = {}
+
+const modules: ModuleTree<RootState> = {
+  RecordModule,
+  AddRecordModule,
+  PreferenceModule,
+}
+
+export const store = createStore<RootState>({
+  modules,
 })
 
 export function useStore() {
@@ -19,16 +28,19 @@ export function useStore() {
 }
 
 export type Store = Omit<
-  VuexStore<State>,
+  VuexStore<RootState>,
   'getters' | 'commit' | 'dispatch'
 > & {
   getters: {
-    [k in keyof Getters]: ReturnType<Getters[k]>
+    [k in keyof StoreGetters]: ReturnType<StoreGetters[k]>
   }
 } & {
-  commit<K extends keyof Mutations, P extends Parameters<Mutations[K]>[1]>(
+  commit<
+    K extends keyof StoreMutations,
+    P extends Parameters<StoreMutations[K]>[1]
+  >(
     key: K,
     payload?: P,
     options?: CommitOptions,
-  ): ReturnType<Mutations[K]>
+  ): ReturnType<StoreMutations[K]>
 }

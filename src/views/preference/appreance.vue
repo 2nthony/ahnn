@@ -29,7 +29,6 @@ import { useStore } from '@/store'
 import { computed } from 'vue'
 import { Appreance, AppreanceCNText, Appreances } from '@/model/Preference'
 import { switchAppreance } from '../../utils/preference/switchAppreance'
-import { MutationTypes } from '@/store/mutations'
 import { setPreference } from '@/db/preference'
 
 export default {
@@ -49,7 +48,7 @@ export default {
       if (type === preference.value.appreance) return
 
       switchAppreance(type)
-      store.commit(MutationTypes.setPreference, { appreance: type })
+      store.commit('setPreference', { appreance: type })
       setPreference(preference.value)
     }
 

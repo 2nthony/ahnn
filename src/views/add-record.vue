@@ -98,7 +98,6 @@ import { useRouter } from 'vue-router'
 import InputDate from '@/components/InputDate.vue'
 import Text from '@/components/ui/Text.vue'
 import { useStore } from '@/store'
-import { MutationTypes } from '@/store/mutations'
 import { Type, TypeCNTexts, Types } from '@/model/Type'
 import RemixIcon from '@/components/RemixIcon.vue'
 import Heading from '@/components/ui/Heading.vue'
@@ -129,12 +128,12 @@ export default {
     const handleSave = () => {
       setRecord(deepToRaw(addRecord.value)).then(() => {
         router.push('/')
-        store.commit(MutationTypes.initAddRecord)
+        store.commit('initAddRecord')
       })
     }
 
     const handleSwitchType = (type: Type) => {
-      store.commit(MutationTypes.switchAddRecordType, type)
+      store.commit('switchAddRecordType', type)
     }
 
     const handleCalculatorVisible = (bool: boolean) => {
@@ -142,23 +141,23 @@ export default {
     }
 
     const onDateSelect = (val: string) => {
-      store.commit(MutationTypes.setAddRecord, {
+      store.commit('setAddRecord', {
         date: val || getToday(),
       })
     }
     const onRemarkInput = (val: string) => {
-      store.commit(MutationTypes.setAddRecord, {
+      store.commit('setAddRecord', {
         remark: val,
       })
     }
     const onCalcResult = (val: number) => {
       money.value = val
-      store.commit(MutationTypes.setAddRecord, {
+      store.commit('setAddRecord', {
         cost: val,
       })
     }
 
-    const onBack = () => store.commit(MutationTypes.initAddRecord)
+    const onBack = () => store.commit('initAddRecord')
 
     return {
       money,

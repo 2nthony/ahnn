@@ -1,6 +1,5 @@
 import { readRecord } from '@/db'
 import { useStore } from '@/store'
-import { MutationTypes } from '@/store/mutations'
 import { getCurrentMonth, getCurrentYear } from '@/utils/date'
 import { hooks } from '.'
 
@@ -9,7 +8,7 @@ export function readRecordsFromDB() {
     const store = useStore()
     readRecord(`${getCurrentYear()}-${getCurrentMonth()}`, 'desc').then(
       (records) => {
-        store.commit(MutationTypes.setRecords, records)
+        store.commit('setRecords', records)
       },
     )
   })
