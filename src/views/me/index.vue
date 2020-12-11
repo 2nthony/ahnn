@@ -2,10 +2,10 @@
   <div class="page-me">
     <ViewingArea title="我"></ViewingArea>
 
-    <Group>
+    <!-- <Group>
       <Cell title="登录账号" :rightText="'去注册'" link></Cell>
       <Cell title="目前方案" :rightText="'本地'" link></Cell>
-    </Group>
+    </Group> -->
 
     <!-- <Group>
       <Cell title="账本" link></Cell>
