@@ -6,7 +6,8 @@
   width: 100%;
   height: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
   align-items: center;
-  background-color: var(--ahnn-background);
-  border-top: 1px solid var(--accents-2);
+  background-color: var(--tabbar-background);
+  box-shadow: var(--tabbar-border-top);
   padding-bottom: env(safe-area-inset-bottom);
+  backdrop-filter: saturate(180%) blur(5px);
 }
