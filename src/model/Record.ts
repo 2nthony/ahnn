@@ -1,6 +1,6 @@
 import { defaultType, Type } from './Type'
 import { CategoryItem, getDefaultCategory } from './Category'
-import { AccountName, getDefaultAccountName } from './Account'
+import { WalletName, getDefaultWalletName } from './Wallet'
 import { getToday } from '../utils/date'
 
 export interface Record {
@@ -9,8 +9,7 @@ export interface Record {
   cost: number
   /** @example '2020-11-25' */
   date: string
-  /** @example '日常账本' */
-  account: AccountName
+  wallet: WalletName
   remark?: string
 }
 
@@ -20,7 +19,7 @@ export function getInitRecord(): Record {
     category: getDefaultCategory(defaultType),
     cost: 0,
     date: getToday(),
-    account: getDefaultAccountName(),
+    wallet: getDefaultWalletName(),
   }
 }
 

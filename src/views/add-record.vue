@@ -47,7 +47,7 @@
               </InputDate>
             </div>
             <div class="select-input-wrapper">
-              <Button>{{ addRecord.account }}</Button>
+              <Button>{{ addRecord.wallet }}</Button>
             </div>
           </div>
           <div class="select-more-bottom">

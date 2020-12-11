@@ -1,24 +1,24 @@
-export type AccountName = string
+export type WalletName = string
 
 export interface Asset {
-  name: AccountName
+  name: WalletName
   balance: number // 余额
 }
 
 export interface Debt {
-  name: AccountName
+  name: WalletName
   creditAmount: number // 信用额度
   debt: number // 欠款
   billingDay: string // 账单日 本月的哪一天
   repaymentDay: string // 还款日
 }
 
-export interface Account {
+export interface Wallet {
   assets: Asset[]
   debts: Debt[]
 }
 
-export const presetAccounts: Account = {
+export const presetWallets: Wallet = {
   assets: [
     {
       name: '现金',
@@ -28,6 +28,6 @@ export const presetAccounts: Account = {
   debts: [],
 }
 
-export function getDefaultAccountName(): AccountName {
-  return presetAccounts.assets[0].name
+export function getDefaultWalletName(): WalletName {
+  return presetWallets.assets[0].name
 }

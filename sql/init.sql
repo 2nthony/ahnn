@@ -14,7 +14,7 @@ create table `Preference` (
   members text
 )
 
-create table `Account` (
+create table `Wallet` (
   id int not null primary key auto_increment,
   email varchar(100) not null unique,
   assets text,
@@ -36,7 +36,7 @@ create table `Record` (
   category char(10),
   cost float(2),
   date timestamp,
-  account varchar(100),
+  wallet varchar(100),
   member varchar(100),
   remark text
 )
