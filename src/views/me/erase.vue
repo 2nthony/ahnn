@@ -6,7 +6,7 @@
       <Cell title="抹除所有记账记录" @click="eraseRecord" link></Cell>
     </Group>
 
-    <Tabbar></Tabbar>
+    <Tabbar @back="destoryAllToasts"></Tabbar>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import Group from '@/components/Group.vue'
 import Cell from '@/components/Cell.vue'
 import { clearRecord } from '@/db'
 import 'vercel-toast/dist/vercel-toast.css'
-import { createToast } from 'vercel-toast'
+import { createToast, destoryAllToasts } from 'vercel-toast'
 export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 
@@ -42,6 +42,7 @@ export default {
 
     return {
       eraseRecord,
+      destoryAllToasts,
     }
   },
 }
