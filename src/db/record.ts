@@ -1,6 +1,7 @@
 import { Record } from '../model/Record'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
+import dayjs from 'dayjs'
 
 export function upgradeRecordDB(
   db: IDBPDatabase,
@@ -64,4 +65,30 @@ export async function clearRecord() {
   return db.clear('record').finally(() => {
     db.close()
   })
+}
+
+export async function readRecordsByMonth(
+  year: number,
+  month: number,
+): Promise<Record[]> {
+  const db = await open()
+
+  // YYYY-MM-DD []
+  const dates = Array.from({
+    length: dayjs()
+      .year(year)
+      .month(month - 1)
+      .day(1)
+      .daysInMonth(),
+  }).map((_, i) => `${year}-${month}-${i + 1}`)
+
+  const readers = dates.map((date) => {
+    return db.getAllFromIndex('record', 'date', date)
+  })
+
+  return Promise.all(readers)
+    .then((res) => res.flat())
+    .finally(() => {
+      db.close()
+    })
 }
