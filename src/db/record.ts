@@ -86,9 +86,13 @@ export async function readRecordsByMonth(
     return db.getAllFromIndex('record', 'date', date)
   })
 
-  return Promise.all(readers)
-    .then((res) => res.flat())
-    .finally(() => {
-      db.close()
-    })
+  return (
+    Promise.all(readers)
+      .then((res) => res.flat())
+      // desc
+      .then((records) => records.sort(() => -1))
+      .finally(() => {
+        db.close()
+      })
+  )
 }

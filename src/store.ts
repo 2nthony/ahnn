@@ -1,6 +1,7 @@
 import {
   CommitOptions,
   createStore,
+  DispatchOptions,
   ModuleTree,
   Store as VuexStore,
   useStore as baseUseStore,
@@ -10,6 +11,7 @@ import { StoreMutations } from './store/mutations'
 import { RecordModule } from './store/record'
 import { PreferenceModule } from './store/preference'
 import { AddRecordModule } from './store/add-record'
+import { StoreActions } from './store/actions'
 
 export type RootState = {}
 
@@ -32,7 +34,7 @@ export type Store = Omit<
   'getters' | 'commit' | 'dispatch'
 > & {
   getters: {
-    [k in keyof StoreGetters]: ReturnType<StoreGetters[k]>
+    [K in keyof StoreGetters]: ReturnType<StoreGetters[K]>
   }
 } & {
   commit<
@@ -43,4 +45,13 @@ export type Store = Omit<
     payload?: P,
     options?: CommitOptions,
   ): ReturnType<StoreMutations[K]>
+} & {
+  dispatch<
+    K extends keyof StoreActions,
+    P extends Parameters<StoreActions[K]>[1]
+  >(
+    key: K,
+    payload?: P,
+    options?: DispatchOptions,
+  ): ReturnType<StoreActions[K]>
 }
