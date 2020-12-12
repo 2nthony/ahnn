@@ -1,23 +1,13 @@
 <template>
-  <Pane class="home-record-card" :float="3" @click="handleShowMore">
-    <div class="top">
-      <div class="title">
-        <RemixIcon :icon="record.category.icon" />
-        <Text>{{ record.category.name }}</Text>
-      </div>
-      <div class="cost">
-        <RemixIcon :icon="typeIcon[record.type]" />
-        <Text> {{ Number(record.cost).toFixed(2) }}</Text>
-      </div>
-    </div>
-
-    <div class="bottom" v-if="record.remark">
-      <Text class="remark" :class="{ ellpsis: !showMore }">{{
-        record.remark
-      }}</Text>
-    </div>
-
-    <template v-if="showMore">
+  <Card
+    :titleIcon="record.category.icon"
+    :title="record.category.name"
+    :rightTextPrefixIcon="typeIcon[record.type]"
+    :rightText="Number(record.cost).toFixed(2)"
+    :content="record.remark"
+    @click="handleShowMore"
+  >
+    <template v-if="showMore" #>
       <div class="more-detail">
         <Text>{{ record.date }}</Text>
         <Text>{{ record.wallet }}</Text>
@@ -28,7 +18,7 @@
         <Button type="error" @click.stop="handleDelete">删除</Button>
       </div>
     </template>
-  </Pane>
+  </Card>
 </template>
 
 <script lang="ts">
@@ -45,9 +35,10 @@ import { Record } from '@/model/Record'
 import { deleteRecord } from '@/db'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
+import Card from './Card.vue'
 
 export default defineComponent({
-  components: { Pane, RemixIcon, Text, Button },
+  components: { Pane, RemixIcon, Text, Button, Card },
 
   props: {
     record: setProps('object'),
@@ -106,63 +97,15 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.home-record-card {
-  padding: var(--gap);
-  background-color: var(--ahnn-background);
-  border-radius: var(--radius);
+.more-detail {
+  margin-top: var(--gap);
+  display: flex;
+  justify-content: space-between;
+}
 
-  &:active {
-    background-color: var(--accents-2);
-  }
-
-  & + .home-record-card {
-    margin-top: var(--gap);
-  }
-
-  & .top {
-    display: flex;
-    justify-content: space-between;
-  }
-  & .title {
-    display: flex;
-    align-items: center;
-
-    & svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      margin-right: var(--inline-gap);
-    }
-  }
-  & .cost {
-    display: flex;
-    align-items: center;
-  }
-
-  & .bottom {
-    margin-top: var(--gap);
-
-    & .remark {
-      // color: var(--ahnn-secondary);
-
-      &.ellpsis {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
-  }
-
-  & .more-detail {
-    margin-top: var(--gap);
-    display: flex;
-    justify-content: space-between;
-  }
-
-  & .action-group {
-    margin-top: var(--gap);
-    display: flex;
-    justify-content: flex-end;
-  }
+.action-group {
+  margin-top: var(--gap);
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
