@@ -56,6 +56,10 @@ export default {
   min-height: 120px;
   border-radius: var(--radius);
 
+  &:active {
+    background-color: var(--accents-2);
+  }
+
   & .icon {
     width: 2rem;
     height: 2rem;
