@@ -71,17 +71,12 @@
     <Tabbar
       @back="onBack"
       :mainText="'保存'"
+      :mainIcon="'check'"
       @main-click="handleSave"
+      :rightIcon="'calculator'"
       :rightText="calculatorVisible ? '隐藏' : '显示'"
       @right-click="handleCalculatorVisible"
-    >
-      <template #main-icon>
-        <RemixIcon :icon="'check'" />
-      </template>
-      <template #right-icon>
-        <RemixIcon :icon="'calculator'" />
-      </template>
-    </Tabbar>
+    ></Tabbar>
   </div>
 </template>
 

@@ -5,13 +5,13 @@
       <Text :size="300">{{ leftText }}</Text>
     </TabbarItem>
 
-    <TabbarItem v-if="$slots['main-icon']" @click="$emit('main-click')">
-      <slot name="main-icon"></slot>
+    <TabbarItem v-if="mainIcon" @click="$emit('main-click')">
+      <RemixIcon :icon="mainIcon" />
       <Text :size="300">{{ mainText }}</Text>
     </TabbarItem>
 
-    <TabbarItem v-if="$slots['right-icon']" @click="$emit('right-click')">
-      <slot name="right-icon"></slot>
+    <TabbarItem v-if="rightIcon" @click="$emit('right-click')">
+      <RemixIcon :icon="rightIcon" />
       <Text :size="300">{{ rightText }}</Text>
     </TabbarItem>
   </div>
@@ -29,7 +29,9 @@ export default defineComponent({
   components: { TabbarItem, Text, RemixIcon },
   props: {
     leftText: setProps('string', '返回'),
+    mainIcon: setProps('string'),
     mainText: setProps('string'),
+    rightIcon: setProps('string'),
     rightText: setProps('string'),
   },
 
