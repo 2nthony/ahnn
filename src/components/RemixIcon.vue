@@ -13,7 +13,7 @@ import { setProps } from '@/utils/setProps'
 export default {
   props: {
     icon: setProps('string'),
-    fill: setProps('boolean'),
+    fill: setProps('boolean', true),
   },
 }
 </script>
