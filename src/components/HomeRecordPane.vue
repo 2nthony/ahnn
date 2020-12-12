@@ -111,6 +111,10 @@ export default defineComponent({
   background-color: var(--ahnn-background);
   border-radius: var(--radius);
 
+  &:active {
+    background-color: var(--accents-2);
+  }
+
   & + .home-record-pane {
     margin-top: var(--gap);
   }
