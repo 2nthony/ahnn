@@ -25,9 +25,9 @@ export default {
     const categories = presetCategories[addRecord.type]
     const items = computed(() => categories)
 
-    const handleItemClick = (i: number) => {
+    const handleItemClick = (index: number) => {
       store.commit('setAddRecord', {
-        category: categories[i],
+        category: categories[index],
       })
       router.back()
     }
