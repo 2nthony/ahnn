@@ -2,7 +2,7 @@
   <Pane class="card" :float="3">
     <div class="title-group">
       <div class="title">
-        <RemixIcon :icon="titleIcon" />
+        <RemixIcon :icon="titleIcon" v-if="titleIcon" />
         <Text>{{ title }}</Text>
       </div>
       <div class="right">
