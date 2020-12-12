@@ -2,6 +2,7 @@ import { defaultType, Type } from './Type'
 import { CategoryItem, getDefaultCategory } from './Category'
 import { WalletName, getDefaultWalletName } from './Wallet'
 import { getToday } from '../utils/date'
+import { StoreIndexing } from '@/db'
 
 export interface Record {
   id?: number
@@ -13,6 +14,15 @@ export interface Record {
   wallet: WalletName
   remark?: string
 }
+
+export const recordIndexing: StoreIndexing = [
+  {
+    name: 'date',
+  },
+  {
+    name: 'wallet',
+  },
+]
 
 export function getInitRecord(): Record {
   return {

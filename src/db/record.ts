@@ -1,4 +1,4 @@
-import { Record } from '../model/Record'
+import { Record, recordIndexing } from '../model/Record'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
@@ -12,7 +12,9 @@ export function upgradeRecordDB(
     keyPath: 'id',
   })
 
-  ensureCreateIndex(store, 'date')
+  recordIndexing.forEach((indexing) => {
+    ensureCreateIndex(store, indexing.name, indexing.keyPath)
+  })
 }
 
 // 日期字符串匹配 `startsWith`

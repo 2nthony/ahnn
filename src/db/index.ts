@@ -3,7 +3,7 @@ import { upgradePreference } from './preference'
 import { upgradeRecordDB } from './record'
 
 const DB_NAME = 'Ahnn'
-export const DB_VERSION = 1
+export const DB_VERSION = 3
 
 export async function open() {
   return await openDB(DB_NAME, DB_VERSION, {
@@ -27,6 +27,10 @@ export function ensureStore(
   return transaction?.objectStore(name)
 }
 
+export type StoreIndexing = {
+  name: string
+  keyPath?: string
+}[]
 export function ensureCreateIndex(
   store: IDBPObjectStore,
   name: string,
