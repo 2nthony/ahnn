@@ -37,7 +37,7 @@ import Pane from './ui/Pane.vue'
 import RemixIcon from './RemixIcon.vue'
 import Text from './ui/Text.vue'
 import { TypeCNTexts, Types } from '@/model/Type'
-import { defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import Button from './ui/Button.vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
@@ -57,7 +57,7 @@ export default defineComponent({
     const router = useRouter()
     const store = useStore()
 
-    const record = props.record as Record
+    const record = computed(() => props.record as Record)
 
     const showMore = ref(false)
     const typeIcon = {
@@ -83,9 +83,9 @@ export default defineComponent({
         action: {
           text: '删除',
           callback(toast) {
-            deleteRecord(record).then(() => {
+            deleteRecord(record.value).then(() => {
               toast.destory()
-              store.commit('deleteRecord', record.id)
+              store.commit('deleteRecord', record.value.id)
               showMore.value = false
             })
           },
