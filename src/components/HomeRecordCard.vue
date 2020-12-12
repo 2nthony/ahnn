@@ -70,7 +70,7 @@ export default defineComponent({
     const handleDelete = () => {
       createToast('确认删除这条记录吗？', {
         type: 'error',
-        cancel: '关闭',
+        cancel: '取消',
         action: {
           text: '删除',
           callback(toast) {
