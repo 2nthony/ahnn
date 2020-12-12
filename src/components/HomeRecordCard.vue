@@ -1,5 +1,5 @@
 <template>
-  <Pane class="home-record-pane" :float="3" @click="handleShowMore">
+  <Pane class="home-record-card" :float="3" @click="handleShowMore">
     <div class="top">
       <div class="title">
         <RemixIcon :icon="record.category.icon" />
@@ -106,7 +106,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.home-record-pane {
+.home-record-card {
   padding: var(--gap);
   background-color: var(--ahnn-background);
   border-radius: var(--radius);
@@ -115,7 +115,7 @@ export default defineComponent({
     background-color: var(--accents-2);
   }
 
-  & + .home-record-pane {
+  & + .home-record-card {
     margin-top: var(--gap);
   }
 

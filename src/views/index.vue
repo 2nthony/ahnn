@@ -9,7 +9,7 @@
       :key="item.date"
       :title="getCNDayText(item.date)"
     >
-      <HomeRecordPane
+      <HomeRecordCard
         v-for="(cost, index) in item.costs"
         :key="index"
         :record="cost"
@@ -28,7 +28,7 @@ import ViewingArea from '../components/ViewingArea.vue'
 import { compatHomeRecords } from '../model/Record'
 import Heading from '../components/ui/Heading.vue'
 import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
-import HomeRecordPane from '@/components/HomeRecordPane.vue'
+import HomeRecordCard from '@/components/HomeRecordCard.vue'
 import { useStore } from '@/store'
 
 export default {
@@ -37,7 +37,7 @@ export default {
     ViewingArea,
     Group,
     Heading,
-    HomeRecordPane,
+    HomeRecordCard,
   },
 
   setup() {
