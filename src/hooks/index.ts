@@ -1,37 +1,43 @@
 type Hook = (...args: any[]) => any
-type HookName = string
 
+type HookStore = { [k: string]: Hook[] }
+type HookName = keyof HookStore
 interface Hooks {
-  hooks: { [k: string]: Hook[] }
+  store: HookStore
   add: (name: HookName, fn: Hook) => Hooks
+  emit: (name: HookName, ...args: any[]) => Hooks
   invoke: (name: HookName, ...args: any[]) => Hooks
   process: (name: HookName, arg: any, ...args: any[]) => Hooks
-  cleanHooks: (name: HookName) => void
+  clearHooks: (name: HookName) => void
 }
 
 export const hooks: Hooks = {
-  hooks: {},
+  store: {},
   add(name, fn) {
-    this.hooks[name] = this.hooks[name] || []
-    this.hooks[name].push(fn)
+    this.store[name] = this.store[name] || []
+    this.store[name].push(fn)
+    return this
+  },
+  emit(name, ...args) {
+    for (const fn of this.store[name] || []) {
+      fn(...args)
+    }
     return this
   },
   invoke(name, ...args) {
-    for (const fn of this.hooks[name] || []) {
-      fn(...args)
-    }
-    this.cleanHooks(name)
+    this.emit(name, ...args)
+    this.clearHooks(name)
     return this
   },
   process(name, arg, ...args) {
-    for (const fn of this.hooks[name] || []) {
+    for (const fn of this.store[name] || []) {
       arg = fn(arg, ...args) || arg
     }
-    this.cleanHooks(name)
+    this.clearHooks(name)
     return arg
   },
-  cleanHooks(name) {
-    if (this.hooks[name]) this.hooks[name].length = 0
+  clearHooks(name) {
+    if (this.store[name]) this.store[name].length = 0
   },
 }
 
