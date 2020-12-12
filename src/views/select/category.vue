@@ -23,14 +23,7 @@ export default {
     const addRecord = store.getters.addRecord
     const title = `${TypeCNTexts[addRecord.type]}分类`
     const categories = presetCategories[addRecord.type]
-    const items = computed(() => {
-      return categories.map((category) => {
-        return {
-          title: category.name,
-          icon: category.icon,
-        }
-      })
-    })
+    const items = computed(() => categories)
 
     const handleItemClick = (i: number) => {
       store.commit('setAddRecord', {

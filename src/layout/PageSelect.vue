@@ -11,7 +11,7 @@
         :float="3"
       >
         <RemixIcon v-if="item.icon" :icon="item.icon" class="icon" />
-        <Text>{{ item.title }}</Text>
+        <Text>{{ item.name }}</Text>
       </Pane>
     </div>
 
