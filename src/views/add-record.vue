@@ -129,6 +129,7 @@ export default {
       setRecord(deepToRaw(addRecord.value)).then(() => {
         router.push('/')
         store.commit('initAddRecord')
+        store.dispatch('readRecordsByQueryDate')
       })
     }
 
