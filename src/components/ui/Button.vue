@@ -18,8 +18,8 @@ button {
   color: var(--themed-fg, var(--ahnn-foreground));
   border-radius: var(--radius);
   padding: 0 16px;
-  height: 32px;
-  line-height: 32px;
+  height: var(--ahnn-form-height);
+  line-height: var(--ahnn-form-height);
   outline: none;
   cursor: pointer;
   border: none;

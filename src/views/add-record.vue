@@ -204,8 +204,8 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 0;
-    width: 80px;
-    height: 80px;
+    width: calc(2 * var(--ahnn-form-height) + 10px);
+    height: calc(2 * var(--ahnn-form-height) + 10px);
     background-color: var(--ahnn-background);
     margin-right: var(--inline-gap);
     background-image: none;
@@ -230,14 +230,14 @@ export default {
 
     & button {
       width: 100%;
-      height: 36px;
+      // height: 36px;
       cursor: pointer;
       background-image: none;
     }
 
     & input {
       width: 100%;
-      height: 36px;
+      // height: 36px;
     }
   }
   & .select-input-wrapper {
