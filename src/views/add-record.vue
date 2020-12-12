@@ -179,6 +179,10 @@ export default {
 <style lang="less" scoped>
 .main-content {
   margin-bottom: 300px;
+  & button {
+    color: var(--ahnn-foreground);
+  }
+
   & .switch-type {
     display: flex;
     margin-bottom: var(--inline-gap);
@@ -208,13 +212,14 @@ export default {
     height: calc(2 * var(--ahnn-form-height) + 10px);
     background-color: var(--ahnn-background);
     margin-right: var(--inline-gap);
-    background-image: none;
 
     & .icon {
-      fill: var(--ahnn-secondary);
-      margin-bottom: 0.25rem;
       width: 1.5rem;
       height: 1.5rem;
+    }
+
+    & .name {
+      margin-top: 0.25rem;
     }
   }
 
@@ -230,14 +235,11 @@ export default {
 
     & button {
       width: 100%;
-      // height: 36px;
       cursor: pointer;
-      background-image: none;
     }
 
     & input {
       width: 100%;
-      // height: 36px;
     }
   }
   & .select-input-wrapper {
