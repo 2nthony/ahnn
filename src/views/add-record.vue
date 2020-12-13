@@ -27,7 +27,7 @@
         <Button
           type="secondary"
           class="select-category"
-          @click="$router.push('/select/category')"
+          @click="$router.push('/select/add-record-select-category')"
         >
           <RemixIcon class="icon" :icon="addRecord.category.icon" />
           <Text class="name">
