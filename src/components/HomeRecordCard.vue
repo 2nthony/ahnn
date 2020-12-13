@@ -14,8 +14,10 @@
       </div>
 
       <div class="action-group">
-        <Button @click.stop="handleEdit">修改</Button>
-        <Button type="error" @click.stop="handleDelete">删除</Button>
+        <Button :size="'small'" @click.stop="handleEdit">修改</Button>
+        <Button :size="'small'" type="error" @click.stop="handleDelete"
+          >删除</Button
+        >
       </div>
     </template>
   </Card>
