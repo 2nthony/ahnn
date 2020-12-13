@@ -116,7 +116,7 @@ export function editWalletStrategy() {
       })
     }
 
-    // 更新所有同名 record
+    // TODO 更新所有同名 record
     /* setWallet(
       deepToRaw({ ...form.value, balance: Number(form.value.balance || 0) }),
     ).then(() => {
