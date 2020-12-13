@@ -13,7 +13,7 @@ import { setProps } from '../../utils/setProps'
 export default {
   props: {
     type: setProps('string', 'text'),
-    modelValue: setProps('string'),
+    modelValue: setProps(['string', 'number']),
   },
 }
 </script>
