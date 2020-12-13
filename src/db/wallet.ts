@@ -1,3 +1,4 @@
+import { Record } from '@/model/Record'
 import { Wallet, walletIndexing } from '@/model/Wallet'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
@@ -34,4 +35,12 @@ export async function setWallet(wallet: Wallet) {
 export async function readWalletByName(name: string): Promise<Wallet> {
   const db = await open()
   return db.getFromIndex(storeName, 'name', name).finally(() => db.close())
+}
+
+export async function returnCostToWallet(name: string, cost: Record['cost']) {
+  const wallet = await readWalletByName(name)
+  return setWallet({
+    ...wallet,
+    balance: (wallet.balance as number) + cost,
+  })
 }

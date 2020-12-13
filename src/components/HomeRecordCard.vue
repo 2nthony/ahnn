@@ -38,6 +38,7 @@ import { deleteRecord } from '@/db'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 import Card from './Card.vue'
+import { returnCostToWallet } from '@/db/wallet'
 
 export default defineComponent({
   components: { Pane, RemixIcon, Text, Button, Card },
@@ -70,13 +71,24 @@ export default defineComponent({
     }
 
     const handleDelete = () => {
+      // 回退费用到对应钱包
+      // income 为负数，从钱包扣回此收入
+      // payout 为正数，从钱包增加此支出
+      const returnCost =
+        record.value.type === Types.income
+          ? 0 - record.value.cost
+          : record.value.cost
+
       createToast('确认删除这条记录吗？', {
         type: 'error',
         cancel: '取消',
         action: {
           text: '删除',
           callback(toast) {
-            deleteRecord(record.value).then(() => {
+            Promise.all([
+              deleteRecord(record.value),
+              returnCostToWallet(record.value.wallet, returnCost),
+            ]).then(() => {
               toast.destory()
               store.commit('deleteRecord', record.value.id)
               showMore.value = false
