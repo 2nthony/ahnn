@@ -31,7 +31,7 @@ export async function setWallet(wallet: Wallet) {
   return db[action](storeName, wallet).finally(() => db.close())
 }
 
-export async function readWalletByName(name: string): Promise<Wallet[]> {
+export async function readWalletByName(name: string): Promise<Wallet> {
   const db = await open()
   return db.getFromIndex(storeName, 'name', name).finally(() => db.close())
 }
