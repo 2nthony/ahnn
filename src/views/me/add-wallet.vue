@@ -1,6 +1,6 @@
 <template>
   <div class="page-add-wallet">
-    <ViewingArea title="添加到钱包"></ViewingArea>
+    <ViewingArea :title="`添加${name}到钱包`"></ViewingArea>
 
     <form class="input-wallet-form">
       <Input v-model="form.name" class="input-name" placeholder="钱包名称" />
@@ -77,6 +77,7 @@ export default {
 
     return {
       form,
+      name,
       handleSave,
     }
   },
