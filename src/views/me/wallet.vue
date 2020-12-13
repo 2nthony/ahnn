@@ -17,7 +17,7 @@
     <Tabbar
       :mainText="'添加'"
       :mainIcon="'add-circle'"
-      @main-click="$router.push('/select/wallet')"
+      @main-click="$router.push('/select/add-wallet-select-wallet')"
     ></Tabbar>
   </div>
 </template>

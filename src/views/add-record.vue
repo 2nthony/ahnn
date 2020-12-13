@@ -48,7 +48,11 @@
               </InputDate>
             </div>
             <div class="select-input-wrapper">
-              <Button type="secondary">{{ addRecord.wallet }}</Button>
+              <Button
+                type="secondary"
+                @click="$router.push('/select/add-record-select-wallet')"
+                >{{ addRecord.wallet }}</Button
+              >
             </div>
           </div>
           <div class="select-more-bottom">
