@@ -20,7 +20,9 @@ export default {
       const selectedWallet = supportedWallets[index]
       router.push({
         path: '/me/add-wallet',
-        query: selectedWallet,
+        query: {
+          name: selectedWallet.name,
+        },
       })
     }
 
