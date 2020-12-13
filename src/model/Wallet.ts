@@ -6,7 +6,7 @@ export interface Wallet {
   id?: number
   name: WalletName
   icon: string
-  balance: number // 余额
+  balance: number | null // 余额
 }
 
 export const walletIndexing: StoreIndexing = [
