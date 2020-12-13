@@ -2,6 +2,7 @@ import { Record, recordIndexing } from '../model/Record'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
+import { WalletName } from '@/model/Wallet'
 
 export function upgradeRecordDB(
   db: IDBPDatabase,
@@ -97,4 +98,13 @@ export async function readRecordsByMonth(
         db.close()
       })
   )
+}
+
+export async function readRecordByWallet(
+  walletName: WalletName,
+): Promise<Record[]> {
+  const db = await open()
+  return db.getAllFromIndex('record', 'wallet', walletName).finally(() => {
+    db.close()
+  })
 }
