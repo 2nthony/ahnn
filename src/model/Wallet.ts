@@ -1,33 +1,38 @@
+import { StoreIndexing } from '@/db'
+
 export type WalletName = string
 
-export interface Asset {
+export interface Wallet {
+  id?: number
   name: WalletName
+  icon: string
   balance: number // 余额
 }
 
-export interface Debt {
-  name: WalletName
-  creditAmount: number // 信用额度
-  debt: number // 欠款
-  billingDay: string // 账单日 本月的哪一天
-  repaymentDay: string // 还款日
-}
+export const walletIndexing: StoreIndexing = [
+  {
+    name: 'name',
+  },
+]
 
-export interface Wallet {
-  assets: Asset[]
-  debts: Debt[]
-}
+export const supportedWallets = [
+  { name: '现金', icon: 'wallet' },
+  { name: '银行卡', icon: 'bank-card' },
+  { name: '信用卡', icon: 'bank-card-2' },
+  { name: '支付宝', icon: 'alipay' },
+  { name: '微信', icon: 'wechat-2' },
+  { name: 'QQ钱包', icon: 'qq' },
+  { name: '投资', icon: 'funds' },
+]
 
-export const presetWallets: Wallet = {
-  assets: [
-    {
-      name: '现金',
-      balance: 0,
-    },
-  ],
-  debts: [],
-}
+export const presetWallets: Wallet[] = [
+  {
+    name: '现金',
+    icon: 'wallet',
+    balance: 0,
+  },
+]
 
 export function getDefaultWalletName(): WalletName {
-  return presetWallets.assets[0].name
+  return presetWallets[0].name
 }

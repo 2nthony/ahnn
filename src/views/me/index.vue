@@ -13,6 +13,10 @@
     </Group> -->
 
     <Group>
+      <Cell title="钱包" :link="'/me/wallet'"></Cell>
+    </Group>
+
+    <Group>
       <Cell title="设置" :link="'/me/setting'"></Cell>
     </Group>
 
