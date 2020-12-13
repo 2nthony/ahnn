@@ -1,13 +1,12 @@
 <template>
   <PageSelect
     :title="title"
-    :items="items"
+    :items="categories"
     @item-click="handleItemClick"
   ></PageSelect>
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
 import { presetCategories } from '@/model/Category'
 import { useStore } from '@/store'
 import { TypeCNTexts } from '@/model/Type'
@@ -23,7 +22,6 @@ export default {
     const addRecord = store.getters.addRecord
     const title = `${TypeCNTexts[addRecord.type]}分类`
     const categories = presetCategories[addRecord.type]
-    const items = computed(() => categories)
 
     const handleItemClick = (index: number) => {
       store.commit('setAddRecord', {
@@ -32,7 +30,7 @@ export default {
       router.back()
     }
 
-    return { title, items, handleItemClick }
+    return { title, categories, handleItemClick }
   },
 }
 </script>
