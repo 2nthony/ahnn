@@ -1,5 +1,5 @@
 <template>
-  <button :class="type"><slot /></button>
+  <button :class="[type, size]"><slot /></button>
 </template>
 
 <script lang="ts">
@@ -7,6 +7,7 @@ import { setProps } from '../../utils/setProps'
 export default {
   props: {
     type: setProps('string'),
+    size: setProps('string'),
   },
 }
 </script>
@@ -18,8 +19,9 @@ button {
   color: var(--themed-fg, var(--ahnn-foreground));
   border-radius: var(--radius);
   padding: 0 16px;
+  font-size: var(--ahnn-form-font);
   height: var(--ahnn-form-height);
-  line-height: var(--ahnn-form-height);
+  line-height: var(--ahnn-form-inline-height);
   outline: none;
   cursor: pointer;
   border: none;
@@ -31,6 +33,19 @@ button {
     margin-left: 16px;
   }
 
+  // size
+  &.small {
+    font-size: var(--ahnn-form-small-font);
+    height: var(--ahnn-form-small-height);
+    line-height: var(--ahnn-form-small-inline-height);
+  }
+  &.large {
+    font-size: var(--ahnn-form-large-font);
+    height: var(--ahnn-form-large-height);
+    line-height: var(--ahnn-form-large-inline-height);
+  }
+
+  // type
   &:hover {
     color: var(--themed-bg, var(--themed-fg));
     background-color: transparent;
