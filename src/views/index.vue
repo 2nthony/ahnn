@@ -5,12 +5,12 @@
     </ViewingArea>
 
     <Group
-      v-for="item in data"
-      :key="item.date"
-      :title="getCNDayText(item.date)"
+      v-for="record in records"
+      :key="record.date"
+      :title="getCNDayText(record.date)"
     >
       <HomeRecordCard
-        v-for="(cost, index) in item.costs"
+        v-for="(cost, index) in record.costs"
         :key="index"
         :record="cost"
       />
@@ -46,14 +46,14 @@ export default {
     const currentYear = ref(getCurrentYear())
     const currentMonth = ref(getCurrentMonth())
 
-    const data = computed(() => {
+    const records = computed(() => {
       return compatHomeRecords(store.getters.records)
     })
 
     return {
       currentYear,
       currentMonth,
-      data,
+      records,
 
       getCNDayText,
     }
