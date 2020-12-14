@@ -1,4 +1,4 @@
-import { readWalletByName, setWallet } from '@/db/wallet'
+import { deleteWallet, readWalletByName, setWallet } from '@/db/wallet'
 import { Wallet } from '@/model/Wallet'
 import { deepToRaw } from '@/utils'
 import { createToast } from 'vercel-toast'
@@ -10,6 +10,7 @@ import { getToday } from '@/utils/date'
 import { Record } from '@/model/Record'
 import { Types } from '@/model/Type'
 import { useStore } from '@/store'
+import { router } from '@/router'
 
 export function addWalletStrategy() {
   const route = useRoute()
@@ -36,8 +37,9 @@ export function addWalletStrategy() {
           action: {
             callback(toast) {
               form.value.name = form.value.name + '1'
-              toast.destory()
-              handleSave()
+              handleSave().then(() => {
+                toast.destory()
+              })
             },
             text: '同意',
           },
@@ -59,6 +61,8 @@ export function addWalletStrategy() {
     form,
     name,
     handleSave,
+
+    rightTabbar: {},
   }
 }
 
@@ -116,10 +120,32 @@ export function editWalletStrategy() {
     })
   }
 
+  const handleDelete = () => {
+    createToast('移除此钱包不会清除与这个钱包有关的记录，确认移除吗？', {
+      type: 'error',
+      action: {
+        text: '移除',
+        callback(toast) {
+          deleteWallet(form.value).then(() => {
+            toast.destory()
+            router.replace('/me/wallet')
+          })
+        },
+      },
+      cancel: '取消',
+    })
+  }
+
   return {
     title,
     form,
     name,
     handleSave,
+
+    rightTabbar: {
+      rightIcon: 'delete-bin',
+      rightText: '移除此钱包',
+      rightClick: handleDelete,
+    },
   }
 }

@@ -16,6 +16,9 @@
       :mainText="'保存'"
       :mainIcon="'check'"
       @main-click="handleSave"
+      :rightIcon="rightTabbar.rightIcon"
+      :rightText="rightTabbar.rightText"
+      @right-click="rightTabbar.rightClick"
     ></Tabbar>
   </div>
 </template>

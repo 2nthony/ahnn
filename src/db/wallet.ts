@@ -32,6 +32,14 @@ export async function setWallet(wallet: Wallet) {
   return db[action](storeName, wallet).finally(() => db.close())
 }
 
+export async function deleteWallet(wallet: Wallet) {
+  if (!wallet.id) return
+  const db = await open()
+  return db.delete(storeName, wallet.id).finally(() => {
+    db.close()
+  })
+}
+
 export async function readWalletByName(name: string): Promise<Wallet> {
   const db = await open()
   return db.getFromIndex(storeName, 'name', name).finally(() => db.close())
