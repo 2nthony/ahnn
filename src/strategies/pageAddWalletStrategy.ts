@@ -24,7 +24,7 @@ export function addWalletStrategy() {
     balance: null,
   })
 
-  const checkIsExisting = async () => {
+  const checkIsExisting = () => {
     return readWalletByName(form.value.name)
   }
   const handleSave = async () => {
@@ -47,7 +47,7 @@ export function addWalletStrategy() {
       return
     }
 
-    setWallet(
+    return setWallet(
       deepToRaw({ ...form.value, balance: Number(form.value.balance || 0) }),
     ).then(() => {
       router.push('/me/wallet')
@@ -65,8 +65,9 @@ export function addWalletStrategy() {
 export function editWalletStrategy() {
   const store = useStore()
 
-  const { form, name } = addWalletStrategy()
-  const title = `修改${name}钱包`
+  const strategy = addWalletStrategy()
+  const { form, name } = strategy
+  const title = `设置${name}钱包`
 
   let origBalance: Wallet['balance']
 
@@ -85,17 +86,13 @@ export function editWalletStrategy() {
     return Types.payout
   }
 
-  //
   const handleSave = () => {
+    const fns: Promise<any>[] = []
+
     origBalance = Number(origBalance || 0)
     const newBalance = Number(form.value.balance || 0)
 
-    const newWalletValue: Wallet = deepToRaw({
-      ...form.value,
-      balance: newBalance,
-    })
-
-    // 金额变动情况
+    // 金额变动情况，添加一个金额变动记录
     if (origBalance !== newBalance) {
       const record: Record = {
         type: getRecordType(origBalance, newBalance),
@@ -108,19 +105,15 @@ export function editWalletStrategy() {
         date: getToday(),
         remark: '手动调整',
       }
-
-      Promise.all([addRecord(record), setWallet(newWalletValue)]).then(() => {
-        // 刷新首页记录
-        store.dispatch('readRecordsByQueryDate')
-      })
+      fns.push(addRecord(record))
     }
 
-    // TODO 更新所有同名 record
-    /* setWallet(
-      deepToRaw({ ...form.value, balance: Number(form.value.balance || 0) }),
-    ).then(() => {
-      router.push('/me/wallet')
-    }) */
+    fns.push(strategy.handleSave())
+
+    Promise.all(fns).then(() => {
+      // 刷新首页记录
+      store.dispatch('readRecordsByQueryDate')
+    })
   }
 
   return {
