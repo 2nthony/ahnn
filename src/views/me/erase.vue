@@ -23,7 +23,7 @@ export default {
 
   setup() {
     const eraseRecord = () => {
-      createToast('将会抹除所有记账记录', {
+      createToast('确认抹除所有记账记录吗？', {
         type: 'error',
         cancel: '取消',
         action: {
