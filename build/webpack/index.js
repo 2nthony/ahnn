@@ -5,12 +5,13 @@ const resolve = (...dir) => path.resolve(__dirname, ...dir)
 
 const extendConfigs = fs
   .readdirSync(resolve())
-  .filter(filename => filename !== 'index.js')
+  .filter((filename) => filename !== 'index.js')
 
-module.exports = chainWebpack => {
-  const collection = extendConfigs.map(filename => require(resolve(filename)))
+module.exports = (chainWebpack) => {
+  const collection = extendConfigs.map((filename) => require(resolve(filename)))
 
-  collection.forEach(config => {
+  console.log()
+  collection.forEach((config) => {
     if (config.when && !config.when()) return
 
     if (config.apply && !config.disabled) {
