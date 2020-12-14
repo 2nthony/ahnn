@@ -22,6 +22,7 @@ export default {
         path: '/me/add-wallet',
         query: {
           name: selectedWallet.name,
+          icon: selectedWallet.icon,
         },
       })
     }
