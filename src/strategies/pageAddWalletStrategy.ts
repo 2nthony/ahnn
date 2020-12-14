@@ -64,7 +64,6 @@ export function addWalletStrategy() {
 
 export function editWalletStrategy() {
   const store = useStore()
-  const router = useRouter()
 
   const { form, name } = addWalletStrategy()
   const title = `修改${name}钱包`
