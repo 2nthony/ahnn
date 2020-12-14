@@ -42,9 +42,9 @@
 </template>
 
 <script lang="ts">
-import { evaluate } from 'mathjs'
 import { defineComponent, ref, watch } from 'vue'
 import RemixIcon from './RemixIcon.vue'
+import { stringMath } from '../utils/stringMath'
 
 export default defineComponent({
   components: { RemixIcon },
@@ -115,9 +115,9 @@ export default defineComponent({
 
     const inputEqual = () => {
       try {
-        const res = evaluate(input.value)
+        const res = stringMath(input.value)
         if (res) {
-          input.value = '' + res
+          input.value = '' + Number(res).toFixed(2)
         }
       } catch (e) {
         console.error(e)
