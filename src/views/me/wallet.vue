@@ -16,7 +16,7 @@
     ></Card>
 
     <Tabbar
-      :mainText="'添加'"
+      :mainText="'添加钱包'"
       :mainIcon="'add-circle'"
       @main-click="$router.push('/select/add-wallet-select-wallet')"
     ></Tabbar>
