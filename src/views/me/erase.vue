@@ -29,8 +29,8 @@ export default {
         action: {
           text: '抹除',
           callback: (toast) => {
-            toast.destory()
             clearRecord().then(() => {
+              toast.destory()
               createToast('抹除完成', {
                 timeout: 2000,
               })
