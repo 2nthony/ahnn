@@ -1,3 +1,5 @@
+// https://github.com/devrafalko/string-math
+
 type EQ = string
 export function stringMath(eq: EQ) {
   const mulDiv = /([+-]?\d*\.?\d+(?:e[+-]\d+)?)\s*([*/])\s*([+-]?\d*\.?\d+(?:e[+-]\d+)?)/
@@ -28,7 +30,7 @@ export function stringMath(eq: EQ) {
         const result =
           // @ts-ignore
           sides[2] === '*' ? sides[1] * sides[3] : sides[1] / sides[3]
-        return String(result >= 0 ? '+' + result : result)
+        return '' + (result >= 0 ? '+' + result : result)
       })
     }
     return eq
@@ -41,9 +43,10 @@ export function stringMath(eq: EQ) {
     while (eq.search(plusMin) !== -1) {
       eq = eq.replace(plusMin, (a) => {
         const sides = plusMin.exec(a)
-        return String(
+        return (
+          '' +
           // @ts-ignore
-          sides[2] === '+' ? +sides[1] + +sides[3] : +sides[1] - +sides[3],
+          (sides[2] === '+' ? +sides[1] + +sides[3] : +sides[1] - +sides[3])
         )
       })
     }
