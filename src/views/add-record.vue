@@ -85,22 +85,16 @@
 </template>
 
 <script lang="ts">
-import { computed, ref } from 'vue'
 import Tabbar from '../components/Tabbar.vue'
 import ViewingArea from '../components/ViewingArea.vue'
 import Calculator from '../components/Calculator.vue'
 import Button from '../components/ui/Button.vue'
 import Input from '../components/ui/Input.vue'
-import { getToday, getCNDayText } from '../utils/date'
-import { deepToRaw } from '../utils'
-import { useRouter } from 'vue-router'
 import InputDate from '@/components/InputDate.vue'
 import Text from '@/components/ui/Text.vue'
-import { useStore } from '@/store'
-import { Type, TypeCNTexts, Types } from '@/model/Type'
 import RemixIcon from '@/components/RemixIcon.vue'
 import Heading from '@/components/ui/Heading.vue'
-import { setRecord } from '../db'
+import { addRecordStrategy } from '../strategies/pageAddRecordStrategy'
 
 export default {
   components: {
@@ -115,68 +109,7 @@ export default {
     Heading,
   },
 
-  setup() {
-    const store = useStore()
-    const router = useRouter()
-
-    const addRecord = computed(() => store.getters.addRecord)
-    const money = ref<number>(addRecord.value.cost || 0)
-    const previewDate = computed(() => getCNDayText(addRecord.value.date))
-    const calculatorVisible = ref<boolean>(true)
-
-    const handleSave = () => {
-      setRecord(deepToRaw(addRecord.value)).then(() => {
-        router.push('/')
-        store.commit('initAddRecord')
-        store.dispatch('readRecordsByQueryDate')
-      })
-    }
-
-    const handleSwitchType = (type: Type) => {
-      store.commit('switchAddRecordType', type)
-    }
-
-    const handleCalculatorVisible = (bool: boolean) => {
-      calculatorVisible.value = bool || !calculatorVisible.value
-    }
-
-    const onDateSelect = (val: string) => {
-      store.commit('setAddRecord', {
-        date: val || getToday(),
-      })
-    }
-    const onRemarkInput = (val: string) => {
-      store.commit('setAddRecord', {
-        remark: val,
-      })
-    }
-    const onCalcResult = (val: number) => {
-      money.value = val
-      store.commit('setAddRecord', {
-        cost: val,
-      })
-    }
-
-    const onBack = () => store.commit('initAddRecord')
-
-    return {
-      money,
-      addRecord,
-      previewDate,
-      calculatorVisible,
-
-      handleSave,
-      handleSwitchType,
-      handleCalculatorVisible,
-      onDateSelect,
-      onRemarkInput,
-      onCalcResult,
-      onBack,
-
-      TypeCNTexts,
-      Types,
-    }
-  },
+  setup: addRecordStrategy,
 }
 </script>
 

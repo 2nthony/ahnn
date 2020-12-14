@@ -67,7 +67,7 @@ export default defineComponent({
 
     const handleEdit = () => {
       store.commit('setAddRecord', props.record as Record)
-      router.push('/add-record')
+      router.push('/edit-record')
     }
 
     const handleDelete = () => {
