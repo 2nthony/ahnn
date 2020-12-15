@@ -18,10 +18,13 @@ import Cell from '@/components/Cell.vue'
 import { clearRecord } from '@/db'
 import 'vercel-toast/dist/vercel-toast.css'
 import { createToast, destoryAllToasts } from 'vercel-toast'
+import { useStore } from '@/store'
 export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 
   setup() {
+    const store = useStore()
+
     const eraseRecord = () => {
       createToast('确认抹除所有记账记录吗？', {
         type: 'error',
@@ -34,6 +37,7 @@ export default {
               createToast('抹除完成', {
                 timeout: 2000,
               })
+              store.commit('setRecords', [])
             })
           },
         },
