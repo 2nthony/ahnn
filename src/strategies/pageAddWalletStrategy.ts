@@ -87,7 +87,7 @@ export function editWalletStrategy() {
   })
 
   const getRecordType = (oldVal: number, newVal: number) => {
-    if (newVal - oldVal > oldVal) {
+    if (newVal > oldVal) {
       return Types.income
     }
     return Types.payout
