@@ -6,3 +6,6 @@ export const isFalsy = (val: any) => {
   return [null, undefined, NaN].indexOf(val) !== -1
 }
 export const isTruthy = (val: any) => !isFalsy(val)
+
+export const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
+  .matches
