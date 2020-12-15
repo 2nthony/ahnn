@@ -21,7 +21,7 @@ export const supportedWallets = [
   { name: '信用卡', icon: 'bank-card-2' },
   { name: '支付宝', icon: 'alipay' },
   { name: '微信', icon: 'wechat-2' },
-  { name: 'QQ钱包', icon: 'qq' },
+  { name: 'QQ', icon: 'qq' },
   { name: '投资', icon: 'funds' },
 ]
 

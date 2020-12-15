@@ -17,7 +17,7 @@ export function addWalletStrategy() {
   const router = useRouter()
   const name = route.query.name as Wallet['name']
   const icon = route.query.icon as Wallet['icon']
-  const title = `添加${name}到钱包`
+  const title = `添加${name}钱包`
 
   const form = ref<Wallet>({
     name,
