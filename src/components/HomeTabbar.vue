@@ -5,7 +5,7 @@
       @click="switchTab('/chart')"
     >
       <RemixIcon :icon="'pie-chart'" />
-      <Text :size="300">报表</Text>
+      <Text :size="300">分析</Text>
     </TabbarItem>
 
     <TabbarItem
