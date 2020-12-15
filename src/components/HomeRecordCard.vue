@@ -47,7 +47,7 @@ export default defineComponent({
     record: setProps('object'),
   },
 
-  setup(props) {
+  setup(props, { emit }) {
     const router = useRouter()
     const store = useStore()
 
@@ -92,6 +92,8 @@ export default defineComponent({
               toast.destory()
               store.commit('deleteRecord', record.value.id)
               showMore.value = false
+
+              emit('deleted')
             })
           },
         },

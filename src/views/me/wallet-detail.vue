@@ -11,6 +11,7 @@
         v-for="(cost, index) in record.costs"
         :key="index"
         :record="cost"
+        @deleted="readRecord"
       />
     </Group>
 
@@ -50,13 +51,15 @@ export default {
     const name = route.query.name as Record['wallet']
     const records = ref<any>([])
 
-    onMounted(() => {
+    const readRecord = () => {
       readRecordByWallet(name).then((data) => {
         records.value = compatHomeRecords(
           quickSortBy<Record>(data, 'date', 'desc'),
         )
       })
-    })
+    }
+
+    onMounted(readRecord)
 
     const handleAddRecord = () => {
       store.commit('setAddRecord', {
@@ -81,6 +84,8 @@ export default {
       handleAddRecord,
       handleEditWallet,
       getCNDayText,
+
+      readRecord,
     }
   },
 }
