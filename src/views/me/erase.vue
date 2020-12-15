@@ -19,6 +19,7 @@ import { clearRecord } from '@/db'
 import 'vercel-toast/dist/vercel-toast.css'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import { useStore } from '@/store'
+import { isDarkMode } from '@/utils'
 export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 
@@ -35,6 +36,7 @@ export default {
             clearRecord().then(() => {
               toast.destory()
               createToast('抹除完成', {
+                type: isDarkMode ? 'dark' : 'default',
                 timeout: 2000,
               })
               store.commit('setRecords', [])
