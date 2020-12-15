@@ -63,6 +63,7 @@ export function addWalletStrategy() {
     title,
     form,
     name,
+    handleSave,
     handleSetWallet,
 
     rightTabbar: {},
