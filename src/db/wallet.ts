@@ -40,6 +40,13 @@ export async function deleteWallet(wallet: Wallet) {
   })
 }
 
+export async function clearWallet() {
+  const db = await open()
+  return db.clear(storeName).finally(() => {
+    db.close()
+  })
+}
+
 export async function readWalletByName(name: string): Promise<Wallet> {
   const db = await open()
   return db.getFromIndex(storeName, 'name', name).finally(() => db.close())

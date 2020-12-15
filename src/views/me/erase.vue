@@ -4,6 +4,7 @@
 
     <Group>
       <Cell title="抹除所有记账记录" @click="eraseRecord" link></Cell>
+      <Cell title="抹除所有钱包" @click="eraseWallet" link></Cell>
     </Group>
 
     <Tabbar @back="destoryAllToasts"></Tabbar>
@@ -20,34 +21,50 @@ import 'vercel-toast/dist/vercel-toast.css'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import { useStore } from '@/store'
 import { isDarkMode } from '@/utils'
+import { clearWallet } from '@/db/wallet'
 export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 
   setup() {
     const store = useStore()
 
-    const eraseRecord = () => {
-      createToast('确认抹除所有记账记录吗？', {
+    const successToast = () => {
+      createToast('抹除完成', {
+        type: isDarkMode ? 'dark' : 'default',
+        timeout: 2000,
+      })
+    }
+
+    const baseToast = (msg: string, p: Promise<any>, cb: Function) => {
+      createToast(`确认抹除所有${msg}吗？`, {
         type: 'error',
         cancel: '取消',
         action: {
           text: '抹除',
           callback: (toast) => {
-            clearRecord().then(() => {
+            p.then(() => {
               toast.destory()
-              createToast('抹除完成', {
-                type: isDarkMode ? 'dark' : 'default',
-                timeout: 2000,
-              })
-              store.commit('setRecords', [])
+              successToast()
+              cb()
             })
           },
         },
       })
     }
 
+    const eraseRecord = () => {
+      baseToast('记账记录', clearRecord(), () => {
+        store.commit('setRecords', [])
+      })
+    }
+
+    const eraseWallet = () => {
+      baseToast('钱包', clearWallet(), () => {})
+    }
+
     return {
       eraseRecord,
+      eraseWallet,
       destoryAllToasts,
     }
   },
