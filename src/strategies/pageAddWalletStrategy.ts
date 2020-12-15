@@ -28,6 +28,13 @@ export function addWalletStrategy() {
   const checkIsExisting = () => {
     return readWalletByName(form.value.name)
   }
+  const handleSetWallet = () => {
+    return setWallet(
+      deepToRaw({ ...form.value, balance: Number(form.value.balance || 0) }),
+    ).then(() => {
+      router.push('/me/wallet')
+    })
+  }
   const handleSave = async () => {
     if (await checkIsExisting()) {
       createToast(
@@ -49,18 +56,14 @@ export function addWalletStrategy() {
       return
     }
 
-    return setWallet(
-      deepToRaw({ ...form.value, balance: Number(form.value.balance || 0) }),
-    ).then(() => {
-      router.push('/me/wallet')
-    })
+    return handleSetWallet()
   }
 
   return {
     title,
     form,
     name,
-    handleSave,
+    handleSetWallet,
 
     rightTabbar: {},
   }
@@ -112,7 +115,7 @@ export function editWalletStrategy() {
       fns.push(addRecord(record))
     }
 
-    fns.push(strategy.handleSave())
+    fns.push(strategy.handleSetWallet())
 
     Promise.all(fns).then(() => {
       // 刷新首页记录
