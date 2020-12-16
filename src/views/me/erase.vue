@@ -3,8 +3,8 @@
     <ViewingArea title="还原"></ViewingArea>
 
     <Group>
-      <Cell title="抹除所有记账记录" @click="eraseRecord" link></Cell>
-      <Cell title="抹除所有钱包" @click="eraseWallet" link></Cell>
+      <Cell title="抹除所有记账记录" @click="handleEraseRecord" link></Cell>
+      <Cell title="还原钱包到初始状态" @click="handleResetWallet" link></Cell>
     </Group>
 
     <Tabbar @back="destoryAllToasts"></Tabbar>
@@ -21,7 +21,7 @@ import 'vercel-toast/dist/vercel-toast.css'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import { useStore } from '@/store'
 import { isDarkMode } from '@/utils'
-import { clearWallet } from '@/db/wallet'
+import { resetWallet } from '@/db/wallet'
 export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 
@@ -36,7 +36,7 @@ export default {
     }
 
     const baseToast = (msg: string, p: Promise<any>, cb: Function) => {
-      createToast(`确认抹除所有${msg}吗？`, {
+      createToast(msg, {
         type: 'error',
         cancel: '取消',
         action: {
@@ -52,19 +52,23 @@ export default {
       })
     }
 
-    const eraseRecord = () => {
-      baseToast('记账记录', clearRecord(), () => {
+    const handleEraseRecord = () => {
+      baseToast('确认抹除所有记账记录吗？', clearRecord(), () => {
         store.commit('setRecords', [])
       })
     }
 
-    const eraseWallet = () => {
-      baseToast('钱包', clearWallet(), () => {})
+    const handleResetWallet = () => {
+      baseToast(
+        '确认还原钱包到初始状态吗，但始终会保留`现金`钱包。',
+        resetWallet(),
+        () => {},
+      )
     }
 
     return {
-      eraseRecord,
-      eraseWallet,
+      handleEraseRecord,
+      handleResetWallet,
       destoryAllToasts,
     }
   },

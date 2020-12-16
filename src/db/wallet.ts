@@ -1,5 +1,5 @@
 import { Record } from '@/model/Record'
-import { Wallet, walletIndexing } from '@/model/Wallet'
+import { pinnedWallets, Wallet, walletIndexing } from '@/model/Wallet'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 
@@ -57,5 +57,33 @@ export async function returnCostToWallet(name: string, cost: Record['cost']) {
   return setWallet({
     ...wallet,
     balance: (wallet.balance as number) + cost,
+  })
+}
+
+export async function resetWallet() {
+  const wallets = await readWallets()
+
+  const db = await open()
+
+  const fns: Promise<any>[] = []
+
+  const willDeleteWallets = wallets.filter((wallet) => {
+    return pinnedWallets.indexOf(wallet.name) === -1
+  })
+
+  willDeleteWallets.forEach((wallet) => {
+    if (!wallet.id) return
+    fns.push(db.delete(storeName, wallet.id))
+  })
+
+  // 重置`现金`钱包
+  fns.push(
+    readWalletByName('现金').then((cashWallet) => {
+      return setWallet({ ...cashWallet, balance: 0 })
+    }),
+  )
+
+  return Promise.all(fns).then(() => {
+    db.close()
   })
 }

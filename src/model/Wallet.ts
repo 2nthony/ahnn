@@ -33,6 +33,8 @@ export const presetWallets: Wallet[] = [
   },
 ]
 
+export const pinnedWallets = ['现金']
+
 export function getDefaultWalletName(): WalletName {
   return presetWallets[0].name
 }
