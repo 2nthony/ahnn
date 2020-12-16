@@ -66,6 +66,8 @@ export function addWalletStrategy() {
     handleSave,
     handleSetWallet,
 
+    backDeep: -2,
+
     rightTabbar: {},
   }
 }
@@ -145,6 +147,8 @@ export function editWalletStrategy() {
     form,
     name,
     handleSave,
+
+    backDeep: -1,
 
     rightTabbar: {
       rightIcon: 'delete-bin',
