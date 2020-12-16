@@ -2,7 +2,7 @@ import { Record, recordIndexing } from '../model/Record'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
-import { WalletName } from '@/model/Wallet'
+import { Wallet, WalletName } from '@/model/Wallet'
 
 export function upgradeRecordDB(
   db: IDBPDatabase,
@@ -107,4 +107,15 @@ export async function readRecordByWallet(
   return db.getAllFromIndex('record', 'wallet', walletName).finally(() => {
     db.close()
   })
+}
+
+export async function deleteAllRecordByWallet(walletName: Wallet['name']) {
+  const db = await open()
+  const records = await db.getAllFromIndex('record', 'wallet', walletName)
+
+  Promise.all(
+    records.map((record) => {
+      return db.delete('record', record.id)
+    }),
+  ).finally(() => db.close())
 }

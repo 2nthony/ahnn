@@ -5,7 +5,7 @@ import { createToast } from 'vercel-toast'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import 'vercel-toast/dist/vercel-toast.css'
-import { addRecord } from '@/db'
+import { addRecord, deleteAllRecordByWallet } from '@/db'
 import { getToday } from '@/utils/date'
 import { Record } from '@/model/Record'
 import { Types } from '@/model/Type'
@@ -128,14 +128,18 @@ export function editWalletStrategy() {
   }
 
   const handleDelete = () => {
-    createToast('移除此钱包不会清除与这个钱包有关的记录，确认移除吗？', {
+    createToast('确认移除此钱包吗？同时也会抹除与这个钱包有关的所有记录。', {
       type: 'error',
       action: {
         text: '移除',
         callback(toast) {
-          deleteWallet(form.value).then(() => {
+          Promise.all([
+            deleteAllRecordByWallet(form.value.name),
+            deleteWallet(form.value),
+          ]).then(() => {
             toast.destory()
-            router.replace('/me/wallet')
+            router.go(-2)
+            store.dispatch('readRecordsByQueryDate')
           })
         },
       },
