@@ -42,6 +42,7 @@ export default {
   padding: var(--gap);
   background-color: var(--ahnn-background);
   border-radius: var(--radius);
+  cursor: pointer;
 
   & + .card {
     margin-top: var(--gap);

@@ -13,6 +13,7 @@
   flex: 1;
   max-width: 33.33%;
   height: inherit;
+  cursor: pointer;
 
   &:active {
     background-color: var(--accents-2);

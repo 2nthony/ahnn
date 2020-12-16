@@ -61,6 +61,7 @@ export default {
   padding: 14px var(--gap);
   position: relative;
   background-color: var(--ahnn-background);
+  cursor: pointer;
 
   & + .cell {
     border-top: none;

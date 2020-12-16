@@ -55,6 +55,7 @@ export default {
   background-color: var(--ahnn-background);
   min-height: 120px;
   border-radius: var(--radius);
+  cursor: pointer;
 
   &:active {
     background-color: var(--accents-2);
