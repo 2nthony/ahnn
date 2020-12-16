@@ -8,12 +8,11 @@
 
 <script lang="ts">
 import { supportedWallets } from '@/model/Wallet'
-import Group from '@/components/Group.vue'
 import PageSelect from '@/layout/PageSelect.vue'
 import { useRouter } from 'vue-router'
 
 export default {
-  components: { Group, PageSelect },
+  components: { PageSelect },
   setup() {
     const router = useRouter()
     const handleItemClick = (index: number) => {

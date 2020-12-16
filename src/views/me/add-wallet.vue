@@ -27,7 +27,6 @@
 <script lang="ts">
 import ViewingArea from '@/components/ViewingArea.vue'
 import Tabbar from '@/components/Tabbar.vue'
-import { onMounted, reactive, ref } from 'vue'
 import Input from '@/components/ui/Input.vue'
 import { addWalletStrategy } from '@/strategies/pageAddWalletStrategy'
 

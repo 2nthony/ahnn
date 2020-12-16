@@ -26,15 +26,14 @@
 <script lang="ts">
 import ViewingArea from '@/components/ViewingArea.vue'
 import Tabbar from '@/components/Tabbar.vue'
-import RemixIcon from '@/components/RemixIcon.vue'
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import { readWallets } from '@/db/wallet'
 import { Wallet } from '@/model/Wallet'
 import Card from '@/components/Card.vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
-  components: { ViewingArea, Tabbar, RemixIcon, Card },
+  components: { ViewingArea, Tabbar, Card },
 
   setup() {
     const router = useRouter()

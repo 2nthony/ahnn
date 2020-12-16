@@ -25,8 +25,6 @@
 
 <script lang="ts">
 import { setProps } from '@/utils/setProps'
-import Pane from './ui/Pane.vue'
-import RemixIcon from './RemixIcon.vue'
 import Text from './ui/Text.vue'
 import { TypeCNTexts, Types } from '@/model/Type'
 import { computed, defineComponent, ref, watch } from 'vue'
@@ -41,7 +39,7 @@ import Card from './Card.vue'
 import { returnCostToWallet } from '@/db/wallet'
 
 export default defineComponent({
-  components: { Pane, RemixIcon, Text, Button, Card },
+  components: { Text, Button, Card },
 
   props: {
     record: setProps('object'),

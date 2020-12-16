@@ -8,7 +8,6 @@
 
 <script lang="ts">
 import { Wallet } from '@/model/Wallet'
-import Group from '@/components/Group.vue'
 import PageSelect from '@/layout/PageSelect.vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
@@ -16,7 +15,7 @@ import { onMounted, ref } from 'vue'
 import { readWallets } from '@/db/wallet'
 
 export default {
-  components: { Group, PageSelect },
+  components: { PageSelect },
   setup() {
     const store = useStore()
     const router = useRouter()
