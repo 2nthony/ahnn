@@ -18,6 +18,7 @@ export function addWalletStrategy() {
   const name = route.query.name as Wallet['name']
   const icon = route.query.icon as Wallet['icon']
   const title = `添加${name}钱包`
+  const backDeep = -2
 
   const form = ref<Wallet>({
     name,
@@ -32,7 +33,7 @@ export function addWalletStrategy() {
     return setWallet(
       deepToRaw({ ...form.value, balance: Number(form.value.balance || 0) }),
     ).then(() => {
-      router.push('/me/wallet')
+      router.go(backDeep)
     })
   }
   const handleSave = async () => {
@@ -66,7 +67,7 @@ export function addWalletStrategy() {
     handleSave,
     handleSetWallet,
 
-    backDeep: -2,
+    backDeep,
 
     rightTabbar: {},
   }
