@@ -80,13 +80,13 @@ export function editWalletStrategy() {
   const { form, name } = strategy
   const title = `设置${name}钱包`
 
-  let origBalance: Wallet['balance']
+  let origWallet: Wallet
 
   onMounted(() => {
     readWalletByName(name).then((wallet) => {
       if (!wallet) return
       form.value = wallet
-      origBalance = wallet.balance
+      origWallet = wallet
     })
   })
 
@@ -100,7 +100,7 @@ export function editWalletStrategy() {
   const handleSave = () => {
     const fns: Promise<any>[] = []
 
-    origBalance = Number(origBalance || 0)
+    const origBalance = Number(origWallet.balance || 0)
     const newBalance = Number(form.value.balance || 0)
 
     // 金额变动情况，添加一个金额变动记录
@@ -119,6 +119,9 @@ export function editWalletStrategy() {
       fns.push(addRecord(record))
     }
 
+    // 如果钱包名有变更，更新全部记录
+
+    // 保存
     fns.push(strategy.handleSetWallet())
 
     Promise.all(fns).then(() => {
