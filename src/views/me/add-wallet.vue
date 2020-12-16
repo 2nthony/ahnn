@@ -13,6 +13,7 @@
     </form>
 
     <Tabbar
+      :backDeep="-2"
       :mainText="'保存'"
       :mainIcon="'check'"
       @main-click="handleSave"

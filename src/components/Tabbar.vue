@@ -33,12 +33,13 @@ export default defineComponent({
     mainText: setProps('string'),
     rightIcon: setProps('string'),
     rightText: setProps('string'),
+    backDeep: setProps('number', -1),
   },
 
-  setup(_props, { emit }) {
+  setup(props, { emit }) {
     const router = useRouter()
     const handleBack = () => {
-      router.back()
+      router.go(props.backDeep)
       emit('back')
     }
 

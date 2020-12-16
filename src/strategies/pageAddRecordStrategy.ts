@@ -32,8 +32,7 @@ export function addRecordStrategy() {
         setWallet(newWalletValue),
         setRecord(deepToRaw(addRecord.value)),
       ]).then(() => {
-        // TODO 钱包也有这个入口，造成很多路由历史
-        router.push('/')
+        router.go(-1)
         store.commit('initAddRecord')
         store.dispatch('readRecordsByQueryDate')
       })
