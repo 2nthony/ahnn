@@ -18,8 +18,6 @@ export function addRecordStrategy() {
   const previewDate = computed(() => getCNDayText(addRecord.value.date))
   const calculatorVisible = ref<boolean>(true)
 
-  store.dispatch('initAddRecord')
-
   const handleSave = () => {
     return readWalletByName(addRecord.value.wallet).then((wallet) => {
       // 在此次记账后的钱包金额
