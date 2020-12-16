@@ -67,6 +67,10 @@ export default {
     border-top: none;
   }
 
+  &:hover {
+    background-color: var(--accents-1);
+  }
+
   &:active {
     background-color: var(--accents-2);
   }

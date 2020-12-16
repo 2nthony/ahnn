@@ -48,6 +48,10 @@ export default {
     margin-top: var(--gap);
   }
 
+  &:hover {
+    background-color: var(--accents-1);
+  }
+
   &:active {
     background-color: var(--accents-2);
   }
