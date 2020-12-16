@@ -5,7 +5,12 @@ import { createToast } from 'vercel-toast'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import 'vercel-toast/dist/vercel-toast.css'
-import { addRecord, deleteAllRecordByWallet } from '@/db'
+import {
+  addRecord,
+  deleteAllRecordByWallet,
+  readRecordByWallet,
+  setRecord,
+} from '@/db'
 import { getToday } from '@/utils/date'
 import { Record } from '@/model/Record'
 import { Types } from '@/model/Type'
@@ -86,7 +91,7 @@ export function editWalletStrategy() {
     readWalletByName(name).then((wallet) => {
       if (!wallet) return
       form.value = wallet
-      origWallet = wallet
+      origWallet = deepToRaw(wallet)
     })
   })
 
@@ -120,6 +125,17 @@ export function editWalletStrategy() {
     }
 
     // 如果钱包名有变更，更新全部记录
+    if (origWallet.name !== form.value.name) {
+      fns.push(
+        readRecordByWallet(origWallet.name).then((records) => {
+          return Promise.all(
+            records.map((record) => {
+              return setRecord({ ...record, wallet: form.value.name })
+            }),
+          )
+        }),
+      )
+    }
 
     // 保存
     fns.push(strategy.handleSetWallet())
