@@ -18,6 +18,8 @@ export function addRecordStrategy() {
   const previewDate = computed(() => getCNDayText(addRecord.value.date))
   const calculatorVisible = ref<boolean>(true)
 
+  store.dispatch('initAddRecord')
+
   const handleSave = () => {
     return readWalletByName(addRecord.value.wallet).then((wallet) => {
       // 在此次记账后的钱包金额
@@ -33,7 +35,7 @@ export function addRecordStrategy() {
         setRecord(deepToRaw(addRecord.value)),
       ]).then(() => {
         router.go(-1) // back to /
-        store.commit('initAddRecord')
+        store.dispatch('initAddRecord')
         store.dispatch('readRecordsByQueryDate')
       })
     })
@@ -64,7 +66,7 @@ export function addRecordStrategy() {
     })
   }
 
-  const onBack = () => store.commit('initAddRecord')
+  const onBack = () => store.dispatch('initAddRecord')
 
   return {
     money,
