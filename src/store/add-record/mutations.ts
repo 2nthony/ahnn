@@ -1,11 +1,10 @@
-import { getInitRecord, Record } from '../../model/Record'
+import { Record } from '../../model/Record'
 import { MutationTree } from 'vuex'
 import { State } from './state'
 import { Type } from '@/model/Type'
 import { presetCategories } from '@/model/Category'
 
 export type Mutations = {
-  initAddRecord(state: State): void
   setAddRecord(
     state: State,
     payload: { [key in keyof Record]?: Record[key] },
@@ -14,9 +13,6 @@ export type Mutations = {
 }
 
 export const mutations: MutationTree<State> & Mutations = {
-  initAddRecord(state) {
-    state.addRecord = getInitRecord()
-  },
   setAddRecord(state, payload) {
     state.addRecord = { ...state.addRecord, ...payload }
   },
