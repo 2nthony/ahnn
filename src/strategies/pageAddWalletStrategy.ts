@@ -18,7 +18,7 @@ export function addWalletStrategy() {
   const name = route.query.name as Wallet['name']
   const icon = route.query.icon as Wallet['icon']
   const title = `添加${name}钱包`
-  const backDeep = -2
+  const backDeep = -2 // back to /me/wallet
 
   const form = ref<Wallet>({
     name,
@@ -138,7 +138,7 @@ export function editWalletStrategy() {
             deleteWallet(form.value),
           ]).then(() => {
             toast.destory()
-            router.go(-2)
+            router.go(-2) // back to /me/wallet
             store.dispatch('readRecordsByQueryDate')
           })
         },
@@ -153,7 +153,7 @@ export function editWalletStrategy() {
     name,
     handleSave,
 
-    backDeep: -1,
+    backDeep: -1, // back to /me/wallet-detail
 
     rightTabbar: {
       rightIcon: 'delete-bin',

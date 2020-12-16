@@ -32,7 +32,7 @@ export function addRecordStrategy() {
         setWallet(newWalletValue),
         setRecord(deepToRaw(addRecord.value)),
       ]).then(() => {
-        router.go(-1)
+        router.go(-1) // back to /
         store.commit('initAddRecord')
         store.dispatch('readRecordsByQueryDate')
       })
