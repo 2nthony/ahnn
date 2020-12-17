@@ -31,6 +31,7 @@ export function getInitRecord(): Record {
     cost: 0,
     date: getToday(),
     wallet: getDefaultWalletName(),
+    remark: '',
   }
 }
 
