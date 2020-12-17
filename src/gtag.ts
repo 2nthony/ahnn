@@ -1,4 +1,6 @@
-declare var dataLayer: any[]
+interface Window {
+  dataLayer: any[]
+}
 
 const ID = 'G-2VZ9TX13ZG'
 

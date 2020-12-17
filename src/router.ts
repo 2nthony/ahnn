@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from 'vue-auto-routes'
 
-declare var window: { dataLayer: any }
+declare global {
+  interface Window {
+    dataLayer: any[]
+  }
+}
 
 const ID = 'G-2VZ9TX13ZG'
 
