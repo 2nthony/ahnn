@@ -24,7 +24,7 @@ export default {
 <style lang="less" scoped>
 .viewing-area {
   width: 100%;
-  height: 230px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
