@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
 import { getToday, getCNDayText } from '../utils/date'
-import { deepToRaw } from '../utils'
+import { deepToRaw, toRound } from '../utils'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
 import { Type, TypeCNTexts, Types } from '@/model/Type'
@@ -21,11 +21,12 @@ export function addRecordStrategy() {
   const handleSave = () => {
     return readWalletByName(addRecord.value.wallet).then((wallet) => {
       // 在此次记账后的钱包金额
-      const newBalance =
+      const newBalance = toRound(
         (wallet.balance as number) +
-        (addRecord.value.type === Types.income
-          ? 0 + addRecord.value.cost
-          : 0 - addRecord.value.cost)
+          (addRecord.value.type === Types.income
+            ? 0 + addRecord.value.cost
+            : 0 - addRecord.value.cost),
+      )
 
       const newWalletValue = { ...wallet, balance: newBalance }
       Promise.all([

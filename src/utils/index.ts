@@ -9,3 +9,8 @@ export const isTruthy = (val: any) => !isFalsy(val)
 
 export const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
   .matches
+
+export function toRound(decimal: number, len: number = 2) {
+  const length = Math.pow(10, len)
+  return Math.round(decimal * length) / length
+}
