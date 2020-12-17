@@ -3,9 +3,10 @@
     <slot name="placeholder" />
     <Input
       :modelValue="modelValue"
+      v-bind="$attrs"
       :type="type"
       class="input-date"
-      :class="{ transparent: $slots.placeholder }"
+      :class="{ 'has-placeholder': $slots.placeholder }"
       @update:modelValue="(val) => $emit('update:modelValue', val)"
     />
   </div>
@@ -27,18 +28,15 @@ export default {
 <style lang="less" scoped>
 .input-date-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
 }
 
 .input-date {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  &.transparent {
+  &.has-placeholder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
   }
 
