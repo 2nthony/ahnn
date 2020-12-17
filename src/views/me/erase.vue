@@ -35,14 +35,14 @@ export default {
       })
     }
 
-    const baseToast = (msg: string, p: Promise<any>, cb: Function) => {
+    const baseToast = (msg: string, p: Function, cb: Function) => {
       createToast(msg, {
         type: 'error',
         cancel: '取消',
         action: {
           text: '抹除',
           callback: (toast) => {
-            p.then(() => {
+            p().then(() => {
               toast.destory()
               successToast()
               cb()
@@ -53,7 +53,7 @@ export default {
     }
 
     const handleEraseRecord = () => {
-      baseToast('确认抹除所有记账记录吗？', clearRecord(), () => {
+      baseToast('确认抹除所有记账记录吗？', clearRecord, () => {
         store.commit('setRecords', [])
       })
     }
@@ -61,7 +61,7 @@ export default {
     const handleResetWallet = () => {
       baseToast(
         '确认还原钱包到初始状态吗，但始终会保留`现金`钱包。',
-        resetWallet(),
+        resetWallet,
         () => {},
       )
     }
