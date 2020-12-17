@@ -16,20 +16,22 @@
       />
     </Group>
 
+    <SelectMonth class="select-month"></SelectMonth>
     <HomeTabbar></HomeTabbar>
   </div>
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, watch } from 'vue'
 import Group from '../components/Group.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
 import { compatHomeRecords } from '../model/Record'
 import Heading from '../components/ui/Heading.vue'
-import { getCNDayText, getCurrentMonth, getCurrentYear } from '../utils/date'
+import { getCNDayText } from '../utils/date'
 import HomeRecordCard from '@/components/HomeRecordCard.vue'
 import { useStore } from '@/store'
+import SelectMonth from '@/components/SelectMonth.vue'
 
 export default {
   components: {
@@ -38,21 +40,22 @@ export default {
     Group,
     Heading,
     HomeRecordCard,
+    SelectMonth,
   },
 
   setup() {
     const store = useStore()
 
-    const currentYear = ref(getCurrentYear())
-    const currentMonth = ref(getCurrentMonth())
-
     const records = computed(() => {
       return compatHomeRecords(store.getters.records)
     })
 
+    const recordsQueryDate = computed(() => store.getters.recordsQueryDate)
+
+    watch(recordsQueryDate, () => store.dispatch('readRecordsByQueryDate'))
+
     return {
-      currentYear,
-      currentMonth,
+      currentMonth: computed(() => recordsQueryDate.value[1]),
       records,
 
       getCNDayText,
@@ -60,3 +63,15 @@ export default {
   },
 }
 </script>
+
+<style lang="less" scoped>
+.page-home {
+  & .select-month {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
+    height: var(--home-select-month-height);
+  }
+}
+</style>
