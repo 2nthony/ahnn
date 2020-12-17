@@ -3,7 +3,7 @@
     :titleIcon="record.category.icon"
     :title="record.category.name"
     :rightTextPrefixIcon="typeIcon[record.type]"
-    :rightText="Number(record.cost).toFixed(2)"
+    :rightText="toFixed(record.cost)"
     :content="record.remark"
     @click="handleShowMore"
   >
@@ -37,6 +37,7 @@ import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 import Card from './Card.vue'
 import { returnCostToWallet } from '@/db/wallet'
+import { toFixed } from '@/utils'
 
 export default defineComponent({
   components: { Text, Button, Card },
@@ -105,6 +106,7 @@ export default defineComponent({
       handleShowMore,
       handleEdit,
       handleDelete,
+      toFixed,
     }
   },
 })

@@ -45,6 +45,7 @@
 import { defineComponent, ref, watch } from 'vue'
 import RemixIcon from './RemixIcon.vue'
 import { stringMath } from '../utils/stringMath'
+import { toRound } from '@/utils'
 
 export default defineComponent({
   components: { RemixIcon },
@@ -117,7 +118,7 @@ export default defineComponent({
       try {
         const res = stringMath(input.value)
         if (res) {
-          input.value = '' + Number(res).toFixed(2)
+          input.value = '' + toRound(res)
         }
       } catch (e) {
         console.error(e)

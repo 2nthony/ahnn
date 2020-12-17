@@ -3,8 +3,7 @@
     <ViewingArea>
       <template #title>
         <Heading :size="900" @click="handleCalculatorVisible(true)"
-          >{{ TypeCNTexts[addRecord.type] }}
-          {{ Number(money).toFixed(2) }} 元</Heading
+          >{{ TypeCNTexts[addRecord.type] }} {{ toFixed(money) }} 元</Heading
         >
       </template>
     </ViewingArea>
@@ -95,6 +94,7 @@ import Text from '@/components/ui/Text.vue'
 import RemixIcon from '@/components/RemixIcon.vue'
 import Heading from '@/components/ui/Heading.vue'
 import { addRecordStrategy } from '../strategies/pageAddRecordStrategy'
+import { toFixed } from '@/utils'
 
 export default {
   components: {
@@ -109,7 +109,12 @@ export default {
     Heading,
   },
 
-  setup: addRecordStrategy,
+  setup() {
+    return {
+      ...addRecordStrategy(),
+      toFixed,
+    }
+  },
 }
 </script>
 

@@ -14,3 +14,7 @@ export function toRound(decimal: number, len: number = 2) {
   const length = Math.pow(10, len)
   return Math.round(decimal * length) / length
 }
+
+export function toFixed(decimal: number, len: number = 2) {
+  return Number(toRound(decimal, len)).toFixed(len)
+}
