@@ -4,6 +4,7 @@
 
     <Group>
       <Cell title="历史更新" :link="'/me/changelog'"></Cell>
+      <Cell title="开源软件许可" :link="'/me/oss-license'"></Cell>
     </Group>
 
     <Tabbar></Tabbar>
