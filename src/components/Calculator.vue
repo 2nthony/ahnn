@@ -56,11 +56,8 @@ export default defineComponent({
     watch(input, (val) => {
       // 当为正常数字时发送结果
       // 在 `inputNumber` 限制小数点个数
-      if (/^[\d.]+$/.test(input.value)) {
-        emit('result', Number(val))
-      } else {
-        emit('result', 0)
-      }
+      const firstInputNumber = (/^([\d.])+/.exec(val) || [''])[0]
+      emit('result', Number(firstInputNumber || 0))
     })
 
     const operators = {
