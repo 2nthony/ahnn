@@ -14,7 +14,6 @@
   max-width: 33.33%;
   height: inherit;
   cursor: pointer;
-  box-shadow: var(--tabbar-border-top);
 
   &:hover {
     background-color: var(--accents-1);
