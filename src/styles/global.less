@@ -32,7 +32,7 @@ h6 {
 
 #app {
   color: var(--ahnn-foreground);
-  padding: 0 10px;
+  padding: var(--app-gap);
   padding-bottom: var(--app-padding-bottom);
 
   -webkit-font-smoothing: antialiased;
@@ -43,4 +43,21 @@ h6 {
   width: 1rem;
   height: 1rem;
   fill: var(--ahnn-foreground);
+}
+
+// 基本路由过度动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: var(--app-gap);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
