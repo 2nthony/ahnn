@@ -15,9 +15,9 @@
       <Cell title="外观" :link="'/preference/appreance'"></Cell>
     </Group>
 
-    <Group>
+    <!-- <Group>
       <Cell title="还原" :link="'/me/erase'"></Cell>
-    </Group>
+    </Group> -->
 
     <Tabbar></Tabbar>
   </div>
