@@ -1,13 +1,13 @@
 {
   "name": "Ahnn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "node build/prepare.js && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve --port $PORT",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md changelog-app.md"
   },
   "dependencies": {
     "axios": "^0.21.0",

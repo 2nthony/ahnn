@@ -1,3 +1,13 @@
+## [0.0.3](https://github.com/evillt/ahnn/compare/v0.0.1...v0.0.3) (2020-12-18)
+
+
+### Features
+
+* **changelog:** page ([d698a9f](https://github.com/evillt/ahnn/commit/d698a9fbbb44a8bf85206db48db85ebbba95ed90))
+* **router-view:** fade transition ([0932a87](https://github.com/evillt/ahnn/commit/0932a875f24dee2efef41a9389c2ba16bc1c1762))
+
+
+
 ## [0.0.2](https://github.com/evillt/ahnn/compare/v0.0.1...v0.0.2) (2020-12-18)
 
 
