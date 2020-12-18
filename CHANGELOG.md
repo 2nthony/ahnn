@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/evillt/ahnn/compare/v0.0.3...v0.0.4) (2020-12-18)
+
+
+### Reverts
+
+* Revert "feat(router-view): fade transition" ([734c187](https://github.com/evillt/ahnn/commit/734c187dc40647c06ac77afa01b378a588c3ee29))
+
+
+
 ## [0.0.3](https://github.com/evillt/ahnn/compare/v0.0.1...v0.0.3) (2020-12-18)
 
 ### Features
