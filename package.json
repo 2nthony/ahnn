@@ -22,6 +22,7 @@
     "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
+    "@evillt/vuedown-loader": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vercel/node": "^1.8.5",
@@ -45,7 +46,8 @@
     "prerender-spa-plugin": "^3.4.0",
     "prettier": "^2.2.1",
     "typescript": "~3.9.3",
-    "vue-svg-loader": "^0.17.0-beta.2"
+    "vue-svg-loader": "^0.17.0-beta.2",
+    "vuedown": "^3.2.0"
   },
   "eslintConfig": {
     "root": true,
@@ -63,7 +65,10 @@
     "rules": {
       "no-unused-vars": "warn",
       "vue/no-unused-components": "warn"
-    }
+    },
+    "ignorePatterns": [
+      "changelog-app.md"
+    ]
   },
   "browserslist": [
     "> 1%",
