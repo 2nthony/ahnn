@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "node build/prepare.js && vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev": "vue-cli-service serve --port $PORT"
+    "dev": "vue-cli-service serve --port $PORT",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -32,6 +33,7 @@
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.1.0",
+    "conventional-changelog-cli": "^2.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "fs-extra": "^9.0.1",
