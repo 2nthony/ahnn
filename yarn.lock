@@ -853,6 +853,13 @@
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@evillt/vuedown-loader@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@evillt/vuedown-loader/-/vuedown-loader-1.0.1.tgz#f24721b3a18fc7544d4ac7202116db577549d323"
+  integrity sha512-Y5GegGepS6hIaQd+aZLztBxbFrwhVmfQglzNRCVzVD4gwCoaSfIlD5aot6ysxM7YT2ikIkq1C+lETJpTT4nRJw==
+  dependencies:
+    loader-utils "^1.2.3"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -10272,6 +10279,11 @@ vue@^3.0.0:
     "@vue/compiler-dom" "3.0.4"
     "@vue/runtime-dom" "3.0.4"
     "@vue/shared" "3.0.4"
+
+vuedown@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/vuedown/-/vuedown-3.2.0.tgz#911168b26802343e774b668ff3885d0adf92e126"
+  integrity sha512-60RPYp+0YI4VCad1cByUHOAMrkT5Ce7nT4s1cFbAEPMQPnu8C6KLvEe4ISg9UveeS7XXGAbJZT0nJTvW09yxRQ==
 
 vuex@^4.0.0-rc.2:
   version "4.0.0-rc.2"

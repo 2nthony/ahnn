@@ -28,11 +28,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.dep {
-  margin-bottom: var(--gap);
+.page-oss-license {
+  padding-top: env(safe-area-inset-top);
 
-  & .license {
-    margin-top: var(--inline-gap);
+  & .dep {
+    margin-bottom: var(--gap);
+
+    & .license {
+      margin-top: var(--inline-gap);
+    }
   }
 }
 </style>

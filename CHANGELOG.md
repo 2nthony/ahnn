@@ -1,3 +1,12 @@
+## [0.0.2](https://github.com/evillt/ahnn/compare/v0.0.1...v0.0.2) (2020-12-18)
+
+
+### Features
+
+* **changelog:** page ([d698a9f](https://github.com/evillt/ahnn/commit/d698a9fbbb44a8bf85206db48db85ebbba95ed90))
+
+
+
 ## 0.0.1 (2020-12-18)
 
 
