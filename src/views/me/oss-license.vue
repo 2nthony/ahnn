@@ -29,8 +29,6 @@ export default {
 
 <style lang="less" scoped>
 .page-oss-license {
-  padding-top: env(safe-area-inset-top);
-
   & .dep {
     margin-bottom: var(--gap);
 
