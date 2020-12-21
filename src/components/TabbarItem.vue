@@ -14,6 +14,8 @@
   max-width: 33.33%;
   height: inherit;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
 
   &:hover {
     background-color: var(--accents-1);
