@@ -1,3 +1,19 @@
+## [0.0.5](https://github.com/evillt/ahnn/compare/v0.0.3...v0.0.5) (2020-12-21)
+
+
+### Bug Fixes
+
+* **tabbar-item:** set width and height ([3e5c4c1](https://github.com/evillt/ahnn/commit/3e5c4c1e00a88a9f549b20adf9404d07f832d1a7))
+* margin bottom to padding bottom ([4e6bc88](https://github.com/evillt/ahnn/commit/4e6bc8816aef2f5efed962631176ccb28f3b2b50))
+* safe area gap ([#4](https://github.com/evillt/ahnn/issues/4)) ([59332a2](https://github.com/evillt/ahnn/commit/59332a27cdd878b4f001fca531bc2d8cacb696f2))
+
+
+### Reverts
+
+* Revert "feat(router-view): fade transition" ([734c187](https://github.com/evillt/ahnn/commit/734c187dc40647c06ac77afa01b378a588c3ee29))
+
+
+
 ## [0.0.4](https://github.com/evillt/ahnn/compare/v0.0.3...v0.0.4) (2020-12-18)
 
 
