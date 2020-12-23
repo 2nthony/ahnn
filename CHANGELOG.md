@@ -1,3 +1,20 @@
+# [0.1.0](https://github.com/evillt/ahnn/compare/v0.0.4...v0.1.0) (2020-12-23)
+
+
+### Bug Fixes
+
+* **tabbar-item:** set width and height ([3e5c4c1](https://github.com/evillt/ahnn/commit/3e5c4c1e00a88a9f549b20adf9404d07f832d1a7))
+* margin bottom to padding bottom ([4e6bc88](https://github.com/evillt/ahnn/commit/4e6bc8816aef2f5efed962631176ccb28f3b2b50))
+* safe area gap ([#4](https://github.com/evillt/ahnn/issues/4)) ([59332a2](https://github.com/evillt/ahnn/commit/59332a27cdd878b4f001fca531bc2d8cacb696f2))
+
+
+### Features
+
+* **home:** calc this month payout and income ([#9](https://github.com/evillt/ahnn/issues/9)) ([04a16a7](https://github.com/evillt/ahnn/commit/04a16a7de460deca417940dbac997efe75f4fc22))
+* **page-changelog:** better markdown style ([ed4a18e](https://github.com/evillt/ahnn/commit/ed4a18e94db6aca1ffd591d3cfb7f93d00e4ab09))
+
+
+
 ## [0.0.5](https://github.com/evillt/ahnn/compare/v0.0.3...v0.0.5) (2020-12-21)
 
 
