@@ -34,10 +34,11 @@ import Group from '@/components/Group.vue'
 import HomeRecordCard from '@/components/HomeRecordCard.vue'
 import { onMounted, ref } from 'vue'
 import { readRecordByWallet } from '@/db'
-import { compatHomeRecords, Record } from '@/model/Record'
+import { Record } from '@/model/Record'
 import { quickSortBy } from '@/utils/quickSort'
 import { getCNDayText } from '@/utils/date'
 import { useStore } from '@/store'
+import { compatHomeRecords } from '@/utils/record'
 
 export default {
   components: { Tabbar, ViewingArea, Group, HomeRecordCard },
