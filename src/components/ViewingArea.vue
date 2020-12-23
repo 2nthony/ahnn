@@ -1,11 +1,11 @@
 <template>
   <div class="viewing-area">
     <slot>
-      <div class="title">
-        <slot name="title">
+      <slot name="title">
+        <div class="title">
           <Heading :size="900">{{ title }}</Heading>
-        </slot>
-      </div>
+        </div>
+      </slot>
     </slot>
   </div>
 </template>
