@@ -1,7 +1,7 @@
 <template>
   <div class="page-changelog">
     <ViewingArea title="历史更新"></ViewingArea>
-    <ChangelogApp></ChangelogApp>
+    <ChangelogApp class="changelog-content"></ChangelogApp>
     <Tabbar></Tabbar>
   </div>
 </template>
@@ -15,3 +15,28 @@ export default {
   components: { Tabbar, ViewingArea, ChangelogApp },
 }
 </script>
+
+<style lang="less">
+.page-changelog .changelog-content {
+  & h2:not(:first-child) {
+    margin-top: var(--ahnn-space-small);
+  }
+
+  & ul {
+    padding: 0;
+    margin-left: 15px;
+    list-style-type: none;
+
+    & li {
+      line-height: 24px;
+
+      &::before {
+        content: '-';
+        display: inline-block;
+        position: absolute;
+        margin-left: -15px;
+      }
+    }
+  }
+}
+</style>
