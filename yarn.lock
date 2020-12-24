@@ -10194,10 +10194,10 @@ vendors@^1.0.0:
   resolved "https://registry.npmjs.org/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vercel-toast@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.npmjs.org/vercel-toast/-/vercel-toast-1.5.2.tgz#0cbdfdff7d22567fc4ceba802379b3dc278218f0"
-  integrity sha512-kjJznnh8VEeViOOSHPAhzcDWA1CthMRw6SUBj8bbdZLo0BUvpy8HB5OXQ8eqRiRtzs4k1iGtjKmsl/FZNDh6JA==
+vercel-toast@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.npmjs.org/vercel-toast/-/vercel-toast-1.5.3.tgz#5f8d289a16519da4df5d843c8b8c55c43ba68323"
+  integrity sha512-LTaRI4ctCiY7ynY4MmCazF72l9wBTXD4PO0bg1m3ru8ud2sgfFz8CN9NHnwYmR5P+tm2HpPpR0fcUls0o782wg==
 
 verror@1.10.0:
   version "1.10.0"
