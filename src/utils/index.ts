@@ -18,3 +18,26 @@ export function toRound(decimal: number, len: number = 2) {
 export function toFixed(decimal: number, len: number = 2) {
   return Number(toRound(decimal, len)).toFixed(len)
 }
+
+// Only the number will be parsed, result without `%`
+export function toPercentage(decimal: number) {
+  return toFixed(toRound(decimal, 4) * 100)
+}
+
+export function createObjectMapping(
+  arr: any[],
+  labelKey: string,
+  valueKey: string,
+) {
+  return arr.reduce((res, item) => {
+    res[item[labelKey]] = item[valueKey]
+    return res
+  }, {})
+}
+
+export function calcByKey(arr: any[], key: string) {
+  return arr.reduce((res, item) => {
+    res += item[key]
+    return res
+  }, 0)
+}

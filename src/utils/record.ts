@@ -1,4 +1,5 @@
 import { Record } from '@/model/Record'
+import { Types } from '@/model/Type'
 
 export function calcRecords(records: Record[]) {
   return records.reduce(
@@ -27,4 +28,22 @@ export function compatHomeRecords(records: Record[]) {
       costs: res[k],
     }
   })
+}
+
+export function splitRecordsByType(records: Record[]) {
+  const payoutRecords: Record[] = []
+  const incomeRecords: Record[] = []
+
+  records.forEach((record) => {
+    if (record.type === Types.payout) {
+      payoutRecords.push(record)
+    } else {
+      incomeRecords.push(record)
+    }
+  })
+
+  return {
+    payoutRecords,
+    incomeRecords,
+  }
 }

@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "dayjs": "^1.9.6",
+    "frappe-charts": "^1.5.6",
     "idb": "^5.0.8",
     "register-service-worker": "^1.7.1",
     "vercel-toast": "^1.5.3",

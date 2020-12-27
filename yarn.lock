@@ -4706,6 +4706,11 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+frappe-charts@^1.5.6:
+  version "1.5.6"
+  resolved "https://registry.npmjs.org/frappe-charts/-/frappe-charts-1.5.6.tgz#6fab528aaba659c1c171e6ea267a791b915f0ef0"
+  integrity sha512-1OWqF7ijDba+Nlei/CjXSORYlUm+/M0oeVOP3Yu7R2bLBDc5GYkFSHGVx13XavuCxDoOPEJZMRgRK6GUAuB8FQ==
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"

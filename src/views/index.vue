@@ -30,7 +30,7 @@
       />
     </Group>
 
-    <SelectMonth class="select-month"></SelectMonth>
+    <SelectMonth></SelectMonth>
     <HomeTabbar></HomeTabbar>
   </div>
 </template>
@@ -111,14 +111,6 @@ export default {
     & .payout {
       margin-bottom: var(--gap);
     }
-  }
-
-  & .select-month {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
-    height: var(--home-select-month-height);
   }
 }
 </style>
