@@ -1,21 +1,33 @@
 <template>
   <div class="cell" @click="handleClick">
-    <div class="left">
-      <div v-if="$slots.icon" class="icon">
-        <slot name="icon"></slot>
+    <div class="content-group">
+      <div class="title-group">
+        <div class="left">
+          <div v-if="titleIcon || $slots['title-icon']" class="title-icon">
+            <RemixIcon v-if="titleIcon" :icon="titleIcon" />
+            <slot v-if="$slots['title-icon']" name="title-icon"></slot>
+          </div>
+
+          <slot name="title">
+            <Text :size="500" class="title">{{ title }}</Text>
+          </slot>
+        </div>
+
+        <div v-if="rightText || link || $slots['right-text']" class="right">
+          <small v-if="rightText || $slots['right-text']" class="text">
+            <slot name="right-text">{{ rightText }}</slot>
+          </small>
+        </div>
       </div>
 
-      <Text :size="500" class="title">
-        <slot name="title">{{ title }}</slot>
-      </Text>
+      <div v-if="description || $slots.description" class="description">
+        <slot name="description">
+          <Text v-if="description">{{ description }}</Text>
+        </slot>
+      </div>
     </div>
 
-    <div v-if="rightText || link || $slots['right-text']" class="right">
-      <small v-if="rightText || $slots['right-text']" class="text">
-        <slot name="right-text">{{ rightText }}</slot>
-      </small>
-      <RemixIcon :icon="'arrow-right-s'" class="link-icon" v-if="link" />
-    </div>
+    <RemixIcon :icon="'arrow-right-s'" class="link-icon" v-if="link" />
   </div>
 </template>
 
@@ -32,8 +44,10 @@ export default {
   },
 
   props: {
+    titleIcon: setProps('string'),
     title: setProps('string'),
     rightText: setProps('string'),
+    description: setProps('string'),
     link: setProps(['boolean', 'string']),
   },
 
@@ -75,22 +89,38 @@ export default {
     background-color: var(--accents-2);
   }
 
-  & .left,
-  & .right {
+  & .content-group {
     display: flex;
-    align-items: center;
-  }
+    flex-direction: column;
+    width: 100%;
 
-  & .right {
-    position: relative;
+    & .title-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & .left,
+      & .right {
+        display: flex;
+        align-items: center;
+      }
 
-    & .text {
-      color: var(--ahnn-secondary-dark);
+      & .right {
+        position: relative;
+
+        & .text {
+          color: var(--ahnn-secondary-dark);
+        }
+      }
+
+      & .title-icon {
+        display: flex;
+        margin-right: 8px;
+      }
     }
-  }
 
-  & .icon {
-    margin-right: 8px;
+    & .description {
+      margin-top: var(--inline-gap);
+    }
   }
 
   & .link-icon {
