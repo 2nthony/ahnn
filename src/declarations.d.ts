@@ -15,3 +15,8 @@ declare module '*.md' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module 'frappe-charts/dist/frappe-charts.esm' {
+  import { Chart } from 'frappe-charts'
+  export { Chart }
+}
