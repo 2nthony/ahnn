@@ -137,9 +137,10 @@ export default {
           datasets: [
             {
               chartType: 'bar',
+              name: '支出',
               values: [
                 1800,
-                4400,
+                5000,
                 3000,
                 3500,
                 201,
@@ -148,16 +149,32 @@ export default {
                 872,
                 1450,
                 230,
-                50,
-                250,
+                0,
+                0,
+              ],
+            },
+            {
+              chartType: 'bar',
+              name: '收入',
+              values: [
+                2800,
+                3400,
+                1000,
+                2500,
+                321,
+                438,
+                314,
+                172,
+                450,
+                530,
+                0,
+                0,
               ],
             },
           ],
         },
-        // type: 'bar', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        valuesOverPoints: 1,
         height: 200,
-        colors: ['#0070f3'],
+        colors: ['#0070f3', '#f5a623'],
         axisOptions: {
           xAxisMode: 'tick',
           yAxisMode: 'tick',
@@ -181,10 +198,11 @@ export default {
 
 <style lang="less">
 .page-chart {
-  & .frappe-chart {
-    // 柱状数值文字
-    & .data-point-value {
-      fill: var(--ahnn-secondary);
+  & .chart-container {
+    & .graph-svg-tip {
+      // 禁止上定位
+      top: auto !important;
+      bottom: 100px;
     }
   }
 }
@@ -192,6 +210,10 @@ export default {
 
 <style lang="less" scoped>
 .page-chart {
+  & .category-chart-wrapper {
+    margin-bottom: var(--gap);
+  }
+
   & .icon-wrapper {
     width: 1.5rem;
     height: 1.5rem;
