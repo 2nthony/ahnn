@@ -45,3 +45,14 @@ h6 {
   height: 1rem;
   fill: var(--ahnn-foreground);
 }
+
+.hide-safe-area-content {
+  height: var(--app-gap-top);
+  background-color: var(--tabbar-background);
+  backdrop-filter: saturate(180%) blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
