@@ -174,6 +174,7 @@ export default {
           ],
         },
         height: 200,
+        // theme.less: success, warning
         colors: ['#0070f3', '#f5a623'],
         axisOptions: {
           xAxisMode: 'tick',
