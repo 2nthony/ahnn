@@ -10,13 +10,19 @@ export const isTruthy = (val: any) => !isFalsy(val)
 export const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
   .matches
 
+/**
+ * Alternative to `Math.round()`
+ * ```
+ * toRound(1.456) // 1.46
+ * ```
+ */
 export function toRound(decimal: number, len: number = 2) {
   const length = Math.pow(10, len)
   return Math.round(decimal * length) / length
 }
 
 /**
- * Number().toFixed() alternative, but with `Math.round()`
+ * Alternative to `Number().toFixed()`, but with `Math.round()`
  * ```
  * toFixed(1.23456) // 1.23
  * toFixed(1.23456, 3) // 1.234
