@@ -1,6 +1,6 @@
 <template>
   <div class="page-chart">
-    <Group title="月度对比">
+    <Group title="月度对比" class="comparison-group">
       <div class="year-chart-wrapper">
         <div class="year-chart" ref="yearChartEl"></div>
       </div>
@@ -153,6 +153,10 @@ export default {
 
 <style lang="less" scoped>
 .page-chart {
+  & .comparison-group {
+    margin-top: var(--geist-gap);
+  }
+
   & .year-chart-wrapper {
     min-height: 203px;
     margin-bottom: var(--geist-gap);
