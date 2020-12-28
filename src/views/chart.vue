@@ -177,6 +177,11 @@ export default {
   & .year-chart-wrapper {
     min-height: 203px;
     margin-bottom: var(--geist-gap);
+
+    & .year-chart {
+      position: relative;
+      left: 10px;
+    }
   }
 }
 </style>
