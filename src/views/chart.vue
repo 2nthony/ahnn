@@ -6,62 +6,66 @@
       </div>
     </Group>
 
-    <Group title="支出构成" class="payout struct-group">
-      <Cell
-        v-for="(payout, index) in payoutStruct"
-        :key="index"
-        :title="payout.categoryName"
-        :rightText="toFixed(payout.cost)"
-      >
-        <template #title-icon>
-          <div class="icon-wrapper">
-            <RemixIcon :icon="payout.categoryIcon" />
-          </div>
-        </template>
+    <Group title="支出构成">
+      <div class="payout struct-group">
+        <Cell
+          v-for="(payout, index) in payoutStruct"
+          :key="index"
+          :title="payout.categoryName"
+          :rightText="toFixed(payout.cost)"
+        >
+          <template #title-icon>
+            <div class="icon-wrapper">
+              <RemixIcon :icon="payout.categoryIcon" />
+            </div>
+          </template>
 
-        <template #description>
-          <div class="ratio-group">
-            <Text>{{ toPercentage(payout.cost / payoutStructTotal) }}%</Text>
-            <div
-              class="percentage-bar"
-              :style="{
-                '--percentage-bar-width': `${toPercentage(
-                  payout.cost / payoutStructTotal,
-                )}%`,
-              }"
-            ></div>
-          </div>
-        </template>
-      </Cell>
+          <template #description>
+            <div class="ratio-group">
+              <Text>{{ toPercentage(payout.cost / payoutStructTotal) }}%</Text>
+              <div
+                class="percentage-bar"
+                :style="{
+                  '--percentage-bar-width': `${toPercentage(
+                    payout.cost / payoutStructTotal,
+                  )}%`,
+                }"
+              ></div>
+            </div>
+          </template>
+        </Cell>
+      </div>
     </Group>
 
-    <Group title="收入构成" class="income struct-group">
-      <Cell
-        v-for="(income, index) in incomeStruct"
-        :key="index"
-        :title="income.categoryName"
-        :rightText="toFixed(income.cost)"
-      >
-        <template #title-icon>
-          <div class="icon-wrapper">
-            <RemixIcon :icon="income.categoryIcon" />
-          </div>
-        </template>
+    <Group title="收入构成">
+      <div class="income struct-group">
+        <Cell
+          v-for="(income, index) in incomeStruct"
+          :key="index"
+          :title="income.categoryName"
+          :rightText="toFixed(income.cost)"
+        >
+          <template #title-icon>
+            <div class="icon-wrapper">
+              <RemixIcon :icon="income.categoryIcon" />
+            </div>
+          </template>
 
-        <template #description>
-          <div class="ratio-group">
-            <Text>{{ toPercentage(income.cost / incomeStructTotal) }}%</Text>
-            <div
-              class="percentage-bar"
-              :style="{
-                '--percentage-bar-width': `${toPercentage(
-                  income.cost / incomeStructTotal,
-                )}%`,
-              }"
-            ></div>
-          </div>
-        </template>
-      </Cell>
+          <template #description>
+            <div class="ratio-group">
+              <Text>{{ toPercentage(income.cost / incomeStructTotal) }}%</Text>
+              <div
+                class="percentage-bar"
+                :style="{
+                  '--percentage-bar-width': `${toPercentage(
+                    income.cost / incomeStructTotal,
+                  )}%`,
+                }"
+              ></div>
+            </div>
+          </template>
+        </Cell>
+      </div>
     </Group>
   </div>
 
@@ -109,16 +113,14 @@ export default {
     const payoutStruct = computed(() =>
       sortByCategory(splitedRecords.value.payoutRecords),
     )
-    const payoutStructTotal = calcByKey(
-      splitedRecords.value.payoutRecords,
-      'cost',
+    const payoutStructTotal = computed(() =>
+      calcByKey(splitedRecords.value.payoutRecords, 'cost'),
     )
     const incomeStruct = computed(() =>
       sortByCategory(splitedRecords.value.incomeRecords),
     )
-    const incomeStructTotal = calcByKey(
-      splitedRecords.value.incomeRecords,
-      'cost',
+    const incomeStructTotal = computed(() =>
+      calcByKey(splitedRecords.value.incomeRecords, 'cost'),
     )
 
     onMounted(() => {
