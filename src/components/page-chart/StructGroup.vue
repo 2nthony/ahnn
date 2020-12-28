@@ -1,6 +1,6 @@
 <template>
   <Group :title="title">
-    <div class="struct-group" :class="[type]">
+    <div class="struct-group" :class="type">
       <Cell
         v-for="(item, index) in structData"
         :key="index"
@@ -8,7 +8,7 @@
         :rightText="toFixed(item.cost)"
       >
         <template #title-icon>
-          <div class="icon-wrapper">
+          <div class="icon-wrapper" :class="type">
             <RemixIcon :icon="item.categoryIcon" />
           </div>
         </template>
@@ -59,18 +59,6 @@ export default {
 
 <style lang="less" scoped>
 .struct-group {
-  & .icon-wrapper {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    & svg {
-      fill: var(--ahnn-white);
-    }
-  }
-
   & .ratio-group {
     display: flex;
     align-items: center;
@@ -94,19 +82,11 @@ export default {
   }
 
   &.payout {
-    & .icon-wrapper {
-      background-color: var(--ahnn-success);
-    }
-
     & .percentage-bar::after {
       background-color: var(--ahnn-success);
     }
   }
   &.income {
-    & .icon-wrapper {
-      background-color: var(--ahnn-warning);
-    }
-
     & .percentage-bar::after {
       background-color: var(--ahnn-warning);
     }
