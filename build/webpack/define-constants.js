@@ -22,7 +22,7 @@ function resolveAllDepsLicense() {
       return fastLicense(dep, depPkg.license, depPkg.homepage)
     }),
     fastLicense(
-      'frappe-chart - Modified Ver.',
+      'frappe-chart - Modified Ver. 1.5.6',
       'MIT',
       'https://github.com/frappe/charts#readme',
     ),
