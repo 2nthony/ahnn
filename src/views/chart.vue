@@ -1,8 +1,8 @@
 <template>
   <div class="page-chart">
     <Group title="月度对比">
-      <div class="category-chart-wrapper">
-        <div class="category-chart" ref="categoryChartEl"></div>
+      <div class="year-chart-wrapper">
+        <div class="year-chart" ref="yearChartEl"></div>
       </div>
     </Group>
 
@@ -99,7 +99,7 @@ export default {
 
   setup() {
     const store = useStore()
-    const categoryChartEl = ref(null)
+    const yearChartEl = ref(null)
 
     const records = computed(() => store.getters.records)
     const recordsQueryDate = computed(() => store.getters.recordsQueryDate)
@@ -123,7 +123,7 @@ export default {
 
     onMounted(() => {
       readRecordsByYear(2020).then((yearRecords) => {
-        new Chart(categoryChartEl.value, {
+        new Chart(yearChartEl.value, {
           data: {
             labels: yearRecords.map((item) => item.month + '月'),
             datasets: [
@@ -165,7 +165,7 @@ export default {
     })
 
     return {
-      categoryChartEl,
+      yearChartEl,
       payoutStruct,
       incomeStruct,
       payoutStructTotal,
@@ -192,7 +192,7 @@ export default {
 
 <style lang="less" scoped>
 .page-chart {
-  & .category-chart-wrapper {
+  & .year-chart-wrapper {
     min-height: 203px;
     margin-bottom: var(--gap);
   }
