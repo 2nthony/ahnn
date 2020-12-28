@@ -2,7 +2,7 @@
   <component
     v-if="icon"
     :is="
-      require(`vue-remix-icons/icons/ri-${icon}-${fill ? 'fill' : 'line'}.js`)
+      require(`vue-remix-icons/icons/ri-${icon}-${line ? 'line' : 'fill'}.js`)
         .default
     "
   />
@@ -13,7 +13,7 @@ import { setProps } from '@/utils/setProps'
 export default {
   props: {
     icon: setProps('string'),
-    fill: setProps('boolean', true),
+    line: setProps('boolean', false),
   },
 }
 </script>
