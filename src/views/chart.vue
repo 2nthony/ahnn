@@ -1,8 +1,10 @@
 <template>
   <div class="page-chart">
-    <div class="category-chart-wrapper">
-      <div class="category-chart" ref="categoryChartEl"></div>
-    </div>
+    <Group title="月度对比">
+      <div class="category-chart-wrapper">
+        <div class="category-chart" ref="categoryChartEl"></div>
+      </div>
+    </Group>
 
     <Group title="支出构成" class="payout struct-group">
       <Cell
@@ -81,6 +83,9 @@ import { splitRecordsByType } from '@/utils/record'
 import { sortByCategory } from '@/utils/chart'
 import { calcByKey, toFixed, toPercentage } from '@/utils'
 import Text from '@/components/ui/Text.vue'
+import { readRecordsByYear } from '@/db'
+import { Types } from '@/model/Type'
+import { monthsInYear } from '@/utils/date'
 
 export default {
   components: {
@@ -116,70 +121,46 @@ export default {
       'cost',
     )
 
-    // TODO 换报表数据
     onMounted(() => {
-      new Chart(categoryChartEl.value, {
-        data: {
-          labels: [
-            '餐饮',
-            '医药',
-            '健康',
-            '通用',
-            '交通',
-            '旅游',
-            '投资',
-            '购物',
-            '住房',
-            '礼物',
-            '话费',
-            '娱乐',
-          ],
-          datasets: [
-            {
-              chartType: 'bar',
-              name: '支出',
-              values: [
-                1800,
-                5000,
-                3000,
-                3500,
-                201,
-                938,
-                114,
-                872,
-                1450,
-                230,
-                0,
-                0,
-              ],
-            },
-            {
-              chartType: 'bar',
-              name: '收入',
-              values: [
-                2800,
-                3400,
-                1000,
-                2500,
-                321,
-                438,
-                314,
-                172,
-                450,
-                530,
-                0,
-                0,
-              ],
-            },
-          ],
-        },
-        height: 200,
-        // theme.less: success, warning
-        colors: ['#0070f3', '#f5a623'],
-        axisOptions: {
-          xAxisMode: 'tick',
-          yAxisMode: 'tick',
-        },
+      readRecordsByYear(2020).then((yearRecords) => {
+        new Chart(categoryChartEl.value, {
+          data: {
+            labels: yearRecords.map((item) => item.month + '月'),
+            datasets: [
+              {
+                chartType: 'bar',
+                name: '支出',
+                values: yearRecords.map((item) => {
+                  return calcByKey(
+                    item.records.filter(
+                      (record) => record.type === Types.payout,
+                    ),
+                    'cost',
+                  )
+                }),
+              },
+              {
+                chartType: 'bar',
+                name: '收入',
+                values: yearRecords.map((item) => {
+                  return calcByKey(
+                    item.records.filter(
+                      (record) => record.type === Types.income,
+                    ),
+                    'cost',
+                  )
+                }),
+              },
+            ],
+          },
+          height: 200,
+          // theme.less: success, warning
+          colors: ['#0070f3', '#f5a623'],
+          axisOptions: {
+            xAxisMode: 'tick',
+            yAxisMode: 'tick',
+          },
+        })
       })
     })
 
@@ -203,7 +184,7 @@ export default {
     & .graph-svg-tip {
       // 禁止上定位
       top: auto !important;
-      bottom: 100px;
+      bottom: 150px;
     }
   }
 }
@@ -212,6 +193,7 @@ export default {
 <style lang="less" scoped>
 .page-chart {
   & .category-chart-wrapper {
+    min-height: 203px;
     margin-bottom: var(--gap);
   }
 
