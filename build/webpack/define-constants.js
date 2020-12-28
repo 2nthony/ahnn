@@ -14,13 +14,17 @@ exports.apply = (config) => {
   ])
 }
 
+const fastLicense = (name, license, homepage) => ({ name, license, homepage })
 function resolveAllDepsLicense() {
-  return Object.keys(pkg.dependencies).map((dep) => {
-    const depPkg = require(`${dep}/package.json`)
-    return {
-      name: dep,
-      license: depPkg.license,
-      homepage: depPkg.homepage,
-    }
-  })
+  return [
+    ...Object.keys(pkg.dependencies).map((dep) => {
+      const depPkg = require(`${dep}/package.json`)
+      return fastLicense(dep, depPkg.license, depPkg.homepage)
+    }),
+    fastLicense(
+      'frappe-chart - Modified Ver. 1.5.6',
+      'MIT',
+      'https://github.com/frappe/charts#readme',
+    ),
+  ]
 }

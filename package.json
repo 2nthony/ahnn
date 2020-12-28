@@ -1,6 +1,6 @@
 {
   "name": "Ahnn",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -13,7 +13,6 @@
   "dependencies": {
     "axios": "^0.21.0",
     "dayjs": "^1.9.6",
-    "frappe-charts": "^1.5.6",
     "idb": "^5.0.8",
     "register-service-worker": "^1.7.1",
     "vercel-toast": "^1.5.3",
@@ -66,6 +65,7 @@
     },
     "rules": {
       "no-unused-vars": "warn",
+      "no-extra-semi": "off",
       "vue/no-unused-components": "warn"
     },
     "ignorePatterns": [
