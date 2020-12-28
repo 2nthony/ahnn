@@ -146,6 +146,23 @@ export default {
       // 禁止上定位
       top: auto !important;
       bottom: 150px;
+      background-color: var(--geist-foreground);
+
+      & .title,
+      & .data-point-list,
+      & .data-point-list strong {
+        color: var(--geist-background);
+      }
+
+      & .svg-pointer {
+        border-top-color: var(--geist-foreground);
+      }
+    }
+
+    & .axis,
+    & .chart-label,
+    & .legend-dataset-text {
+      fill: var(--geist-foreground);
     }
   }
 }
