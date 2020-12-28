@@ -88,7 +88,7 @@ export default {
 <style lang="less" scoped>
 .page-home {
   & .viewing-area {
-    margin: var(--ahnn-gap) 0;
+    margin: var(--geist-gap) 0;
   }
 
   & .month-summary {
@@ -99,7 +99,7 @@ export default {
       var(--start-color),
       var(--end-color)
     );
-    color: var(--ahnn-white);
+    color: var(--geist-white);
     width: 100%;
     height: 100%;
     display: flex;
@@ -107,7 +107,7 @@ export default {
     justify-content: space-between;
 
     & .payout {
-      margin-bottom: var(--ahnn-gap);
+      margin-bottom: var(--geist-gap);
     }
   }
 }

@@ -115,13 +115,13 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .more-detail {
-  margin-top: var(--ahnn-gap);
+  margin-top: var(--geist-gap);
   display: flex;
   justify-content: space-between;
 }
 
 .action-group {
-  margin-top: var(--ahnn-gap);
+  margin-top: var(--geist-gap);
   display: flex;
   justify-content: flex-end;
 }

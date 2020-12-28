@@ -62,7 +62,7 @@ export default defineComponent({
   height: var(--home-select-month-height);
 
   & button {
-    color: var(--ahnn-foreground);
+    color: var(--geist-foreground);
     width: 100%;
     background-color: var(--tabbar-background);
     backdrop-filter: saturate(180%) blur(5px);

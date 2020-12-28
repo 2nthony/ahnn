@@ -28,8 +28,8 @@ export default {
 <style lang="less" scoped>
 .select {
   appearance: none;
-  color: var(--ahnn-foreground);
-  background: var(--ahnn-background);
+  color: var(--geist-foreground);
+  background: var(--geist-background);
   display: inline-flex;
   outline: none;
   border: 1px solid var(--accents-2);
@@ -40,10 +40,10 @@ export default {
   overflow: hidden;
   transition: border 0.2s ease 0s, color 0.2s ease-out 0s,
     box-shadow 0.2s ease 0s;
-  border-radius: var(--ahnn-radius);
+  border-radius: var(--geist-radius);
   white-space: nowrap;
   line-height: 0;
-  height: calc(9 * var(--ahnn-space));
+  height: calc(9 * var(--geist-space));
   width: auto;
   min-width: 160px;
 
@@ -60,7 +60,7 @@ export default {
     font-size: 14px;
     margin-right: -20px;
     width: calc(100% + 20px);
-    padding: 0 var(--ahnn-gap-half);
+    padding: 0 var(--geist-gap-half);
     text-transform: none;
     &:-moz-focusring {
       color: transparent;
@@ -72,7 +72,7 @@ export default {
   }
 
   & .arrow {
-    background: var(--ahnn-background);
+    background: var(--geist-background);
     width: 30px;
     height: 100%;
     position: absolute;
@@ -93,7 +93,7 @@ export default {
 
   &.small {
     min-width: 105px;
-    height: var(--ahnn-gap);
+    height: var(--geist-gap);
 
     & select {
       font-size: 12px;

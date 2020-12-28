@@ -72,9 +72,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px var(--ahnn-gap);
+  padding: 14px var(--geist-gap);
   position: relative;
-  background-color: var(--ahnn-background);
+  background-color: var(--geist-background);
   cursor: pointer;
 
   & + .cell {
@@ -108,7 +108,7 @@ export default {
         position: relative;
 
         & .text {
-          color: var(--ahnn-secondary-dark);
+          color: var(--geist-secondary-dark);
         }
       }
 
@@ -119,7 +119,7 @@ export default {
     }
 
     & .description {
-      margin-top: var(--ahnn-gap-half);
+      margin-top: var(--geist-gap-half);
     }
   }
 

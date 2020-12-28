@@ -122,12 +122,12 @@ export default {
 .main-content {
   margin-bottom: 300px;
   & button {
-    color: var(--ahnn-foreground);
+    color: var(--geist-foreground);
   }
 
   & .switch-type {
     display: flex;
-    margin-bottom: var(--ahnn-gap-half);
+    margin-bottom: var(--geist-gap-half);
   }
 
   & .button-wrapper {
@@ -140,7 +140,7 @@ export default {
 
   & .info {
     display: flex;
-    margin-bottom: var(--ahnn-gap-half);
+    margin-bottom: var(--geist-gap-half);
   }
 
   & .select-category {
@@ -150,10 +150,10 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 0;
-    width: calc(2 * var(--ahnn-form-height) + 10px);
-    height: calc(2 * var(--ahnn-form-height) + 10px);
-    background-color: var(--ahnn-background);
-    margin-right: var(--ahnn-gap-half);
+    width: calc(2 * var(--geist-form-height) + 10px);
+    height: calc(2 * var(--geist-form-height) + 10px);
+    background-color: var(--geist-background);
+    margin-right: var(--geist-gap-half);
 
     & .icon {
       width: 1.5rem;
@@ -190,7 +190,7 @@ export default {
   & .select-more-top,
   & .select-more-bottom {
     & > .select-input-wrapper:first-child {
-      margin-right: var(--ahnn-gap-half);
+      margin-right: var(--geist-gap-half);
     }
   }
 }

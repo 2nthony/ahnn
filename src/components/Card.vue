@@ -42,13 +42,13 @@ export default {
 
 <style lang="less" scoped>
 .card {
-  padding: var(--ahnn-gap);
-  background-color: var(--ahnn-background);
-  border-radius: var(--ahnn-radius);
+  padding: var(--geist-gap);
+  background-color: var(--geist-background);
+  border-radius: var(--geist-radius);
   cursor: pointer;
 
   & + .card {
-    margin-top: var(--ahnn-gap);
+    margin-top: var(--geist-gap);
   }
 
   &:hover {
@@ -68,7 +68,7 @@ export default {
       align-items: center;
 
       & .icon-wrapper {
-        margin-right: var(--ahnn-gap-half);
+        margin-right: var(--geist-gap-half);
       }
     }
 
@@ -79,7 +79,7 @@ export default {
   }
 
   & .content {
-    margin-top: var(--ahnn-gap);
+    margin-top: var(--geist-gap);
   }
 }
 </style>

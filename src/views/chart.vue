@@ -155,7 +155,7 @@ export default {
 .page-chart {
   & .year-chart-wrapper {
     min-height: 203px;
-    margin-bottom: var(--ahnn-gap);
+    margin-bottom: var(--geist-gap);
   }
 }
 </style>

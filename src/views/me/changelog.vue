@@ -19,7 +19,7 @@ export default {
 <style lang="less">
 .page-changelog .changelog-content {
   & h2:not(:first-child) {
-    margin-top: var(--ahnn-space-small);
+    margin-top: var(--geist-space-small);
   }
 
   & ul {

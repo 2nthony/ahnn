@@ -21,16 +21,16 @@ export default {
 <style lang="less" scoped>
 input {
   border: none;
-  background-color: var(--ahnn-background);
+  background-color: var(--geist-background);
   box-shadow: inset 0 0 0 1px var(--accents-2), inset 0 1px 2px var(--accents-2);
   padding: 0 10px;
-  height: var(--ahnn-form-height);
-  border-radius: var(--ahnn-radius);
+  height: var(--geist-form-height);
+  border-radius: var(--geist-radius);
   outline: none;
-  color: var(--ahnn-foreground);
+  color: var(--geist-foreground);
 
   &:focus {
-    box-shadow: inset 0 0 0 1px var(--ahnn-foreground);
+    box-shadow: inset 0 0 0 1px var(--geist-foreground);
   }
 }
 </style>
