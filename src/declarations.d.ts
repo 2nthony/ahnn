@@ -20,7 +20,7 @@ declare module '@modules/frappe-charts/css/charts.less' {
   export default any
 }
 
-declare module '@modules/frappe-charts/js/chart' {
-  import { Chart } from '../modules/frappe-charts/js/chart.js'
+declare module '@modules/frappe-charts' {
+  import { Chart } from '../modules/frappe-charts'
   export { Chart }
 }
