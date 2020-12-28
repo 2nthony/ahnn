@@ -55,3 +55,22 @@ h6 {
   right: 0;
   z-index: 1000;
 }
+
+// icon
+.icon-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.payout {
+    background-color: var(--ahnn-success);
+  }
+  &.income {
+    background-color: var(--ahnn-warning);
+  }
+  & .remixicon {
+    fill: var(--ahnn-white);
+  }
+}
