@@ -1,3 +1,14 @@
+## [0.2.1](https://github.com/evillt/ahnn/compare/v0.2.0...v0.2.1) (2020-12-28)
+
+
+### Bug Fixes
+
+* **db-wallet:** round balance ([083d38e](https://github.com/evillt/ahnn/commit/083d38e8b6fd933cc8c225f183ccdac7efa5aaaa))
+* **wallet-strategy:** cost should round ([9bfae61](https://github.com/evillt/ahnn/commit/9bfae6126f1b825a94a4e190e71200649d4d3286))
+* other categories icon ([57e78f3](https://github.com/evillt/ahnn/commit/57e78f36ca0fa519ea8bcf997702ff70dff1f470))
+
+
+
 # [0.2.0](https://github.com/evillt/ahnn/compare/v0.1.0...v0.2.0) (2020-12-28)
 
 
