@@ -19,7 +19,12 @@ export function toFixed(decimal: number, len: number = 2) {
   return Number(toRound(decimal, len)).toFixed(len)
 }
 
-// Only the number will be parsed, result without `%`
+/**
+ * Only the number will be parsed, result without `%`
+ * ```
+ * toPercentage(0.1234) // 12.34
+ * ```
+ */
 export function toPercentage(decimal: number) {
   return toFixed(toRound(decimal, 4) * 100)
 }
