@@ -26,3 +26,7 @@ export function getCNDayText(val: ConfigType) {
 
   return val
 }
+
+export const monthsInYear = Array(12)
+  .fill('')
+  .map((_, i) => i + 1)
