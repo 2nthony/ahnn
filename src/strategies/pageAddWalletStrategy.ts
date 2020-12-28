@@ -1,6 +1,6 @@
 import { deleteWallet, readWalletByName, setWallet } from '@/db/wallet'
 import { Wallet } from '@/model/Wallet'
-import { deepToRaw } from '@/utils'
+import { deepToRaw, toRound } from '@/utils'
 import { createToast } from 'vercel-toast'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -16,6 +16,7 @@ import { Record } from '@/model/Record'
 import { Types } from '@/model/Type'
 import { useStore } from '@/store'
 import { router } from '@/router'
+import { otherCategories } from '@/model/Category'
 
 export function addWalletStrategy() {
   const route = useRoute()
@@ -112,10 +113,9 @@ export function editWalletStrategy() {
     if (origBalance !== newBalance) {
       const record: Record = {
         type: getRecordType(origBalance, newBalance),
-        category: {
-          icon: 'exchange-cny',
-          name: '余额变动',
-        },
+        category: otherCategories.find(
+          (category) => category.name === '余额变动',
+        ) as Record['category'],
         cost: Math.abs(newBalance - origBalance),
         wallet: name,
         date: getToday(),
