@@ -65,7 +65,7 @@
     },
     "rules": {
       "no-unused-vars": "warn",
-      "no-extra-semi": "ignore",
+      "no-extra-semi": "off",
       "vue/no-unused-components": "warn"
     },
     "ignorePatterns": [
