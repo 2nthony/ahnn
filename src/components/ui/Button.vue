@@ -14,14 +14,14 @@ export default {
 
 <style lang="less" scoped>
 button {
-  --themed-fg: var(--ahnn-background);
-  --themed-bg: var(--ahnn-foreground);
-  color: var(--themed-fg, var(--ahnn-foreground));
-  border-radius: var(--radius);
+  --themed-fg: var(--geist-background);
+  --themed-bg: var(--geist-foreground);
+  color: var(--themed-fg, var(--geist-foreground));
+  border-radius: var(--geist-radius);
   padding: 0 16px;
-  font-size: var(--ahnn-form-font);
-  height: var(--ahnn-form-height);
-  line-height: var(--ahnn-form-inline-height);
+  font-size: var(--geist-form-font);
+  height: var(--geist-form-height);
+  line-height: var(--geist-form-inline-height);
   outline: none;
   cursor: pointer;
   border: none;
@@ -35,14 +35,14 @@ button {
 
   // size
   &.small {
-    font-size: var(--ahnn-form-small-font);
-    height: var(--ahnn-form-small-height);
-    line-height: var(--ahnn-form-small-inline-height);
+    font-size: var(--geist-form-small-font);
+    height: var(--geist-form-small-height);
+    line-height: var(--geist-form-small-inline-height);
   }
   &.large {
-    font-size: var(--ahnn-form-large-font);
-    height: var(--ahnn-form-large-height);
-    line-height: var(--ahnn-form-large-inline-height);
+    font-size: var(--geist-form-large-font);
+    height: var(--geist-form-large-height);
+    line-height: var(--geist-form-large-inline-height);
   }
 
   // type
@@ -55,30 +55,30 @@ button {
   }
 
   &.secondary {
-    --themed-fg: var(--ahnn-secondary);
-    --themed-bg: var(--ahnn-background);
+    --themed-fg: var(--geist-secondary);
+    --themed-bg: var(--geist-background);
     --themed-border: var(--accents-2);
 
     &:hover {
-      --themed-fg: var(--ahnn-foreground);
-      --themed-border: var(--ahnn-foreground);
-      color: var(--ahnn-foreground);
+      --themed-fg: var(--geist-foreground);
+      --themed-border: var(--geist-foreground);
+      color: var(--geist-foreground);
     }
   }
 
   &.success {
     --themed-fg: #fff;
-    --themed-bg: var(--ahnn-success);
+    --themed-bg: var(--geist-success);
   }
 
   &.warning {
     --themed-fg: #fff;
-    --themed-bg: var(--ahnn-warning);
+    --themed-bg: var(--geist-warning);
   }
 
   &.error {
     --themed-fg: #fff;
-    --themed-bg: var(--ahnn-error);
+    --themed-bg: var(--geist-error);
   }
 }
 </style>

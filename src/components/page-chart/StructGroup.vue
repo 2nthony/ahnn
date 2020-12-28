@@ -66,7 +66,7 @@ export default {
     & .percentage-bar {
       width: 100%;
       height: 5px;
-      margin-left: var(--inline-gap);
+      margin-left: var(--geist-gap-half);
       position: relative;
 
       &::after {
@@ -76,19 +76,19 @@ export default {
         top: 0;
         bottom: 0;
         width: var(--percentage-bar-width);
-        border-radius: var(--radius);
+        border-radius: var(--geist-radius);
       }
     }
   }
 
   &.payout {
     & .percentage-bar::after {
-      background-color: var(--ahnn-success);
+      background-color: var(--geist-success);
     }
   }
   &.income {
     & .percentage-bar::after {
-      background-color: var(--ahnn-warning);
+      background-color: var(--geist-warning);
     }
   }
 }

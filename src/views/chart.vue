@@ -1,6 +1,6 @@
 <template>
   <div class="page-chart">
-    <Group title="月度对比">
+    <Group title="月度对比" class="comparison-group">
       <div class="year-chart-wrapper">
         <div class="year-chart" ref="yearChartEl"></div>
       </div>
@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import HomeTabbar from '../components/HomeTabbar.vue'
-import { Chart } from '@modules/frappe-charts/js/chart'
+import { Chart } from '@modules/frappe-charts'
 import '@modules/frappe-charts/css/charts.less'
 import { computed, onMounted, ref, watch } from 'vue'
 import SelectMonth from '@/components/SelectMonth.vue'
@@ -153,9 +153,13 @@ export default {
 
 <style lang="less" scoped>
 .page-chart {
+  & .comparison-group {
+    margin-top: var(--geist-gap);
+  }
+
   & .year-chart-wrapper {
     min-height: 203px;
-    margin-bottom: var(--gap);
+    margin-bottom: var(--geist-gap);
   }
 }
 </style>
