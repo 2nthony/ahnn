@@ -1,17 +1,16 @@
 <template>
+  <div class="hide-safe-area-content"></div>
   <router-view></router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, onMounted } from 'vue'
-import { hooks, collect } from './hooks'
+import { defineComponent } from 'vue'
+import { runMixinEvents } from './mixin-events'
 
 export default defineComponent({
   name: 'App',
   setup() {
-    collect()
-    onBeforeMount(() => hooks.invoke('appBeforeMount'))
-    onMounted(() => hooks.invoke('appMounted'))
+    runMixinEvents()
   },
 })
 </script>

@@ -1,9 +1,10 @@
 import { Appreance, Appreances } from '@/model/Preference'
+import { isDarkMode } from '..'
 
 export function switchAppreance(appreance: Appreance) {
   switch (appreance) {
     case Appreances.auto: {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (isDarkMode) {
         doHTMLDarkTheme('add')
       } else {
         doHTMLDarkTheme('remove')
@@ -21,6 +22,6 @@ export function switchAppreance(appreance: Appreance) {
   }
 }
 
-function doHTMLDarkTheme(action: 'add' | 'remove') {
+export function doHTMLDarkTheme(action: 'add' | 'remove') {
   document.documentElement.classList[action]('dark-theme')
 }

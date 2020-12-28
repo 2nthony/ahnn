@@ -1,3 +1,23 @@
+# [0.2.0](https://github.com/evillt/ahnn/compare/v0.1.0...v0.2.0) (2020-12-28)
+
+
+### Bug Fixes
+
+* **global-style:** update ([0748469](https://github.com/evillt/ahnn/commit/074846928360cfec9b6d4f64b52546602473906e))
+* **page-chart:** switch year will refresh chart data ([df3a3aa](https://github.com/evillt/ahnn/commit/df3a3aa12376539380c8d5e82fa6b9e9e45ab3d7))
+
+
+### Features
+
+* **card:** support icon-wrapper-class ([a56ac7d](https://github.com/evillt/ahnn/commit/a56ac7d19c00156410ef9ec7aed1ff1186be0fa2))
+* **cell:** support description slot ([d1e81dd](https://github.com/evillt/ahnn/commit/d1e81ddc3cdbff28547682a03ade20706f98e3a3))
+* **global-style:** icon-wrapper class ([b40f8dc](https://github.com/evillt/ahnn/commit/b40f8dc843d37a08c2047e9b9ece092e33ba53fa))
+* **home-record-card:** colorful icon ([15dedb1](https://github.com/evillt/ahnn/commit/15dedb18c5007731aa8c8a42c5fc4de81aa8032d))
+* **page-chart:** chart's data ([#15](https://github.com/evillt/ahnn/issues/15)) ([62f6a68](https://github.com/evillt/ahnn/commit/62f6a682920149011e37ae48fae74e29e5947bd9))
+* page-chart 0.5 ([#12](https://github.com/evillt/ahnn/issues/12)) ([25639e2](https://github.com/evillt/ahnn/commit/25639e2ed56521b8bdfef450f54651079967284f))
+
+
+
 # [0.1.0](https://github.com/evillt/ahnn/compare/v0.0.4...v0.1.0) (2020-12-23)
 
 

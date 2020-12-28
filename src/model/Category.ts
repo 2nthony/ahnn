@@ -1,3 +1,4 @@
+import { createObjectMapping } from '@/utils'
 import type { Type } from './Type'
 
 export type CategoryName = string
@@ -40,3 +41,9 @@ export const presetCategories: Category = {
 export function getDefaultCategory(type: Type): CategoryItem {
   return presetCategories[type][0]
 }
+
+export const categoryNameIconMapping = createObjectMapping(
+  [...presetCategories.payout, ...presetCategories.income],
+  'name',
+  'icon',
+)

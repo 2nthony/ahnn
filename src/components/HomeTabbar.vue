@@ -4,8 +4,8 @@
       :class="{ active: currentPath === '/chart' }"
       @click="switchTab('/chart')"
     >
-      <RemixIcon :icon="'pie-chart'" />
-      <Text :size="300">分析</Text>
+      <RemixIcon :icon="'bar-chart-box'" />
+      <Text :size="300">统计</Text>
     </TabbarItem>
 
     <TabbarItem

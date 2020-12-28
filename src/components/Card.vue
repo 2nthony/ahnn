@@ -2,7 +2,9 @@
   <Pane class="card" :float="3">
     <div class="title-group" v-if="title || rightText">
       <div class="title">
-        <RemixIcon :icon="titleIcon" v-if="titleIcon" />
+        <div :class="iconWrapperClass" class="icon-wrapper">
+          <RemixIcon :icon="titleIcon" v-if="titleIcon" />
+        </div>
         <Text>{{ title }}</Text>
       </div>
       <div class="right">
@@ -33,6 +35,7 @@ export default {
     rightTextPrefixIcon: setProps('string'),
     rightText: setProps('string'),
     content: setProps('string'),
+    iconWrapperClass: setProps(['string', 'array', 'object']),
   },
 }
 </script>
@@ -64,9 +67,7 @@ export default {
       display: flex;
       align-items: center;
 
-      & svg {
-        width: 1.25rem;
-        height: 1.25rem;
+      & .icon-wrapper {
         margin-right: var(--inline-gap);
       }
     }

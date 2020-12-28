@@ -1,10 +1,10 @@
 const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
-const { routesFilePath } = require('../shared')
+const { routesFilePath, isProd } = require('../shared')
 
 exports.name = 'plugin:prerender-spa'
 
-exports.when = () => process.env.NODE_ENV === 'production'
+exports.when = () => isProd
 
 exports.apply = (config) => {
   const { routes } = require(routesFilePath)

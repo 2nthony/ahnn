@@ -5,6 +5,7 @@
     :rightTextPrefixIcon="typeIcon[record.type]"
     :rightText="toFixed(record.cost)"
     :content="record.remark"
+    :iconWrapperClass="['icon-wrapper', record.type]"
     @click="handleShowMore"
   >
     <template v-if="showMore" #>

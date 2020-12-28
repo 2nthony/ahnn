@@ -30,13 +30,13 @@
       />
     </Group>
 
-    <SelectMonth class="select-month"></SelectMonth>
+    <SelectMonth></SelectMonth>
     <HomeTabbar></HomeTabbar>
   </div>
 </template>
 
 <script>
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import Group from '../components/Group.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
@@ -71,8 +71,6 @@ export default {
     })
 
     const recordsQueryDate = computed(() => store.getters.recordsQueryDate)
-
-    watch(recordsQueryDate, () => store.dispatch('readRecordsByQueryDate'))
 
     return {
       currentMonth: computed(() => recordsQueryDate.value[1]),
@@ -111,14 +109,6 @@ export default {
     & .payout {
       margin-bottom: var(--gap);
     }
-  }
-
-  & .select-month {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
-    height: var(--home-select-month-height);
   }
 }
 </style>
