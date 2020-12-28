@@ -3,6 +3,7 @@ import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
 import { Wallet, WalletName } from '@/model/Wallet'
+import { monthsInYear } from '@/utils/date'
 
 export function upgradeRecordDB(
   db: IDBPDatabase,
@@ -97,6 +98,23 @@ export async function readRecordsByMonth(
       .finally(() => {
         db.close()
       })
+  )
+}
+
+/**
+ * @description Read all records by year
+ */
+export async function readRecordsByYear(year: number) {
+  return Promise.all(
+    monthsInYear.map((month) => {
+      return readRecordsByMonth(year, month).then((records) => {
+        return {
+          year,
+          month,
+          records,
+        }
+      })
+    }),
   )
 }
 
