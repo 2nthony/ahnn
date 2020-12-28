@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/evillt/ahnn/compare/v0.2.1...v0.2.2) (2020-12-28)
+
+
+### Features
+
+* modified frappe-chart ([#18](https://github.com/evillt/ahnn/issues/18)) ([76fd074](https://github.com/evillt/ahnn/commit/76fd0745c1a717028757293ea6062dcb3b5414bf))
+
+
+
 ## [0.2.1](https://github.com/evillt/ahnn/compare/v0.2.0...v0.2.1) (2020-12-28)
 
 
