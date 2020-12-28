@@ -72,7 +72,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px var(--gap);
+  padding: 14px var(--ahnn-gap);
   position: relative;
   background-color: var(--ahnn-background);
   cursor: pointer;
@@ -119,7 +119,7 @@ export default {
     }
 
     & .description {
-      margin-top: var(--inline-gap);
+      margin-top: var(--ahnn-gap-half);
     }
   }
 

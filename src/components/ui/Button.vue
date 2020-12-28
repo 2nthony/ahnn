@@ -17,7 +17,7 @@ button {
   --themed-fg: var(--ahnn-background);
   --themed-bg: var(--ahnn-foreground);
   color: var(--themed-fg, var(--ahnn-foreground));
-  border-radius: var(--radius);
+  border-radius: var(--ahnn-radius);
   padding: 0 16px;
   font-size: var(--ahnn-form-font);
   height: var(--ahnn-form-height);

@@ -45,7 +45,7 @@ export default {
   flex-direction: column;
 
   & .input-name {
-    margin-bottom: var(--inline-gap);
+    margin-bottom: var(--ahnn-gap-half);
   }
 }
 </style>

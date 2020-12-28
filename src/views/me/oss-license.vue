@@ -30,10 +30,10 @@ export default {
 <style lang="less" scoped>
 .page-oss-license {
   & .dep {
-    margin-bottom: var(--gap);
+    margin-bottom: var(--ahnn-gap);
 
     & .license {
-      margin-top: var(--inline-gap);
+      margin-top: var(--ahnn-gap-half);
     }
   }
 }

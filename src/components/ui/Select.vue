@@ -40,7 +40,7 @@ export default {
   overflow: hidden;
   transition: border 0.2s ease 0s, color 0.2s ease-out 0s,
     box-shadow 0.2s ease 0s;
-  border-radius: var(--radius);
+  border-radius: var(--ahnn-radius);
   white-space: nowrap;
   line-height: 0;
   height: calc(9 * var(--ahnn-space));

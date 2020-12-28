@@ -25,7 +25,7 @@ input {
   box-shadow: inset 0 0 0 1px var(--accents-2), inset 0 1px 2px var(--accents-2);
   padding: 0 10px;
   height: var(--ahnn-form-height);
-  border-radius: var(--radius);
+  border-radius: var(--ahnn-radius);
   outline: none;
   color: var(--ahnn-foreground);
 

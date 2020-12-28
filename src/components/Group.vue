@@ -23,17 +23,17 @@ export default {
 
 <style lang="less" scoped>
 .group {
-  border-radius: var(--radius);
+  border-radius: var(--ahnn-radius);
 
   & + .group {
-    margin-top: var(--gap);
+    margin-top: var(--ahnn-gap);
   }
 
   & .title-group {
     display: flex;
     justify-content: space-between;
-    padding: 0 var(--gap);
-    margin-bottom: var(--inline-gap);
+    padding: 0 var(--ahnn-gap);
+    margin-bottom: var(--ahnn-gap-half);
   }
 }
 </style>

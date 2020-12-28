@@ -45,16 +45,16 @@ export default {
 }
 
 .item {
-  width: calc(50% - var(--inline-gap));
-  padding: var(--gap);
+  width: calc(50% - var(--ahnn-gap-half));
+  padding: var(--ahnn-gap);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: var(--gap);
+  margin-bottom: var(--ahnn-gap);
   background-color: var(--ahnn-background);
   min-height: 120px;
-  border-radius: var(--radius);
+  border-radius: var(--ahnn-radius);
   cursor: pointer;
 
   &:hover {

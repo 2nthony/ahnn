@@ -66,7 +66,7 @@ export default {
     & .percentage-bar {
       width: 100%;
       height: 5px;
-      margin-left: var(--inline-gap);
+      margin-left: var(--ahnn-gap-half);
       position: relative;
 
       &::after {
@@ -76,7 +76,7 @@ export default {
         top: 0;
         bottom: 0;
         width: var(--percentage-bar-width);
-        border-radius: var(--radius);
+        border-radius: var(--ahnn-radius);
       }
     }
   }

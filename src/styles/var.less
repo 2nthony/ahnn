@@ -61,17 +61,13 @@
   // These below for app
   --calculator-number-bg-color: #234361;
   --calculator-operator-bg-color: var(--ahnn-warning);
-
-  --app-gap: 0 10px;
-  --app-gap-top: env(safe-area-inset-top);
-  --app-gap-bottom: calc(
-    var(--tabbar-height) + var(--home-select-month-height) + var(--gap) +
-      env(safe-area-inset-bottom)
-  );
-  --inline-gap: 10px;
-  --gap: 20px;
-  --radius: 5px;
-
   --tabbar-height: 50px;
   --home-select-month-height: var(--ahnn-form-height);
+
+  --app-gap: 0 var(--ahnn-gap-half);
+  --app-gap-top: env(safe-area-inset-top);
+  --app-gap-bottom: calc(
+    var(--tabbar-height) + var(--home-select-month-height) + var(--ahnn-gap) +
+      env(safe-area-inset-bottom)
+  );
 }

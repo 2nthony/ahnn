@@ -88,7 +88,7 @@ export default {
 <style lang="less" scoped>
 .page-home {
   & .viewing-area {
-    margin: var(--gap) 0;
+    margin: var(--ahnn-gap) 0;
   }
 
   & .month-summary {
@@ -107,7 +107,7 @@ export default {
     justify-content: space-between;
 
     & .payout {
-      margin-bottom: var(--gap);
+      margin-bottom: var(--ahnn-gap);
     }
   }
 }

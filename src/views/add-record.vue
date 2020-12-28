@@ -127,7 +127,7 @@ export default {
 
   & .switch-type {
     display: flex;
-    margin-bottom: var(--inline-gap);
+    margin-bottom: var(--ahnn-gap-half);
   }
 
   & .button-wrapper {
@@ -140,7 +140,7 @@ export default {
 
   & .info {
     display: flex;
-    margin-bottom: var(--inline-gap);
+    margin-bottom: var(--ahnn-gap-half);
   }
 
   & .select-category {
@@ -153,7 +153,7 @@ export default {
     width: calc(2 * var(--ahnn-form-height) + 10px);
     height: calc(2 * var(--ahnn-form-height) + 10px);
     background-color: var(--ahnn-background);
-    margin-right: var(--inline-gap);
+    margin-right: var(--ahnn-gap-half);
 
     & .icon {
       width: 1.5rem;
@@ -190,7 +190,7 @@ export default {
   & .select-more-top,
   & .select-more-bottom {
     & > .select-input-wrapper:first-child {
-      margin-right: var(--inline-gap);
+      margin-right: var(--ahnn-gap-half);
     }
   }
 }
