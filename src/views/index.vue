@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import Group from '../components/Group.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
@@ -71,8 +71,6 @@ export default {
     })
 
     const recordsQueryDate = computed(() => store.getters.recordsQueryDate)
-
-    watch(recordsQueryDate, () => store.dispatch('readRecordsByQueryDate'))
 
     return {
       currentMonth: computed(() => recordsQueryDate.value[1]),

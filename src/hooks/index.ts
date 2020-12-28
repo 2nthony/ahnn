@@ -40,5 +40,3 @@ export const hooks: Hooks = {
     if (this.store[name]) this.store[name].length = 0
   },
 }
-
-export * from './collect'

@@ -60,8 +60,6 @@ export default {
     const yearChartEl = ref(null)
 
     const records = computed(() => store.getters.records)
-    const recordsQueryDate = computed(() => store.getters.recordsQueryDate)
-    watch(recordsQueryDate, () => store.dispatch('readRecordsByQueryDate'))
 
     const splitedRecords = computed(() => splitRecordsByType(records.value))
     const payoutStruct = computed(() =>
