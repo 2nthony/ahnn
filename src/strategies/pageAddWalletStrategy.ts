@@ -116,7 +116,7 @@ export function editWalletStrategy() {
         category: otherCategories.find(
           (category) => category.name === '余额变动',
         ) as Record['category'],
-        cost: Math.abs(newBalance - origBalance),
+        cost: toRound(Math.abs(newBalance - origBalance)),
         wallet: name,
         date: getToday(),
         remark: '手动调整',
