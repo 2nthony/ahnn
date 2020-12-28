@@ -76,46 +76,56 @@ export default {
     )
 
     onMounted(() => {
-      readRecordsByYear(2020).then((yearRecords) => {
-        new Chart(yearChartEl.value, {
-          data: {
-            labels: yearRecords.map((item) => item.month + '月'),
-            datasets: [
-              {
-                chartType: 'bar',
-                name: '支出',
-                values: yearRecords.map((item) => {
-                  return calcByKey(
-                    item.records.filter(
-                      (record) => record.type === Types.payout,
-                    ),
-                    'cost',
-                  )
-                }),
+      const recordsQueryDate = computed(() => store.getters.recordsQueryDate)
+      const queryDateYear = computed(() => recordsQueryDate.value[0])
+      watch(
+        queryDateYear,
+        (y) => {
+          readRecordsByYear(y).then((yearRecords) => {
+            new Chart(yearChartEl.value, {
+              data: {
+                labels: yearRecords.map((item) => item.month + '月'),
+                datasets: [
+                  {
+                    chartType: 'bar',
+                    name: '支出',
+                    values: yearRecords.map((item) => {
+                      return calcByKey(
+                        item.records.filter(
+                          (record) => record.type === Types.payout,
+                        ),
+                        'cost',
+                      )
+                    }),
+                  },
+                  {
+                    chartType: 'bar',
+                    name: '收入',
+                    values: yearRecords.map((item) => {
+                      return calcByKey(
+                        item.records.filter(
+                          (record) => record.type === Types.income,
+                        ),
+                        'cost',
+                      )
+                    }),
+                  },
+                ],
               },
-              {
-                chartType: 'bar',
-                name: '收入',
-                values: yearRecords.map((item) => {
-                  return calcByKey(
-                    item.records.filter(
-                      (record) => record.type === Types.income,
-                    ),
-                    'cost',
-                  )
-                }),
+              height: 200,
+              // theme.less: success, warning
+              colors: ['#0070f3', '#f5a623'],
+              axisOptions: {
+                xAxisMode: 'tick',
+                yAxisMode: 'tick',
               },
-            ],
-          },
-          height: 200,
-          // theme.less: success, warning
-          colors: ['#0070f3', '#f5a623'],
-          axisOptions: {
-            xAxisMode: 'tick',
-            yAxisMode: 'tick',
-          },
-        })
-      })
+            })
+          })
+        },
+        {
+          immediate: true,
+        },
+      )
     })
 
     return {
