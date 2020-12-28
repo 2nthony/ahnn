@@ -27,8 +27,8 @@
 
 <script lang="ts">
 import HomeTabbar from '../components/HomeTabbar.vue'
-import { Chart } from 'frappe-charts/dist/frappe-charts.esm'
-import 'frappe-charts/dist/frappe-charts.min.css'
+import { Chart } from '@modules/frappe-charts/js/chart'
+import '@modules/frappe-charts/css/charts.less'
 import { computed, onMounted, ref, watch } from 'vue'
 import SelectMonth from '@/components/SelectMonth.vue'
 import { useStore } from '@/store'
