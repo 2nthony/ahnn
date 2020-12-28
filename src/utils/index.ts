@@ -57,6 +57,6 @@ export function createObjectMapping(
 export function calcByKey(arr: any[], key: string) {
   return arr.reduce((res, item) => {
     res += item[key]
-    return res
+    return toRound(res)
   }, 0)
 }
