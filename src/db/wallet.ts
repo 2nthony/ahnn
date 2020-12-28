@@ -1,5 +1,6 @@
 import { Record } from '@/model/Record'
 import { pinnedWallets, Wallet, walletIndexing } from '@/model/Wallet'
+import { toRound } from '@/utils'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 
@@ -56,7 +57,7 @@ export async function returnCostToWallet(name: string, cost: Record['cost']) {
   const wallet = await readWalletByName(name)
   return setWallet({
     ...wallet,
-    balance: (wallet.balance as number) + cost,
+    balance: toRound((wallet.balance as number) + cost),
   })
 }
 

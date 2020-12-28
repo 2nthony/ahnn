@@ -38,12 +38,14 @@ export const presetCategories: Category = {
   ],
 }
 
+export const otherCategories: CategoryItem[] = [c('余额变动', 'exchange-cny')]
+
 export function getDefaultCategory(type: Type): CategoryItem {
   return presetCategories[type][0]
 }
 
 export const categoryNameIconMapping = createObjectMapping(
-  [...presetCategories.payout, ...presetCategories.income],
+  [...presetCategories.payout, ...presetCategories.income, ...otherCategories],
   'name',
   'icon',
 )
