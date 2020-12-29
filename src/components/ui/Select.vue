@@ -1,5 +1,7 @@
 <template>
   <div class="select" :class="{ small }">
+    <Text class="selected-value">{{ innerSelected }}</Text>
+
     <select v-model="innerSelected">
       <option value="" disabled v-if="placeholder">
         {{ placeholder }}
@@ -7,9 +9,7 @@
       <slot />
     </select>
 
-    <Text class="selected">{{ innerSelected }}</Text>
-
-    <div class="arrow">
+    <div class="arrow" v-if="showArrow">
       <RemixIcon :icon="'arrow-down-s'" line />
     </div>
   </div>
@@ -27,6 +27,7 @@ export default defineComponent({
     small: setProps('boolean'),
     modelValue: setProps(['string', 'number']),
     placeholder: setProps('string'),
+    showArrow: setProps('boolean', true),
   },
 
   setup(props, { emit }) {
@@ -59,7 +60,7 @@ export default defineComponent({
   white-space: nowrap;
   line-height: 0;
   height: var(--geist-form-height);
-  min-width: 160px;
+  // min-width: 160px;
   position: relative;
 
   & select {
@@ -74,9 +75,10 @@ export default defineComponent({
     color: currentColor;
     font-size: 14px;
     margin-right: -20px;
-    width: calc(100% + 20px);
+    width: 100%;
     padding: 0 var(--geist-gap-half);
     text-transform: none;
+    position: relative;
     &:-moz-focusring {
       color: transparent;
       text-shadow: 0 0 0 #000;
@@ -86,13 +88,15 @@ export default defineComponent({
     }
   }
 
-  & .selected {
+  & .selected-value {
     position: absolute;
-    left: var(--geist-gap-half);
+    // left: var(--geist-gap-half);
     top: 0;
     bottom: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
   & .arrow {
@@ -116,7 +120,7 @@ export default defineComponent({
   }
 
   &.small {
-    min-width: 105px;
+    // min-width: 105px;
     height: var(--geist-form-small-height);
 
     & select {
