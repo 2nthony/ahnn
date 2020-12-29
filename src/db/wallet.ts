@@ -27,11 +27,6 @@ export async function readWallets(): Promise<Wallet[]> {
   return db.getAll(storeName, undefined).finally(() => db.close())
 }
 
-export async function addWallet(wallet: Wallet) {
-  const db = await open()
-  return db.add(storeName, wallet).finally(() => db.close())
-}
-
 export async function setWallet(wallet: Wallet) {
   const db = await open()
   const action = wallet.id ? 'put' : 'add'
