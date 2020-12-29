@@ -1,3 +1,20 @@
+## [0.2.4](https://github.com/evillt/ahnn/compare/v0.2.3...v0.2.4) (2020-12-29)
+
+
+### Bug Fixes
+
+* **db-update-record-category:** return promise ([#26](https://github.com/evillt/ahnn/issues/26)) ([fe18a54](https://github.com/evillt/ahnn/commit/fe18a54509e6a3d86a514ce598719250d4f1d45c))
+* **global-style:** icon color ([bd62f3f](https://github.com/evillt/ahnn/commit/bd62f3fb29e1494c3d3c62e5b66c5a161775baa9))
+* **page-add-record:** input layout ([b45c660](https://github.com/evillt/ahnn/commit/b45c6608c3e11ff1e4d318d591cbe5a7fc3178bb))
+
+
+### Features
+
+* **model-category:** add bulk categories ([0f22c72](https://github.com/evillt/ahnn/commit/0f22c72816dc82c19d7afa8af5b30fa1041ba45f))
+* tailwind ([#24](https://github.com/evillt/ahnn/issues/24)) ([5ab46be](https://github.com/evillt/ahnn/commit/5ab46becb09149d9040dcdb69f402da477c23ce2))
+
+
+
 ## [0.2.3](https://github.com/evillt/ahnn/compare/v0.2.2...v0.2.3) (2020-12-28)
 
 
