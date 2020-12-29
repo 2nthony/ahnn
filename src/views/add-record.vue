@@ -56,12 +56,16 @@
               </InputDate>
             </div>
             <div class="select-input-wrapper flex-1">
-              <Button
-                class="w-full cursor-pointer"
-                type="secondary"
-                @click="$router.push('/select/add-record-select-wallet')"
-                >{{ addRecord.wallet }}</Button
+              <Select
+                class="cursor-pointer min-w-full"
+                :modelValue="addRecord.wallet"
+                :showArrow="false"
+                @update:modelValue="onWalletSelect"
               >
+                <option v-for="(wallet, index) in userWallets" :key="index">
+                  {{ wallet.name }}
+                </option>
+              </Select>
             </div>
           </div>
           <div class="select-more-bottom flex">
@@ -109,6 +113,7 @@ import RemixIcon from '@/components/RemixIcon.vue'
 import Heading from '@/components/ui/Heading.vue'
 import { addRecordStrategy } from '../strategies/pageAddRecordStrategy'
 import { toFixed } from '@/utils'
+import Select from '@/components/ui/Select.vue'
 
 export default {
   components: {
@@ -121,6 +126,7 @@ export default {
     Text,
     RemixIcon,
     Heading,
+    Select,
   },
 
   setup() {
@@ -134,10 +140,6 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
-  & button {
-    color: var(--geist-foreground);
-  }
-
   & .switch-type {
     margin-bottom: var(--geist-gap-half);
   }
@@ -150,6 +152,10 @@ export default {
 
   & .info {
     margin-bottom: var(--geist-gap-half);
+
+    & button {
+      color: var(--geist-foreground);
+    }
   }
 
   & .select-category {
@@ -158,7 +164,6 @@ export default {
     background-color: var(--geist-background);
     margin-right: var(--geist-gap-half);
   }
-
   & .select-more-top,
   & .select-more-bottom {
     & > .select-input-wrapper:first-child {
