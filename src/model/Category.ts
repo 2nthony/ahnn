@@ -42,6 +42,7 @@ const allCategories: AllCategories = {
     c('旅游', 'road-map'),
     c('医药', 'capsule'),
     c('健康', 'heart-3'),
+    c('爱心捐助', 'service'),
     c('投资', 'funds'),
   ],
   income: [
