@@ -41,7 +41,7 @@
           <Text class="mt-1">{{ addRecord.category }}</Text>
         </Button>
 
-        <div class="select-more flex flex-3 flex-col justify-between">
+        <div class="select-more flex flex-4 flex-col justify-between">
           <div class="select-more-top flex">
             <div class="select-input-wrapper flex-1">
               <InputDate
