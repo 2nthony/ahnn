@@ -4,7 +4,7 @@ import { upgradeRecordDB } from './record'
 import { upgradeWallet } from './wallet'
 
 const DB_NAME = 'Ahnn'
-export const DB_VERSION = 7
+export const DB_VERSION = 8
 
 export async function open() {
   return await openDB(DB_NAME, DB_VERSION, {
