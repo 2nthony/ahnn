@@ -6,7 +6,12 @@ import { ensureCreateIndex, ensureStore, open } from '.'
 
 const storeName = 'wallet'
 
-export function upgradeWallet(db: IDBPDatabase, transaction: IDBPTransaction) {
+export function upgradeWallet(
+  db: IDBPDatabase,
+  transaction: IDBPTransaction,
+  _oldVersion?: number,
+  _newVersion?: number | null,
+) {
   const store = ensureStore(db, transaction, storeName, {
     autoIncrement: true,
     keyPath: 'id',

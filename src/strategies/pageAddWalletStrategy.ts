@@ -6,17 +6,15 @@ import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import 'vercel-toast/dist/vercel-toast.css'
 import {
-  addRecord,
   deleteAllRecordByWallet,
   readRecordByWallet,
   setRecord,
-} from '@/db'
+} from '@/db/record'
 import { getToday } from '@/utils/date'
 import { Record } from '@/model/Record'
 import { Types } from '@/model/Type'
 import { useStore } from '@/store'
 import { router } from '@/router'
-import { otherCategories } from '@/model/Category'
 
 export function addWalletStrategy() {
   const route = useRoute()
@@ -113,15 +111,13 @@ export function editWalletStrategy() {
     if (origBalance !== newBalance) {
       const record: Record = {
         type: getRecordType(origBalance, newBalance),
-        category: otherCategories.find(
-          (category) => category.name === '余额变动',
-        ) as Record['category'],
+        category: '余额变动',
         cost: toRound(Math.abs(newBalance - origBalance)),
         wallet: name,
         date: getToday(),
         remark: '手动调整',
       }
-      fns.push(addRecord(record))
+      fns.push(setRecord(record))
     }
 
     // 如果钱包名有变更，更新全部记录

@@ -4,12 +4,12 @@
       <Cell
         v-for="(item, index) in structData"
         :key="index"
-        :title="item.categoryName"
+        :title="item.category"
         :rightText="toFixed(item.cost)"
       >
         <template #title-icon>
           <div class="icon-wrapper" :class="type">
-            <RemixIcon :icon="item.categoryIcon" />
+            <RemixIcon :icon="categoryNameIconMapping[item.category]" />
           </div>
         </template>
 
@@ -38,6 +38,7 @@ import Cell from '../Cell.vue'
 import { toFixed, toPercentage } from '@/utils'
 import RemixIcon from '../RemixIcon.vue'
 import Text from '../ui/Text.vue'
+import { categoryNameIconMapping } from '@/model/Category'
 
 export default {
   components: { Group, Cell, RemixIcon, Text },
@@ -50,6 +51,7 @@ export default {
 
   setup() {
     return {
+      categoryNameIconMapping,
       toFixed,
       toPercentage,
     }

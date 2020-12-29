@@ -4,7 +4,7 @@ import { deepToRaw, toRound } from '../utils'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
 import { Type, TypeCNTexts, Types } from '@/model/Type'
-import { setRecord } from '../db'
+import { setRecord } from '../db/record'
 import {
   readWalletByName,
   readWallets,

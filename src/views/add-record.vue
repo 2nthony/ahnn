@@ -34,10 +34,11 @@
           class="select-category flex-1 flex flex-col justify-center items-center p-0"
           @click="$router.push('/select/add-record-select-category')"
         >
-          <RemixIcon class="w-6 h-6" :icon="addRecord.category.icon" />
-          <Text class="mt-1">
-            {{ addRecord.category.name }}
-          </Text>
+          <RemixIcon
+            class="w-6 h-6"
+            :icon="categoryNameIconMapping[addRecord.category]"
+          />
+          <Text class="mt-1">{{ addRecord.category }}</Text>
         </Button>
 
         <div class="select-more flex flex-3 flex-col justify-between">
@@ -114,6 +115,7 @@ import Heading from '@/components/ui/Heading.vue'
 import { addRecordStrategy } from '../strategies/pageAddRecordStrategy'
 import { toFixed } from '@/utils'
 import Select from '@/components/ui/Select.vue'
+import { categoryNameIconMapping } from '@/model/Category'
 
 export default {
   components: {
@@ -133,6 +135,7 @@ export default {
     return {
       ...addRecordStrategy(),
       toFixed,
+      categoryNameIconMapping,
     }
   },
 }

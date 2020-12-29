@@ -4,10 +4,13 @@ import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
 import { Wallet, WalletName } from '@/model/Wallet'
 import { monthsInYear } from '@/utils/date'
+import { updateRecordCategory } from './migrations/updateRecordCategory'
 
 export function upgradeRecordDB(
   db: IDBPDatabase,
   transaction: IDBPTransaction,
+  oldVersion?: number,
+  _newVersion?: number | null,
 ) {
   const store = ensureStore(db, transaction, 'record', {
     autoIncrement: true,
@@ -17,45 +20,16 @@ export function upgradeRecordDB(
   recordIndexing.forEach((indexing) => {
     ensureCreateIndex(store, indexing.name, indexing.keyPath)
   })
-}
 
-// 日期字符串匹配 `startsWith`
-type MatchDate = string
-type Order = 'desc' | 'asc'
-export async function readRecord(date: MatchDate, order: Order = 'asc') {
-  const db = await open()
-
-  return db
-    .getAllFromIndex('record', 'date')
-    .then((records) => {
-      if (order === 'desc') {
-        records = records.sort(() => -1)
-      }
-
-      if (!date) return records
-
-      return records.filter((record) => record.date.startsWith(date))
-    })
-    .finally(() => {
-      db.close()
-    })
-}
-
-export async function addRecord(record: Record) {
-  const db = await open()
-  return db.add('record', record).finally(() => {
-    db.close()
-  })
-}
-
-export async function updateRecord(record: Record) {
-  const db = await open()
-  return db.put('record', record).finally(() => db.close())
+  transaction.oncomplete = () => {
+    updateRecordCategory(db, oldVersion)
+  }
 }
 
 export async function setRecord(record: Record) {
-  if (record.id) return updateRecord(record)
-  else return addRecord(record)
+  const action = record.id ? 'put' : 'add'
+  const db = await open()
+  return db[action]('record', record).finally(() => db.close())
 }
 
 export async function deleteRecord(record: Record) {
