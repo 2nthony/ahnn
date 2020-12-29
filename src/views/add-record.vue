@@ -11,14 +11,18 @@
     <div class="main-content">
       <div class="switch-type">
         <div class="button-wrapper">
-          <Button type="secondary" @click="handleSwitchType(Types.payout)">{{
-            TypeCNTexts[Types.payout]
-          }}</Button>
+          <Button
+            :type="addRecord.type === Types.payout ? 'success' : 'secondary'"
+            @click="handleSwitchType(Types.payout)"
+            >{{ TypeCNTexts[Types.payout] }}</Button
+          >
         </div>
         <div class="button-wrapper">
-          <Button type="secondary" @click="handleSwitchType(Types.income)">{{
-            TypeCNTexts[Types.income]
-          }}</Button>
+          <Button
+            :type="addRecord.type === Types.income ? 'warning' : 'secondary'"
+            @click="handleSwitchType(Types.income)"
+            >{{ TypeCNTexts[Types.income] }}</Button
+          >
         </div>
       </div>
 
@@ -132,6 +136,10 @@ export default {
 
   & .button-wrapper {
     flex: 1;
+
+    &:not(:first-child) {
+      margin-left: var(--geist-gap-half);
+    }
 
     & button {
       width: 100%;
