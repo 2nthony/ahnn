@@ -63,13 +63,25 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & .remixicon {
+    width: inherit;
+    height: inherit;
+  }
+
+  // payout and income overrided
   &.payout {
     background-color: var(--geist-success);
   }
   &.income {
     background-color: var(--geist-warning);
   }
-  & .remixicon {
-    fill: var(--geist-white);
+  &.payout,
+  &.income {
+    & .remixicon {
+      width: 1rem;
+      height: 1rem;
+      fill: var(--geist-white);
+    }
   }
 }
