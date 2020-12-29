@@ -3,11 +3,11 @@ import { setRecord } from '../record'
 
 export function updateRecordCategory(db: IDBPDatabase, oldVersion: number = 1) {
   // `category: {name, icon}` to `category: name`
-  if (oldVersion === 5) {
+  if (oldVersion === 6) {
     db.getAll('record').then((records) => {
       Promise.all(
         records.map((record) => {
-          setRecord({
+          return setRecord({
             ...record,
             category: record.category.name,
           })
