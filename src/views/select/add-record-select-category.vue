@@ -1,13 +1,13 @@
 <template>
   <PageSelect
     :title="title"
-    :items="categories"
+    :items="categoryItems"
     @item-click="handleItemClick"
   ></PageSelect>
 </template>
 
 <script lang="ts">
-import { presetCategories } from '@/model/Category'
+import { categoryNameIconMapping, presetCategories } from '@/model/Category'
 import { useStore } from '@/store'
 import { TypeCNTexts } from '@/model/Type'
 import { useRouter } from 'vue-router'
@@ -22,15 +22,17 @@ export default {
     const addRecord = store.getters.addRecord
     const title = `${TypeCNTexts[addRecord.type]}分类`
     const categories = presetCategories[addRecord.type]
+    const categoryItems = categories.map((category) => ({
+      name: category,
+      icon: categoryNameIconMapping[category],
+    }))
 
     const handleItemClick = (index: number) => {
-      store.commit('setAddRecord', {
-        category: categories[index],
-      })
+      store.commit('setAddRecord', { category: categories[index] })
       router.back()
     }
 
-    return { title, categories, handleItemClick }
+    return { title, categories, categoryItems, handleItemClick }
   },
 }
 </script>

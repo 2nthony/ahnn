@@ -9,13 +9,18 @@ export interface CategoryItem {
   icon: CategoryIcon
 }
 
-export interface Category {
+export interface AllCategories {
   payout: CategoryItem[]
   income: CategoryItem[]
+  others: CategoryItem[]
+}
+
+export type PresetCategories = {
+  [k in keyof AllCategories]: CategoryName[]
 }
 
 const c = (name: CategoryName, icon: CategoryIcon) => ({ name, icon })
-export const presetCategories: Category = {
+const allCategories: AllCategories = {
   payout: [
     c('通用', 'star'),
     c('餐饮', 'cake-3'),
@@ -36,16 +41,23 @@ export const presetCategories: Category = {
     c('奖金', 'coin'),
     c('投资', 'funds'),
   ],
+  others: [c('余额变动', 'exchange-cny')],
 }
 
-export const otherCategories: CategoryItem[] = [c('余额变动', 'exchange-cny')]
+export const presetCategories: PresetCategories = Object.keys(
+  allCategories,
+).reduce((res, k) => {
+  // @ts-ignore
+  res[k] = allCategories[k].map((category) => category.name) as CategoryName[]
+  return res
+}, {}) as PresetCategories
 
-export function getDefaultCategory(type: Type): CategoryItem {
+export function getDefaultCategory(type: Type): CategoryName {
   return presetCategories[type][0]
 }
 
 export const categoryNameIconMapping = createObjectMapping(
-  [...presetCategories.payout, ...presetCategories.income, ...otherCategories],
+  [...allCategories.payout, ...allCategories.income, ...allCategories.others],
   'name',
   'icon',
 )
