@@ -1,6 +1,6 @@
 {
   "name": "Ahnn",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@evillt/vuedown-loader": "^1.0.1",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vercel/node": "^1.8.5",
@@ -34,6 +35,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "autoprefixer": "^9",
     "babel-eslint": "^10.1.0",
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^6.7.2",
@@ -43,9 +45,11 @@
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
     "lint-staged": "^10.5.3",
+    "postcss": "^7",
     "postcss-preset-env": "^6.7.0",
     "prerender-spa-plugin": "^3.4.0",
     "prettier": "^2.2.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "~3.9.3",
     "vue-svg-loader": "^0.17.0-beta.2",
     "vuedown": "^3.2.0"

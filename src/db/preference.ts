@@ -5,6 +5,8 @@ import { ensureStore, open } from '.'
 export function upgradePreference(
   db: IDBPDatabase,
   transaction: IDBPTransaction,
+  _oldVersion?: number,
+  _newVersion?: number | null,
 ) {
   ensureStore(db, transaction, 'preference', {
     autoIncrement: true,

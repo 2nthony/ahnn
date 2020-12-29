@@ -1,7 +1,7 @@
 <template>
   <Card
-    :titleIcon="record.category.icon"
-    :title="record.category.name"
+    :titleIcon="categoryNameIconMapping[record.category]"
+    :title="record.category"
     :rightTextPrefixIcon="typeIcon[record.type]"
     :rightText="toFixed(record.cost)"
     :content="record.remark"
@@ -33,12 +33,13 @@ import Button from './ui/Button.vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
 import { Record } from '@/model/Record'
-import { deleteRecord } from '@/db'
+import { deleteRecord } from '@/db/record'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 import Card from './Card.vue'
 import { returnCostToWallet } from '@/db/wallet'
 import { toFixed } from '@/utils'
+import { categoryNameIconMapping } from '@/model/Category'
 
 export default defineComponent({
   components: { Text, Button, Card },
@@ -108,6 +109,7 @@ export default defineComponent({
       handleEdit,
       handleDelete,
       toFixed,
+      categoryNameIconMapping,
     }
   },
 })

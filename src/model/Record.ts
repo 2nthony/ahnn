@@ -1,5 +1,5 @@
 import { defaultType, Type } from './Type'
-import { CategoryItem, getDefaultCategory } from './Category'
+import { CategoryName, getDefaultCategory } from './Category'
 import { WalletName, getDefaultWalletName } from './Wallet'
 import { getToday } from '../utils/date'
 import { StoreIndexing } from '@/db'
@@ -7,7 +7,7 @@ import { StoreIndexing } from '@/db'
 export interface Record {
   id?: number
   type: Type
-  category: CategoryItem
+  category: CategoryName
   cost: number
   /** @example '2020-11-25' */
   date: string

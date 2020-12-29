@@ -3,11 +3,11 @@
     <ViewingArea title="钱包"></ViewingArea>
 
     <!--
-      TODO should use `Group` to wrap cards but with
-      issue: https://github.com/vuejs/vue-next/issues/2804
+      FIXME prevent oldChildren empty
+      https://github.com/vuejs/vue-next/issues/2804
     -->
     <Card
-      v-for="(wallet, index) in wallets"
+      v-for="(wallet, index) in userWallets"
       :key="index"
       :titleIcon="wallet.icon"
       :title="wallet.name"
@@ -37,12 +37,10 @@ export default defineComponent({
 
   setup() {
     const router = useRouter()
-    const wallets = ref<Wallet[]>([])
+    const userWallets = ref<Wallet[]>([])
 
-    onMounted(() => {
-      readWallets().then((data) => {
-        wallets.value = data
-      })
+    readWallets().then((wallets) => {
+      userWallets.value = wallets
     })
 
     const handleToDetail = (wallet: Wallet) => {
@@ -53,7 +51,7 @@ export default defineComponent({
     }
 
     return {
-      wallets,
+      userWallets,
       handleToDetail,
     }
   },

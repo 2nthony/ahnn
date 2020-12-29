@@ -15,14 +15,15 @@ export const walletIndexing: StoreIndexing = [
   },
 ]
 
+const c = (name: Wallet['name'], icon: Wallet['icon']) => ({ name, icon })
 export const supportedWallets = [
-  { name: '现金', icon: 'wallet' },
-  { name: '银行卡', icon: 'bank-card' },
-  { name: '信用卡', icon: 'bank-card-2' },
-  { name: '支付宝', icon: 'alipay' },
-  { name: '微信', icon: 'wechat-2' },
-  { name: 'QQ', icon: 'qq' },
-  { name: '投资', icon: 'funds' },
+  c('现金', 'wallet'),
+  c('银行卡', 'bank-card'),
+  c('信用卡', 'bank-card-2'),
+  c('支付宝', 'alipay'),
+  c('微信', 'wechat-2'),
+  c('QQ', 'qq'),
+  c('投资', 'funds'),
 ]
 
 export const presetWallets: Wallet[] = [

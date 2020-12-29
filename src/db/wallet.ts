@@ -6,7 +6,12 @@ import { ensureCreateIndex, ensureStore, open } from '.'
 
 const storeName = 'wallet'
 
-export function upgradeWallet(db: IDBPDatabase, transaction: IDBPTransaction) {
+export function upgradeWallet(
+  db: IDBPDatabase,
+  transaction: IDBPTransaction,
+  _oldVersion?: number,
+  _newVersion?: number | null,
+) {
   const store = ensureStore(db, transaction, storeName, {
     autoIncrement: true,
     keyPath: 'id',
@@ -20,11 +25,6 @@ export function upgradeWallet(db: IDBPDatabase, transaction: IDBPTransaction) {
 export async function readWallets(): Promise<Wallet[]> {
   const db = await open()
   return db.getAll(storeName, undefined).finally(() => db.close())
-}
-
-export async function addWallet(wallet: Wallet) {
-  const db = await open()
-  return db.add(storeName, wallet).finally(() => db.close())
 }
 
 export async function setWallet(wallet: Wallet) {

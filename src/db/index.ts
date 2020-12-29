@@ -4,13 +4,15 @@ import { upgradeRecordDB } from './record'
 import { upgradeWallet } from './wallet'
 
 const DB_NAME = 'Ahnn'
-export const DB_VERSION = 5
+export const DB_VERSION = 7
 
 export async function open() {
   return await openDB(DB_NAME, DB_VERSION, {
-    upgrade(db, _oldVersion, _newVersion, transaction) {
+    upgrade(db, oldVersion, newVersion, transaction) {
       const upgraders = [upgradeRecordDB, upgradePreference, upgradeWallet]
-      upgraders.forEach((upgrader) => upgrader(db, transaction))
+      upgraders.forEach((upgrader) =>
+        upgrader(db, transaction, oldVersion, newVersion),
+      )
     },
   })
 }
@@ -42,5 +44,3 @@ export function ensureCreateIndex(
   keyPath = keyPath || name
   store.createIndex(name, keyPath, options)
 }
-
-export * from './record'
