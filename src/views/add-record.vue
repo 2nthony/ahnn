@@ -9,53 +9,68 @@
     </ViewingArea>
 
     <div class="main-content">
-      <div class="switch-type">
-        <div class="button-wrapper">
-          <Button type="secondary" @click="handleSwitchType(Types.payout)">{{
-            TypeCNTexts[Types.payout]
-          }}</Button>
+      <div class="switch-type flex">
+        <div class="button-wrapper flex-1">
+          <Button
+            class="w-full"
+            :type="addRecord.type === Types.payout ? 'success' : 'secondary'"
+            @click="handleSwitchType(Types.payout)"
+            >{{ TypeCNTexts[Types.payout] }}</Button
+          >
         </div>
-        <div class="button-wrapper">
-          <Button type="secondary" @click="handleSwitchType(Types.income)">{{
-            TypeCNTexts[Types.income]
-          }}</Button>
+        <div class="button-wrapper flex-1">
+          <Button
+            class="w-full"
+            :type="addRecord.type === Types.income ? 'warning' : 'secondary'"
+            @click="handleSwitchType(Types.income)"
+            >{{ TypeCNTexts[Types.income] }}</Button
+          >
         </div>
       </div>
 
-      <div class="info">
+      <div class="info flex">
         <Button
           type="secondary"
-          class="select-category"
+          class="select-category flex-1 flex flex-col justify-center items-center p-0"
           @click="$router.push('/select/add-record-select-category')"
         >
-          <RemixIcon class="icon" :icon="addRecord.category.icon" />
-          <Text class="name">
+          <RemixIcon class="w-6 h-6" :icon="addRecord.category.icon" />
+          <Text class="mt-1">
             {{ addRecord.category.name }}
           </Text>
         </Button>
 
-        <div class="select-more">
-          <div class="select-more-top">
-            <div class="select-input-wrapper">
+        <div class="select-more flex flex-3 flex-col justify-between">
+          <div class="select-more-top flex">
+            <div class="select-input-wrapper flex-1">
               <InputDate
+                class="w-full"
                 :modelValue="addRecord.date"
                 @update:modelValue="onDateSelect"
               >
                 <template #placeholder>
-                  <Button type="secondary">{{ previewDate }}</Button>
+                  <Button class="w-full cursor-pointer" type="secondary">{{
+                    previewDate
+                  }}</Button>
                 </template>
               </InputDate>
             </div>
-            <div class="select-input-wrapper">
-              <Button
-                type="secondary"
-                @click="$router.push('/select/add-record-select-wallet')"
-                >{{ addRecord.wallet }}</Button
+            <div class="select-input-wrapper flex-1">
+              <Select
+                class="cursor-pointer min-w-full"
+                :modelValue="addRecord.wallet"
+                :showArrow="false"
+                @update:modelValue="onWalletSelect"
               >
+                <option v-for="(wallet, index) in userWallets" :key="index">
+                  {{ wallet.name }}
+                </option>
+              </Select>
             </div>
           </div>
-          <div class="select-more-bottom">
+          <div class="select-more-bottom flex">
             <Input
+              class="w-full"
               :modelValue="addRecord.remark"
               placeholder="备注信息"
               inputmode="search"
@@ -66,7 +81,10 @@
         </div>
       </div>
 
-      <div class="calculator-wrapper" v-show="calculatorVisible">
+      <div
+        class="calculator-wrapper fixed left-0 right-0 w-full"
+        v-show="calculatorVisible"
+      >
         <Calculator @result="onCalcResult"></Calculator>
       </div>
     </div>
@@ -95,6 +113,7 @@ import RemixIcon from '@/components/RemixIcon.vue'
 import Heading from '@/components/ui/Heading.vue'
 import { addRecordStrategy } from '../strategies/pageAddRecordStrategy'
 import { toFixed } from '@/utils'
+import Select from '@/components/ui/Select.vue'
 
 export default {
   components: {
@@ -107,6 +126,7 @@ export default {
     Text,
     RemixIcon,
     Heading,
+    Select,
   },
 
   setup() {
@@ -120,72 +140,29 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
-  margin-bottom: 300px;
-  & button {
-    color: var(--geist-foreground);
-  }
-
   & .switch-type {
-    display: flex;
     margin-bottom: var(--geist-gap-half);
   }
 
   & .button-wrapper {
-    flex: 1;
-
-    & button {
-      width: 100%;
+    &:not(:first-child) {
+      margin-left: var(--geist-gap-half);
     }
   }
 
   & .info {
-    display: flex;
     margin-bottom: var(--geist-gap-half);
+
+    & button {
+      color: var(--geist-foreground);
+    }
   }
 
   & .select-category {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
     width: calc(2 * var(--geist-form-height) + 10px);
     height: calc(2 * var(--geist-form-height) + 10px);
     background-color: var(--geist-background);
     margin-right: var(--geist-gap-half);
-
-    & .icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-
-    & .name {
-      margin-top: 0.25rem;
-    }
-  }
-
-  & .select-more,
-  & .select-more-top,
-  & .select-more-bottom {
-    display: flex;
-  }
-  & .select-more {
-    flex: 3;
-    flex-direction: column;
-    justify-content: space-between;
-
-    & button {
-      width: 100%;
-      cursor: pointer;
-    }
-
-    & input {
-      width: 100%;
-    }
-  }
-  & .select-input-wrapper {
-    flex: 1;
   }
   & .select-more-top,
   & .select-more-bottom {
@@ -196,10 +173,6 @@ export default {
 }
 
 .calculator-wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
   bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
-  width: 100%;
 }
 </style>

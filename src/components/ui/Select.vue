@@ -1,13 +1,15 @@
 <template>
   <div class="select" :class="{ small }">
-    <select
-      v-bind="$attrs"
-      @input="(e) => $emit('update:modelValue', e.target.value)"
-    >
+    <Text class="selected-value">{{ innerSelected }}</Text>
+
+    <select v-model="innerSelected">
+      <option value="" disabled v-if="placeholder">
+        {{ placeholder }}
+      </option>
       <slot />
     </select>
 
-    <div class="arrow">
+    <div class="arrow" v-if="showArrow">
       <RemixIcon :icon="'arrow-down-s'" line />
     </div>
   </div>
@@ -16,13 +18,27 @@
 <script lang="ts">
 import { setProps } from '@/utils/setProps'
 import RemixIcon from '../RemixIcon.vue'
-export default {
-  components: { RemixIcon },
+import { defineComponent, ref, watch } from 'vue'
+import Text from './Text.vue'
+
+export default defineComponent({
+  components: { RemixIcon, Text },
   props: {
     small: setProps('boolean'),
     modelValue: setProps(['string', 'number']),
+    placeholder: setProps('string'),
+    showArrow: setProps('boolean', true),
   },
-}
+
+  setup(props, { emit }) {
+    const innerSelected = ref(props.modelValue)
+    watch(innerSelected, (v) => emit('update:modelValue', v))
+
+    return {
+      innerSelected,
+    }
+  },
+})
 </script>
 
 <style lang="less" scoped>
@@ -43,9 +59,9 @@ export default {
   border-radius: var(--geist-radius);
   white-space: nowrap;
   line-height: 0;
-  height: calc(9 * var(--geist-space));
-  width: auto;
-  min-width: 160px;
+  height: var(--geist-form-height);
+  // min-width: 160px;
+  position: relative;
 
   & select {
     appearance: none;
@@ -59,9 +75,10 @@ export default {
     color: currentColor;
     font-size: 14px;
     margin-right: -20px;
-    width: calc(100% + 20px);
+    width: 100%;
     padding: 0 var(--geist-gap-half);
     text-transform: none;
+    position: relative;
     &:-moz-focusring {
       color: transparent;
       text-shadow: 0 0 0 #000;
@@ -69,6 +86,17 @@ export default {
     &:focus {
       outline: none;
     }
+  }
+
+  & .selected-value {
+    position: absolute;
+    // left: var(--geist-gap-half);
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
   & .arrow {
@@ -92,8 +120,8 @@ export default {
   }
 
   &.small {
-    min-width: 105px;
-    height: var(--geist-gap);
+    // min-width: 105px;
+    height: var(--geist-form-small-height);
 
     & select {
       font-size: 12px;
