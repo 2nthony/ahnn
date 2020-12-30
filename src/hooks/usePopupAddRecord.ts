@@ -4,7 +4,7 @@ import { ref, watch } from 'vue'
 /**
  * This hook will do:
  *
- * reset add record form when `visible` be `false`
+ * Reset add record form when `visible` be `false`, e.g. close popup.
  */
 export function usePopupAddRecord() {
   const store = useStore()
