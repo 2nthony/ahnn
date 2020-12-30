@@ -1,42 +1,45 @@
 <template>
   <div class="calculator">
-    <div class="row">
-      <div class="button flex-2">{{ input }}</div>
-      <div class="button" @click="inputBackspace">
+    <div class="flex">
+      <div class="button flex-2 button-2x">{{ input }}</div>
+      <div class="button flex-1" @click="inputBackspace">
         <RemixIcon :icon="'delete-back-2'" />
       </div>
-      <div class="button operator" @click="inputOperator(operators.divide)">
+      <div
+        class="button operator flex-1"
+        @click="inputOperator(operators.divide)"
+      >
         <RemixIcon :icon="'divide'" />
       </div>
     </div>
-    <div class="row">
-      <div class="button" @click="inputNumber('7')">7</div>
-      <div class="button" @click="inputNumber('8')">8</div>
-      <div class="button" @click="inputNumber('9')">9</div>
-      <div class="button operator" @click="inputOperator(operators.multiply)">
+    <div class="flex">
+      <div class="button flex-1" @click="inputNumber('7')">7</div>
+      <div class="button flex-1" @click="inputNumber('8')">8</div>
+      <div class="button flex-1" @click="inputNumber('9')">9</div>
+      <div class="button flex-1" @click="inputOperator(operators.multiply)">
         <RemixIcon :icon="'close'" />
       </div>
     </div>
-    <div class="row">
-      <div class="button" @click="inputNumber('4')">4</div>
-      <div class="button" @click="inputNumber('5')">5</div>
-      <div class="button" @click="inputNumber('6')">6</div>
-      <div class="button operator" @click="inputOperator(operators.minus)">
+    <div class="flex">
+      <div class="button flex-1" @click="inputNumber('4')">4</div>
+      <div class="button flex-1" @click="inputNumber('5')">5</div>
+      <div class="button flex-1" @click="inputNumber('6')">6</div>
+      <div class="button flex-1" @click="inputOperator(operators.minus)">
         <RemixIcon :icon="'subtract'" />
       </div>
     </div>
-    <div class="row">
-      <div class="button" @click="inputNumber('1')">1</div>
-      <div class="button" @click="inputNumber('2')">2</div>
-      <div class="button" @click="inputNumber('3')">3</div>
-      <div class="button operator" @click="inputOperator(operators.plus)">
+    <div class="flex">
+      <div class="button flex-1" @click="inputNumber('1')">1</div>
+      <div class="button flex-1" @click="inputNumber('2')">2</div>
+      <div class="button flex-1" @click="inputNumber('3')">3</div>
+      <div class="button flex-1" @click="inputOperator(operators.plus)">
         <RemixIcon :icon="'add'" />
       </div>
     </div>
-    <div class="row">
-      <div class="button flex-2" @click="inputNumber('0')">0</div>
-      <div class="button" @click="inputNumber('.')">.</div>
-      <div class="button operator" @click="inputEqual">=</div>
+    <div class="flex">
+      <div class="button flex-2 button-2x" @click="inputNumber('0')">0</div>
+      <div class="button flex-1" @click="inputNumber('.')">.</div>
+      <div class="button flex-1" @click="inputEqual">=</div>
     </div>
   </div>
 </template>
@@ -136,35 +139,27 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.calculator {
-  --shadow-top: inset 0 1px var(--accents-2);
-  --shadow-right: inset -1px 0 var(--accents-2);
-
-  width: 100%;
-
-  & .row {
-    display: flex;
-  }
-
-  & svg {
-    fill: #fff;
-  }
-}
-
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   height: 2.75rem;
   font-size: 1.25rem;
-  background-color: var(--calculator-number-bg-color);
-  color: #fff;
-  box-shadow: var(--shadow-top), var(--shadow-right);
+  background-color: var(--accents-1);
+  color: var(--geist-foreground);
   cursor: pointer;
+  border-radius: var(--geist-radius);
 
-  &.operator {
-    background-color: var(--calculator-operator-bg-color);
+  &:not(:last-child) {
+    margin-right: var(--geist-space);
+  }
+
+  &.button-2x {
+    padding-right: var(--geist-space);
+  }
+
+  &:active {
+    background-color: var(--accents-2);
   }
 
   & svg {
@@ -173,21 +168,7 @@ export default defineComponent({
   }
 }
 
-// 清除顶部和右边阴影
-.row:first-child {
-  & .button {
-    box-shadow: var(--shadow-right);
-
-    &:last-child {
-      box-shadow: none;
-    }
-  }
-}
-.button:last-child {
-  box-shadow: var(--shadow-top);
-}
-
-.flex-2 {
-  flex: 2;
+.flex:not(:last-child) {
+  margin-bottom: var(--geist-space);
 }
 </style>

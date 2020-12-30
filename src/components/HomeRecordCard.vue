@@ -5,7 +5,7 @@
     :rightTextPrefixIcon="typeIcon[record.type]"
     :rightText="toFixed(record.cost)"
     :content="record.remark"
-    :iconWrapperClass="['icon-wrapper', record.type]"
+    :iconWrapperClass="['icon-wrapper', 'circle', record.type]"
     @click="handleShowMore"
   >
     <template v-if="showMore" #>
@@ -68,7 +68,8 @@ export default defineComponent({
 
     const handleEdit = () => {
       store.commit('setAddRecord', props.record as Record)
-      router.push('/edit-record')
+      // router.push('/edit-record')
+      emit('edit')
     }
 
     const handleDelete = () => {

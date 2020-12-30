@@ -1,17 +1,17 @@
 <template>
   <div class="page-home">
-    <ViewingArea class="viewing-area">
-      <Card class="month-summary">
+    <ViewingArea class="my-gap">
+      <Card class="month-summary flex flex-col w-full h-full justify-between">
         <Heading :size="900">{{ currentMonth }} 月</Heading>
 
-        <div class="summary">
-          <div class="payout">
+        <div>
+          <div class="mb-gap">
             <Heading>支出</Heading>
             <Heading :size="800">{{
               toFixed(calcRecordsResult.payout)
             }}</Heading>
           </div>
-          <div class="income">
+          <div>
             <Heading>收入 {{ toFixed(calcRecordsResult.income) }}</Heading>
           </div>
         </div>
@@ -27,16 +27,19 @@
         v-for="(cost, index) in record.costs"
         :key="index"
         :record="cost"
+        @edit="popupAddRecordVisible = true"
       />
     </Group>
 
     <SelectMonth></SelectMonth>
-    <HomeTabbar></HomeTabbar>
+    <HomeTabbar @write-record="popupAddRecordVisible = true"></HomeTabbar>
   </div>
+
+  <PopupAddRecord v-model:visible="popupAddRecordVisible" />
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import Group from '../components/Group.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
@@ -48,6 +51,8 @@ import SelectMonth from '@/components/SelectMonth.vue'
 import Card from '@/components/Card.vue'
 import { calcRecords, compatHomeRecords } from '@/utils/record'
 import { toFixed } from '@/utils'
+import PopupAddRecord from '@/components/page-home/PopupAddRecord.vue'
+import { usePopupAddRecord } from '@/hooks/usePopupAddRecord'
 
 export default {
   components: {
@@ -58,10 +63,12 @@ export default {
     HomeRecordCard,
     SelectMonth,
     Card,
+    PopupAddRecord,
   },
 
   setup() {
     const store = useStore()
+    const { popupAddRecordVisible } = usePopupAddRecord()
 
     const records = computed(() => {
       return compatHomeRecords(store.getters.records)
@@ -75,6 +82,7 @@ export default {
     return {
       currentMonth: computed(() => recordsQueryDate.value[1]),
       records,
+      popupAddRecordVisible,
 
       calcRecordsResult,
 
@@ -87,10 +95,6 @@ export default {
 
 <style lang="less" scoped>
 .page-home {
-  & .viewing-area {
-    margin: var(--geist-gap) 0;
-  }
-
   & .month-summary {
     --start-color: #007cf0;
     --end-color: #00dfd8;
@@ -100,15 +104,6 @@ export default {
       var(--end-color)
     );
     color: var(--geist-white);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    & .payout {
-      margin-bottom: var(--geist-gap);
-    }
   }
 }
 </style>

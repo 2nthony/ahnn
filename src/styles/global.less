@@ -69,6 +69,16 @@ h6 {
     height: inherit;
   }
 
+  &.circle {
+    background-color: var(--accents-2);
+
+    & .remixicon {
+      width: 1rem;
+      height: 1rem;
+      fill: var(--accents-5);
+    }
+  }
+
   // payout and income overrided
   &.payout {
     background-color: var(--geist-success);
@@ -79,8 +89,6 @@ h6 {
   &.payout,
   &.income {
     & .remixicon {
-      width: 1rem;
-      height: 1rem;
       fill: var(--geist-white);
     }
   }
