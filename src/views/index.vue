@@ -27,16 +27,19 @@
         v-for="(cost, index) in record.costs"
         :key="index"
         :record="cost"
+        @edit="popupAddRecordVisible = true"
       />
     </Group>
 
     <SelectMonth></SelectMonth>
-    <HomeTabbar></HomeTabbar>
+    <HomeTabbar @write-record="popupAddRecordVisible = true"></HomeTabbar>
   </div>
+
+  <PopupAddRecord v-model:visible="popupAddRecordVisible" />
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import Group from '../components/Group.vue'
 import HomeTabbar from '../components/HomeTabbar'
 import ViewingArea from '../components/ViewingArea.vue'
@@ -48,6 +51,7 @@ import SelectMonth from '@/components/SelectMonth.vue'
 import Card from '@/components/Card.vue'
 import { calcRecords, compatHomeRecords } from '@/utils/record'
 import { toFixed } from '@/utils'
+import PopupAddRecord from '@/components/page-home/PopupAddRecord.vue'
 
 export default {
   components: {
@@ -58,10 +62,16 @@ export default {
     HomeRecordCard,
     SelectMonth,
     Card,
+    PopupAddRecord,
   },
 
   setup() {
     const store = useStore()
+    const popupAddRecordVisible = ref(false)
+    // close popup reset
+    watch(popupAddRecordVisible, (bool) => {
+      if (!bool) store.dispatch('initAddRecord')
+    })
 
     const records = computed(() => {
       return compatHomeRecords(store.getters.records)
@@ -75,6 +85,7 @@ export default {
     return {
       currentMonth: computed(() => recordsQueryDate.value[1]),
       records,
+      popupAddRecordVisible,
 
       calcRecordsResult,
 

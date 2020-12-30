@@ -49,11 +49,11 @@ export function addRecordStrategy() {
       )
 
       const newWalletValue = { ...wallet, balance: newBalance }
-      Promise.all([
+      return Promise.all([
         setWallet(newWalletValue),
         setRecord(deepToRaw(addRecord.value)),
       ]).then(() => {
-        router.go(-1) // back to /
+        // router.go(-1) // back to /
         store.dispatch('initAddRecord')
         store.dispatch('readRecordsByQueryDate')
       })

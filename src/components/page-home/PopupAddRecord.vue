@@ -79,7 +79,7 @@
       @click="remarkPopupVisible = true"
     >
       <Text
-        class="inline-block w-full text-left whitespace-nowrap overflow-hidden overflow-ellipsis text-foreground"
+        class="inline-block w-full text-left whitespace-nowrap overflow-hidden overflow-ellipsis"
         >{{ addRecord.remark || '填写备注' }}</Text
       >
     </Button>
@@ -115,7 +115,7 @@ import Input from '../ui/Input.vue'
 import Button from '../ui/Button.vue'
 import InputDate from '../InputDate.vue'
 import Select from '../ui/Select.vue'
-import { computed, ref, watch } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import Heading from '../ui/Heading.vue'
 import RemixIcon from '../RemixIcon.vue'
 import Text from '../ui/Text.vue'
@@ -132,7 +132,7 @@ import ButtonGroup from '../ButtonGroup.vue'
 import { toFixed } from '@/utils'
 import Textarea from '../ui/Textarea.vue'
 
-export default {
+export default defineComponent({
   components: {
     Calculator,
     Input,
@@ -151,7 +151,7 @@ export default {
     visible: setProps('boolean'),
   },
 
-  setup() {
+  setup(props, { emit }) {
     const store = useStore()
     const remarkPopupVisible = ref(false)
     const selectedCategoryIndex = ref(0)
@@ -160,13 +160,20 @@ export default {
     const {
       addRecord,
       handleSwitchType: origHandleSwitchType,
-      handleSave,
+      handleSave: origHandleSave,
       onDateSelect,
     } = addRecordStrategy()
     const previewDate = computed(() => getCNDayText(addRecord.value.date))
-
     const categories = computed(() => {
       return presetCategories[addRecord.value.type]
+    })
+
+    // highlight category and
+    // reset selected category index to `0`
+    watch(addRecord, (val) => {
+      selectedCategoryIndex.value = categories.value.findIndex((category) => {
+        return category === val.category
+      })
     })
 
     function handleSelectWallet(wallet: Record['wallet']) {
@@ -193,6 +200,12 @@ export default {
       store.commit('setAddRecord', { remark })
     }
 
+    function handleSave() {
+      origHandleSave().then(() => {
+        emit('update:visible', false)
+      })
+    }
+
     return {
       userWallets,
       selectedCategoryIndex,
@@ -214,7 +227,7 @@ export default {
       toFixed,
     }
   },
-}
+})
 </script>
 
 <style lang="less" scoped>
