@@ -52,6 +52,7 @@ import Card from '@/components/Card.vue'
 import { calcRecords, compatHomeRecords } from '@/utils/record'
 import { toFixed } from '@/utils'
 import PopupAddRecord from '@/components/page-home/PopupAddRecord.vue'
+import { usePopupAddRecord } from '@/hooks/usePopupAddRecord'
 
 export default {
   components: {
@@ -67,11 +68,7 @@ export default {
 
   setup() {
     const store = useStore()
-    const popupAddRecordVisible = ref(false)
-    // close popup reset
-    watch(popupAddRecordVisible, (bool) => {
-      if (!bool) store.dispatch('initAddRecord')
-    })
+    const { popupAddRecordVisible } = usePopupAddRecord()
 
     const records = computed(() => {
       return compatHomeRecords(store.getters.records)
