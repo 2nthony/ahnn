@@ -8,7 +8,7 @@
         :rightText="toFixed(item.cost)"
       >
         <template #title-icon>
-          <div class="icon-wrapper" :class="type">
+          <div class="icon-wrapper circle" :class="type">
             <RemixIcon :icon="categoryNameIconMapping[item.category]" />
           </div>
         </template>

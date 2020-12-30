@@ -11,6 +11,7 @@
         v-for="(cost, index) in record.costs"
         :key="index"
         :record="cost"
+        @edit="popupAddRecordVisible = true"
         @deleted="readRecord"
       />
     </Group>
@@ -24,6 +25,11 @@
       @right-click="handleEditWallet"
     ></Tabbar>
   </div>
+
+  <PopupAddRecord
+    v-model:visible="popupAddRecordVisible"
+    @saved="readRecord"
+  ></PopupAddRecord>
 </template>
 
 <script lang="ts">
@@ -39,14 +45,17 @@ import { quickSortBy } from '@/utils/quickSort'
 import { getCNDayText } from '@/utils/date'
 import { useStore } from '@/store'
 import { compatHomeRecords } from '@/utils/record'
+import { usePopupAddRecord } from '@/hooks/usePopupAddRecord'
+import PopupAddRecord from '@/components/page-home/PopupAddRecord.vue'
 
 export default {
-  components: { Tabbar, ViewingArea, Group, HomeRecordCard },
+  components: { Tabbar, ViewingArea, Group, HomeRecordCard, PopupAddRecord },
 
   setup() {
     const store = useStore()
     const route = useRoute()
     const router = useRouter()
+    const { visible: popupAddRecordVisible } = usePopupAddRecord()
 
     const name = route.query.name as Record['wallet']
     const records = ref<any>([])
@@ -65,7 +74,8 @@ export default {
       store.commit('setAddRecord', {
         wallet: name,
       })
-      router.push('/add-record')
+      // router.push('/add-record')
+      popupAddRecordVisible.value = true
     }
 
     const handleEditWallet = () => {
@@ -80,6 +90,7 @@ export default {
     return {
       title: name,
       records,
+      popupAddRecordVisible,
 
       handleAddRecord,
       handleEditWallet,

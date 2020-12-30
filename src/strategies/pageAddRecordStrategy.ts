@@ -17,7 +17,6 @@ import { Wallet } from '@/model/Wallet'
 
 export function addRecordStrategy() {
   const store = useStore()
-  const router = useRouter()
 
   const addRecord = computed(() => store.getters.addRecord)
   const money = ref<number>(addRecord.value.cost || 0)
@@ -49,14 +48,10 @@ export function addRecordStrategy() {
       )
 
       const newWalletValue = { ...wallet, balance: newBalance }
-      Promise.all([
+      return Promise.all([
         setWallet(newWalletValue),
         setRecord(deepToRaw(addRecord.value)),
-      ]).then(() => {
-        router.go(-1) // back to /
-        store.dispatch('initAddRecord')
-        store.dispatch('readRecordsByQueryDate')
-      })
+      ])
     })
   }
 

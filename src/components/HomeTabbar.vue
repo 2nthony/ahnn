@@ -10,7 +10,7 @@
 
     <TabbarItem
       :class="{ active: currentPath === '/' }"
-      @click="switchTab(currentPath === '/' ? '/add-record' : '/')"
+      @click="currentPath === '/' ? $emit('write-record') : switchTab('/')"
     >
       <template v-if="currentPath === '/'">
         <RemixIcon :icon="'quill-pen'" />
