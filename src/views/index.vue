@@ -68,7 +68,7 @@ export default {
 
   setup() {
     const store = useStore()
-    const { popupAddRecordVisible } = usePopupAddRecord()
+    const { visible: popupAddRecordVisible } = usePopupAddRecord()
 
     const records = computed(() => {
       return compatHomeRecords(store.getters.records)
