@@ -1,3 +1,19 @@
+## [0.2.5](https://github.com/evillt/ahnn/compare/v0.2.4...v0.2.5) (2020-12-30)
+
+
+### Bug Fixes
+
+* **db-upgrade-record-category:** prod db version ([39f00be](https://github.com/evillt/ahnn/commit/39f00becbddcec9ad39ca4a23314fb4d8bac190e))
+* **page-home:** destruct const value ([5b5dcb0](https://github.com/evillt/ahnn/commit/5b5dcb03dc41ccee840a77655595a23b2aacec01))
+
+
+### Features
+
+* popup add record ([#30](https://github.com/evillt/ahnn/issues/30)) ([59732aa](https://github.com/evillt/ahnn/commit/59732aa120f74efcae89f4a5773b22c194c850a8))
+* **model-category:** add service ([eef249f](https://github.com/evillt/ahnn/commit/eef249f2d21b79b7d0cf30eaa7706a94350c2097))
+
+
+
 ## [0.2.4](https://github.com/evillt/ahnn/compare/v0.2.3...v0.2.4) (2020-12-29)
 
 
