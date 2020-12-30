@@ -147,6 +147,7 @@ export default defineComponent({
     ButtonGroup,
     Textarea,
   },
+  emits: ['update:visible', 'saved'],
   props: {
     visible: setProps('boolean'),
   },
@@ -203,6 +204,7 @@ export default defineComponent({
     function handleSave() {
       origHandleSave().then(() => {
         emit('update:visible', false)
+        emit('saved')
       })
     }
 
