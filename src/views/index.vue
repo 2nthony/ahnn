@@ -1,17 +1,17 @@
 <template>
   <div class="page-home">
-    <ViewingArea class="viewing-area">
-      <Card class="month-summary">
+    <ViewingArea class="my-gap">
+      <Card class="month-summary flex flex-col w-full h-full justify-between">
         <Heading :size="900">{{ currentMonth }} 月</Heading>
 
-        <div class="summary">
-          <div class="payout">
+        <div>
+          <div class="mb-gap">
             <Heading>支出</Heading>
             <Heading :size="800">{{
               toFixed(calcRecordsResult.payout)
             }}</Heading>
           </div>
-          <div class="income">
+          <div>
             <Heading>收入 {{ toFixed(calcRecordsResult.income) }}</Heading>
           </div>
         </div>
@@ -87,10 +87,6 @@ export default {
 
 <style lang="less" scoped>
 .page-home {
-  & .viewing-area {
-    margin: var(--geist-gap) 0;
-  }
-
   & .month-summary {
     --start-color: #007cf0;
     --end-color: #00dfd8;
@@ -100,15 +96,6 @@ export default {
       var(--end-color)
     );
     color: var(--geist-white);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    & .payout {
-      margin-bottom: var(--geist-gap);
-    }
   }
 }
 </style>
