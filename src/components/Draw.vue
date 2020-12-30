@@ -1,7 +1,7 @@
 <template>
-  <div class="draw bottom-0 fixed left-0 right-0">
+  <div class="bottom-0 fixed left-0 right-0">
     <transition name="slide-fade">
-      <div v-if="visible">
+      <div v-if="visible" class="draw">
         <slot></slot>
       </div>
     </transition>
@@ -37,7 +37,7 @@ export default {
 
 .modal-frosted-glass {
   z-index: -1;
-  backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: saturate(180%) blur(10px);
   background-color: var(--tabbar-background);
 }
 </style>
