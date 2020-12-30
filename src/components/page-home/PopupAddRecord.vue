@@ -1,22 +1,20 @@
 <template>
   <Draw :visible="visible" @update:visible="(v) => $emit('update:visible', v)">
     <div class="flex justify-between items-center mb-gap-half">
-      <div>
-        <ButtonGroup>
-          <Button
-            :size="'small'"
-            :type="addRecord.type === Types.payout ? 'success' : 'secondary'"
-            @click="handleSwitchType(Types.payout)"
-            >{{ TypeCNTexts[Types.payout] }}</Button
-          >
-          <Button
-            :size="'small'"
-            :type="addRecord.type === Types.income ? 'warning' : 'secondary'"
-            @click="handleSwitchType(Types.income)"
-            >{{ TypeCNTexts[Types.income] }}</Button
-          >
-        </ButtonGroup>
-      </div>
+      <ButtonGroup>
+        <Button
+          :size="'small'"
+          :type="addRecord.type === Types.payout ? 'success' : 'secondary'"
+          @click="handleSwitchType(Types.payout)"
+          >{{ TypeCNTexts[Types.payout] }}</Button
+        >
+        <Button
+          :size="'small'"
+          :type="addRecord.type === Types.income ? 'warning' : 'secondary'"
+          @click="handleSwitchType(Types.income)"
+          >{{ TypeCNTexts[Types.income] }}</Button
+        >
+      </ButtonGroup>
 
       <div class="flex">
         <InputDate
@@ -26,7 +24,7 @@
         >
           <template #placeholder>
             <Button :size="'small'" type="secondary" class="w-full">{{
-              previewDate
+              getCNDayText(addRecord.date)
             }}</Button>
           </template>
         </InputDate>
@@ -56,22 +54,7 @@
     </div>
 
     <!-- categories -->
-    <div class="overflow-x-scroll flex mb-gap-half">
-      <div
-        class="flex flex-col items-center w-14 flex-none"
-        v-for="(category, index) in categories"
-        :key="index"
-        @click="handleSelectCategory(index)"
-      >
-        <div
-          class="icon-wrapper circle mb-2 category-icon-wrapper"
-          :class="{ [addRecord.type]: index === selectedCategoryIndex }"
-        >
-          <RemixIcon :icon="categoryNameIconMapping[category]" />
-        </div>
-        <Text :size="300">{{ category }}</Text>
-      </div>
-    </div>
+    <PopupAddRecordCategories />
 
     <Button
       type="secondary"
@@ -111,71 +94,53 @@
 <script lang="ts">
 import { setProps } from '@/utils/setProps'
 import Calculator from '../Calculator.vue'
-import Input from '../ui/Input.vue'
 import Button from '../ui/Button.vue'
 import InputDate from '../InputDate.vue'
 import Select from '../ui/Select.vue'
-import { computed, defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref } from 'vue'
 import Heading from '../ui/Heading.vue'
-import RemixIcon from '../RemixIcon.vue'
 import Text from '../ui/Text.vue'
 import { TypeCNTexts, Types } from '@/model/Type'
-import { categoryNameIconMapping, presetCategories } from '@/model/Category'
 import { useStore } from '@/store'
 import { addRecordStrategy } from '@/strategies/pageAddRecordStrategy'
 import { Record } from '@/model/Record'
 import { getCNDayText } from '@/utils/date'
-import Tabbar from '../Tabbar.vue'
 import Draw from '../Draw.vue'
 import { useUserWallets } from '@/hooks/useUserWallets'
 import ButtonGroup from '../ButtonGroup.vue'
 import { toFixed } from '@/utils'
 import Textarea from '../ui/Textarea.vue'
+import PopupAddRecordCategories from './PopupAddRecordCategories.vue'
 
 export default defineComponent({
   components: {
     Calculator,
-    Input,
     Button,
     InputDate,
     Select,
     Heading,
-    RemixIcon,
     Text,
-    Tabbar,
     Draw,
     ButtonGroup,
     Textarea,
+    PopupAddRecordCategories,
   },
   emits: ['update:visible', 'saved'],
   props: {
     visible: setProps('boolean'),
   },
 
-  setup(props, { emit }) {
+  setup(_, { emit }) {
     const store = useStore()
     const remarkPopupVisible = ref(false)
-    const selectedCategoryIndex = ref(0)
     const { userWallets } = useUserWallets()
 
     const {
       addRecord,
-      handleSwitchType: origHandleSwitchType,
+      handleSwitchType,
       handleSave: origHandleSave,
       onDateSelect,
     } = addRecordStrategy()
-    const previewDate = computed(() => getCNDayText(addRecord.value.date))
-    const categories = computed(() => {
-      return presetCategories[addRecord.value.type]
-    })
-
-    // highlight category and
-    // reset selected category index to `0`
-    watch(addRecord, (val) => {
-      selectedCategoryIndex.value = categories.value.findIndex((category) => {
-        return category === val.category
-      })
-    })
 
     function handleSelectWallet(wallet: Record['wallet']) {
       store.commit('setAddRecord', { wallet })
@@ -183,18 +148,6 @@ export default defineComponent({
 
     function onCalcResult(cost: Record['cost']) {
       store.commit('setAddRecord', { cost })
-    }
-
-    function handleSelectCategory(index: number) {
-      store.commit('setAddRecord', {
-        category: categories.value[index],
-      })
-      selectedCategoryIndex.value = index
-    }
-
-    function handleSwitchType(type: Record['type']) {
-      origHandleSwitchType(type)
-      selectedCategoryIndex.value = 0
     }
 
     function onInputRemark(remark: Record['remark']) {
@@ -213,23 +166,19 @@ export default defineComponent({
 
     return {
       userWallets,
-      selectedCategoryIndex,
       Types,
       TypeCNTexts,
-      categories,
       addRecord,
-      previewDate,
-      categoryNameIconMapping,
       handleSwitchType,
       handleSelectWallet,
       onDateSelect,
       onCalcResult,
-      handleSelectCategory,
       onInputRemark,
       handleSave,
 
       remarkPopupVisible,
       toFixed,
+      getCNDayText,
     }
   },
 })
@@ -243,13 +192,5 @@ export default defineComponent({
 
 .input-date button {
   color: var(--geist-foreground);
-}
-
-.category-icon-wrapper {
-  @apply w-8 h-8;
-
-  & .remixicon {
-    @apply w-5 h-5;
-  }
 }
 </style>
