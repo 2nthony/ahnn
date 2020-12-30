@@ -6,7 +6,7 @@
 .button-group {
   & button {
     & + button {
-      margin-left: 0;
+      margin-left: 0 !important;
     }
 
     &:not(:last-child) {

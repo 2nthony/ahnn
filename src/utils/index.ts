@@ -60,3 +60,8 @@ export function calcByKey(arr: any[], key: string) {
     return toRound(res)
   }, 0)
 }
+
+/**
+ * Alternative to `window.innerWidth`
+ */
+export const appWidth = window.innerWidth
