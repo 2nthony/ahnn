@@ -60,7 +60,7 @@ export async function readRecordsByMonth(
       .year(year)
       .month(month - 1)
       .daysInMonth(),
-  }).map((_, i) => `${year}-${month}-${i + 1}`)
+  }).map((_, i) => dayjs(`${year}-${month}-${i + 1}`).format('YYYY-MM-DD'))
 
   const readers = dates.map((date) => {
     return db.getAllFromIndex('record', 'date', date)
