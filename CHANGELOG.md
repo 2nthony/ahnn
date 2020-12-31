@@ -1,3 +1,12 @@
+## [0.2.8](https://github.com/evillt/ahnn/compare/v0.2.7...v0.2.8) (2020-12-31)
+
+
+### Bug Fixes
+
+* **db-record:** dates ([c96a62f](https://github.com/evillt/ahnn/commit/c96a62f8caf1e62423e5c05f795056a3cb886103))
+
+
+
 ## [0.2.7](https://github.com/evillt/ahnn/compare/v0.2.6...v0.2.7) (2020-12-31)
 
 
