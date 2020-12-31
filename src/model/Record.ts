@@ -13,6 +13,7 @@ export interface Record {
   date: string
   wallet: WalletName
   remark?: string
+  createAt?: number
 }
 
 export const recordIndexing: StoreIndexing = [
@@ -21,6 +22,9 @@ export const recordIndexing: StoreIndexing = [
   },
   {
     name: 'wallet',
+  },
+  {
+    name: 'createAt',
   },
 ]
 
