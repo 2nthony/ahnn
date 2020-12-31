@@ -29,7 +29,10 @@ export function upgradeRecordDB(
 export async function setRecord(record: Record) {
   const action = record.id ? 'put' : 'add'
   const db = await open()
-  return db[action]('record', record).finally(() => db.close())
+  return db[action]('record', {
+    createAt: dayjs().unix(), // If update, this will be overrided.
+    ...record,
+  }).finally(() => db.close())
 }
 
 export async function deleteRecord(record: Record) {
@@ -76,7 +79,7 @@ export async function readRecordsByMonth(
 }
 
 /**
- * @description Read all records by year
+ * Read all records by year
  */
 export async function readRecordsByYear(year: number) {
   return Promise.all(
@@ -110,4 +113,15 @@ export async function deleteAllRecordByWallet(walletName: Wallet['name']) {
       return db.delete('record', record.id)
     }),
   ).finally(() => db.close())
+}
+
+/**
+ * Read all records
+ */
+export async function readRecords(): Promise<Record[]> {
+  const db = await open()
+
+  return db.getAll('record').finally(() => {
+    db.close()
+  })
 }
