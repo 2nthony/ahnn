@@ -23,9 +23,6 @@ export const recordIndexing: StoreIndexing = [
   {
     name: 'wallet',
   },
-  {
-    name: 'createAt',
-  },
 ]
 
 export function getInitRecord(): Record {
