@@ -59,7 +59,6 @@ export async function readRecordsByMonth(
     length: dayjs()
       .year(year)
       .month(month - 1)
-      .day(1)
       .daysInMonth(),
   }).map((_, i) => `${year}-${month}-${i + 1}`)
 
