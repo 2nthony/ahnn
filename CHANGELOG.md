@@ -1,3 +1,12 @@
+## [0.2.7](https://github.com/evillt/ahnn/compare/v0.2.6...v0.2.7) (2020-12-31)
+
+
+### Features
+
+* **page-backup-restore:** init ([#45](https://github.com/evillt/ahnn/issues/45)) ([0a5a24f](https://github.com/evillt/ahnn/commit/0a5a24f38ba1ff86ae3b7d970e7a5dc2ea8911e8))
+
+
+
 ## [0.2.6](https://github.com/evillt/ahnn/compare/v0.2.5...v0.2.6) (2020-12-31)
 
 
