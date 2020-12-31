@@ -104,13 +104,14 @@ import { TypeCNTexts, Types } from '@/model/Type'
 import { useStore } from '@/store'
 import { addRecordStrategy } from '@/strategies/pageAddRecordStrategy'
 import { Record } from '@/model/Record'
-import { getCNDayText } from '@/utils/date'
+import { getCNDayText, getToday } from '@/utils/date'
 import Draw from '../Draw.vue'
 import { useUserWallets } from '@/hooks/useUserWallets'
 import ButtonGroup from '../ButtonGroup.vue'
 import { toFixed } from '@/utils'
 import Textarea from '../ui/Textarea.vue'
 import PopupAddRecordCategories from './PopupAddRecordCategories.vue'
+import dayjs from 'dayjs'
 
 export default defineComponent({
   components: {
@@ -139,7 +140,6 @@ export default defineComponent({
       addRecord,
       handleSwitchType,
       handleSave: origHandleSave,
-      onDateSelect,
     } = addRecordStrategy()
 
     function handleSelectWallet(wallet: Record['wallet']) {
@@ -152,6 +152,12 @@ export default defineComponent({
 
     function onInputRemark(remark: Record['remark']) {
       store.commit('setAddRecord', { remark })
+    }
+
+    function onDateSelect(date: string) {
+      store.commit('setAddRecord', {
+        date: dayjs(date).format('YYYY-MM-DD') || getToday(),
+      })
     }
 
     function handleSave() {
