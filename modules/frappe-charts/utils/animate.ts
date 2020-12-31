@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getBarHeightAndYAttr, getSplineCurvePointsStr } from './draw-utils'
 
 export const UNIT_ANIM_DUR = 350

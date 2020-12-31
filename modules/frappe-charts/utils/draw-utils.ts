@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { fillArray } from './helpers'
 
 export function getBarHeightAndYAttr(yTop, zeroLine) {

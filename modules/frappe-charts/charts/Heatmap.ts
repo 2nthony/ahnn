@@ -1,3 +1,4 @@
+// @ts-nocheck
 import BaseChart from './BaseChart'
 import { getComponent } from '../objects/ChartComponents'
 import { makeText, heatSquare } from '../utils/draw'

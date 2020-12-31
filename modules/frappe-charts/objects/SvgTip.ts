@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { $ } from '../utils/dom'
 import { TOOLTIP_POINTER_TRIANGLE_HEIGHT } from '../utils/constants'
 

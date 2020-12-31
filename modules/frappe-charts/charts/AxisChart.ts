@@ -1,3 +1,4 @@
+// @ts-nocheck
 import BaseChart from './BaseChart'
 import {
   dataPrep,
@@ -24,7 +25,6 @@ import {
   BAR_CHART_SPACE_RATIO,
   LINE_CHART_DOT_SIZE,
 } from '../utils/constants'
-import { toRound } from '../../../../src/utils'
 
 export default class AxisChart extends BaseChart {
   constructor(parent, args) {
@@ -100,8 +100,8 @@ export default class AxisChart extends BaseChart {
   }
 
   calcYAxisParameters(dataValues, withMinimum = 'false') {
-    // @modified toRound
-    const yPts = calcChartIntervals(dataValues, withMinimum).map(toRound)
+    // @modified add map
+    const yPts = calcChartIntervals(dataValues, withMinimum).map(floatTwo)
     const scaleMultiplier = this.height / getValueRange(yPts)
     const intervalHeight = getIntervalSize(yPts) * scaleMultiplier
     const zeroLine = this.height - getZeroIndex(yPts) * intervalHeight

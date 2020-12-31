@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { fillArray } from '../utils/helpers'
 import {
   DEFAULT_AXIS_CHART_TYPE,

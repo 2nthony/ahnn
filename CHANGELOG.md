@@ -1,3 +1,18 @@
+## [0.2.6](https://github.com/evillt/ahnn/compare/v0.2.5...v0.2.6) (2020-12-31)
+
+
+### Bug Fixes
+
+* **button-group:** prevent override ([5503884](https://github.com/evillt/ahnn/commit/55038841c47629f5ec550a3111bd65f6fefb0498))
+
+
+### Features
+
+* **feedback:** complete ([#42](https://github.com/evillt/ahnn/issues/42)) ([c8c919f](https://github.com/evillt/ahnn/commit/c8c919f158610791dc1793b5c4f39694612aa5e4))
+* **popup-add-record:** scroll to selected category ([857aba3](https://github.com/evillt/ahnn/commit/857aba3244c5e78a9b33b7cbe38cfd3b42794bba))
+
+
+
 ## [0.2.5](https://github.com/evillt/ahnn/compare/v0.2.4...v0.2.5) (2020-12-30)
 
 

@@ -14,10 +14,10 @@
         </template>
 
         <template #description>
-          <div class="ratio-group">
+          <div class="flex items-center">
             <Text>{{ toPercentage(item.cost / structTotal) }}%</Text>
             <div
-              class="percentage-bar"
+              class="percentage-bar relative w-full h-1 ml-gap-half"
               :style="{
                 '--percentage-bar-width': `${toPercentage(
                   item.cost / structTotal,
@@ -61,25 +61,15 @@ export default {
 
 <style lang="less" scoped>
 .struct-group {
-  & .ratio-group {
-    display: flex;
-    align-items: center;
-
-    & .percentage-bar {
-      width: 100%;
-      height: 5px;
-      margin-left: var(--geist-gap-half);
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: var(--percentage-bar-width);
-        border-radius: var(--geist-radius);
-      }
+  & .percentage-bar {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--percentage-bar-width);
+      border-radius: var(--geist-radius);
     }
   }
 

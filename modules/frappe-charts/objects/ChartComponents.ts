@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { makeSVGGroup } from '../utils/draw'
 import {
   makeText,

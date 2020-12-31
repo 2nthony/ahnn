@@ -1,6 +1,6 @@
 {
   "name": "Ahnn",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@evillt/vuedown-loader": "^1.0.1",
+    "@octokit/core": "^3.2.4",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",

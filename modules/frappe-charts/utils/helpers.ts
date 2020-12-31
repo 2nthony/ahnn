@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { ANGLE_RATIO } from './constants'
-import { toRound } from '../../../../src/utils'
+import { toRound } from '../../../src/utils'
 /**
  * Returns the value of a number upto 2 decimal places.
  * @param {Number} d Any number

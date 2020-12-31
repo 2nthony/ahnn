@@ -1,3 +1,4 @@
+// @ts-nocheck
 import BaseChart from './BaseChart'
 import { truncateString } from '../utils/draw-utils'
 import { legendDot } from '../utils/draw'

@@ -1,5 +1,4 @@
 <template>
-  <div class="hide-safe-area-content"></div>
   <router-view></router-view>
 </template>
 
