@@ -18,19 +18,17 @@ button {
   --themed-bg: var(--geist-foreground);
   color: var(--themed-fg, var(--geist-foreground));
   border-radius: var(--geist-radius);
-  padding: 0 16px;
+  padding: 0 var(--geist-gap-half);
   font-size: var(--geist-form-font);
   height: var(--geist-form-height);
   line-height: var(--geist-form-inline-height);
   outline: none;
   cursor: pointer;
-  border: none;
-  box-shadow: inset 0 0 0 1px var(--themed-border, var(--themed-bg)),
-    inset 0 -1px 1px 0 var(--themed-border, var(--themed-bg));
+  border: 1px solid var(--themed-border, var(--themed-bg));
   background-color: var(--themed-bg);
 
   & + button {
-    margin-left: 16px;
+    margin-left: var(--geist-gap-half);
   }
 
   // size
@@ -79,6 +77,13 @@ button {
   &.error {
     --themed-fg: #fff;
     --themed-bg: var(--geist-error);
+  }
+
+  &[disabled] {
+    background: var(--accents-1);
+    color: var(--accents-3);
+    border-color: var(--accents-2);
+    cursor: not-allowed;
   }
 }
 </style>
