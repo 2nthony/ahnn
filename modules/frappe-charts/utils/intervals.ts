@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { floatTwo } from './helpers'
 
 function normalize(x) {

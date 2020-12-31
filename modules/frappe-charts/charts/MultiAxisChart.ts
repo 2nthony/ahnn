@@ -1,3 +1,4 @@
+// @ts-nocheck
 import AxisChart from './AxisChart'
 import { Y_AXIS_MARGIN } from '../utils/constants'
 // import { ChartComponent } from '../objects/ChartComponents';

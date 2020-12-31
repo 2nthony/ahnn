@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const ALL_CHART_TYPES = [
   'line',
   'scatter',

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import AggregationChart from './AggregationChart'
 import { getComponent } from '../objects/ChartComponents'
 import { getOffset } from '../utils/dom'

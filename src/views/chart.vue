@@ -27,8 +27,8 @@
 
 <script lang="ts">
 import HomeTabbar from '../components/HomeTabbar.vue'
-import { Chart } from '@modules/frappe-charts'
-import '@modules/frappe-charts/css/charts.less'
+import AxisChart from '@modules/frappe-charts/charts/AxisChart'
+import '@modules/frappe-charts/charts.less'
 import { computed, onMounted, ref, watch } from 'vue'
 import SelectMonth from '@/components/SelectMonth.vue'
 import { useStore } from '@/store'
@@ -82,7 +82,7 @@ export default {
         queryDateYear,
         (y) => {
           readRecordsByYear(y).then((yearRecords) => {
-            new Chart(yearChartEl.value, {
+            new AxisChart(yearChartEl.value, {
               data: {
                 labels: yearRecords.map((item) => item.month + '月'),
                 datasets: [

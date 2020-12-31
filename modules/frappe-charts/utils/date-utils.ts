@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Playing around with dates
 
 export const NO_OF_YEAR_MONTHS = 12

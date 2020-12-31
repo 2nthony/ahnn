@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Leveraging SMIL Animations
 
 import { REPLACE_ALL_NEW_DUR } from './animate'

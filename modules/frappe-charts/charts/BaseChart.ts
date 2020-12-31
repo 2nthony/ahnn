@@ -1,3 +1,4 @@
+// @ts-nocheck
 import SvgTip from '../objects/SvgTip'
 import {
   $,
