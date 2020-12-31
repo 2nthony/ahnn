@@ -12,6 +12,10 @@
     </Group>
 
     <Group>
+      <Cell title="备份还原" :link="'/me/backup-restore'"></Cell>
+    </Group>
+
+    <Group>
       <Cell title="外观" :link="'/preference/appreance'"></Cell>
     </Group>
 

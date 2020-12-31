@@ -13,6 +13,7 @@ export interface Record {
   date: string
   wallet: WalletName
   remark?: string
+  createAt?: number
 }
 
 export const recordIndexing: StoreIndexing = [
