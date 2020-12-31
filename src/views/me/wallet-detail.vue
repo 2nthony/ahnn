@@ -74,7 +74,6 @@ export default {
       store.commit('setAddRecord', {
         wallet: name,
       })
-      // router.push('/add-record')
       popupAddRecordVisible.value = true
     }
 
