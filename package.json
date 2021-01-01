@@ -25,7 +25,7 @@
   "devDependencies": {
     "@evillt/vuedown-loader": "^1.0.1",
     "@octokit/core": "^3.2.4",
-    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vercel/node": "^1.8.5",
