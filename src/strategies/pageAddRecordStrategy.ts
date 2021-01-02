@@ -1,16 +1,10 @@
 import { computed, ref } from 'vue'
 import { getToday, getCNDayText } from '../utils/date'
 import { deepToRaw, toRound } from '../utils'
-import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
 import { Type, TypeCNTexts, Types } from '@/model/Type'
 import { setRecord } from '../db/record'
-import {
-  readWalletByName,
-  readWallets,
-  returnCostToWallet,
-  setWallet,
-} from '@/db/wallet'
+import { readWalletByName, returnCostToWallet, setWallet } from '@/db/wallet'
 import { cache } from '@/utils/cache'
 import { Record } from '@/model/Record'
 import { Wallet } from '@/model/Wallet'
@@ -22,20 +16,6 @@ export function addRecordStrategy() {
   const money = ref<number>(addRecord.value.cost || 0)
   const previewDate = computed(() => getCNDayText(addRecord.value.date))
   const calculatorVisible = ref<boolean>(true)
-
-  // FIXME set a non-empty array to prevent oldChildren empty
-  // https://github.com/vuejs/vue-next/issues/2804
-  const userWallets = ref<Wallet[]>([
-    {
-      name: '',
-      icon: '',
-      balance: null,
-    },
-  ])
-
-  readWallets().then((wallets) => {
-    userWallets.value = wallets
-  })
 
   const handleSave = () => {
     return readWalletByName(addRecord.value.wallet).then((wallet) => {
@@ -90,7 +70,6 @@ export function addRecordStrategy() {
     addRecord,
     previewDate,
     calculatorVisible,
-    userWallets,
 
     handleSave,
     handleSwitchType,

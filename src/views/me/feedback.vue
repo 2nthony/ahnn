@@ -9,6 +9,13 @@
         placeholder="输入建议与反馈，你可以在这里畅所欲言。当然也可以以文字来鼓励一下作者。"
       ></Textarea>
 
+      <Input
+        v-model="email"
+        class="w-full mb-gap"
+        placeholder="(选填)输入你的邮箱我们可以给予回复"
+        type="email"
+      />
+
       <section class="flex items-center justify-between">
         <div class="flex">
           <span
@@ -46,13 +53,15 @@ import RemixIcon from '@/components/RemixIcon.vue'
 import { useAxios } from '@/hooks/useAxios'
 import { createToast } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
+import Input from '@/components/ui/Input.vue'
 
 export default {
-  components: { ViewingArea, Tabbar, Textarea, Button },
+  components: { ViewingArea, Tabbar, Textarea, Button, Input },
 
   setup() {
     const { axios, loading } = useAxios()
     const input = ref('')
+    const email = ref('')
     const selectedIndex = ref()
     const emotions = ['🤩', '😃', '😕', '😔']
 
@@ -60,8 +69,14 @@ export default {
       axios
         .post('/api/feedback', {
           title: input.value,
+          email: email.value,
           emotion: emotions[selectedIndex.value] || '',
-          userAgent: navigator.userAgent,
+          navigator: {
+            appName: navigator.appName,
+            platform: navigator.platform,
+            userAgent: navigator.userAgent,
+            vendor: navigator.vendor,
+          },
         })
         .then(() => {
           createToast('我们已经收到你的反馈，非常感谢！', {
@@ -77,6 +92,7 @@ export default {
 
     return {
       input,
+      email,
       selectedIndex,
       emotions,
       loading,

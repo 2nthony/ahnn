@@ -1,3 +1,20 @@
+## [0.2.9](https://github.com/evillt/ahnn/compare/v0.2.8...v0.2.9) (2021-01-02)
+
+
+### Bug Fixes
+
+* **ui-textarea:** prefer default font size ([9103459](https://github.com/evillt/ahnn/commit/91034598ff341daf97faeb758f02bdbe2be44b62))
+* remove todo ([93699ed](https://github.com/evillt/ahnn/commit/93699ed55a17b517127e542773ef825f7554af09))
+* set prefer appreance ([bf5e7cb](https://github.com/evillt/ahnn/commit/bf5e7cb9a9c8ae3430054980fb07c0ab71bdae36))
+* **db-record:** format date ([b45baa8](https://github.com/evillt/ahnn/commit/b45baa86ccdbc78b165b34ea743cc69f047be160))
+
+
+### Features
+
+* **feedback:** add email input ([f326cf8](https://github.com/evillt/ahnn/commit/f326cf8de66e2ce8c8bbbd0dbf9215c839cba30e))
+
+
+
 ## [0.2.8](https://github.com/evillt/ahnn/compare/v0.2.7...v0.2.8) (2020-12-31)
 
 

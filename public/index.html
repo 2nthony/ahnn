@@ -19,6 +19,11 @@
       >
     </noscript>
     <div id="app"></div>
+    <script>
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark-theme')
+      }
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -2,18 +2,16 @@
   <div class="page-wallet">
     <ViewingArea title="钱包"></ViewingArea>
 
-    <!--
-      FIXME prevent oldChildren empty
-      https://github.com/vuejs/vue-next/issues/2804
-    -->
-    <Card
-      v-for="(wallet, index) in userWallets"
-      :key="index"
-      :titleIcon="wallet.icon"
-      :title="wallet.name"
-      :content="`余额：${Number(wallet.balance).toFixed(2)}`"
-      @click="handleToDetail(wallet)"
-    ></Card>
+    <Group>
+      <Card
+        v-for="(wallet, index) in userWallets"
+        :key="index"
+        :titleIcon="wallet.icon"
+        :title="wallet.name"
+        :content="`余额：${Number(wallet.balance).toFixed(2)}`"
+        @click="handleToDetail(wallet)"
+      ></Card>
+    </Group>
 
     <Tabbar
       :mainText="'添加钱包'"
@@ -31,9 +29,10 @@ import { readWallets } from '@/db/wallet'
 import { Wallet } from '@/model/Wallet'
 import Card from '@/components/Card.vue'
 import { useRouter } from 'vue-router'
+import Group from '@/components/Group.vue'
 
 export default defineComponent({
-  components: { ViewingArea, Tabbar, Card },
+  components: { ViewingArea, Tabbar, Card, Group },
 
   setup() {
     const router = useRouter()
