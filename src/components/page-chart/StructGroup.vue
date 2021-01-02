@@ -32,13 +32,13 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '@/utils/setProps'
-import Group from '../Group.vue'
-import Cell from '../Cell.vue'
-import { toFixed, toPercentage } from '@/utils'
-import RemixIcon from '../RemixIcon.vue'
-import Text from '../ui/Text.vue'
-import { categoryNameIconMapping } from '@/model/Category'
+import { setProps } from '@app/utils/setProps'
+import Group from '@app/components/Group.vue'
+import Cell from '@app/components/Cell.vue'
+import { toFixed, toPercentage } from '@app/utils'
+import RemixIcon from '@app/components/RemixIcon.vue'
+import Text from '@app/components/ui/Text.vue'
+import { categoryNameIconMapping } from '@app/model/Category'
 
 export default {
   components: { Group, Cell, RemixIcon, Text },

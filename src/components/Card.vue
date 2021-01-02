@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '@/utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import Pane from './ui/Pane.vue'
 import Text from './ui/Text.vue'
 import RemixIcon from './RemixIcon.vue'

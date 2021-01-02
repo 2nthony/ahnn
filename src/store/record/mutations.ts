@@ -1,7 +1,7 @@
 import { RecordsQueryDate, State } from './state'
-import { Record } from '../../model/Record'
+import { Record } from '@app/model/Record'
 import { MutationTree } from 'vuex'
-import { isFalsy } from '@/utils'
+import { isFalsy } from '@app/utils'
 
 export interface Mutations {
   setRecordsQueryDate(state: State, payload: RecordsQueryDate): void

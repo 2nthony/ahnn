@@ -1,5 +1,5 @@
-import { readWallets } from '@/db/wallet'
-import { Wallet } from '@/model/Wallet'
+import { readWallets } from '@app/db/wallet'
+import { Wallet } from '@app/model/Wallet'
 import { ref } from 'vue'
 
 export function useUserWallets() {

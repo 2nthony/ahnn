@@ -13,7 +13,7 @@
     "baseUrl": ".",
     "types": ["webpack-env"],
     "paths": {
-      "@/*": ["src/*"],
+      "@app/*": ["src/*"],
       "@modules/*": ["modules/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
@@ -23,7 +23,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "types/shims-vue.d.ts",
+    "types/declarations.d.ts"
   ],
   "exclude": ["node_modules"]
 }

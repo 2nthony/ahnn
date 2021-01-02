@@ -1,9 +1,9 @@
-import { Record, recordIndexing } from '../model/Record'
+import { Record, recordIndexing } from '@app/model/Record'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
-import { Wallet, WalletName } from '@/model/Wallet'
-import { monthsInYear } from '@/utils/date'
+import { Wallet, WalletName } from '@app/model/Wallet'
+import { monthsInYear } from '@app/utils/date'
 import { updateRecordCategory } from './migrations/updateRecordCategory'
 
 export function upgradeRecordDB(

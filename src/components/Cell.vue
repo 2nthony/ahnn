@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { setProps } from '../utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import { useRouter } from 'vue-router'
 import Text from './ui/Text.vue'
 import RemixIcon from './RemixIcon.vue'

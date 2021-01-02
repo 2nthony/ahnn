@@ -12,16 +12,16 @@
 </template>
 
 <script lang="ts">
-import ViewingArea from '@/components/ViewingArea.vue'
-import Tabbar from '@/components/Tabbar.vue'
-import Group from '@/components/Group.vue'
-import Cell from '@/components/Cell.vue'
-import { clearRecord } from '@/db/record'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import Group from '@app/components/Group.vue'
+import Cell from '@app/components/Cell.vue'
+import { clearRecord } from '@app/db/record'
 import 'vercel-toast/dist/vercel-toast.css'
 import { createToast, destoryAllToasts } from 'vercel-toast'
-import { useStore } from '@/store'
-import { isDarkMode } from '@/utils'
-import { resetWallet } from '@/db/wallet'
+import { useStore } from '@app/store'
+import { isDarkMode } from '@app/utils'
+import { resetWallet } from '@app/db/wallet'
 export default {
   components: { ViewingArea, Tabbar, Group, Cell },
 

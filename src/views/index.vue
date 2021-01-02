@@ -40,19 +40,19 @@
 
 <script>
 import { computed, ref, watch } from 'vue'
-import Group from '../components/Group.vue'
-import HomeTabbar from '../components/HomeTabbar'
-import ViewingArea from '../components/ViewingArea.vue'
-import Heading from '../components/ui/Heading.vue'
-import { getCNDayText } from '../utils/date'
-import HomeRecordCard from '@/components/HomeRecordCard.vue'
-import { useStore } from '@/store'
-import SelectMonth from '@/components/SelectMonth.vue'
-import Card from '@/components/Card.vue'
-import { calcRecords, compatHomeRecords } from '@/utils/record'
-import { toFixed } from '@/utils'
-import PopupAddRecord from '@/components/page-home/PopupAddRecord.vue'
-import { usePopupAddRecord } from '@/hooks/usePopupAddRecord'
+import Group from '@app/components/Group.vue'
+import HomeTabbar from '@app/components/HomeTabbar'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Heading from '@app/components/ui/Heading.vue'
+import { getCNDayText } from '@app/utils/date'
+import HomeRecordCard from '@app/components/HomeRecordCard.vue'
+import { useStore } from '@app/store'
+import SelectMonth from '@app/components/SelectMonth.vue'
+import Card from '@app/components/Card.vue'
+import { calcRecords, compatHomeRecords } from '@app/utils/record'
+import { toFixed } from '@app/utils'
+import PopupAddRecord from '@app/components/page-home/PopupAddRecord.vue'
+import { usePopupAddRecord } from '@app/hooks/usePopupAddRecord'
 
 export default {
   components: {

@@ -1,13 +1,13 @@
 import { computed, ref } from 'vue'
-import { getToday, getCNDayText } from '../utils/date'
-import { deepToRaw, toRound } from '../utils'
-import { useStore } from '@/store'
-import { Type, TypeCNTexts, Types } from '@/model/Type'
-import { setRecord } from '../db/record'
-import { readWalletByName, returnCostToWallet, setWallet } from '@/db/wallet'
-import { cache } from '@/utils/cache'
-import { Record } from '@/model/Record'
-import { Wallet } from '@/model/Wallet'
+import { getToday, getCNDayText } from '@app/utils/date'
+import { deepToRaw, toRound } from '@app/utils'
+import { useStore } from '@app/store'
+import { Type, TypeCNTexts, Types } from '@app/model/Type'
+import { setRecord } from '@app/db/record'
+import { readWalletByName, returnCostToWallet, setWallet } from '@app/db/wallet'
+import { cache } from '@app/utils/cache'
+import { Record } from '@app/model/Record'
+import { Wallet } from '@app/model/Wallet'
 
 export function addRecordStrategy() {
   const store = useStore()

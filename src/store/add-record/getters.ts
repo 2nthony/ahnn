@@ -1,7 +1,7 @@
-import { Record } from '../../model/Record'
+import { Record } from '@app/model/Record'
 import { GetterTree } from 'vuex'
 import { State } from './state'
-import { RootState } from '@/store'
+import { RootState } from '@app/store'
 
 export type Getters = {
   addRecord(state: State): Record

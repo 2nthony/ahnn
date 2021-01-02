@@ -1,4 +1,4 @@
-import { isIOS } from '@/utils/platform'
+import { isIOS } from '@app/utils/platform'
 
 if (isIOS) {
   document.documentElement.setAttribute('ontouchstart', '')

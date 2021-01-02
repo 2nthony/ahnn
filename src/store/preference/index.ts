@@ -2,7 +2,7 @@ import { State, state } from './state'
 import { Getters, getters } from './getters'
 import { Mutations, mutations } from './mutations'
 import { Module } from 'vuex'
-import { RootState } from '@/store'
+import { RootState } from '@app/store'
 
 export const PreferenceModule: Module<State, RootState> = {
   state,

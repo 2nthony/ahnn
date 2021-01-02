@@ -1,4 +1,4 @@
-import { getInitPreference, Preference } from '@/model/Preference'
+import { getInitPreference, Preference } from '@app/model/Preference'
 
 export interface State {
   preference: Preference

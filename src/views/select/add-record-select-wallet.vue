@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts">
-import { Wallet } from '@/model/Wallet'
-import PageSelect from '@/layout/PageSelect.vue'
+import { Wallet } from '@app/model/Wallet'
+import PageSelect from '@app/layout/PageSelect.vue'
 import { useRouter } from 'vue-router'
-import { useStore } from '@/store'
+import { useStore } from '@app/store'
 import { onMounted, ref } from 'vue'
-import { readWallets } from '@/db/wallet'
+import { readWallets } from '@app/db/wallet'
 
 export default {
   components: { PageSelect },

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '../../utils/setProps'
+import { setProps } from '@app/utils/setProps'
 
 export default {
   props: {

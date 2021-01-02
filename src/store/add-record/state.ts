@@ -1,4 +1,4 @@
-import { getInitRecord, Record } from '../../model/Record'
+import { getInitRecord, Record } from '@app/model/Record'
 
 export interface State {
   addRecord: Record

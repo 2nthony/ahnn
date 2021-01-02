@@ -1,4 +1,4 @@
-import { Appreance, Appreances } from '@/model/Preference'
+import { Appreance, Appreances } from '@app/model/Preference'
 import { isDarkMode } from '..'
 
 export function switchAppreance(appreance: Appreance) {

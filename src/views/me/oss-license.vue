@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Tabbar from '@/components/Tabbar.vue'
-import Heading from '@/components/ui/Heading.vue'
-import Pane from '@/components/ui/Pane.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import Heading from '@app/components/ui/Heading.vue'
+import Pane from '@app/components/ui/Pane.vue'
 /* global __DEPENDENCIES__ */
 export default {
   components: { Tabbar, Heading, Pane },

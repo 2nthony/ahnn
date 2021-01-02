@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts">
-import { categoryNameIconMapping, presetCategories } from '@/model/Category'
-import { useStore } from '@/store'
-import { TypeCNTexts } from '@/model/Type'
+import { categoryNameIconMapping, presetCategories } from '@app/model/Category'
+import { useStore } from '@app/store'
+import { TypeCNTexts } from '@app/model/Type'
 import { useRouter } from 'vue-router'
-import PageSelect from '@/layout/PageSelect.vue'
+import PageSelect from '@app/layout/PageSelect.vue'
 
 export default {
   components: { PageSelect },

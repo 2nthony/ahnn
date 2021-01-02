@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts">
-import ViewingArea from '@/components/ViewingArea.vue'
-import Tabbar from '../../components/Tabbar.vue'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
 import ChangelogApp from '../../../changelog-app.md'
 
 export default {

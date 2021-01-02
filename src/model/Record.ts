@@ -1,8 +1,8 @@
 import { defaultType, Type } from './Type'
 import { CategoryName, getDefaultCategory } from './Category'
 import { WalletName, getDefaultWalletName } from './Wallet'
-import { getToday } from '../utils/date'
-import { StoreIndexing } from '@/db'
+import { getToday } from '@app/utils/date'
+import { StoreIndexing } from '@app/db'
 
 export interface Record {
   id?: number

@@ -1,4 +1,4 @@
-import { pushGtag, GtagID } from '../utils/gtag'
+import { pushGtag, GtagID } from '@app/utils/gtag'
 
 const script = document.createElement('script')
 script.async = true

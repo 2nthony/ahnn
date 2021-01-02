@@ -36,7 +36,7 @@
 import TabbarItem from './TabbarItem.vue'
 import { useRoute, useRouter } from 'vue-router'
 import Text from './ui/Text.vue'
-import { getCurrentMonth } from '../utils/date'
+import { getCurrentMonth } from '@app/utils/date'
 import RemixIcon from './RemixIcon.vue'
 
 export default {

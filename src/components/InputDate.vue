@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '../utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import Input from './ui/Input.vue'
 
 export default {

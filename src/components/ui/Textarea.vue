@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { setProps } from '@/utils/setProps'
+import { setProps } from '@app/utils/setProps'
 export default {
   props: {
     modelValue: setProps('string'),
