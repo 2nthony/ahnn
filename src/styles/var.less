@@ -59,9 +59,6 @@
   --geist-form-height: var(--geist-space-medium);
 
   // These below for app itself
-  --calculator-number-bg-color: #234361;
-  --calculator-operator-bg-color: var(--geist-warning);
-  --tabbar-height: 50px;
   --home-select-month-height: var(--geist-form-height);
 
   --app-gap: 0 var(--geist-gap-half);
@@ -70,4 +67,12 @@
     var(--tabbar-height) + var(--home-select-month-height) + var(--geist-gap) +
       env(safe-area-inset-bottom)
   );
+  --tabbar-height: 50px;
+  --tabbar-background: hsla(0, 0%, 100%, 0.8);
+  --tabbar-border-top: inset 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+  --tabbar-background: rgba(0, 0, 0, 0.5);
+  --tabbar-border-top: inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1);
 }

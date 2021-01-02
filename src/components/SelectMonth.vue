@@ -1,14 +1,19 @@
 <template>
-  <div class="select-month">
+  <div class="select-month fixed left-0 right-0">
     <InputDate
       :type="'month'"
       :modelValue="value"
       @update:modelValue="onModelValue"
     >
       <template #placeholder>
-        <Button type="secondary">
-          <RemixIcon :icon="'calendar-2'" />
-          {{ recordsQueryDate[0] }} - {{ recordsQueryDate[1] }}
+        <Button
+          type="secondary"
+          class="w-full flex items-center justify-center"
+        >
+          <RemixIcon :icon="'calendar-2'" class="mr-2" />
+          <Text class="text-foreground"
+            >{{ recordsQueryDate[0] }} - {{ recordsQueryDate[1] }}</Text
+          >
         </Button>
       </template>
     </InputDate>
@@ -24,9 +29,10 @@ import { useStore } from '@/store'
 import { getThisMonth } from '@/utils/date'
 import Button from './ui/Button.vue'
 import RemixIcon from './RemixIcon.vue'
+import Text from './ui/Text.vue'
 
 export default defineComponent({
-  components: { InputDate, Button, RemixIcon },
+  components: { InputDate, Button, RemixIcon, Text },
 
   setup(props) {
     const store = useStore()
@@ -55,26 +61,15 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .select-month {
-  position: fixed;
-  left: 0;
-  right: 0;
   bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
   height: var(--home-select-month-height);
+  border-top: 1px solid var(--accents-2);
 
   & button {
-    color: var(--geist-foreground);
-    width: 100%;
     background-color: var(--tabbar-background);
     backdrop-filter: saturate(180%) blur(5px);
-    box-shadow: var(--tabbar-border-top);
+    border: none;
     border-radius: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    & svg {
-      margin-right: 0.5rem;
-    }
   }
 }
 </style>
