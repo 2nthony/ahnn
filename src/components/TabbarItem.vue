@@ -18,11 +18,12 @@
   height: 100%;
 
   &:hover {
-    background-color: var(--accents-1);
+    backdrop-filter: saturate(180%) blur(10px);
   }
 
   &:active {
-    background-color: var(--accents-2);
+    background-color: var(--tabbar-background);
+    backdrop-filter: saturate(180%) blur(20px);
   }
 }
 </style>
