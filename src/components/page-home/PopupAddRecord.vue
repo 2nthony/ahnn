@@ -1,7 +1,7 @@
 <template>
   <Draw :visible="visible" @update:visible="(v) => $emit('update:visible', v)">
     <div class="flex justify-between items-center mb-gap-half">
-      <ButtonGroup>
+      <ButtonGroup class="flex-3">
         <Button
           :size="'small'"
           :type="addRecord.type === Types.payout ? 'success' : 'secondary'"
@@ -16,19 +16,17 @@
         >
       </ButtonGroup>
 
-      <div class="flex">
-        <InputDate
-          :modelValue="addRecord.date"
-          @update:modelValue="onDateSelect"
-          class="input-date"
-        >
-          <template #placeholder>
-            <Button :size="'small'" type="secondary" class="w-full">{{
-              getCNDayText(addRecord.date)
-            }}</Button>
-          </template>
-        </InputDate>
-      </div>
+      <InputDate
+        :modelValue="addRecord.date"
+        @update:modelValue="onDateSelect"
+        class="input-date flex-1"
+      >
+        <template #placeholder>
+          <Button :size="'small'" type="secondary" class="w-full">{{
+            getCNDayText(addRecord.date)
+          }}</Button>
+        </template>
+      </InputDate>
     </div>
 
     <div class="flex items-center mb-gap-half">
