@@ -1,4 +1,4 @@
-import { Preference } from '@/model/Preference'
+import { Preference } from '@app/model/Preference'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureStore, open } from '.'
 

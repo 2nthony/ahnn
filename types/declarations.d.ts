@@ -16,9 +16,7 @@ declare module '*.md' {
   export default component
 }
 
-declare module '@modules/frappe-charts/css/charts.less' {
-  export default any
-}
+declare module '*.less'
 
 declare module '@modules/frappe-charts' {
   import { Chart } from '../modules/frappe-charts'

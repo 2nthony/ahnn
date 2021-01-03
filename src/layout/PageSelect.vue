@@ -20,12 +20,12 @@
 </template>
 
 <script lang="ts">
-import ViewingArea from '@/components/ViewingArea.vue'
-import Tabbar from '@/components/Tabbar.vue'
-import Pane from '@/components/ui/Pane.vue'
-import { setProps } from '@/utils/setProps'
-import Text from '@/components/ui/Text.vue'
-import RemixIcon from '@/components/RemixIcon.vue'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import Pane from '@app/components/ui/Pane.vue'
+import { setProps } from '@app/utils/setProps'
+import Text from '@app/components/ui/Text.vue'
+import RemixIcon from '@app/components/RemixIcon.vue'
 
 export default {
   components: { ViewingArea, Tabbar, Pane, Text, RemixIcon },

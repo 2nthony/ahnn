@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { setProps } from '../utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import TabbarItem from './TabbarItem.vue'
 import Text from './ui/Text.vue'
 import { defineComponent } from 'vue'

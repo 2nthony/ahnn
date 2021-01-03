@@ -1,5 +1,5 @@
 import { State } from './state'
-import { Preference } from '@/model/Preference'
+import { Preference } from '@app/model/Preference'
 import { MutationTree } from 'vuex'
 
 export interface Mutations {

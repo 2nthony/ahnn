@@ -1,8 +1,8 @@
-import { Record } from '../../model/Record'
+import { Record } from '@app/model/Record'
 import { MutationTree } from 'vuex'
 import { State } from './state'
-import { Type } from '@/model/Type'
-import { presetCategories } from '@/model/Category'
+import { Type } from '@app/model/Type'
+import { presetCategories } from '@app/model/Category'
 
 export type Mutations = {
   setAddRecord(

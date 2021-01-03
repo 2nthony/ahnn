@@ -2,7 +2,7 @@
   <div class="select" :class="{ small }">
     <Text class="selected-value">{{ innerSelected }}</Text>
 
-    <select v-model="innerSelected">
+    <select v-model="innerSelected" class="cursor-pointer">
       <option value="" disabled v-if="placeholder">
         {{ placeholder }}
       </option>
@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '@/utils/setProps'
-import RemixIcon from '../RemixIcon.vue'
+import { setProps } from '@app/utils/setProps'
+import RemixIcon from '@app/components/RemixIcon.vue'
 import { defineComponent, ref, watch } from 'vue'
 import Text from './Text.vue'
 

@@ -25,21 +25,21 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '@/utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import Text from './ui/Text.vue'
-import { TypeCNTexts, Types } from '@/model/Type'
+import { TypeCNTexts, Types } from '@app/model/Type'
 import { computed, defineComponent, ref, watch } from 'vue'
 import Button from './ui/Button.vue'
 import { useRouter } from 'vue-router'
-import { useStore } from '@/store'
-import { Record } from '@/model/Record'
-import { deleteRecord } from '@/db/record'
+import { useStore } from '@app/store'
+import { Record } from '@app/model/Record'
+import { deleteRecord } from '@app/db/record'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 import Card from './Card.vue'
-import { returnCostToWallet } from '@/db/wallet'
-import { toFixed } from '@/utils'
-import { categoryNameIconMapping } from '@/model/Category'
+import { returnCostToWallet } from '@app/db/wallet'
+import { toFixed } from '@app/utils'
+import { categoryNameIconMapping } from '@app/model/Category'
 
 export default defineComponent({
   components: { Text, Button, Card },

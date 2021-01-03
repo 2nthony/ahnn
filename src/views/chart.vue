@@ -26,23 +26,23 @@
 </template>
 
 <script lang="ts">
-import HomeTabbar from '../components/HomeTabbar.vue'
+import HomeTabbar from '@app/components/HomeTabbar.vue'
 import AxisChart from '@modules/frappe-charts/charts/AxisChart'
 import '@modules/frappe-charts/charts.less'
 import { computed, onMounted, ref, watch } from 'vue'
-import SelectMonth from '@/components/SelectMonth.vue'
-import { useStore } from '@/store'
-import Group from '@/components/Group.vue'
-import Cell from '@/components/Cell.vue'
-import RemixIcon from '@/components/RemixIcon.vue'
-import { splitRecordsByType } from '@/utils/record'
-import { sortByCategory } from '@/utils/chart'
-import { calcByKey } from '@/utils'
-import Text from '@/components/ui/Text.vue'
-import { readRecordsByYear } from '@/db/record'
-import { Types } from '@/model/Type'
-import { monthsInYear } from '@/utils/date'
-import StructGroup from '@/components/page-chart/StructGroup.vue'
+import SelectMonth from '@app/components/SelectMonth.vue'
+import { useStore } from '@app/store'
+import Group from '@app/components/Group.vue'
+import Cell from '@app/components/Cell.vue'
+import RemixIcon from '@app/components/RemixIcon.vue'
+import { splitRecordsByType } from '@app/utils/record'
+import { sortByCategory } from '@app/utils/chart'
+import { calcByKey } from '@app/utils'
+import Text from '@app/components/ui/Text.vue'
+import { readRecordsByYear } from '@app/db/record'
+import { Types } from '@app/model/Type'
+import { monthsInYear } from '@app/utils/date'
+import StructGroup from '@app/components/page-chart/StructGroup.vue'
 
 export default {
   components: {

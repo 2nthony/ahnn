@@ -1,7 +1,7 @@
 <template>
   <Draw :visible="visible" @update:visible="(v) => $emit('update:visible', v)">
     <div class="flex justify-between items-center mb-gap-half">
-      <ButtonGroup>
+      <ButtonGroup class="flex-3">
         <Button
           :size="'small'"
           :type="addRecord.type === Types.payout ? 'success' : 'secondary'"
@@ -16,19 +16,17 @@
         >
       </ButtonGroup>
 
-      <div class="flex">
-        <InputDate
-          :modelValue="addRecord.date"
-          @update:modelValue="onDateSelect"
-          class="input-date"
-        >
-          <template #placeholder>
-            <Button :size="'small'" type="secondary" class="w-full">{{
-              getCNDayText(addRecord.date)
-            }}</Button>
-          </template>
-        </InputDate>
-      </div>
+      <InputDate
+        :modelValue="addRecord.date"
+        @update:modelValue="onDateSelect"
+        class="input-date flex-1"
+      >
+        <template #placeholder>
+          <Button :size="'small'" type="secondary" class="w-full">{{
+            getCNDayText(addRecord.date)
+          }}</Button>
+        </template>
+      </InputDate>
     </div>
 
     <div class="flex items-center mb-gap-half">
@@ -92,24 +90,24 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '@/utils/setProps'
-import Calculator from '../Calculator.vue'
-import Button from '../ui/Button.vue'
-import InputDate from '../InputDate.vue'
-import Select from '../ui/Select.vue'
+import { setProps } from '@app/utils/setProps'
+import Calculator from '@app/components/Calculator.vue'
+import Button from '@app/components/ui/Button.vue'
+import InputDate from '@app/components/InputDate.vue'
+import Select from '@app/components/ui/Select.vue'
 import { defineComponent, ref } from 'vue'
-import Heading from '../ui/Heading.vue'
-import Text from '../ui/Text.vue'
-import { TypeCNTexts, Types } from '@/model/Type'
-import { useStore } from '@/store'
-import { addRecordStrategy } from '@/strategies/pageAddRecordStrategy'
-import { Record } from '@/model/Record'
-import { getCNDayText, getToday } from '@/utils/date'
-import Draw from '../Draw.vue'
-import { useUserWallets } from '@/hooks/useUserWallets'
-import ButtonGroup from '../ButtonGroup.vue'
-import { toFixed } from '@/utils'
-import Textarea from '../ui/Textarea.vue'
+import Heading from '@app/components/ui/Heading.vue'
+import Text from '@app/components/ui/Text.vue'
+import { TypeCNTexts, Types } from '@app/model/Type'
+import { useStore } from '@app/store'
+import { addRecordStrategy } from '@app/strategies/pageAddRecordStrategy'
+import { Record } from '@app/model/Record'
+import { getCNDayText, getToday } from '@app/utils/date'
+import Draw from '@app/components/Draw.vue'
+import { useUserWallets } from '@app/hooks/useUserWallets'
+import ButtonGroup from '@app/components/ButtonGroup.vue'
+import { toFixed } from '@app/utils'
+import Textarea from '@app/components/ui/Textarea.vue'
 import PopupAddRecordCategories from './PopupAddRecordCategories.vue'
 import dayjs from 'dayjs'
 

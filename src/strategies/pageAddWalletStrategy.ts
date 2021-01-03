@@ -1,6 +1,6 @@
-import { deleteWallet, readWalletByName, setWallet } from '@/db/wallet'
-import { Wallet } from '@/model/Wallet'
-import { deepToRaw, toRound } from '@/utils'
+import { deleteWallet, readWalletByName, setWallet } from '@app/db/wallet'
+import { Wallet } from '@app/model/Wallet'
+import { deepToRaw, toRound } from '@app/utils'
 import { createToast } from 'vercel-toast'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -9,12 +9,12 @@ import {
   deleteAllRecordByWallet,
   readRecordByWallet,
   setRecord,
-} from '@/db/record'
-import { getToday } from '@/utils/date'
-import { Record } from '@/model/Record'
-import { Types } from '@/model/Type'
-import { useStore } from '@/store'
-import { router } from '@/router'
+} from '@app/db/record'
+import { getToday } from '@app/utils/date'
+import { Record } from '@app/model/Record'
+import { Types } from '@app/model/Type'
+import { useStore } from '@app/store'
+import { router } from '@app/router'
 
 export function addWalletStrategy() {
   const route = useRoute()

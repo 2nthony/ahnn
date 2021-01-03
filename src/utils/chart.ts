@@ -1,4 +1,4 @@
-import { Record } from '@/model/Record'
+import { Record } from '@app/model/Record'
 
 export function sortByCategory(records: Record[]) {
   const res: { [k: string]: number } = {}

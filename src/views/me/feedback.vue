@@ -44,16 +44,16 @@
 </template>
 
 <script lang="ts">
-import Textarea from '@/components/ui/Textarea.vue'
-import Tabbar from '../../components/Tabbar.vue'
-import ViewingArea from '../../components/ViewingArea.vue'
+import Textarea from '@app/components/ui/Textarea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import ViewingArea from '@app/components/ViewingArea.vue'
 import { ref } from 'vue'
-import Button from '@/components/ui/Button.vue'
-import RemixIcon from '@/components/RemixIcon.vue'
-import { useAxios } from '@/hooks/useAxios'
+import Button from '@app/components/ui/Button.vue'
+import RemixIcon from '@app/components/RemixIcon.vue'
+import { useAxios } from '@app/hooks/useAxios'
 import { createToast } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
-import Input from '@/components/ui/Input.vue'
+import Input from '@app/components/ui/Input.vue'
 
 export default {
   components: { ViewingArea, Tabbar, Textarea, Button, Input },

@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts">
-import { supportedWallets } from '@/model/Wallet'
-import PageSelect from '@/layout/PageSelect.vue'
+import { supportedWallets } from '@app/model/Wallet'
+import PageSelect from '@app/layout/PageSelect.vue'
 import { useRouter } from 'vue-router'
 
 export default {

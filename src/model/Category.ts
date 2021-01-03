@@ -1,4 +1,4 @@
-import { createObjectMapping } from '@/utils'
+import { createObjectMapping } from '@app/utils'
 import type { Type } from './Type'
 
 export type CategoryName = string

@@ -1,4 +1,4 @@
-import { useStore } from '@/store'
+import { useStore } from '@app/store'
 import { computed, watch } from 'vue'
 
 export function eventRefreshRecords() {

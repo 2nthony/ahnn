@@ -25,10 +25,10 @@
 </template>
 
 <script lang="ts">
-import ViewingArea from '@/components/ViewingArea.vue'
-import Tabbar from '@/components/Tabbar.vue'
-import Input from '@/components/ui/Input.vue'
-import { addWalletStrategy } from '@/strategies/pageAddWalletStrategy'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import Input from '@app/components/ui/Input.vue'
+import { addWalletStrategy } from '@app/strategies/pageAddWalletStrategy'
 
 export default {
   components: { ViewingArea, Tabbar, Input },

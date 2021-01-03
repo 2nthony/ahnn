@@ -1,8 +1,8 @@
-import { RootState } from '@/store'
+import { RootState } from '@app/store'
 import { ActionContext, ActionTree, DispatchOptions } from 'vuex'
 import { State } from './state'
 import { Mutations } from './mutations'
-import { readRecordsByMonth } from '@/db/record'
+import { readRecordsByMonth } from '@app/db/record'
 
 export type RecordActionContext = ActionContext<State, RootState> & {
   commit<K extends keyof Mutations>(

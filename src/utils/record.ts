@@ -1,5 +1,5 @@
-import { Record } from '@/model/Record'
-import { Types } from '@/model/Type'
+import { Record } from '@app/model/Record'
+import { Types } from '@app/model/Type'
 
 export function calcRecords(records: Record[]) {
   return records.reduce(

@@ -1,4 +1,4 @@
-import { useStore } from '@/store'
+import { useStore } from '@app/store'
 import { ref, watch } from 'vue'
 
 /**

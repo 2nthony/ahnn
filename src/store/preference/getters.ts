@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex'
 import { State } from './state'
-import { Preference } from '@/model/Preference'
-import { RootState } from '@/store'
+import { Preference } from '@app/model/Preference'
+import { RootState } from '@app/store'
 
 export interface Getters {
   preference(state: State): Preference

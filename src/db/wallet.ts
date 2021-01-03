@@ -1,6 +1,6 @@
-import { Record } from '@/model/Record'
-import { pinnedWallets, Wallet, walletIndexing } from '@/model/Wallet'
-import { toRound } from '@/utils'
+import { Record } from '@app/model/Record'
+import { pinnedWallets, Wallet, walletIndexing } from '@app/model/Wallet'
+import { toRound } from '@app/utils'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 

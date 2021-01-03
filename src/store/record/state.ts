@@ -1,5 +1,5 @@
-import { getCurrentMonth, getCurrentYear } from '@/utils/date'
-import { Record } from '../../model/Record'
+import { getCurrentMonth, getCurrentYear } from '@app/utils/date'
+import { Record } from '@app/model/Record'
 
 export type RecordsQueryDate = [number, number]
 export interface State {

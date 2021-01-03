@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { setProps } from '../utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import Heading from './ui/Heading.vue'
 export default {
   components: { Heading },

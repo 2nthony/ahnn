@@ -33,20 +33,20 @@
 </template>
 
 <script lang="ts">
-import Tabbar from '@/components/Tabbar.vue'
-import ViewingArea from '@/components/ViewingArea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import ViewingArea from '@app/components/ViewingArea.vue'
 import { useRoute, useRouter } from 'vue-router'
-import Group from '@/components/Group.vue'
-import HomeRecordCard from '@/components/HomeRecordCard.vue'
+import Group from '@app/components/Group.vue'
+import HomeRecordCard from '@app/components/HomeRecordCard.vue'
 import { onMounted, ref } from 'vue'
-import { readRecordByWallet } from '@/db/record'
-import { Record } from '@/model/Record'
-import { quickSortBy } from '@/utils/quickSort'
-import { getCNDayText } from '@/utils/date'
-import { useStore } from '@/store'
-import { compatHomeRecords } from '@/utils/record'
-import { usePopupAddRecord } from '@/hooks/usePopupAddRecord'
-import PopupAddRecord from '@/components/page-home/PopupAddRecord.vue'
+import { readRecordByWallet } from '@app/db/record'
+import { Record } from '@app/model/Record'
+import { quickSortBy } from '@app/utils/quickSort'
+import { getCNDayText } from '@app/utils/date'
+import { useStore } from '@app/store'
+import { compatHomeRecords } from '@app/utils/record'
+import { usePopupAddRecord } from '@app/hooks/usePopupAddRecord'
+import PopupAddRecord from '@app/components/page-home/PopupAddRecord.vue'
 
 export default {
   components: { Tabbar, ViewingArea, Group, HomeRecordCard, PopupAddRecord },

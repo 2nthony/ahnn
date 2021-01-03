@@ -31,18 +31,18 @@
 </template>
 
 <script lang="ts">
-import ViewingArea from '@/components/ViewingArea.vue'
-import Tabbar from '@/components/Tabbar.vue'
-import Button from '@/components/ui/Button.vue'
-import { clearRecord, readRecords, setRecord } from '@/db/record'
-import { clearWallet, readWallets, setWallet } from '@/db/wallet'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import Button from '@app/components/ui/Button.vue'
+import { clearRecord, readRecords, setRecord } from '@app/db/record'
+import { clearWallet, readWallets, setWallet } from '@app/db/wallet'
 import { nextTick, ref } from 'vue'
-import { Record } from '@/model/Record'
-import { Wallet } from '@/model/Wallet'
+import { Record } from '@app/model/Record'
+import { Wallet } from '@app/model/Wallet'
 import { createToast } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
-import { useStore } from '@/store'
-import Note from '@/components/Note.vue'
+import { useStore } from '@app/store'
+import Note from '@app/components/Note.vue'
 
 export default {
   components: { ViewingArea, Tabbar, Button, Note },

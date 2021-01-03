@@ -47,8 +47,8 @@
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
 import RemixIcon from './RemixIcon.vue'
-import { stringMath } from '../utils/stringMath'
-import { toRound } from '@/utils'
+import { stringMath } from '@app/utils/stringMath'
+import { toRound } from '@app/utils'
 
 export default defineComponent({
   components: { RemixIcon },

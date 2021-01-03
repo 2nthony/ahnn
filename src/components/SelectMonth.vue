@@ -23,10 +23,10 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue'
 import InputDate from './InputDate.vue'
-import { setProps } from '@/utils/setProps'
+import { setProps } from '@app/utils/setProps'
 import dayjs from 'dayjs'
-import { useStore } from '@/store'
-import { getThisMonth } from '@/utils/date'
+import { useStore } from '@app/store'
+import { getThisMonth } from '@app/utils/date'
 import Button from './ui/Button.vue'
 import RemixIcon from './RemixIcon.vue'
 import Text from './ui/Text.vue'

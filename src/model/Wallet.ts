@@ -1,4 +1,4 @@
-import { StoreIndexing } from '@/db'
+import { StoreIndexing } from '@app/db'
 
 export type WalletName = string
 

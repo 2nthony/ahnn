@@ -18,13 +18,13 @@
 </template>
 
 <script lang="ts">
-import { categoryNameIconMapping, presetCategories } from '@/model/Category'
-import { useStore } from '@/store'
-import { addRecordStrategy } from '@/strategies/pageAddRecordStrategy'
-import { appWidth } from '@/utils'
+import { categoryNameIconMapping, presetCategories } from '@app/model/Category'
+import { useStore } from '@app/store'
+import { addRecordStrategy } from '@app/strategies/pageAddRecordStrategy'
+import { appWidth } from '@app/utils'
 import { computed, defineComponent, nextTick, ref, watch } from 'vue'
-import RemixIcon from '../RemixIcon.vue'
-import Text from '../ui/Text.vue'
+import RemixIcon from '@app/components/RemixIcon.vue'
+import Text from '@app/components/ui/Text.vue'
 
 export default defineComponent({
   components: { RemixIcon, Text },

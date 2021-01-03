@@ -12,10 +12,10 @@
 </template>
 
 <script lang="ts">
-import Group from '../../components/Group.vue'
-import Cell from '../../components/Cell.vue'
-import Tabbar from '../../components/Tabbar.vue'
-import ViewingArea from '../../components/ViewingArea.vue'
+import Group from '@app/components/Group.vue'
+import Cell from '@app/components/Cell.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import ViewingArea from '@app/components/ViewingArea.vue'
 
 export default {
   components: {

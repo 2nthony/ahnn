@@ -1,7 +1,7 @@
-import { readPreference } from '@/db/preference'
-import { getInitPreference } from '@/model/Preference'
-import { useStore } from '@/store'
-import { switchAppreance } from '@/utils/preference/switchAppreance'
+import { readPreference } from '@app/db/preference'
+import { getInitPreference } from '@app/model/Preference'
+import { useStore } from '@app/store'
+import { switchAppreance } from '@app/utils/preference/switchAppreance'
 
 export function eventRestorePreference() {
   const store = useStore()

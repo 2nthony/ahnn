@@ -20,16 +20,16 @@
 </template>
 
 <script lang="ts">
-import ViewingArea from '@/components/ViewingArea.vue'
-import Group from '@/components/Group.vue'
-import Cell from '@/components/Cell.vue'
-import Tabbar from '@/components/Tabbar.vue'
-import RemixIcon from '@/components/RemixIcon.vue'
-import { useStore } from '@/store'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import Group from '@app/components/Group.vue'
+import Cell from '@app/components/Cell.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import RemixIcon from '@app/components/RemixIcon.vue'
+import { useStore } from '@app/store'
 import { computed } from 'vue'
-import { Appreance, AppreanceCNText, Appreances } from '@/model/Preference'
-import { switchAppreance } from '../../utils/preference/switchAppreance'
-import { setPreference } from '@/db/preference'
+import { Appreance, AppreanceCNText, Appreances } from '@app/model/Preference'
+import { switchAppreance } from '@app/utils/preference/switchAppreance'
+import { setPreference } from '@app/db/preference'
 
 export default {
   components: { ViewingArea, Group, Cell, Tabbar, RemixIcon },

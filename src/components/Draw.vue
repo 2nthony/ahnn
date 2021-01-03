@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { setProps } from '@/utils/setProps'
+import { setProps } from '@app/utils/setProps'
 
 export default {
   props: {
@@ -32,7 +32,10 @@ export default {
   padding: var(--geist-gap-half);
   padding-bottom: calc(env(safe-area-inset-bottom) + var(--geist-gap-half));
   z-index: 10;
-  // background-color: var(--geist-background);
+  background-color: var(--geist-background);
+  border-top-left-radius: var(--geist-gap-half);
+  border-top-right-radius: var(--geist-gap-half);
+  box-shadow: 0 0 100px var(--tabbar-background);
 }
 
 .modal-frosted-glass {

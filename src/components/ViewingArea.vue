@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Heading from '../components/ui/Heading.vue'
-import { setProps } from '../utils/setProps'
+import Heading from '@app/components/ui/Heading.vue'
+import { setProps } from '@app/utils/setProps'
 export default {
   components: { Heading },
   props: {
