@@ -52,7 +52,6 @@
     "prettier": "^2.2.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "~3.9.3",
-    "vue-svg-loader": "^0.17.0-beta.2",
     "vuedown": "^3.2.0"
   },
   "eslintConfig": {
