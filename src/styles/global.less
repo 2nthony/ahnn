@@ -84,3 +84,18 @@ h6 {
     }
   }
 }
+
+// custom scrollbar
+*::-webkit-scrollbar {
+  cursor: pointer;
+  width: var(--geist-space-2x);
+  height: var(--geist-space-2x);
+}
+*::-webkit-scrollbar-track {
+  background-color: var(--accents-2);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accents-5);
+  border: 3px solid var(--accents-5);
+  border-radius: var(--geist-radius);
+}
