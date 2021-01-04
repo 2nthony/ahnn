@@ -1,3 +1,20 @@
+## [0.2.10](https://github.com/evillt/ahnn/compare/v0.2.9...v0.2.10) (2021-01-04)
+
+
+### Bug Fixes
+
+* **draw:** background color ([86b8613](https://github.com/evillt/ahnn/commit/86b86134ce214fbca072c5ec9c1e04e0559f95b2))
+* **popup-add-record:** cursor pointer ([d248d0e](https://github.com/evillt/ahnn/commit/d248d0ee7753da1226a6eb35874b1a9b0ae93e9e))
+* **popup-add-record:** tweak ([32f8d38](https://github.com/evillt/ahnn/commit/32f8d38f6873f90126d408c94a2b771b9046dcc9))
+* **ui-components:** tweak ([dec4dc7](https://github.com/evillt/ahnn/commit/dec4dc756814a3e0d20fe454606bef9b23d2d2fa))
+
+
+### Features
+
+* **style:** improvement scrollbar style ([84a7598](https://github.com/evillt/ahnn/commit/84a7598267622317580d723c6ae25622425802ab))
+
+
+
 ## [0.2.9](https://github.com/evillt/ahnn/compare/v0.2.8...v0.2.9) (2021-01-02)
 
 
