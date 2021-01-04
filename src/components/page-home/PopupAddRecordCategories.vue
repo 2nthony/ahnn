@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-x-scroll flex mb-gap-half" ref="categoriesWrapperEl">
     <div
-      class="flex flex-col items-center w-14 flex-none"
+      class="flex flex-col items-center w-14 flex-none cursor-pointer mr-1"
       v-for="(category, index) in categories"
       :key="index"
       @click="handleSelectCategory(index)"
