@@ -1,5 +1,6 @@
 <template>
   <input
+    ref="el"
     v-bind="$attrs"
     :type="type"
     :value="modelValue"
@@ -9,11 +10,21 @@
 
 <script lang="ts">
 import { setProps } from '@app/utils/setProps'
+import { ComponentPublicInstance, ref } from 'vue'
+import { useHTMLEl } from '@app/hooks/useHTMLEl'
 
 export default {
   props: {
     type: setProps('string', 'text'),
     modelValue: setProps(['string', 'number']),
+  },
+
+  setup() {
+    const { el } = useHTMLEl<HTMLInputElement>()
+
+    return {
+      el,
+    }
   },
 }
 </script>
