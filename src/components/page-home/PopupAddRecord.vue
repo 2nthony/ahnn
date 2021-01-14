@@ -134,14 +134,14 @@ export default defineComponent({
     const remarkPopupVisible = ref(false)
     const { userWallets } = useUserWallets()
 
-    const {
-      addRecord,
-      handleSwitchType,
-      handleSave: origHandleSave,
-    } = addRecordStrategy()
+    const { addRecord, handleSave: origHandleSave } = addRecordStrategy()
 
     function handleSelectWallet(wallet: Record['wallet']) {
       store.commit('setAddRecord', { wallet })
+    }
+
+    const handleSwitchType = (type: Record['type']) => {
+      store.commit('switchAddRecordType', type)
     }
 
     function onCalcResult(cost: Record['cost']) {

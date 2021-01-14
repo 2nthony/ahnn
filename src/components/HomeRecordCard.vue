@@ -37,9 +37,10 @@ import { deleteRecord } from '@app/db/record'
 import { createToast, destoryAllToasts } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 import Card from './Card.vue'
-import { returnCostToWallet } from '@app/db/wallet'
+import { adjustWalletBalance } from '@app/db/wallet'
 import { toFixed } from '@app/utils'
 import { categoryNameIconMapping } from '@app/model/Category'
+import { cache } from '@app/utils/cache'
 
 export default defineComponent({
   components: { Text, Button, Card },
@@ -68,6 +69,7 @@ export default defineComponent({
 
     const handleEdit = () => {
       store.commit('setAddRecord', props.record as Record)
+      cache.setCache('origAddRecord', props.record)
       // router.push('/edit-record')
       emit('edit')
     }
@@ -89,7 +91,7 @@ export default defineComponent({
           callback(toast) {
             Promise.all([
               deleteRecord(record.value),
-              returnCostToWallet(record.value.wallet, returnCost),
+              adjustWalletBalance(record.value.wallet, returnCost),
             ]).then(() => {
               toast.destory()
               store.commit('deleteRecord', record.value.id)

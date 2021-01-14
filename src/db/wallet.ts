@@ -53,7 +53,7 @@ export async function readWalletByName(name: string): Promise<Wallet> {
   return db.getFromIndex(storeName, 'name', name).finally(() => db.close())
 }
 
-export async function returnCostToWallet(name: string, cost: Record['cost']) {
+export async function adjustWalletBalance(name: string, cost: Record['cost']) {
   const wallet = await readWalletByName(name)
   return setWallet({
     ...wallet,
