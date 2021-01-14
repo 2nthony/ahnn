@@ -52,7 +52,7 @@
     </div>
 
     <!-- categories -->
-    <PopupAddRecordCategories />
+    <AddRecordCategories />
 
     <Button
       type="secondary"
@@ -79,14 +79,7 @@
     </div>
   </Draw>
 
-  <Draw v-model:visible="remarkPopupVisible">
-    <Textarea
-      class="w-full"
-      placeholder="填写备注"
-      :modelValue="addRecord.remark"
-      @update:modelValue="onInputRemark"
-    ></Textarea>
-  </Draw>
+  <PopupAddRecordRemark v-model:visible="remarkPopupVisible" />
 </template>
 
 <script lang="ts">
@@ -108,8 +101,9 @@ import { useUserWallets } from '@app/hooks/useUserWallets'
 import ButtonGroup from '@app/components/ButtonGroup.vue'
 import { toFixed } from '@app/utils'
 import Textarea from '@app/components/ui/Textarea.vue'
-import PopupAddRecordCategories from './PopupAddRecordCategories.vue'
+import AddRecordCategories from './AddRecordCategories.vue'
 import dayjs from 'dayjs'
+import PopupAddRecordRemark from './PopupAddRecordRemark.vue'
 
 export default defineComponent({
   components: {
@@ -122,7 +116,8 @@ export default defineComponent({
     Draw,
     ButtonGroup,
     Textarea,
-    PopupAddRecordCategories,
+    AddRecordCategories,
+    PopupAddRecordRemark,
   },
   emits: ['update:visible', 'saved'],
   props: {
@@ -146,10 +141,6 @@ export default defineComponent({
 
     function onCalcResult(cost: Record['cost']) {
       store.commit('setAddRecord', { cost })
-    }
-
-    function onInputRemark(remark: Record['remark']) {
-      store.commit('setAddRecord', { remark })
     }
 
     function onDateSelect(date: string) {
@@ -177,7 +168,6 @@ export default defineComponent({
       handleSelectWallet,
       onDateSelect,
       onCalcResult,
-      onInputRemark,
       handleSave,
 
       remarkPopupVisible,
