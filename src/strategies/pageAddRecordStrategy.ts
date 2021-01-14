@@ -3,7 +3,7 @@ import { deepToRaw, toRound } from '@app/utils'
 import { useStore } from '@app/store'
 import { Types } from '@app/model/Type'
 import { setRecord } from '@app/db/record'
-import { returnCostToWallet } from '@app/db/wallet'
+import { adjustWalletBalance } from '@app/db/wallet'
 import { Record } from '@app/model/Record'
 import { cache } from '@app/utils/cache'
 
@@ -31,7 +31,7 @@ export function addRecordStrategy() {
     )
 
     return Promise.all([
-      returnCostToWallet(addRecord.value.wallet, calcCost),
+      adjustWalletBalance(addRecord.value.wallet, calcCost),
       setRecord(deepToRaw(addRecord.value)),
     ])
   }
@@ -48,5 +48,5 @@ function returnCost(form: Record) {
   const calcCost = form.type === Types.income ? 0 - form.cost : form.cost
 
   // 必须先退还到原钱包，才执行保存
-  return returnCostToWallet(form.wallet, calcCost)
+  return adjustWalletBalance(form.wallet, calcCost)
 }
