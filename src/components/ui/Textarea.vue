@@ -1,6 +1,7 @@
 <template>
   <div class="textarea-wrapper">
     <textarea
+      ref="el"
       autocapitalize="off"
       autocomplete="off"
       autocorrect="off"
@@ -12,14 +13,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { useHTMLEl } from '@app/hooks/useHTMLEl'
 import { setProps } from '@app/utils/setProps'
-export default {
+import { defineComponent, ref } from 'vue'
+export default defineComponent({
   props: {
     modelValue: setProps('string'),
     placeholder: setProps('string'),
   },
-}
+
+  setup() {
+    const { el } = useHTMLEl<HTMLTextAreaElement>()
+
+    return {
+      el,
+    }
+  },
+})
 </script>
 
 <style lang="less" scoped>
