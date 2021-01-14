@@ -1,3 +1,17 @@
+## [0.2.12](https://github.com/evillt/ahnn/compare/v0.2.10...v0.2.12) (2021-01-14)
+
+
+### Bug Fixes
+
+* **add-record-strategy:** should return cost fist ([#59](https://github.com/evillt/ahnn/issues/59)) ([4a29783](https://github.com/evillt/ahnn/commit/4a297837d638ed4d3279cad1cca42e3705820a31))
+
+
+### Features
+
+* auto focus ([#61](https://github.com/evillt/ahnn/issues/61)) ([d9c7fb1](https://github.com/evillt/ahnn/commit/d9c7fb1f7e7f8a240ec7c8d2bfc4de139846c014))
+
+
+
 ## [0.2.11](https://github.com/evillt/ahnn/compare/v0.2.10...v0.2.11) (2021-01-14)
 
 
