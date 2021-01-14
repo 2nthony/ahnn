@@ -1,3 +1,12 @@
+## [0.2.11](https://github.com/evillt/ahnn/compare/v0.2.10...v0.2.11) (2021-01-14)
+
+
+### Bug Fixes
+
+* **add-record-strategy:** should return cost fist ([#59](https://github.com/evillt/ahnn/issues/59)) ([4a29783](https://github.com/evillt/ahnn/commit/4a297837d638ed4d3279cad1cca42e3705820a31))
+
+
+
 ## [0.2.10](https://github.com/evillt/ahnn/compare/v0.2.9...v0.2.10) (2021-01-04)
 
 

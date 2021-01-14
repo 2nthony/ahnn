@@ -5,10 +5,7 @@ import { Type } from '@app/model/Type'
 import { presetCategories } from '@app/model/Category'
 
 export type Mutations = {
-  setAddRecord(
-    state: State,
-    payload: { [key in keyof Record]?: Record[key] },
-  ): void
+  setAddRecord(state: State, payload: Partial<Record>): void
   switchAddRecordType(state: State, type: Type): void
 }
 

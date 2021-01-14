@@ -3,10 +3,7 @@ import { Preference } from '@app/model/Preference'
 import { MutationTree } from 'vuex'
 
 export interface Mutations {
-  setPreference(
-    state: State,
-    payload: { [key in keyof Preference]?: Preference[key] },
-  ): void
+  setPreference(state: State, payload: Partial<Preference>): void
 }
 
 export const mutations: MutationTree<State> & Mutations = {
