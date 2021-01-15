@@ -1,3 +1,12 @@
+## [0.2.13](https://github.com/evillt/ahnn/compare/v0.2.12...v0.2.13) (2021-01-15)
+
+
+### Features
+
+* **page-wallet-detail:** show wallet balance ([520ccc5](https://github.com/evillt/ahnn/commit/520ccc5f1bf0b600b4a3d98a5dac42781617ea77)), closes [#63](https://github.com/evillt/ahnn/issues/63)
+
+
+
 ## [0.2.12](https://github.com/evillt/ahnn/compare/v0.2.10...v0.2.12) (2021-01-14)
 
 
