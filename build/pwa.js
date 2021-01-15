@@ -1,5 +1,7 @@
+const { isProd } = require('./shared')
+
 module.exports = {
-  name: 'Ahnn',
+  name: isProd ? 'Ahnn' : 'Ahnn Dev',
   themeColor: '#000000',
   msTileColor: '#000000',
 
