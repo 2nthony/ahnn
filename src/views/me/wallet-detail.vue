@@ -1,6 +1,11 @@
 <template>
   <div class="page-wallet-detail">
-    <ViewingArea :title="title"></ViewingArea>
+    <ViewingArea class="relative">
+      <Heading :size="900">{{ title }}</Heading>
+      <Heading class="absolute bottom-12" v-if="walletBalance"
+        >余额：{{ walletBalance }}</Heading
+      >
+    </ViewingArea>
 
     <Group
       v-for="record in records"
@@ -38,7 +43,7 @@ import ViewingArea from '@app/components/ViewingArea.vue'
 import { useRoute, useRouter } from 'vue-router'
 import Group from '@app/components/Group.vue'
 import HomeRecordCard from '@app/components/HomeRecordCard.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { readRecordByWallet } from '@app/db/record'
 import { Record } from '@app/model/Record'
 import { quickSortBy } from '@app/utils/quickSort'
@@ -47,9 +52,19 @@ import { useStore } from '@app/store'
 import { compatHomeRecords } from '@app/utils/record'
 import { usePopupAddRecord } from '@app/hooks/usePopupAddRecord'
 import PopupAddRecord from '@app/components/page-home/PopupAddRecord.vue'
+import Heading from '@app/components/ui/Heading.vue'
+import { readWalletByName } from '@app/db/wallet'
+import { toFixed } from '@app/utils'
 
 export default {
-  components: { Tabbar, ViewingArea, Group, HomeRecordCard, PopupAddRecord },
+  components: {
+    Tabbar,
+    ViewingArea,
+    Group,
+    HomeRecordCard,
+    PopupAddRecord,
+    Heading,
+  },
 
   setup() {
     const store = useStore()
@@ -59,6 +74,7 @@ export default {
 
     const name = route.query.name as Record['wallet']
     const records = ref<any>([])
+    const walletBalance = ref('')
 
     const readRecord = () => {
       readRecordByWallet(name).then((data) => {
@@ -69,6 +85,18 @@ export default {
     }
 
     onMounted(readRecord)
+
+    watch(
+      records,
+      () => {
+        readWalletByName(name).then((wallet) => {
+          walletBalance.value = toFixed(wallet.balance || 0)
+        })
+      },
+      {
+        immediate: true,
+      },
+    )
 
     const handleAddRecord = () => {
       store.commit('setAddRecord', {
@@ -89,6 +117,7 @@ export default {
     return {
       title: name,
       records,
+      walletBalance,
       popupAddRecordVisible,
 
       handleAddRecord,
