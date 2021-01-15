@@ -76,6 +76,7 @@ export default {
   position: relative;
   background-color: var(--geist-background);
   cursor: pointer;
+  transition: background-color var(--transition-animation);
 
   & + .cell {
     border-top: none;

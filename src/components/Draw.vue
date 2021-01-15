@@ -36,6 +36,7 @@ export default {
   border-top-left-radius: var(--geist-gap-half);
   border-top-right-radius: var(--geist-gap-half);
   box-shadow: 0 0 100px var(--tabbar-background);
+  transition: background-color var(--transition-animation);
 }
 
 .modal-frosted-glass {
