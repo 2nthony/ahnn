@@ -38,6 +38,7 @@ input {
   border-radius: var(--geist-radius);
   outline: none;
   color: var(--geist-foreground);
+  transition: background-color var(--transition-animation);
 
   &:focus {
     border: 1px solid var(--geist-foreground);

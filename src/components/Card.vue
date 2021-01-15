@@ -46,6 +46,7 @@ export default {
   background-color: var(--geist-background);
   border-radius: var(--geist-radius);
   cursor: pointer;
+  transition: background-color var(--transition-animation);
 
   & + .card {
     margin-top: var(--geist-gap);

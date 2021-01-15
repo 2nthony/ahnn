@@ -7,8 +7,8 @@ export const isFalsy = (val: any) => {
 }
 export const isTruthy = (val: any) => !isFalsy(val)
 
-export const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
-  .matches
+export const preferMediaDark = window.matchMedia('(prefers-color-scheme: dark)')
+export const isDarkMode = preferMediaDark.matches
 
 /**
  * Alternative to `Math.round()`

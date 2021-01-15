@@ -26,6 +26,7 @@ button {
   cursor: pointer;
   border: 1px solid var(--themed-border, var(--themed-bg));
   background-color: var(--themed-bg);
+  transition: background-color var(--transition-animation);
 
   & + button {
     margin-left: var(--geist-gap-half);
