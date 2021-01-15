@@ -1,5 +1,5 @@
 import { createObjectMapping } from '@app/utils'
-import type { Type } from './Type'
+import { Type, TypeCNTexts, Types } from './Type'
 
 export type CategoryName = string
 export type CategoryIcon = string
@@ -9,18 +9,21 @@ export interface CategoryItem {
   icon: CategoryIcon
 }
 
-export interface AllCategories {
+export interface StandardCategories {
   payout: CategoryItem[]
   income: CategoryItem[]
   others: CategoryItem[]
 }
 
+interface ExtendStandardCategories extends StandardCategories {
+  [Types.adjustManual]: CategoryName[]
+}
 export type PresetCategories = {
-  [k in keyof AllCategories]: CategoryName[]
+  [k in keyof ExtendStandardCategories]: CategoryName[]
 }
 
 const c = (name: CategoryName, icon: CategoryIcon) => ({ name, icon })
-const allCategories: AllCategories = {
+const allCategories: StandardCategories = {
   payout: [
     c('通用', 'star'),
     c('餐饮', 'cake-3'),
@@ -54,7 +57,7 @@ const allCategories: AllCategories = {
     c('退款', 'arrow-go-back'),
     c('投资', 'funds'),
   ],
-  others: [c('余额变动', 'exchange-cny')],
+  others: [c(TypeCNTexts[Types.adjustManual], 'exchange-cny')],
 }
 
 export const presetCategories: PresetCategories = Object.keys(
