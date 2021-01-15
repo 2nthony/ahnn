@@ -1,3 +1,17 @@
+## [0.2.14](https://github.com/evillt/ahnn/compare/v0.2.13...v0.2.14) (2021-01-15)
+
+
+### Bug Fixes
+
+* ignore adjust wallet balance manual ([#67](https://github.com/evillt/ahnn/issues/67)) ([ede4844](https://github.com/evillt/ahnn/commit/ede4844e78dbf8ecf82b645daa1a05406f93acd5))
+
+
+### Features
+
+* auto switch appreance ([88e55ed](https://github.com/evillt/ahnn/commit/88e55ed901107fe9ad6c5f812c3e3470133f68ca))
+
+
+
 ## [0.2.13](https://github.com/evillt/ahnn/compare/v0.2.12...v0.2.13) (2021-01-15)
 
 
