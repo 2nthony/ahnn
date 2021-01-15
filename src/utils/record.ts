@@ -2,16 +2,13 @@ import { Record } from '@app/model/Record'
 import { Types } from '@app/model/Type'
 
 export function calcRecords(records: Record[]) {
-  return records.reduce(
-    (res, record) => {
-      res[record.type] += record.cost
-      return res
-    },
-    {
-      payout: 0,
-      income: 0,
-    },
-  )
+  const model: { [k: string]: number } = {}
+  Object.keys(Types).forEach((k) => (model[k] = 0))
+
+  return records.reduce((res, record) => {
+    res[record.type] += record.cost
+    return res
+  }, model)
 }
 
 export function compatHomeRecords(records: Record[]) {
@@ -37,7 +34,8 @@ export function splitRecordsByType(records: Record[]) {
   records.forEach((record) => {
     if (record.type === Types.payout) {
       payoutRecords.push(record)
-    } else {
+    }
+    if (record.type === Types.income) {
       incomeRecords.push(record)
     }
   })
