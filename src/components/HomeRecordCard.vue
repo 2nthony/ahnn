@@ -27,7 +27,7 @@
 <script lang="ts">
 import { setProps } from '@app/utils/setProps'
 import Text from './ui/Text.vue'
-import { TypeCNTexts, Types } from '@app/model/Type'
+import { shouldAdjustType, TypeCNTexts, Types } from '@app/model/Type'
 import { computed, defineComponent, ref, watch } from 'vue'
 import Button from './ui/Button.vue'
 import { useRouter } from 'vue-router'
@@ -75,24 +75,26 @@ export default defineComponent({
     }
 
     const handleDelete = () => {
+      const fns: Promise<any>[] = [deleteRecord(record.value)]
+
       // 回退费用到对应钱包
       // income 为负数，从钱包扣回此收入
       // payout 为正数，从钱包增加此支出
-      const returnCost =
-        record.value.type === Types.income
-          ? 0 - record.value.cost
-          : record.value.cost
+      if (shouldAdjustType(record.value.type)) {
+        const returnCost =
+          record.value.type === Types.income
+            ? 0 - record.value.cost
+            : record.value.cost
 
+        fns.push(adjustWalletBalance(record.value.wallet, returnCost))
+      }
       createToast('确认删除这条记录吗？', {
         type: 'error',
         cancel: '取消',
         action: {
           text: '删除',
           callback(toast) {
-            Promise.all([
-              deleteRecord(record.value),
-              adjustWalletBalance(record.value.wallet, returnCost),
-            ]).then(() => {
+            Promise.all(fns).then(() => {
               toast.destory()
               store.commit('deleteRecord', record.value.id)
               showMore.value = false

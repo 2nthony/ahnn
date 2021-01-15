@@ -1,6 +1,6 @@
 import { deleteWallet, readWalletByName, setWallet } from '@app/db/wallet'
 import { Wallet } from '@app/model/Wallet'
-import { deepToRaw, toRound } from '@app/utils'
+import { deepToRaw, toFixed, toRound } from '@app/utils'
 import { createToast } from 'vercel-toast'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -12,7 +12,7 @@ import {
 } from '@app/db/record'
 import { getToday } from '@app/utils/date'
 import { Record } from '@app/model/Record'
-import { Types } from '@app/model/Type'
+import { TypeCNTexts, Types } from '@app/model/Type'
 import { useStore } from '@app/store'
 import { router } from '@app/router'
 
@@ -94,13 +94,6 @@ export function editWalletStrategy() {
     })
   })
 
-  const getRecordType = (oldVal: number, newVal: number) => {
-    if (newVal > oldVal) {
-      return Types.income
-    }
-    return Types.payout
-  }
-
   const handleSave = () => {
     const fns: Promise<any>[] = []
 
@@ -110,12 +103,12 @@ export function editWalletStrategy() {
     // 金额变动情况，添加一个金额变动记录
     if (origBalance !== newBalance) {
       const record: Record = {
-        type: getRecordType(origBalance, newBalance),
-        category: '余额变动',
+        type: Types.adjustManual,
+        category: TypeCNTexts[Types.adjustManual],
         cost: toRound(Math.abs(newBalance - origBalance)),
         wallet: name,
         date: getToday(),
-        remark: '手动调整',
+        remark: `调整后余额：${toFixed(newBalance)}`,
       }
       fns.push(setRecord(record))
     }
