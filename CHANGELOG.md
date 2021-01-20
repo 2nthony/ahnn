@@ -1,3 +1,12 @@
+## [0.2.15](https://github.com/evillt/ahnn/compare/v0.2.14...v0.2.15) (2021-01-20)
+
+
+### Features
+
+* use `undraw` ([#69](https://github.com/evillt/ahnn/issues/69)) ([dcf933f](https://github.com/evillt/ahnn/commit/dcf933f80579455ea4bd27fff5523a552be576a3))
+
+
+
 ## [0.2.14](https://github.com/evillt/ahnn/compare/v0.2.13...v0.2.14) (2021-01-15)
 
 
