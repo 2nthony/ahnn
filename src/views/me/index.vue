@@ -1,6 +1,12 @@
 <template>
   <div class="page-me">
-    <ViewingArea title="我"></ViewingArea>
+    <ViewingArea title="我">
+      <img
+        src="/img/illustrations/undraw_my_documents_ym8x.svg"
+        alt="Me"
+        class="h-full"
+      />
+    </ViewingArea>
 
     <!-- <Group>
       <Cell title="登录账号" :rightText="'去注册'" link></Cell>
