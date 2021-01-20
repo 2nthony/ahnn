@@ -2,8 +2,8 @@
   <Pane class="card" :float="3">
     <div class="title-group" v-if="title || rightText">
       <div class="title">
-        <div :class="iconWrapperClass" class="icon-wrapper">
-          <RemixIcon :icon="titleIcon" v-if="titleIcon" />
+        <div v-if="titleIcon" :class="iconWrapperClass" class="icon-wrapper">
+          <RemixIcon :icon="titleIcon" />
         </div>
         <Text>{{ title }}</Text>
       </div>
