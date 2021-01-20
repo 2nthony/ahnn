@@ -1,6 +1,12 @@
 <template>
   <div class="page-about-app">
-    <ViewingArea title="Ahnn"></ViewingArea>
+    <ViewingArea title="Ahnn">
+      <img
+        src="/img/illustrations/undraw_my_app_re_gxtj.svg"
+        alt="Ahnn"
+        class="h-full"
+      />
+    </ViewingArea>
 
     <Group>
       <Cell title="历史更新" :link="'/me/changelog'"></Cell>

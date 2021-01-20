@@ -1,8 +1,10 @@
 <template>
-  <div class="viewing-area">
+  <div
+    class="viewing-area flex items-center justify-center w-full h-48 my-gap-half"
+  >
     <slot>
       <slot name="title">
-        <div class="title">
+        <div class="w-full flex justify-center px-4">
           <Heading :size="900">{{ title }}</Heading>
         </div>
       </slot>
@@ -20,20 +22,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less" scoped>
-.viewing-area {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & .title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 16px 0;
-  }
-}
-</style>

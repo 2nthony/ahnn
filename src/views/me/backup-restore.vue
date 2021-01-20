@@ -1,6 +1,12 @@
 <template>
   <div class="page-backup">
-    <ViewingArea title="备份还原"></ViewingArea>
+    <ViewingArea title="备份还原">
+      <img
+        src="/img/illustrations/undraw_file_sync_ot38.svg"
+        alt="Backup-Restore"
+        class="h-full"
+      />
+    </ViewingArea>
 
     <Note :type="'error'" class="mb-gap">
       <template #title>还原将会抹除所有本地数据</template>

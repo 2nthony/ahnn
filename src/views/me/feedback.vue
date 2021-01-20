@@ -1,6 +1,12 @@
 <template>
   <div class="page-feedback">
-    <ViewingArea title="建议与反馈"></ViewingArea>
+    <ViewingArea title="建议与反馈">
+      <img
+        src="/img/illustrations/undraw_feedback_h2ft.svg"
+        alt="Feedback"
+        class="h-full"
+      />
+    </ViewingArea>
 
     <form @submit.prevent>
       <Textarea

@@ -1,6 +1,8 @@
 <template>
   <div class="page-select">
-    <ViewingArea :title="`选择${title}`"></ViewingArea>
+    <ViewingArea :title="`选择${title}`">
+      <slot name="viewing-area" />
+    </ViewingArea>
 
     <div class="list">
       <Pane

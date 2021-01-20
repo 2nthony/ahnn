@@ -1,6 +1,12 @@
 <template>
   <div class="page-wallet">
-    <ViewingArea title="钱包"></ViewingArea>
+    <ViewingArea title="钱包">
+      <img
+        src="/img/illustrations/undraw_wallet_aym5.svg"
+        alt="Wallet"
+        class="h-full"
+      />
+    </ViewingArea>
 
     <Group>
       <Card
