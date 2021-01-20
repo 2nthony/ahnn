@@ -2,6 +2,7 @@
   <Group :title="title">
     <div class="struct-group" :class="type">
       <img
+        v-if="!structData.length"
         src="/img/illustrations/undraw_void_3ggu.svg"
         alt="Struct"
         class="mt-gap px-gap w-1/2 mx-auto"
