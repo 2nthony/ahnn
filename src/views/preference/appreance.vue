@@ -1,6 +1,12 @@
 <template>
   <div class="appreance">
-    <ViewingArea title="外观"></ViewingArea>
+    <ViewingArea title="外观">
+      <img
+        src="/img/illustrations/undraw_dark_mode_2xam.svg"
+        alt="Appreance"
+        class="h-full"
+      />
+    </ViewingArea>
 
     <Group>
       <Cell

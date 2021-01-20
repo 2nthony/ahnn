@@ -1,6 +1,12 @@
 <template>
   <div class="page-changelog">
-    <ViewingArea title="历史更新"></ViewingArea>
+    <ViewingArea title="历史更新">
+      <img
+        src="/img/illustrations/undraw_Online_information_re_erks.svg"
+        alt="Changelog"
+        class="h-full"
+      />
+    </ViewingArea>
     <ChangelogApp class="changelog-content"></ChangelogApp>
     <Tabbar></Tabbar>
   </div>

@@ -1,6 +1,12 @@
 <template>
   <div class="page-setting">
-    <ViewingArea title="设置"></ViewingArea>
+    <ViewingArea title="设置">
+      <img
+        class="h-full"
+        src="/img/illustrations/undraw_settings_ii2j.svg"
+        alt="Setting"
+      />
+    </ViewingArea>
 
     <Group>
       <Cell

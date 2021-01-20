@@ -3,7 +3,15 @@
     title="钱包"
     :items="supportedWallets"
     @item-click="handleItemClick"
-  />
+  >
+    <template #viewing-area>
+      <img
+        src="/img/illustrations/undraw_choice_9385.svg"
+        alt="Select-Wallet"
+        class="h-full"
+      />
+    </template>
+  </PageSelect>
 </template>
 
 <script lang="ts">

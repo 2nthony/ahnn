@@ -18,6 +18,13 @@
       </Card>
     </ViewingArea>
 
+    <img
+      v-if="!records.length"
+      src="/img/illustrations/undraw_blank_canvas_3rbb.svg"
+      alt="No-Records"
+      class="mt-gap w-3/4 mx-auto"
+    />
+
     <Group
       v-for="record in records"
       :key="record.date"
