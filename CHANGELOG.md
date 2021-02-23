@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/evillt/ahnn/compare/v0.2.15...v0.3.0) (2021-02-23)
+
+
+### Bug Fixes
+
+* **struct-group:** render illustration strategy ([f84b805](https://github.com/evillt/ahnn/commit/f84b80547fc52a58700c8d59872a3ffff277b1f8))
+
+
+
 ## [0.2.15](https://github.com/evillt/ahnn/compare/v0.2.14...v0.2.15) (2021-01-20)
 
 
