@@ -36,19 +36,6 @@
           toFixed(addRecord.cost)
         }}</Heading>
       </div>
-
-      <Select
-        class="select-wallet w-full flex-1"
-        small
-        :placeholder="'选择钱包'"
-        :modelValue="addRecord.wallet"
-        @update:modelValue="handleSelectWallet"
-        :showArrow="false"
-      >
-        <option v-for="(wallet, index) in userWallets" :key="index">
-          {{ wallet.name }}
-        </option>
-      </Select>
     </div>
 
     <!-- categories -->
@@ -97,7 +84,6 @@ import { addRecordStrategy } from '@app/strategies/pageAddRecordStrategy'
 import { Record } from '@app/model/Record'
 import { getCNDayText, getToday } from '@app/utils/date'
 import Draw from '@app/components/Draw.vue'
-import { useUserWallets } from '@app/hooks/useUserWallets'
 import ButtonGroup from '@app/components/ButtonGroup.vue'
 import { toFixed } from '@app/utils'
 import Textarea from '@app/components/ui/Textarea.vue'
@@ -127,13 +113,8 @@ export default defineComponent({
   setup(_, { emit }) {
     const store = useStore()
     const remarkPopupVisible = ref(false)
-    const { userWallets } = useUserWallets()
 
     const { addRecord, handleSave: origHandleSave } = addRecordStrategy()
-
-    function handleSelectWallet(wallet: Record['wallet']) {
-      store.commit('setAddRecord', { wallet })
-    }
 
     const handleSwitchType = (type: Record['type']) => {
       store.commit('switchAddRecordType', type)
@@ -160,12 +141,10 @@ export default defineComponent({
     }
 
     return {
-      userWallets,
       Types,
       TypeCNTexts,
       addRecord,
       handleSwitchType,
-      handleSelectWallet,
       onDateSelect,
       onCalcResult,
       handleSave,
@@ -179,8 +158,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.input-date,
-.select-wallet {
+.input-date {
   min-width: var(--geist-space-32x);
 }
 

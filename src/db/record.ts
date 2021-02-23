@@ -2,7 +2,6 @@ import { Record, recordIndexing } from '@app/model/Record'
 import { IDBPDatabase, IDBPTransaction } from 'idb'
 import { ensureCreateIndex, ensureStore, open } from '.'
 import dayjs from 'dayjs'
-import { Wallet, WalletName } from '@app/model/Wallet'
 import { monthsInYear } from '@app/utils/date'
 import { updateRecordCategory } from './migrations/updateRecordCategory'
 
@@ -92,26 +91,6 @@ export async function readRecordsByYear(year: number) {
       })
     }),
   )
-}
-
-export async function readRecordByWallet(
-  walletName: WalletName,
-): Promise<Record[]> {
-  const db = await open()
-  return db.getAllFromIndex('record', 'wallet', walletName).finally(() => {
-    db.close()
-  })
-}
-
-export async function deleteAllRecordByWallet(walletName: Wallet['name']) {
-  const db = await open()
-  const records = await db.getAllFromIndex('record', 'wallet', walletName)
-
-  Promise.all(
-    records.map((record) => {
-      return db.delete('record', record.id)
-    }),
-  ).finally(() => db.close())
 }
 
 /**
