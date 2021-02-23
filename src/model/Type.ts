@@ -13,7 +13,3 @@ export const TypeCNTexts = {
 export type Type = Types.income | Types.payout | Types.adjustManual
 
 export const defaultType: Type = Types.payout
-
-export function shouldAdjustType(type: Type) {
-  return [Types.payout, Types.income].includes(type)
-}

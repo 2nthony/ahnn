@@ -2,7 +2,6 @@ import { RootState } from '@app/store'
 import { ActionContext, ActionTree, DispatchOptions } from 'vuex'
 import { State } from './state'
 import { Mutations } from './mutations'
-import { readWallets } from '@app/db/wallet'
 import { getInitRecord } from '@app/model/Record'
 
 export type AddRecordActionContext = ActionContext<State, RootState> & {
@@ -24,10 +23,7 @@ export interface Actions {
 
 export const actions: ActionTree<State, RootState> & Actions = {
   initAddRecord({ commit }) {
-    readWallets().then((wallets) => {
-      const firstWallet = wallets[0] || {}
-      const value = { ...getInitRecord(), wallet: firstWallet.name }
-      commit('setAddRecord', value)
-    })
+    const value = getInitRecord()
+    commit('setAddRecord', value)
   },
 }
