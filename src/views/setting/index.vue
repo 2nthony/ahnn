@@ -11,25 +11,25 @@
     <Group>
       <Cell
         title="关于 Ahnn"
-        :link="'/me/about-app'"
+        :link="'/setting/about-app'"
         :rightText="`版本 ${version}`"
       ></Cell>
-      <Cell title="建议与反馈" :link="'/me/feedback'"></Cell>
+      <Cell title="建议与反馈" :link="'/setting/feedback'"></Cell>
     </Group>
 
     <Group>
-      <Cell title="备份还原" :link="'/me/backup-restore'"></Cell>
+      <Cell title="备份还原" :link="'/setting/backup-restore'"></Cell>
     </Group>
 
     <Group>
-      <Cell title="外观" :link="'/preference/appreance'"></Cell>
+      <Cell title="外观" :link="'/setting/appreance'"></Cell>
     </Group>
 
     <!-- <Group>
-      <Cell title="还原" :link="'/me/erase'"></Cell>
+      <Cell title="还原" :link="'/setting/erase'"></Cell>
     </Group> -->
 
-    <Tabbar></Tabbar>
+    <HomeTabbar></HomeTabbar>
   </div>
 </template>
 
@@ -37,11 +37,11 @@
 /* global __APP_VERSION__ */
 import Group from '@app/components/Group.vue'
 import Cell from '@app/components/Cell.vue'
-import Tabbar from '@app/components/Tabbar.vue'
 import ViewingArea from '@app/components/ViewingArea.vue'
+import HomeTabbar from '@app/components/HomeTabbar.vue'
 
 export default {
-  components: { Tabbar, ViewingArea, Group, Cell },
+  components: { ViewingArea, Group, Cell, HomeTabbar },
 
   setup() {
     return {

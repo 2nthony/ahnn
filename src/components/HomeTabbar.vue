@@ -23,11 +23,11 @@
     </TabbarItem>
 
     <TabbarItem
-      :class="{ active: currentPath === '/me' }"
-      @click="switchTab('/me')"
+      :class="{ active: currentPath === '/setting' }"
+      @click="switchTab('/setting')"
     >
-      <RemixIcon :icon="'user-3'" />
-      <Text :size="300">我的</Text>
+      <RemixIcon :icon="'settings-5'" />
+      <Text :size="300">设置</Text>
     </TabbarItem>
   </div>
 </template>
