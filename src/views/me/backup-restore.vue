@@ -41,10 +41,8 @@ import ViewingArea from '@app/components/ViewingArea.vue'
 import Tabbar from '@app/components/Tabbar.vue'
 import Button from '@app/components/ui/Button.vue'
 import { clearRecord, readRecords, setRecord } from '@app/db/record'
-import { clearWallet, readWallets, setWallet } from '@app/db/wallet'
 import { nextTick, ref } from 'vue'
 import { Record } from '@app/model/Record'
-import { Wallet } from '@app/model/Wallet'
 import { createToast } from 'vercel-toast'
 import 'vercel-toast/dist/vercel-toast.css'
 import { useStore } from '@app/store'
@@ -61,9 +59,8 @@ export default {
 
     function handleBackup() {
       const json: any = {}
-      Promise.all([readRecords(), readWallets()]).then(([records, wallets]) => {
+      Promise.all([readRecords()]).then(([records]) => {
         json.records = records
-        json.wallets = wallets
         backupJSON.value = encodeURI(JSON.stringify(json))
 
         nextTick(() => {
@@ -81,16 +78,12 @@ export default {
       const data = await readFile(files[0])
 
       // All from the backup data
-      await Promise.all([clearRecord(), clearWallet()])
+      await Promise.all([clearRecord()])
 
       Promise.all([
         ...(data.records as Record[]).map((record) => {
           delete record.id
           return setRecord(record)
-        }),
-        ...(data.wallets as Wallet[]).map((wallet) => {
-          delete wallet.id
-          return setWallet(wallet)
         }),
       ]).then(() => {
         createToast('数据已经全部导入完毕', {
