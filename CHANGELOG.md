@@ -1,3 +1,15 @@
+## [0.3.1](https://github.com/evillt/ahnn/compare/v0.2.15...v0.3.1) (2021-02-27)
+
+
+### Bug Fixes
+
+* **add-record:** remove add-record id ([#78](https://github.com/evillt/ahnn/issues/78)) ([4619d59](https://github.com/evillt/ahnn/commit/4619d59b17dac54060bfc5a35586d4c914ac9e23))
+* gtag ([9ae87f0](https://github.com/evillt/ahnn/commit/9ae87f04a6a014b2b535500514a0c96ba67b4b50))
+* gtag id from env ([b6bc2b1](https://github.com/evillt/ahnn/commit/b6bc2b1c6a99fc8010e90802e608deb271932fe2))
+* **struct-group:** render illustration strategy ([f84b805](https://github.com/evillt/ahnn/commit/f84b80547fc52a58700c8d59872a3ffff277b1f8))
+
+
+
 # [0.3.0](https://github.com/evillt/ahnn/compare/v0.2.15...v0.3.0) (2021-02-23)
 
 

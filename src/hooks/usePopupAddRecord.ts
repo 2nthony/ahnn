@@ -11,7 +11,7 @@ export function usePopupAddRecord() {
   const visible = ref(false)
 
   watch(visible, (bool) => {
-    if (!bool) store.dispatch('initAddRecord')
+    if (!bool) store.commit('initAddRecord')
   })
 
   return {
