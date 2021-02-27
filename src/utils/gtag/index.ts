@@ -4,7 +4,7 @@ declare global {
   }
 }
 
-export const GtagID = 'G-2VZ9TX13ZG'
+export const GtagID = process.env.GTAG_ID
 
 export function pushGtag(...args: any[]) {
   if (!window.dataLayer) return
