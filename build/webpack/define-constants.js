@@ -8,6 +8,7 @@ exports.name = 'plugin:define-constants'
 exports.apply = (config) => {
   config.plugin('define-constants').use(webpack.DefinePlugin, [
     {
+      __GTAG_ID__: t(process.env.GTAG_ID),
       __APP_VERSION__: t(pkg.version),
       __DEPENDENCIES__: t(resolveAllDepsLicense()),
     },
