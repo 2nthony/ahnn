@@ -37,7 +37,6 @@ import 'vercel-toast/dist/vercel-toast.css'
 import Card from './Card.vue'
 import { toFixed } from '@app/utils'
 import { categoryNameIconMapping } from '@app/model/Category'
-import { cache } from '@app/utils/cache'
 
 export default defineComponent({
   components: { Text, Button, Card },
@@ -65,7 +64,6 @@ export default defineComponent({
 
     const handleEdit = () => {
       store.commit('setAddRecord', props.record as Record)
-      cache.setCache('origAddRecord', props.record)
       emit('edit')
     }
 
