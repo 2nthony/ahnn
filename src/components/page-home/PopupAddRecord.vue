@@ -132,7 +132,7 @@ export default defineComponent({
 
     function handleSave() {
       origHandleSave().then(() => {
-        store.dispatch('initAddRecord')
+        store.commit('initAddRecord')
         store.dispatch('readRecordsByQueryDate')
 
         emit('update:visible', false)
