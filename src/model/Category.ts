@@ -27,6 +27,8 @@ const allCategories: StandardCategories = {
   payout: [
     c('通用', 'star'),
     c('餐饮', 'cake-3'),
+    c('外卖', 'takeaway'),
+    c('买菜', 'shopping-basket'),
     c('娱乐', 'gamepad'),
     c('购物', 'shopping-bag-3'),
     c('服饰美容', 't-shirt'),

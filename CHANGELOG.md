@@ -1,3 +1,13 @@
+## [0.3.2](https://github.com/evillt/ahnn/compare/v0.3.1...v0.3.2) (2021-03-22)
+
+
+### Features
+
+* **category:** add takeout and vegetable market ([#83](https://github.com/evillt/ahnn/issues/83)) ([b8d485d](https://github.com/evillt/ahnn/commit/b8d485d6b134035a4d12bf06f7b552e21cb3eee5))
+* code for sell ([f902447](https://github.com/evillt/ahnn/commit/f90244770b735b4e4c845e3b075c125b6ac05073))
+
+
+
 ## [0.3.1](https://github.com/evillt/ahnn/compare/v0.2.15...v0.3.1) (2021-02-27)
 
 
