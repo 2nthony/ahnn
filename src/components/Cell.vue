@@ -9,7 +9,7 @@
           </div>
 
           <slot name="title">
-            <Text :size="500" class="title">{{ title }}</Text>
+            <Text class="title">{{ title }}</Text>
           </slot>
         </div>
 
