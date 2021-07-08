@@ -9,7 +9,7 @@
     </ViewingArea>
 
     <Group>
-      <Cell title="获取源码" :link="'/setting/get-code'"></Cell>
+      <!-- <Cell title="获取源码" :link="'/setting/get-code'"></Cell> -->
       <Cell
         title="关于 Ahnn"
         :link="'/setting/about-app'"
