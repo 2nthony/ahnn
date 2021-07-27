@@ -1,0 +1,125 @@
+<template>
+  <div class="page-feedback">
+    <ViewingArea title="建议与反馈">
+      <img
+        src="/img/illustrations/undraw_feedback_h2ft.svg"
+        alt="Feedback"
+        class="h-full"
+      />
+    </ViewingArea>
+
+    <form @submit.prevent>
+      <Textarea
+        class="w-full mb-gap"
+        v-model="input"
+        placeholder="输入建议与反馈，你可以在这里畅所欲言。当然也可以以文字来鼓励一下作者。"
+      ></Textarea>
+
+      <Input
+        v-model="email"
+        class="w-full mb-gap"
+        placeholder="(选填)输入你的邮箱我们可以给予回复"
+        type="email"
+      />
+
+      <section class="flex items-center justify-between">
+        <div class="flex">
+          <span
+            class="
+              emotion-icon
+              text-3xl
+              mr-5
+              opacity-60
+              cursor-pointer
+              hover:scale-125
+              transition-transform
+            "
+            :class="{ ['scale-125 opacity-100']: selectedIndex === index }"
+            v-for="(emotion, index) in emotions"
+            :key="emotion"
+            @click="selectedIndex = index"
+            >{{ emotion }}</span
+          >
+        </div>
+
+        <div class="text-right">
+          <Button
+            :disabled="loading || !input"
+            type="submit"
+            @click="handleSend"
+            >发送</Button
+          >
+        </div>
+      </section>
+    </form>
+  </div>
+
+  <Tabbar></Tabbar>
+</template>
+
+<script lang="ts">
+import Textarea from '@app/components/ui/Textarea.vue'
+import Tabbar from '@app/components/Tabbar.vue'
+import ViewingArea from '@app/components/ViewingArea.vue'
+import { ref } from 'vue'
+import Button from '@app/components/ui/Button.vue'
+import RemixIcon from '@app/components/RemixIcon.vue'
+import { useAxios } from '@app/hooks/useAxios'
+import { createToast } from 'vercel-toast'
+import 'vercel-toast/dist/vercel-toast.css'
+import Input from '@app/components/ui/Input.vue'
+
+export default {
+  components: { ViewingArea, Tabbar, Textarea, Button, Input },
+
+  setup() {
+    const { axios, loading } = useAxios()
+    const input = ref('')
+    const email = ref('')
+    const selectedIndex = ref()
+    const emotions = ['🤩', '😃', '😕', '😔']
+
+    function handleSend() {
+      axios
+        .post('/api/feedback', {
+          title: input.value,
+          email: email.value,
+          emotion: emotions[selectedIndex.value] || '',
+          navigator: {
+            appName: navigator.appName,
+            platform: navigator.platform,
+            userAgent: navigator.userAgent,
+            vendor: navigator.vendor,
+          },
+        })
+        .then(() => {
+          createToast('我们已经收到你的反馈，非常感谢！', {
+            type: 'success',
+            timeout: 3000,
+          })
+          input.value = ''
+        })
+        .finally(() => {
+          loading.value = false
+        })
+    }
+
+    return {
+      input,
+      email,
+      selectedIndex,
+      emotions,
+      loading,
+
+      handleSend,
+    }
+  },
+}
+</script>
+
+<style lang="less" scoped>
+.emotion-icon {
+  fill: var(--geist-warning-light);
+  transform: scale(var(--tw-scale-x), var(--tw-scale-y));
+}
+</style>

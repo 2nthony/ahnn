@@ -1,0 +1,94 @@
+{
+  "name": "Ahnn",
+  "version": "0.3.3",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "node build/prepare.js && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve --port $PORT",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md changelog-app.md",
+    "push": "git push && git push --tags"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dayjs": "^1.9.6",
+    "idb": "^5.0.8",
+    "register-service-worker": "^1.7.1",
+    "vercel-toast": "^1.5.3",
+    "vue": "^3.0.0",
+    "vue-auto-routes": "^2.2.0",
+    "vue-remix-icons": "^1.1.1",
+    "vue-router": "^4.0.1",
+    "vuex": "^4.0.0-rc.2"
+  },
+  "devDependencies": {
+    "@evillt/vuedown-loader": "^1.0.1",
+    "@octokit/core": "^3.2.4",
+    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vercel/node": "^1.8.5",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "autoprefixer": "^9",
+    "babel-eslint": "^10.1.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "fs-extra": "^9.0.1",
+    "husky": "^4.3.5",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
+    "lint-staged": "^10.5.3",
+    "postcss": "^7",
+    "postcss-preset-env": "^6.7.0",
+    "prerender-spa-plugin": "^3.4.0",
+    "prettier": "^2.2.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "typescript": "~3.9.3",
+    "vuedown": "^3.2.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-extra-semi": "off",
+      "vue/no-unused-components": "warn"
+    },
+    "ignorePatterns": [
+      "changelog-app.md"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,json,vue,js,less,css}": [
+      "prettier --write"
+    ]
+  }
+}

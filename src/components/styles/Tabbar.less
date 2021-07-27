@@ -1,0 +1,14 @@
+.tabbar {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
+  align-items: center;
+  border-top: 1px solid var(--accents-2);
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: var(--tabbar-background);
+  backdrop-filter: saturate(180%) blur(5px);
+  transition: background-color var(--transition-animation);
+}
